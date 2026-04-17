@@ -36,6 +36,7 @@ ArtDerÄnderung/Inhalt (siehe https://www.geeksforgeeks.org/git/how-to-naming-co
 Beispiele: 
 - feature/add-enemies
 - bugfix/stopped-player-falling-through-floor
+- documentatoin/add-rules-and-tips-to-README
 
 ### Commits: 
 ArtDerÄnderung:Inhalt (siehe https://gist.github.com/qoomon/5dfcdf8eec66a051ecd85625518cfd13)
