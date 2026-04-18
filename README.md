@@ -23,19 +23,19 @@ Die Vorgehensweise ist daher:
 - Neuen Branch aus Main erstellen
 - Änderungen vornehmen
 - Pull Request erstellen
-- Wirklich nochmal überlgen, ob die Änderungen auf main sollen
-- Pull Request durchführen
+- Checkliste im Pull Request durcharbeiten
+- Pull Request durchführen (mergen)
 
 ## Tips zur Benennung
 
-> Wäre cool wenn ihr euch dran haltet, lässt einfach einen schnelleren Überblick zu un
+> Wäre cool wenn ihr euch dran haltet, lässt einfach einen schnelleren Überblick zu
 
 ### Branches: 
 ArtDerÄnderung/Inhalt (siehe https://www.geeksforgeeks.org/git/how-to-naming-conventions-for-git-branches/)
 
 Beispiele: 
 - feature/add-enemies
-- bugfix/stopped-player-falling-through-floor
+- bugfix/stop-player-falling-through-floor
 - documentatoin/add-rules-and-tips-to-README
 
 ### Commits: 
