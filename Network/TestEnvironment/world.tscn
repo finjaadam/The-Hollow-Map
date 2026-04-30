@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://f7of5cgi0hou"]
 
 [ext_resource type="Script" uid="uid://okj6fphk5uo1" path="res://Network/Scripts/Networking.gd" id="1_f3sb7"]
-[ext_resource type="PackedScene" path="res://Network/TestEnvironment/player.tscn" id="2_fj7yv"]
+[ext_resource type="PackedScene" uid="uid://cu5gtk0ybh744" path="res://Network/TestEnvironment/player.tscn" id="2_fj7yv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_f3sb7"]
 size = Vector3(60, 2, 60)
@@ -33,4 +33,5 @@ transform = Transform3D(1, 0, 0, 0, 0.7738402, 0.6333809, 0, -0.6333809, 0.77384
 transform = Transform3D(0.99998116, -0.0038912059, 0.0047542374, 0.0009927615, 0.8660232, 0.50000274, -0.0060628937, -0.4999886, 0.8660108, -1.2363444e-07, 4.1361356, 2.8720016)
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=1617664168]
+_spawnable_scenes = PackedStringArray("uid://cu5gtk0ybh744")
 spawn_path = NodePath("..")
