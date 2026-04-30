@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dtwk35vqjqnju"]
+
+[ext_resource type="Script" uid="uid://bbyijjexsijah" path="res://Network/Scripts/Menu.gd" id="1_lti8b"]
+
+[node name="Node2D" type="Node2D" unique_id=655049696]
+script = ExtResource("1_lti8b")
+
+[node name="host_button" type="Button" parent="." unique_id=228664831]
+offset_right = 365.0
+offset_bottom = 199.0
+text = "HOST SERVA"
+
+[node name="join_button" type="Button" parent="." unique_id=1579593883]
+offset_left = 2.0
+offset_top = 231.0
+offset_right = 366.0
+offset_bottom = 414.0
+disabled = true
+text = "JOINY"
+
+[node name="id_prompt" type="LineEdit" parent="." unique_id=1859262465]
+offset_left = 2.0
+offset_top = 416.0
+offset_right = 367.0
+offset_bottom = 447.0
+placeholder_text = "LOBBY ID"
+alignment = 1
+
+[connection signal="pressed" from="host_button" to="." method="_on_host_button_pressed"]
+[connection signal="pressed" from="join_button" to="." method="_on_join_button_pressed"]
+[connection signal="text_changed" from="id_prompt" to="." method="_on_id_prompt_text_changed"]

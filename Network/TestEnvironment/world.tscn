@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://f7of5cgi0hou"]
+
+[ext_resource type="Script" uid="uid://okj6fphk5uo1" path="res://Network/Scripts/Networking.gd" id="1_f3sb7"]
+[ext_resource type="PackedScene" path="res://Network/TestEnvironment/player.tscn" id="2_fj7yv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f3sb7"]
+size = Vector3(60, 2, 60)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fj7yv"]
+size = Vector3(60, 2, 60)
+
+[node name="World" type="Node3D" unique_id=740440789]
+script = ExtResource("1_f3sb7")
+player_scene = ExtResource("2_fj7yv")
+
+[node name="Ground" type="StaticBody3D" parent="." unique_id=146694575]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=1998305632]
+shape = SubResource("BoxShape3D_f3sb7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground" unique_id=726430240]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.01335907, -1.9073486e-06, -0.04057312)
+mesh = SubResource("BoxMesh_fj7yv")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=317427175]
+transform = Transform3D(1, 0, 0, 0, 1.1924881e-08, 1, 0, -1, 1.1924881e-08, 0, 16, 0)
+
+[node name="CameraPivot" type="Marker3D" parent="." unique_id=218860749]
+transform = Transform3D(1, 0, 0, 0, 0.7738402, 0.6333809, 0, -0.6333809, 0.7738402, 0, 10, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=1051460368]
+transform = Transform3D(0.99998116, -0.0038912059, 0.0047542374, 0.0009927615, 0.8660232, 0.50000274, -0.0060628937, -0.4999886, 0.8660108, -1.2363444e-07, 4.1361356, 2.8720016)
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=1617664168]
+spawn_path = NodePath("..")
