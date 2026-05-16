@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cu5gtk0ybh744"]
 
 [ext_resource type="Script" uid="uid://boqjwglaui8xk" path="res://Network/Scripts/player.gd" id="1_4flbx"]
+[ext_resource type="PackedScene" uid="uid://hxag78bqilay" path="res://Network/TestEnvironment/AudioController.tscn" id="2_rev65"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_4flbx"]
 
@@ -24,3 +25,5 @@ shape = SubResource("CapsuleShape3D_sh265")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1752202761]
 replication_config = SubResource("SceneReplicationConfig_4flbx")
+
+[node name="AudioController" parent="." unique_id=846649630 instance=ExtResource("2_rev65")]
