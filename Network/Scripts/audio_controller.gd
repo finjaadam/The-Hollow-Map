@@ -5,7 +5,6 @@ var idx : int
 var effect : AudioEffectCapture
 var playback : AudioStreamGeneratorPlayback
 @onready var output : AudioStreamPlayer3D = $Output
-var buffer_size = 0
 
 # func _enter_tree() -> void:
 # 	set_multiplayer_authority() # make sure this is set or stuff will absolutely go wrong
@@ -25,14 +24,13 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if (not is_multiplayer_authority()): return
-	buffer_size = effect.get_frames_available()
-	if (effect.can_get_buffer(buffer_size) && playback.can_push_buffer(buffer_size)):
-		send_data.rpc(effect.get_buffer(buffer_size))
-	effect.clear_buffer()
+	if (effect.can_get_buffer(512) && playback.can_push_buffer(512)):
+		send_data.rpc(effect.get_buffer(512))
+		effect.clear_buffer()
 
 # if not "call_remote," then the player will hear their own voice
 # also don't try and do "unreliable_ordered." didn't work from my experience
 @rpc("any_peer", "call_remote", "reliable")
 func send_data(data : PackedVector2Array):
-	for i in range(0,buffer_size):
+	for i in range(0,512):
 		playback.push_frame(data[i])
