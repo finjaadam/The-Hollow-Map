@@ -5,7 +5,7 @@ var idx : int
 var effect : AudioEffectCapture
 var playback : AudioStreamGeneratorPlayback
 @onready var output : AudioStreamPlayer = $Output
-var buffer_size = 64
+var buffer_size = 512
 
 #func _enter_tree() -> void:
 #	set_multiplayer_authority() # make sure this is set or stuff will absolutely go wrong
@@ -14,6 +14,7 @@ func _ready() -> void:
 	# Match this to your mic's actual sample rate
 	(output.stream as AudioStreamGenerator).mix_rate = 44100.0
 	playback = output.get_stream_playback()
+	print(AudioServer.get_mix_rate())
 	
 	if is_multiplayer_authority():
 		input.stream = AudioStreamMicrophone.new()
@@ -29,7 +30,6 @@ func _process(delta: float) -> void:
 		var data = effect.get_buffer(buffer_size)
 		effect.clear_buffer()
 		send_data.rpc(data)
-	print(AudioServer.get_mix_rate())
 
 # if not "call_remote," then the player will hear their own voice
 # also don't try and do "unreliable_ordered." didn't work from my experience
