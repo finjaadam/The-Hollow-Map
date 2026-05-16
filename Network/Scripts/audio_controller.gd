@@ -23,14 +23,19 @@ func _ready() -> void:
 	playback = output.get_stream_playback()
 
 func _process(delta: float) -> void:
-	if (not is_multiplayer_authority()): return
-	if (effect.can_get_buffer(buffer_size) && playback.can_push_buffer(buffer_size)):
-		send_data.rpc(effect.get_buffer(buffer_size))
-	effect.clear_buffer()
+	if not is_multiplayer_authority(): return
+	# Capture regardless of playback state
+	if effect.can_get_buffer(buffer_size):
+		var data = effect.get_buffer(buffer_size)
+		effect.clear_buffer()
+		send_data.rpc(data)
 
 # if not "call_remote," then the player will hear their own voice
 # also don't try and do "unreliable_ordered." didn't work from my experience
-@rpc("any_peer", "call_remote", "reliable")
-func send_data(data : PackedVector2Array):
-	for i in range(0,buffer_size):
-		playback.push_frame(data[i])
+@rpc("any_peer", "unreliable")
+func send_data(data: PackedVector2Array):
+	for i in range(data.size()):
+		var sample = data[i]
+		# Force mono mix to both ears
+		var mono = (sample.x + sample.y) * 0.5
+		playback.push_frame(Vector2(mono, mono))
