@@ -23,6 +23,7 @@ func _ready() -> void:
 	playback = output.get_stream_playback()
 
 func _process(delta: float) -> void:
+	buffer_size = effect.get_frames_available() 
 	if not is_multiplayer_authority(): return
 	# Capture regardless of playback state
 	if effect.can_get_buffer(buffer_size):
