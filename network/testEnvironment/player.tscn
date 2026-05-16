@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://cu5gtk0ybh744"]
 
+<<<<<<<< HEAD:network/testEnvironment/player.tscn
 [ext_resource type="Script" uid="uid://boqjwglaui8xk" path="res://network/scripts/Player.gd" id="1_4flbx"]
+========
+[ext_resource type="Script" uid="uid://boqjwglaui8xk" path="res://Network/Scripts/player.gd" id="1_4flbx"]
+>>>>>>>> 2e1028e (feat: Add GodotSteam Voice Functionality?):network/testEnvironment/Player.tscn
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_4flbx"]
 
