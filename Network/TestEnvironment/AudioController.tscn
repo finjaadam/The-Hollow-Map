@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://bk7m33yr7ito3" path="res://Network/Scripts/audio_controller.gd" id="1_cby21"]
 
 [sub_resource type="AudioStreamGenerator" id="AudioStreamGenerator_cby21"]
-mix_rate = 48000.0
 
 [node name="AudioController" type="Node" unique_id=1541852218]
 script = ExtResource("1_cby21")

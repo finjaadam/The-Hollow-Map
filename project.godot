@@ -19,7 +19,6 @@ config/icon="res://icon.svg"
 
 buses/default_bus_layout="uid://ceoiogao0ger3"
 driver/enable_input=true
-driver/mix_rate=48000
 
 [input]
 
