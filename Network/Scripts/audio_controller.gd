@@ -18,7 +18,7 @@ func _ready() -> void:
 		idx = AudioServer.get_bus_index("Record")
 		effect = AudioServer.get_bus_effect(idx, 0)
 		# replace 0 with whatever index the capture effect is
-			
+		AudioServer.set_bus_mute(idx, true)
 	# playback variable will be needed for playback on other peers	
 	playback = output.get_stream_playback()
 
