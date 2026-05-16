@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="HollowMap"
+run/main_scene="uid://dfw8axtglfcws"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[audio]
+
+driver/mix_rate=48000
 
 [input]
 

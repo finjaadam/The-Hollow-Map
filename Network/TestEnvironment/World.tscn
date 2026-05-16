@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://f7of5cgi0hou"]
 
-[ext_resource type="Script" uid="uid://okj6fphk5uo1" path="res://Network/Scripts/Networking.gd" id="1_f3sb7"]
-[ext_resource type="PackedScene" uid="uid://cu5gtk0ybh744" path="res://Network/TestEnvironment/player.tscn" id="2_fj7yv"]
+[ext_resource type="Script" uid="uid://okj6fphk5uo1" path="res://Network/Scripts/networking.gd" id="1_f3sb7"]
+[ext_resource type="PackedScene" uid="uid://cu5gtk0ybh744" path="res://Network/TestEnvironment/Player.tscn" id="2_fj7yv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_f3sb7"]
 size = Vector3(60, 2, 60)

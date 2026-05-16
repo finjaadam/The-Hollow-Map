@@ -3,7 +3,7 @@ extends Node
 @onready var join_button = $join_button
 @onready var id_prompt = $id_prompt
 
-var next_scene: PackedScene = preload("res://Network/TestEnvironment/world.tscn")
+var next_scene: PackedScene = preload("res://Network/TestEnvironment/World.tscn")
 
 func host_and_go_to_next_scene():
 	var instance = next_scene.instantiate()
