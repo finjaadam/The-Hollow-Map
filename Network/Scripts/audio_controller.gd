@@ -10,9 +10,10 @@ var buffer_size = 512
 #func _enter_tree() -> void:
 #	set_multiplayer_authority() # make sure this is set or stuff will absolutely go wrong
 	
+const SAMPLE_RATE = 48000
+
 func _ready() -> void:
-	# Match this to your mic's actual sample rate
-	(output.stream as AudioStreamGenerator).mix_rate = 44100.0
+	(output.stream as AudioStreamGenerator).mix_rate = SAMPLE_RATE
 	playback = output.get_stream_playback()
 	print(AudioServer.get_mix_rate())
 	
