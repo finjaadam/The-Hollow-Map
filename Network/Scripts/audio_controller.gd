@@ -10,8 +10,11 @@ var playback: AudioStreamGeneratorPlayback
 const SAMPLE_RATE = 48000
 const BUFFER_SIZE = 512
 
-# Queue to hold received audio frames
 var receive_queue: Array[Vector2] = []
+
+func _enter_tree() -> void:
+	# Inherit authority from parent player node
+	set_multiplayer_authority(get_parent().name.to_int())
 
 func _ready() -> void:
 	(output.stream as AudioStreamGenerator).mix_rate = SAMPLE_RATE
@@ -32,7 +35,6 @@ func _process(delta: float) -> void:
 			effect.clear_buffer()
 			send_data.rpc(data)
 	else:
-		# Drain the queue into the playback buffer every frame
 		var frames_to_push = min(receive_queue.size(), playback.get_frames_available())
 		for i in range(frames_to_push):
 			playback.push_frame(receive_queue[i])
