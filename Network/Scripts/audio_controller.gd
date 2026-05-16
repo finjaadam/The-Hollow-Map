@@ -9,11 +9,11 @@ var playback: AudioStreamGeneratorPlayback
 
 const SAMPLE_RATE = 48000
 const BUFFER_SIZE = 512
+const MAX_QUEUE_SIZE = SAMPLE_RATE
 
 var receive_queue: Array[Vector2] = []
 
 func _enter_tree() -> void:
-	# Inherit authority from parent player node
 	set_multiplayer_authority(get_parent().name.to_int())
 
 func _ready() -> void:
@@ -35,13 +35,16 @@ func _process(delta: float) -> void:
 			effect.clear_buffer()
 			send_data.rpc(data)
 	else:
-		var frames_to_push = min(receive_queue.size(), playback.get_frames_available())
+		var frames_needed = int(SAMPLE_RATE * delta)
+		var frames_to_push = min(min(receive_queue.size(), frames_needed), playback.get_frames_available())
 		for i in range(frames_to_push):
 			playback.push_frame(receive_queue[i])
 		receive_queue = receive_queue.slice(frames_to_push)
 
-@rpc("any_peer", "call_remote", "unreliable")
+@rpc("any_peer", "unreliable")
 func send_data(data: PackedVector2Array):
 	for i in range(data.size()):
 		var mono = (data[i].x + data[i].y) * 0.5
 		receive_queue.append(Vector2(mono, mono))
+	if receive_queue.size() > MAX_QUEUE_SIZE:
+		receive_queue = receive_queue.slice(receive_queue.size() - MAX_QUEUE_SIZE)
