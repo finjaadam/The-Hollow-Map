@@ -10,6 +10,7 @@ script = ExtResource("1_cby21")
 [node name="Input" type="AudioStreamPlayer" parent="." unique_id=1402854673]
 bus = &"Record"
 
-[node name="Output" type="AudioStreamPlayer3D" parent="." unique_id=1866814693]
+[node name="Output" type="AudioStreamPlayer" parent="." unique_id=1242419108]
 stream = SubResource("AudioStreamGenerator_cby21")
 autoplay = true
+playback_type = 1
