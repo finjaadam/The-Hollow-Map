@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dnbwvj625m4vu"]
+
+[ext_resource type="Script" uid="uid://bk7m33yr7ito3" path="res://Network/Scripts/audio_controller.gd" id="1_cby21"]
+
+[sub_resource type="AudioStreamGenerator" id="AudioStreamGenerator_cby21"]
+
+[node name="AudioController" type="Node" unique_id=1541852218]
+script = ExtResource("1_cby21")
+
+[node name="Input" type="AudioStreamPlayer" parent="." unique_id=1402854673]
+bus = &"Record"
+
+[node name="Output" type="AudioStreamPlayer3D" parent="." unique_id=1866814693]
+stream = SubResource("AudioStreamGenerator_cby21")
+autoplay = true
