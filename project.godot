@@ -14,6 +14,10 @@ config/name="HollowMap"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/snappy/plugin.cfg")
+
 [input]
 
 move_left={
