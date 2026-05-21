@@ -3,19 +3,20 @@ extends Node
 @onready var join_button = $join_button
 @onready var id_prompt = $id_prompt
 
-var next_scene: PackedScene = preload("res://Network/TestEnvironment/world.tscn")
+const next_scene_path = "res://Network/TestEnvironment/world.tscn"
+var next_scene: PackedScene = preload(next_scene_path)
 
 func host_and_go_to_next_scene():
 	var instance = next_scene.instantiate()
 	instance.init_network()
 	instance.host_lobby()
-	get_tree().change_scene_to_node(instance)
+	SceneLoader.goto_preloaded_scene(instance, next_scene_path)
 	
 func join_and_go_to_next_scene(lobby_id: int):
 	var instance = next_scene.instantiate()
 	instance.init_network()
 	instance.join_lobby(lobby_id)
-	get_tree().change_scene_to_node(instance)
+	SceneLoader.goto_preloaded_scene(instance, next_scene_path)
 
 func _on_host_button_pressed():
 	host_and_go_to_next_scene()

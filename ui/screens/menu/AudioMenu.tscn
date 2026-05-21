@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://cakofeaiidg2t"]
+
+[ext_resource type="Theme" path="res://ui/theme.tres" id="1"]
+[ext_resource type="Script" uid="uid://wck7ja84fak5" path="res://ui/screens/menu/AudioMenu.gd" id="2"]
+
+[node name="AudioMenu" type="Control" unique_id=1202660654]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1")
+script = ExtResource("2")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=925139239]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1481099686]
+layout_mode = 2
+alignment = 1
+
+[node name="Title" type="Label" parent="CenterContainer/VBoxContainer" unique_id=448722794]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "Audio Settings"
+horizontal_alignment = 1
+
+[node name="AudioContent" type="VBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=479276653]
+layout_mode = 2
+
+[node name="PlaceholderLabel" type="Label" parent="CenterContainer/VBoxContainer/AudioContent" unique_id=1596681449]
+layout_mode = 2
+text = "Audio settings will go here..."
+horizontal_alignment = 1
+
+[node name="Spacer2" type="Control" parent="CenterContainer/VBoxContainer" unique_id=1520080618]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=148322905]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+text = "Back"

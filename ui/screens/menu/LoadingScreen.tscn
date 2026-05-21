@@ -1,0 +1,59 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" uid="uid://bq2wq2uy8essn" path="res://ui/screens/menu/LoadingScreen.gd" id="1"]
+
+
+[node name="LoadingScreen" type="CanvasLayer"]
+script = ExtResource("1")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.1, 0.1, 0.1, 0.9)
+
+[node name="CenterContainer" type="CenterContainer" parent="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBox" type="VBoxContainer" parent="ColorRect/CenterContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="LoadingLabel" type="Label" parent="ColorRect/CenterContainer/VBox"]
+layout_mode = 2
+text = "Loading..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Spacer1" type="Control" parent="ColorRect/CenterContainer/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 20)
+
+[node name="ProgressBar" type="ProgressBar" parent="ColorRect/CenterContainer/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(400, 20)
+max_value = 1.0
+value = 0.0
+show_percentage = false
+
+[node name="Spacer2" type="Control" parent="ColorRect/CenterContainer/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 10)
+
+[node name="ProgressLabel" type="Label" parent="ColorRect/CenterContainer/VBox"]
+layout_mode = 2
+text = "0%"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Spacer3" type="Control" parent="ColorRect/CenterContainer/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 40)
+
+[node name="GameTitle" type="Label" parent="ColorRect/CenterContainer/VBox"]
+layout_mode = 2
+text = "Game Loading"
+horizontal_alignment = 1
+vertical_alignment = 1

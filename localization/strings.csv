@@ -1,0 +1,33 @@
+﻿keys;en;de
+MAIN_MENU_TITLE;Main Menu;Hauptmenü
+NEW_GAME;New Game;Neues Spiel
+CONTINUE;Continue;Fortsetzen
+LEVEL_SELECT;Level Select;Level Auswählen
+PLAY;Play;Spielen
+TUTORIAL;Tutorial;Anleitung
+SETTINGS;Settings;Einstellungen
+CREDITS;Credits;Mitwirkende
+EXIT;Exit;Beenden
+LOADING;Loading...;Lädt...
+AUDIO_SETTINGS;Audio Settings;Audio-Einstellungen
+VIDEO_SETTINGS;Video Settings;Video-Einstellungen
+CONTROLS_SETTINGS;Controls;Steuerung
+MASTER_VOLUME;Master Volume;Master Lautstärke
+MUSIC_VOLUME;Music Volume;Musik Lautstärke
+SFX_VOLUME;Effects Volume;Effekte Lautstärke
+LANGUAGE;Language;Sprache
+UI_VOLUME;UI Volume;UI Lautstärke
+FULLSCREEN;Fullscreen;Vollbild
+VSYNC;VSync;VSync
+RESOLUTION;Resolution;Auflösung
+BACK;Back;Zurück
+APPLY;Apply;Anwenden
+SHOW_LOADING_SCREEN;Show Loading Screen;Ladebildschirm anzeigen
+RESET;Reset;Zurücksetzen
+PAUSE;Game Paused;Spiel Pausiert
+RESUME;Resume;Fortsetzen
+RESTART_LEVEL;Restart Level;Level Neustarten
+MAIN_MENU;Main Menu;Hauptmenü
+GAME_TITLE;Hollow Map;Hollow Map
+PAUSE_INSTRUCTION;Press ESC to Pause;Drücke ESC zum Pausieren
+CONTEXT;This game was created in the as part of the Game-Design and Game-Development module of the HTW Dresden.;Dieses Spiel ist im Rahmen des Moduls Game-Design and Game-Development an der HTW Dresden entstanden.

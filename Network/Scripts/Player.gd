@@ -41,3 +41,12 @@ func _physics_process(delta):
 	# Moving the Character
 	velocity = target_velocity
 	move_and_slide()
+
+func _unhandled_input(event):
+	# CR5: Pause menu implementation in game scene
+	if event.is_action_pressed("pause"):
+		var paused: bool = not get_tree().paused
+		get_tree().paused = paused
+		if paused and ResourceLoader.exists("res://ui/screens/menu/PauseMenu.tscn"):
+			var pause_menu: Node = load("res://ui/screens/menu/PauseMenu.tscn").instantiate()
+			get_tree().root.add_child(pause_menu)
