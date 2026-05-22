@@ -28,7 +28,7 @@ alignment = 1
 [node name="Title" type="Label" parent="CenterContainer/VBoxContainer" unique_id=448722794]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
-text = "Audio Settings"
+text = "Audio-Einstellungen"
 horizontal_alignment = 1
 
 [node name="AudioContent" type="VBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=479276653]
@@ -36,7 +36,7 @@ layout_mode = 2
 
 [node name="PlaceholderLabel" type="Label" parent="CenterContainer/VBoxContainer/AudioContent" unique_id=1596681449]
 layout_mode = 2
-text = "Audio settings will go here..."
+text = "Audio-Einstellungen werden hier eingebaut..."
 horizontal_alignment = 1
 
 [node name="Spacer2" type="Control" parent="CenterContainer/VBoxContainer" unique_id=1520080618]
@@ -46,4 +46,6 @@ layout_mode = 2
 [node name="BackButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=148322905]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
-text = "Back"
+text = "Zurück"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

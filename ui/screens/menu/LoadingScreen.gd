@@ -5,11 +5,11 @@ extends CanvasLayer
 @onready var progress_label = $ColorRect/CenterContainer/VBox/ProgressLabel
 
 var loading_texts = [
-	"Loading...",
-	"Preparing assets...",
-	"Loading game data...",
-	"Almost ready...",
-    "Finalizing..."
+	"Lädt...",
+	"Höhle vorbereiten...",
+	"Monster aufwecken...",
+	"Spieler verängstigen...",
+    "Schlüssel verteilen..."
 ]
 
 func _ready():

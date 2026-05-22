@@ -10,7 +10,6 @@ var settings_data = {
 	"fullscreen": true,
 	"vsync": true,
 	"resolution": {"x": 1920, "y": 1080},  # Store as dict for JSON compatibility
-	"language": "en",
 	"show_loading_screen": true,
 	"controls": {}
 }

@@ -1,86 +1,77 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://cffi320un1hra"]
 
 [ext_resource type="Theme" path="res://ui/theme.tres" id="1"]
 [ext_resource type="Script" uid="uid://cxf1sf4tyhsgf" path="res://ui/screens/menu/OptionsMenu.gd" id="2"]
 
-
-[node name="OptionsMenu" type="Control"]
-script = ExtResource("2")
+[node name="OptionsMenu" type="Control" unique_id=1065247583]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("1")
+script = ExtResource("2")
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1978236]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1118472027]
 layout_mode = 2
 alignment = 1
 
-[node name="Title" type="Label" parent="CenterContainer/VBoxContainer"]
-layout_mode = 2
-text = "Settings"
-horizontal_alignment = 1
-add_theme_font_size_override("font_size", 36)
-
-[node name="Spacer1" type="Control" parent="CenterContainer/VBoxContainer"]
-layout_mode = 2
+[node name="Title" type="Label" parent="CenterContainer/VBoxContainer" unique_id=453648575]
 custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "Einstellungen"
+horizontal_alignment = 1
 
-[node name="OptionsButtons" type="VBoxContainer" parent="CenterContainer/VBoxContainer"]
+[node name="OptionsButtons" type="VBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=83602109]
 layout_mode = 2
 alignment = 1
 
-[node name="AudioButton" type="Button" parent="CenterContainer/VBoxContainer/OptionsButtons"]
-layout_mode = 2
+[node name="AudioButton" type="Button" parent="CenterContainer/VBoxContainer/OptionsButtons" unique_id=11540478]
 custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
 text = "Audio"
 
-[node name="Spacer2" type="Control" parent="CenterContainer/VBoxContainer/OptionsButtons"]
-layout_mode = 2
+[node name="Spacer2" type="Control" parent="CenterContainer/VBoxContainer/OptionsButtons" unique_id=1052124826]
 custom_minimum_size = Vector2(0, 10)
-
-[node name="VideoButton" type="Button" parent="CenterContainer/VBoxContainer/OptionsButtons"]
 layout_mode = 2
+
+[node name="VideoButton" type="Button" parent="CenterContainer/VBoxContainer/OptionsButtons" unique_id=741281575]
 custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
 text = "Video"
 
-[node name="Spacer3" type="Control" parent="CenterContainer/VBoxContainer/OptionsButtons"]
-layout_mode = 2
+[node name="Spacer3" type="Control" parent="CenterContainer/VBoxContainer/OptionsButtons" unique_id=1112120632]
 custom_minimum_size = Vector2(0, 10)
-
-[node name="ControlsButton" type="Button" parent="CenterContainer/VBoxContainer/OptionsButtons"]
 layout_mode = 2
+
+[node name="ControlsButton" type="Button" parent="CenterContainer/VBoxContainer/OptionsButtons" unique_id=52222855]
 custom_minimum_size = Vector2(200, 50)
-text = "Controls"
-
-[node name="Spacer4" type="Control" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
+text = "Eingabe"
+
+[node name="Spacer4" type="Control" parent="CenterContainer/VBoxContainer" unique_id=119345010]
 custom_minimum_size = Vector2(0, 30)
-
-[node name="LanguageRow" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-alignment = 1
 
-[node name="LanguageLabel" type="Label" parent="CenterContainer/VBoxContainer/LanguageRow"]
-layout_mode = 2
-text = "Language:"
-custom_minimum_size = Vector2(100, 0)
-
-[node name="LanguageOption" type="OptionButton" parent="CenterContainer/VBoxContainer/LanguageRow"]
-layout_mode = 2
-custom_minimum_size = Vector2(150, 0)
-
-[node name="Spacer5" type="Control" parent="CenterContainer/VBoxContainer"]
-layout_mode = 2
+[node name="Spacer5" type="Control" parent="CenterContainer/VBoxContainer" unique_id=1246414430]
 custom_minimum_size = Vector2(0, 40)
-
-[node name="BackButton" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
+
+[node name="BackButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1946108174]
 custom_minimum_size = Vector2(200, 50)
-text = "Back"
+layout_mode = 2
+text = "Zurück"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/OptionsButtons/AudioButton" to="." method="_on_audio_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/OptionsButtons/VideoButton" to="." method="_on_video_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/OptionsButtons/ControlsButton" to="." method="_on_controls_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

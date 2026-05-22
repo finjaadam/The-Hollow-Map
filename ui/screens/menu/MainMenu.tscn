@@ -28,7 +28,7 @@ alignment = 1
 [node name="GameTitle" type="Label" parent="CenterContainer/VBoxContainer" unique_id=125270682]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
-text = "Main Menu"
+text = "Hollow Map"
 horizontal_alignment = 1
 
 [node name="MenuButtons" type="VBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=2006623568]
@@ -38,25 +38,16 @@ alignment = 1
 [node name="PlayButton" type="Button" parent="CenterContainer/VBoxContainer/MenuButtons" unique_id=248315046]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
-text = "Play"
+text = "Spielen"
 
 [node name="Spacer1" type="Control" parent="CenterContainer/VBoxContainer/MenuButtons" unique_id=1297919673]
-custom_minimum_size = Vector2(0, 10)
-layout_mode = 2
-
-[node name="TutorialButton" type="Button" parent="CenterContainer/VBoxContainer/MenuButtons" unique_id=694871242]
-custom_minimum_size = Vector2(200, 50)
-layout_mode = 2
-text = "Tutorial"
-
-[node name="Spacer2" type="Control" parent="CenterContainer/VBoxContainer/MenuButtons" unique_id=1984740555]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
 [node name="SettingsButton" type="Button" parent="CenterContainer/VBoxContainer/MenuButtons" unique_id=300338106]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
-text = "Settings"
+text = "Einstellungen"
 
 [node name="Spacer3" type="Control" parent="CenterContainer/VBoxContainer/MenuButtons" unique_id=919936412]
 custom_minimum_size = Vector2(0, 10)
@@ -65,7 +56,7 @@ layout_mode = 2
 [node name="CreditsButton" type="Button" parent="CenterContainer/VBoxContainer/MenuButtons" unique_id=1325384548]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
-text = "Credits"
+text = "Mitwirkende"
 
 [node name="Spacer4" type="Control" parent="CenterContainer/VBoxContainer/MenuButtons" unique_id=1633418440]
 custom_minimum_size = Vector2(0, 10)
@@ -74,4 +65,9 @@ layout_mode = 2
 [node name="ExitButton" type="Button" parent="CenterContainer/VBoxContainer/MenuButtons" unique_id=25419463]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
-text = "Exit"
+text = "Verlassen"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/MenuButtons/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/MenuButtons/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/MenuButtons/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/MenuButtons/ExitButton" to="." method="_on_exit_button_pressed"]

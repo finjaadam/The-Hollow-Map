@@ -53,10 +53,6 @@ jump={
 ]
 }
 
-[internationalization]
-
-locale/translations=PackedStringArray("res://localization/strings.de.translation", "res://localization/strings.en.translation")
-
 [physics]
 
 3d/physics_engine="Jolt Physics"
