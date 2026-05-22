@@ -8,8 +8,9 @@ func _enter_tree() -> void:
 
 func _ready() -> void:
 	# Everyone sets up a playback stream (to hear others)
-	var voice_stream_player := AudioStreamPlayer.new()
+	var voice_stream_player := AudioStreamPlayer3D.new()
 	add_child(voice_stream_player)
+	
 	voice_stream_player.stream = AudioStreamGenerator.new()
 	voice_stream_player.stream.mix_rate = SAMPLE_RATE
 	voice_stream_player.play()

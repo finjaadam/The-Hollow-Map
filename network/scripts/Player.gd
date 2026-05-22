@@ -10,6 +10,12 @@ var target_velocity = Vector3.ZERO
 func _enter_tree():
 	set_multiplayer_authority(name.to_int())
 
+func _ready() -> void:
+	if is_multiplayer_authority():
+		var listener = AudioListener3D.new()
+		$Camera3D.add_child(listener)
+		listener.make_current()
+
 func _physics_process(delta):
 	if !is_multiplayer_authority():
 		return
