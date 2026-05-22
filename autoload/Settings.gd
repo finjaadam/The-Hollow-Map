@@ -115,9 +115,6 @@ func _ensure_default_input_actions():
 		"ui_up": [KEY_UP],
 		"ui_down": [KEY_DOWN],
 		"pause": [KEY_ESCAPE, KEY_P],
-		"fire": [KEY_Z],
-		"bomb": [KEY_X],
-		"dash": [KEY_C],
 	}
 
 	for action in defaults.keys():
@@ -138,8 +135,6 @@ func _ensure_default_input_actions():
 	var joy_defaults = {
 		"ui_accept": [JOY_BUTTON_A],
 		"ui_cancel": [JOY_BUTTON_B],
-		"fire": [JOY_BUTTON_X],
-		"bomb": [JOY_BUTTON_Y],
 		"pause": [JOY_BUTTON_START],
 	}
 
@@ -165,8 +160,7 @@ func reset_to_defaults():
 		"ui_volume": 0.6,
 		"fullscreen": true,
 		"vsync": true,
-		"resolution": {"x": 1920, "y": 1080},
-		"language": "en",
+		"resolution": {"x": 1920, "y": 1080},  # Store as dict for JSON compatibility
 		"show_loading_screen": true,
 		"controls": {}
 	}
