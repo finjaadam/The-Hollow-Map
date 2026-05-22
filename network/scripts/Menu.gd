@@ -4,7 +4,7 @@ extends Node
 @onready var id_prompt = $CenterContainer/VBoxContainer/id_prompt
 @onready var back_button = $CenterContainer/VBoxContainer/BackButton
 
-const next_scene_path = "res://Network/TestEnvironment/world.tscn"
+const next_scene_path = "res://network/TestEnvironment/world.tscn"
 var next_scene: PackedScene = preload(next_scene_path)
 
 func _ready():
