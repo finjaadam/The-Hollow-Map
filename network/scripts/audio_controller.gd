@@ -53,7 +53,8 @@ func send_voice(voice_data: PackedByteArray) -> void:
 	# Check how much new Data can be pushed to Playback to prevent overflow
 	var available: int = voice_playback.get_frames_available()
 
+	# Push all data you have without overflowing
 	if available >= frames.size():
-		voice_playback.push_buffer(frames) # Push all data you have
+		voice_playback.push_buffer(frames)
 	elif available > 0:
-		voice_playback.push_buffer(frames.slice(0, available)) #
+		voice_playback.push_buffer(frames.slice(0, available))
