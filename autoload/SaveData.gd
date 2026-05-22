@@ -12,7 +12,6 @@ var game_data = {
 	"games_lost_as_player": 0,
 	"games_lost_as_monster": 0,
 	"achievements": [],
-	"play_time": 0.0,
 	"last_played": ""
 }
 
