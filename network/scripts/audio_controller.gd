@@ -13,6 +13,7 @@ func _ready() -> void:
 	voice_stream_player.stream = AudioStreamGenerator.new()
 	voice_stream_player.stream.mix_rate = SAMPLE_RATE
 	voice_stream_player.play()
+	
 	voice_playback = voice_stream_player.get_stream_playback()
 
 	# Only the authority records
@@ -23,6 +24,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if not is_multiplayer_authority():
 		return
+	
 	var voice_data: Dictionary = Steam.getVoice()
 	if voice_data['result'] == Steam.VoiceResult.VOICE_RESULT_OK and voice_data['written']:
 		send_voice.rpc(voice_data['buffer'])
@@ -31,17 +33,27 @@ func _process(delta: float) -> void:
 func send_voice(voice_data: PackedByteArray) -> void:
 	if voice_playback == null:
 		return
+	
 	var decompressed: Dictionary = Steam.decompressVoice(voice_data, SAMPLE_RATE)
 	if decompressed['result'] != Steam.VoiceResult.VOICE_RESULT_OK or decompressed['size'] == 0:
 		return
+	
 	var frames := PackedVector2Array()
+	# Decompressed Voice from Steam is 16-bit PCM --> 2 Bytes per Sample
+	# Godot needs Vector2 Array in order to work with Audio --> 1 Vector = 1 Audio Sample
+	# x-Value of Vector2 is left ear, y-Value of Vector2 is right ear
+	# 1000 Bytes Audio = 500 Samples = 500 Vectors that are need --> divide by 2
 	frames.resize(decompressed['size'] / 2)
-	for i in range(0, decompressed['size'], 2):
-		var sample: int = decompressed['uncompressed'].decode_s16(i)
-		var amplitude: float = float(sample) / 32768.0
-		frames[i / 2] = Vector2(amplitude, amplitude)
+	
+	for i in range(0, decompressed['size'], 2):							# 2 Bytes at a time
+		var sample: int = decompressed['uncompressed'].decode_s16(i)	# Decode 2 bytes to signed 16-bit int
+		var amplitude: float = float(sample) / 32768.0					# 16 bit = 32768 Values, normalize to -1 and +1
+		frames[i / 2] = Vector2(amplitude, amplitude)					# Copy Value to left + right ear
+	
+	# Check how much new Data can be pushed to Playback to prevent overflow
 	var available: int = voice_playback.get_frames_available()
+
 	if available >= frames.size():
-		voice_playback.push_buffer(frames)
+		voice_playback.push_buffer(frames) # Push all data you have
 	elif available > 0:
-		voice_playback.push_buffer(frames.slice(0, available))
+		voice_playback.push_buffer(frames.slice(0, available)) #
