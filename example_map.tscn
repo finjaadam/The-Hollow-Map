@@ -13,5 +13,5 @@ transform = Transform3D(0.7195459, 0, -0.69444495, 0, 1, 0, 0.69444495, 0, 0.719
 shadow_enabled = true
 shadow_normal_bias = 0.0
 
-[node name="modular-cave-final" parent="." unique_id=309125568 instance=ExtResource("1_wb7j6")]
+[node name="modular-cave-final" parent="." unique_id=1501415670 instance=ExtResource("1_wb7j6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 185.31273, 213.49216, 92.15534)
