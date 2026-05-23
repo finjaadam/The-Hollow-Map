@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://cvg6kipuohetp"]
+
+[ext_resource type="Theme" path="res://ui/theme.tres" id="1"]
+[ext_resource type="Script" uid="uid://cgmtygb4hnhk2" path="res://ui/screens/menu/CreditsMenu.gd" id="2"]
+
+[node name="CreditsMenu" type="Control" unique_id=1523907223]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1")
+script = ExtResource("2")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=932555129]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=433904710]
+layout_mode = 2
+alignment = 1
+
+[node name="Title" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1644716092]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "Mitwirkende"
+horizontal_alignment = 1
+
+[node name="Names" type="RichTextLabel" parent="CenterContainer/VBoxContainer" unique_id=550482333]
+custom_minimum_size = Vector2(400, 250)
+layout_mode = 2
+bbcode_enabled = true
+text = "Aaron Pech
+Emma Kirchner
+Finja Adam
+Hong Lâm Nguyen
+Janek Engel
+Julia-Robin Schuster
+Oliver Mey
+Sandra Beckert"
+horizontal_alignment = 1
+
+[node name="Context" type="RichTextLabel" parent="CenterContainer/VBoxContainer" unique_id=2021609166]
+custom_minimum_size = Vector2(600, 100)
+layout_mode = 2
+bbcode_enabled = true
+text = "Dieses Spiel ist im Rahmen des Moduls 
+[b]Game-Design und Game-Development[/b]
+an der HTW Dresden entstanden."
+horizontal_alignment = 1
+
+[node name="Spacer2" type="Control" parent="CenterContainer/VBoxContainer" unique_id=1137303059]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=646573004]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+text = "Back"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
