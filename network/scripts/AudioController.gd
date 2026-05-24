@@ -1,5 +1,8 @@
 extends Node3D
 
+@export var voice_max_distance: int = 5
+@export var voice_unit_size: int = 2
+
 const SAMPLE_RATE: int = 48000
 var voice_playback: AudioStreamGeneratorPlayback = null
 
@@ -11,8 +14,8 @@ func _ready() -> void:
 	var voice_stream_player := AudioStreamPlayer3D.new()
 	add_child(voice_stream_player)
 
-	voice_stream_player.max_distance = 5
-	voice_stream_player.unit_size = 2
+	voice_stream_player.max_distance = voice_max_distance
+	voice_stream_player.unit_size = voice_unit_size
 	
 	voice_stream_player.stream = AudioStreamGenerator.new()
 	voice_stream_player.stream.mix_rate = SAMPLE_RATE

@@ -1,12 +1,11 @@
 extends CharacterBody3D
 
-const SPEED = 5.0
-const MOUSE_SENSITIVITY = 0.003
-
+@export var mouse_sensitivity = 0.003
 # How fast the player moves in meters per second.
 @export var speed = 14
 # The downward acceleration when in the air, in meters per second squared.
 @export var fall_acceleration = 75
+
 
 var target_velocity = Vector3.ZERO
 
@@ -26,8 +25,8 @@ func _input(event):
 		return
 	
 	if event is InputEventMouseMotion:
-		rotate_y(-event.relative.x * MOUSE_SENSITIVITY)
-		$Camera3D.rotate_x(-event.relative.y * MOUSE_SENSITIVITY)
+		rotate_y(-event.relative.x * mouse_sensitivity)
+		$Camera3D.rotate_x(-event.relative.y * mouse_sensitivity)
 		$Camera3D.rotation.x = clamp($Camera3D.rotation.x, deg_to_rad(-89), deg_to_rad(89))
 
 func _physics_process(delta):
