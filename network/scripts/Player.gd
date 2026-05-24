@@ -15,7 +15,7 @@ func _enter_tree():
 
 func _ready() -> void:
 	if is_multiplayer_authority():
-		return
+		$Camera3D.current = true
 	else:
 		$Camera3D.current = false
 
