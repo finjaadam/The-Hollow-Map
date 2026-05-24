@@ -1,5 +1,8 @@
 extends CharacterBody3D
 
+const SPEED = 5.0
+const MOUSE_SENSITIVITY = 0.003
+
 # How fast the player moves in meters per second.
 @export var speed = 14
 # The downward acceleration when in the air, in meters per second squared.
@@ -13,8 +16,21 @@ func _enter_tree():
 func _ready() -> void:
 	if is_multiplayer_authority():
 		var listener = AudioListener3D.new()
+		$Camera3D.current = true
 		$Camera3D.add_child(listener)
 		listener.make_current()
+	else:
+		$Camera3D.current = false
+
+func _input(event):
+	# Only process input for the local player
+	if not is_multiplayer_authority():
+		return
+	
+	if event is InputEventMouseMotion:
+		rotate_y(-event.relative.x * MOUSE_SENSITIVITY)
+		$Camera3D.rotate_x(-event.relative.y * MOUSE_SENSITIVITY)
+		$Camera3D.rotation.x = clamp($Camera3D.rotation.x, deg_to_rad(-89), deg_to_rad(89))
 
 func _physics_process(delta):
 	if !is_multiplayer_authority():
