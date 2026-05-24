@@ -14,6 +14,7 @@ func _enter_tree():
 	set_multiplayer_authority(name.to_int())
 
 func _ready() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	if is_multiplayer_authority():
 		$Camera3D.current = true
 	else:
@@ -65,6 +66,7 @@ func _unhandled_input(event):
 	if event.is_action_pressed("pause"):
 		var paused: bool = not get_tree().paused
 		get_tree().paused = paused
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		if paused and ResourceLoader.exists("res://ui/screens/menu/PauseMenu.tscn"):
 			var pause_menu: Node = load("res://ui/screens/menu/PauseMenu.tscn").instantiate()
 			get_tree().root.add_child(pause_menu)
