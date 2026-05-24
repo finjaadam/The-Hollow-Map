@@ -15,10 +15,7 @@ func _enter_tree():
 
 func _ready() -> void:
 	if is_multiplayer_authority():
-		var listener = AudioListener3D.new()
-		$Camera3D.current = true
-		$Camera3D.add_child(listener)
-		listener.make_current()
+		return
 	else:
 		$Camera3D.current = false
 
