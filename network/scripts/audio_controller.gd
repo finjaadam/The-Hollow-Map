@@ -1,4 +1,4 @@
-extends Node
+extends Node3D
 
 const SAMPLE_RATE: int = 48000
 var voice_playback: AudioStreamGeneratorPlayback = null
