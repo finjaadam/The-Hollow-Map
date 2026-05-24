@@ -15,5 +15,11 @@ func _on_resume_button_pressed() -> void:
 
 func _on_main_menu_button_pressed() -> void:
 	get_tree().paused = false
+	
+	# Find networking node and leave lobby before changing scene
+	var world = SceneLoader.get_current_scene()
+	if is_instance_valid(world):
+		world.leave_lobby()
+	
 	queue_free()
 	SceneLoader.goto_scene("res://ui/screens/menu/MainMenu.tscn", false)

@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://odv4drnaxu1l"]
+
+[ext_resource type="Script" uid="uid://byn55c81qq82l" path="res://network/scripts/MenuServerList.gd" id="1_gmyp7"]
+
+[node name="MenuServerList" type="Control" unique_id=1042278931]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gmyp7")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1734799859]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=279370867]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=247657173]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+text = "Zurück"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

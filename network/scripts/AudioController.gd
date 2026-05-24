@@ -29,6 +29,8 @@ func _ready() -> void:
 		Steam.startVoiceRecording()
 
 func _process(delta: float) -> void:
+	if not multiplayer.has_multiplayer_peer():
+		return
 	if not is_multiplayer_authority():
 		return
 	

@@ -30,6 +30,8 @@ func _input(event):
 		$Camera3D.rotation.x = clamp($Camera3D.rotation.x, deg_to_rad(-89), deg_to_rad(89))
 
 func _physics_process(delta):
+	if not multiplayer.has_multiplayer_peer():
+		return
 	if !is_multiplayer_authority():
 		return
 
