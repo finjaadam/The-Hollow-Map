@@ -9,6 +9,7 @@ func _ready():
 	resume_button.grab_focus()
 
 func _on_resume_button_pressed() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	get_tree().paused = false
 	queue_free()
 
