@@ -12,7 +12,7 @@ func _ready() -> void:
 	add_child(voice_stream_player)
 
 	voice_stream_player.max_distance = 5
-	voice_stream_player.unit_size = 1
+	voice_stream_player.unit_size = 2
 	
 	voice_stream_player.stream = AudioStreamGenerator.new()
 	voice_stream_player.stream.mix_rate = SAMPLE_RATE
