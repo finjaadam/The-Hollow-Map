@@ -1,13 +1,10 @@
 extends Control
 
 @onready var fullscreen_check = $CenterContainer/VBoxContainer/FullscreenRow/FullscreenCheck
+@onready var resolution_dropdown = $CenterContainer/VBoxContainer/ResolutionRow/OptionButton
 @onready var vsync_check = $CenterContainer/VBoxContainer/VsyncRow/VsyncCheck
 @onready var loading_check = $CenterContainer/VBoxContainer/LoadingRow/LoadingCheck
 @onready var back_button = $CenterContainer/VBoxContainer/BackButton
-@onready var title = $CenterContainer/VBoxContainer/Title
-@onready var fullscreen_label = $CenterContainer/VBoxContainer/FullscreenRow/FullscreenLabel
-@onready var vsync_label = $CenterContainer/VBoxContainer/VsyncRow/VsyncLabel
-@onready var loading_label = $CenterContainer/VBoxContainer/LoadingRow/LoadingLabel
 
 func _ready():
 	fullscreen_check.button_pressed = Settings.get_setting("fullscreen")
@@ -18,7 +15,7 @@ func _ready():
 	fullscreen_check.grab_focus()
 
 func _setup_navigation():
-	var controls = [fullscreen_check, vsync_check, loading_check, back_button]
+	var controls = [fullscreen_check, resolution_dropdown, vsync_check, loading_check, back_button]
 	for i in range(controls.size()):
 		if controls[i]:
 			var prev_idx = (i - 1 + controls.size()) % controls.size()
@@ -40,3 +37,13 @@ func _on_loading_check_toggled(on: bool) -> void:
 
 func _on_back_button_pressed() -> void:
 	SceneLoader.goto_scene("res://ui/screens/menu/OptionsMenu.tscn", false)
+
+
+func _on_option_button_item_selected(index: int) -> void:
+	match index:
+		0: Settings.set_resolution(960, 540)
+		1: Settings.set_resolution(1280, 720)
+		2: Settings.set_resolution(1920, 1080)
+		3: Settings.set_resolution(2560, 1440)
+		4: Settings.set_resolution(3840, 2160)
+	Settings.apply_settings()

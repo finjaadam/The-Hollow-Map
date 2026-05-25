@@ -36,20 +36,44 @@ layout_mode = 2
 alignment = 1
 
 [node name="FullscreenLabel" type="Label" parent="CenterContainer/VBoxContainer/FullscreenRow" unique_id=865706687]
-custom_minimum_size = Vector2(210, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 text = "Vollbild:"
 
 [node name="FullscreenCheck" type="CheckBox" parent="CenterContainer/VBoxContainer/FullscreenRow" unique_id=1145572653]
 layout_mode = 2
+
+[node name="ResolutionRow" type="HBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=576459924]
+layout_mode = 2
+alignment = 1
+
+[node name="ResolutionLabel" type="Label" parent="CenterContainer/VBoxContainer/ResolutionRow" unique_id=409634372]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Auflösung:"
+
+[node name="OptionButton" type="OptionButton" parent="CenterContainer/VBoxContainer/ResolutionRow" unique_id=373614003]
+layout_mode = 2
+selected = 2
+item_count = 5
+popup/item_0/text = "960x540"
+popup/item_0/id = 0
+popup/item_1/text = "1280x720"
+popup/item_1/id = 1
+popup/item_2/text = "1920x1080"
+popup/item_2/id = 2
+popup/item_3/text = "2560x1440"
+popup/item_3/id = 3
+popup/item_4/text = "3840x2160"
+popup/item_4/id = 4
 
 [node name="VsyncRow" type="HBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=268458209]
 layout_mode = 2
 alignment = 1
 
 [node name="VsyncLabel" type="Label" parent="CenterContainer/VBoxContainer/VsyncRow" unique_id=1052693128]
-custom_minimum_size = Vector2(210, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 text = "VSync:"
 
 [node name="VsyncCheck" type="CheckBox" parent="CenterContainer/VBoxContainer/VsyncRow" unique_id=742166892]
@@ -60,8 +84,8 @@ layout_mode = 2
 alignment = 1
 
 [node name="LoadingLabel" type="Label" parent="CenterContainer/VBoxContainer/LoadingRow" unique_id=1061605332]
-custom_minimum_size = Vector2(210, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 text = "Lade-Bildschirm anzeigen:"
 
 [node name="LoadingCheck" type="CheckBox" parent="CenterContainer/VBoxContainer/LoadingRow" unique_id=2097385002]
@@ -77,6 +101,7 @@ layout_mode = 2
 text = "Zurück"
 
 [connection signal="toggled" from="CenterContainer/VBoxContainer/FullscreenRow/FullscreenCheck" to="." method="_on_fullscreen_check_toggled"]
+[connection signal="item_selected" from="CenterContainer/VBoxContainer/ResolutionRow/OptionButton" to="." method="_on_option_button_item_selected"]
 [connection signal="toggled" from="CenterContainer/VBoxContainer/VsyncRow/VsyncCheck" to="." method="_on_vsync_check_toggled"]
 [connection signal="toggled" from="CenterContainer/VBoxContainer/LoadingRow/LoadingCheck" to="." method="_on_loading_check_toggled"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
