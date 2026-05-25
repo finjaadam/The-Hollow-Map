@@ -1,8 +1,19 @@
 [gd_scene format=3 uid="uid://hxag78bqilay"]
 
 [ext_resource type="Script" uid="uid://c3rvlkjqnsxvj" path="res://network/scripts/AudioController.gd" id="1_ut2eg"]
+[ext_resource type="Script" uid="uid://dkb8ltjc6067n" path="res://addons/raytraced_audio/raytraced_audio_player_3d.gd" id="2_ijefr"]
+
+[sub_resource type="AudioStreamGenerator" id="AudioStreamGenerator_qhl78"]
+mix_rate = 48000.0
 
 [node name="AudioController" type="Node3D" unique_id=896399656]
 script = ExtResource("1_ut2eg")
 voice_max_distance = 10
 voice_unit_size = 5
+
+[node name="RaytracedAudioPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1039678532]
+stream = SubResource("AudioStreamGenerator_qhl78")
+attenuation_model = 2
+volume_db = 15.0
+script = ExtResource("2_ijefr")
+metadata/_custom_type_script = "uid://dkb8ltjc6067n"

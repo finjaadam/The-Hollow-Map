@@ -1,33 +1,17 @@
 extends Node3D
 
-@export var authority_node: Node
 @export var voice_max_distance: int = 5
 @export var voice_unit_size: int = 2
+@onready var raytracedAudioPlayer = $RaytracedAudioPlayer3D
 
 const SAMPLE_RATE: int = 48000
 var voice_playback: AudioStreamGeneratorPlayback = null
 
 func _enter_tree() -> void:
-	if authority_node:
-		set_multiplayer_authority(get_parent().name.to_int())
-	else:
-		print("Error: No Authority Node set in AudioController")
+		set_multiplayer_authority(get_parent().get_parent().name.to_int())
 
 func _ready() -> void:
-	# Everyone sets up a playback stream (to hear others)
-	var voice_stream_player := RaytracedAudioPlayer3D.new()
-	add_child(voice_stream_player)
-	
-	voice_stream_player.volume_db = 15
-	voice_stream_player.max_db = 6
-	voice_stream_player.max_distance = voice_max_distance
-	voice_stream_player.unit_size = voice_unit_size
-	
-	voice_stream_player.stream = AudioStreamGenerator.new()
-	voice_stream_player.stream.mix_rate = SAMPLE_RATE
-	voice_stream_player.play()
-	
-	voice_playback = voice_stream_player.get_stream_playback()
+	voice_playback = raytracedAudioPlayer.get_stream_playback()
 
 	# Only the authority records
 	if is_multiplayer_authority():
