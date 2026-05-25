@@ -4,3 +4,5 @@
 
 [node name="AudioController" type="Node3D" unique_id=896399656]
 script = ExtResource("1_ut2eg")
+voice_max_distance = 10
+voice_unit_size = 5
