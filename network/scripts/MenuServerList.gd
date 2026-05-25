@@ -10,7 +10,7 @@ func _process(delta: float) -> void:
 
 func add_lobby(button: Button, lobby: int):
 	button.connect("pressed", Callable(self, "join_lobby").bind(lobby))
-	$CenterContainer/VBoxContainer.add_child(button)
+	$CenterContainer/VBoxContainer/ScrollContainer/VBoxContainer.add_child(button)
 
 func join_lobby(lobby: int):
 	SceneLoader.goto_scene("res://network/testEnvironment/menu.tscn", false)

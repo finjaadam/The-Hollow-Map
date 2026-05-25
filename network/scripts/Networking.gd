@@ -37,7 +37,7 @@ func host_lobby():
 func request_lobby_list():
 	# Set distance to worldwide
 	Steam.addRequestLobbyListDistanceFilter(Steam.LOBBY_DISTANCE_FILTER_WORLDWIDE)
-	Steam.addRequestLobbyListStringFilter("name", "HOLLOW_MAP", Steam.LOBBY_COMPARISON_EQUAL)
+	Steam.addRequestLobbyListStringFilter("game", "HOLLOW_MAP", Steam.LOBBY_COMPARISON_EQUAL)
 	Steam.requestLobbyList()
 
 func _on_lobby_created(result: int, lobby_id: int):	
@@ -52,7 +52,8 @@ func _on_lobby_created(result: int, lobby_id: int):
 		Steam.setLobbyJoinable(lobby_id, true)
 
 		# Set some lobby data
-		Steam.setLobbyData(lobby_id, "name", "HOLLOW_MAP")
+		Steam.setLobbyData(lobby_id, "name", "Testserver")
+		Steam.setLobbyData(lobby_id, "game", "HOLLOW_MAP")
 		
 		# Allow P2P Connections to fallback to Steam Relay
 		var set_relay: bool = Steam.allowP2PPacketRelay(true)

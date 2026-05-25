@@ -12,17 +12,29 @@ grow_vertical = 2
 script = ExtResource("1_gmyp7")
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=1734799859]
-layout_mode = 0
-offset_top = -1.0
-offset_right = 1152.0
-offset_bottom = 648.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=279370867]
 layout_mode = 2
+alignment = 1
 
 [node name="BackButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=247657173]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 text = "Zurück"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CenterContainer/VBoxContainer" unique_id=238819728]
+custom_minimum_size = Vector2(500, 200)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/ScrollContainer" unique_id=1605816134]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
