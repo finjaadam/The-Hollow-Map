@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://cu5gtk0ybh744"]
 
 [ext_resource type="Script" uid="uid://boqjwglaui8xk" path="res://Network/scripts/Player.gd" id="1_4flbx"]
-[ext_resource type="PackedScene" path="res://network/testEnvironment/audioController.tscn" id="2_rev65"]
 [ext_resource type="Script" uid="uid://cokh7jryjgs7d" path="res://Network/scripts/area-sounds/FootstepController.gd" id="3_q1thc"]
+[ext_resource type="Script" uid="uid://bjpmu5sklv5h8" path="res://addons/raytraced_audio/raytraced_audio_listener.gd" id="2_q8q3w"]
+[ext_resource type="PackedScene" uid="uid://hxag78bqilay" path="res://network/testEnvironment/audioController.tscn" id="2_rev65"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_4flbx"]
 
@@ -17,7 +18,12 @@ properties/0/replication_mode = 1
 script = ExtResource("1_4flbx")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=464028339]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5074127, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="RaytracedAudioListener" type="AudioListener3D" parent="Camera3D" unique_id=13446823]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.000108242035, 0)
+script = ExtResource("2_q8q3w")
+metadata/_custom_type_script = "uid://bjpmu5sklv5h8"
 
 [node name="Pivot" type="Node3D" parent="." unique_id=648722982]
 

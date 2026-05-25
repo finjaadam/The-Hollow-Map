@@ -6,7 +6,6 @@ extends CharacterBody3D
 # The downward acceleration when in the air, in meters per second squared.
 @export var fall_acceleration = 75
 
-
 var target_velocity = Vector3.ZERO
 
 func _enter_tree():
