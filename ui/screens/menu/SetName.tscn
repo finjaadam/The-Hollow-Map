@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://c6rc6q45d4wu2"]
+
+[ext_resource type="Script" uid="uid://ccm5771wt1jdk" path="res://ui/screens/menu/SetName.gd" id="1_jmblp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jmblp"]
+resource_local_to_scene = true
+font_color = Color(1, 0, 0, 1)
+
+[node name="SetName" type="Control" unique_id=1961393071]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jmblp")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1903862857]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=237806004]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=608123811]
+layout_mode = 2
+text = "Namen eingeben"
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="CenterContainer/VBoxContainer" unique_id=901579757]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="NameField" type="LineEdit" parent="CenterContainer/VBoxContainer" unique_id=8472330]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+placeholder_text = "Andere werden diesen Namen sehen"
+alignment = 1
+max_length = 26
+
+[node name="Warning" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1731953710]
+visible = false
+layout_mode = 2
+text = "Name muss zwischen 4 und 26 Zeichen lang sein!"
+label_settings = SubResource("LabelSettings_jmblp")
+horizontal_alignment = 1
+
+[node name="Spacer2" type="Control" parent="CenterContainer/VBoxContainer" unique_id=295141079]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="AcceptButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1058867051]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Bestätigen"
+
+[node name="Spacer3" type="Control" parent="CenterContainer/VBoxContainer" unique_id=150308751]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=330300477]
+visible = false
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Zurück"
+
+[connection signal="text_change_rejected" from="CenterContainer/VBoxContainer/NameField" to="." method="_on_name_field_text_change_rejected"]
+[connection signal="text_changed" from="CenterContainer/VBoxContainer/NameField" to="." method="_on_name_field_text_changed"]
+[connection signal="text_submitted" from="CenterContainer/VBoxContainer/NameField" to="." method="_on_name_field_text_submitted"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/AcceptButton" to="." method="_on_accept_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

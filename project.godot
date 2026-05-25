@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 
 [audio]
 
+buses/default_bus_layout="uid://cfv3k5meypxay"
 driver/mix_rate=48000
 
 [autoload]

@@ -2,7 +2,7 @@ extends Control
 
 @onready var audio_button = $CenterContainer/VBoxContainer/OptionsButtons/AudioButton
 @onready var video_button = $CenterContainer/VBoxContainer/OptionsButtons/VideoButton
-@onready var controls_button = $CenterContainer/VBoxContainer/OptionsButtons/ControlsButton
+@onready var name_button = $CenterContainer/VBoxContainer/OptionsButtons/NameButton
 @onready var back_button = $CenterContainer/VBoxContainer/BackButton
 
 @onready var title_label = $CenterContainer/VBoxContainer/Title
@@ -12,7 +12,7 @@ func _ready():
 	audio_button.grab_focus()
 
 func _setup_navigation():
-	var controls = [audio_button, video_button, controls_button, back_button]
+	var controls = [audio_button, video_button, name_button, back_button]
 	for i in range(controls.size()):
 		if controls[i]:
 			var prev_idx = (i - 1 + controls.size()) % controls.size()
@@ -26,8 +26,8 @@ func _on_audio_button_pressed() -> void:
 func _on_video_button_pressed() -> void:
 	SceneLoader.goto_scene("res://ui/screens/menu/VideoMenu.tscn", false)
 
-func _on_controls_button_pressed() -> void:
-	SceneLoader.goto_scene("res://ui/screens/menu/ControlsMenu.tscn", false)
+func _on_name_button_pressed() -> void:
+	SceneLoader.goto_scene("res://ui/screens/menu/SetName.tscn", false)
 
 func _on_back_button_pressed() -> void:
 	SceneLoader.goto_scene("res://ui/screens/menu/MainMenu.tscn", false)

@@ -2,18 +2,19 @@ extends Node
 
 signal setting_changed(setting_name: String, value)
 
-var settings_data = {
-	"master_volume": 1.0,
-	"music_volume": 0.8,
-	"sfx_volume": 0.8,
-	"ui_volume": 0.6,
-	"fullscreen": true,
-	"vsync": true,
-	"resolution": {"x": 1920, "y": 1080},  # Store as dict for JSON compatibility
-	"show_loading_screen": true,
-	"controls": {}
-}
+var settings_data_default = {
+		"master_volume": 1,
+		"music_volume": 1,
+		"sfx_volume": 1,
+		"chat_volume": 1,
+		"fullscreen": true,
+		"vsync": true,
+		"resolution": {"x": 1920, "y": 1080},  # Store as dict for JSON compatibility
+		"show_loading_screen": true,
+		"controls": {}
+	}
 
+var settings_data = settings_data_default.duplicate()
 var settings_file_path: String
 
 func _ready():
@@ -85,11 +86,16 @@ func _set_bus(bus_name: String, vol: float) -> void:
 		AudioServer.set_bus_volume_db(idx, linear_to_db(v))
 
 func apply_settings():
+	apply_audio_settings()
+	apply_video_settings()
+
+func apply_audio_settings():
 	_set_bus("Master", get_setting("master_volume"))
 	_set_bus("Music", get_setting("music_volume"))
 	_set_bus("SFX", get_setting("sfx_volume"))
-	_set_bus("UI", get_setting("ui_volume"))
+	_set_bus("Chat", get_setting("chat_volume"))
 
+func apply_video_settings():
 	if get_setting("fullscreen"):
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
 	else:
@@ -101,9 +107,6 @@ func apply_settings():
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
 	else:
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
-
-	var language: String = str(get_setting("language", "en"))
-	TranslationServer.set_locale(language)
 
 func _ensure_default_input_actions():
 	# Use KEY_* constants (Godot 4)
@@ -152,20 +155,23 @@ func _ensure_default_input_actions():
 				je.button_index = jb
 				InputMap.action_add_event(action, je)
 
-func reset_to_defaults():
-	settings_data = {
-		"master_volume": 1.0,
-		"music_volume": 0.8,
-		"sfx_volume": 0.8,
-		"ui_volume": 0.6,
-		"fullscreen": true,
-		"vsync": true,
-		"resolution": {"x": 1920, "y": 1080},  # Store as dict for JSON compatibility
-		"show_loading_screen": true,
-		"controls": {}
-	}
+func reset():
+	reset_audio()
+	reset_video()
+	
+func reset_audio():
+	for key in settings_data:
+		if key.contains("volume"):
+			settings_data[key] = settings_data_default[key]
 	save_settings()
-	apply_settings()
+	apply_audio_settings()
+	
+func reset_video():
+	for key in settings_data:
+		if !key.contains("volume"):
+			settings_data[key] = settings_data_default[key]
+	save_settings()
+	apply_video_settings()
 
 func should_show_loading_screen() -> bool:
 	return get_setting("show_loading_screen", true)
