@@ -1,7 +1,5 @@
 extends Node3D
 
-@export var voice_max_distance: int = 5
-@export var voice_unit_size: int = 2
 @onready var raytracedAudioPlayer = $RaytracedAudioPlayer3D
 
 const SAMPLE_RATE: int = 48000
@@ -11,6 +9,7 @@ func _enter_tree() -> void:
 		set_multiplayer_authority(get_parent().get_parent().name.to_int())
 
 func _ready() -> void:
+	raytracedAudioPlayer.play()
 	voice_playback = raytracedAudioPlayer.get_stream_playback()
 
 	# Only the authority records
@@ -18,7 +17,7 @@ func _ready() -> void:
 		Steam.setInGameVoiceSpeaking(480, true)
 		Steam.startVoiceRecording()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if not multiplayer.has_multiplayer_peer():
 		return
 	if not is_multiplayer_authority():

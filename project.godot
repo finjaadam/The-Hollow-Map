@@ -18,6 +18,8 @@ config/icon="res://icon.svg"
 [audio]
 
 buses/default_bus_layout="uid://cfv3k5meypxay"
+general/2d_panning_strength=1.0
+general/3d_panning_strength=1.0
 driver/mix_rate=48000
 
 [autoload]
