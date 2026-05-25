@@ -24,6 +24,9 @@ func _ready():
 	Steam.join_requested.connect(_on_lobby_join_requested)
 	Steam.persona_state_change.connect(_on_persona_change)
 
+func _process(_delta: float) -> void:
+	Steam.run_callbacks()
+
 func host_lobby():
 	if lobby_id == 0:
 		Steam.createLobby(Steam.LOBBY_TYPE_PUBLIC, lobby_members_max)
