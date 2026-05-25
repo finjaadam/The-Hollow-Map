@@ -6,8 +6,10 @@ extends Node
 
 const next_scene_path = "res://network/testEnvironment/world.tscn"
 var next_scene: PackedScene = preload(next_scene_path)
+var instance
 
 func _ready():
+	instance = next_scene.instantiate()
 	_setup_navigation()
 	if host_button: host_button.grab_focus()
 
@@ -26,16 +28,12 @@ func _setup_navigation():
 		host_button.focus_neighbor_top = back_button.get_path()
 
 func host_and_go_to_next_scene():
-	var instance = next_scene.instantiate()
-	instance.init_network()
-	instance.host_lobby()
 	SceneLoader.goto_preloaded_scene(instance, next_scene_path)
+	instance.host_lobby()
 	
 func join_and_go_to_next_scene(lobby_id: int):
-	var instance = next_scene.instantiate()
-	instance.init_network()
-	instance.join_lobby(lobby_id)
 	SceneLoader.goto_preloaded_scene(instance, next_scene_path)
+	instance.join_lobby(lobby_id)
 
 func _on_host_button_pressed():
 	host_and_go_to_next_scene()
@@ -48,3 +46,7 @@ func _on_id_prompt_text_changed(new_text):
 	
 func _on_back_button_pressed():
 	SceneLoader.goto_scene("res://ui/screens/menu/MainMenu.tscn", false)
+
+func _on_list_server_button_pressed() -> void:
+	SceneLoader.goto_preloaded_scene(instance, next_scene_path)
+	instance.request_lobby_list()

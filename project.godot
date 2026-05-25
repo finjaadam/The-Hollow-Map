@@ -15,11 +15,16 @@ run/main_scene="uid://dfuiqehqffisl"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[audio]
+
+driver/mix_rate=48000
+
 [autoload]
 
 SaveData="*uid://d3gbt7it2l7q4"
 SceneLoader="*uid://bljise81d4hka"
 Settings="*uid://dm2ypjtuaq36q"
+SteamCheck="*uid://bx41bdyvrt3du"
 
 [input]
 
