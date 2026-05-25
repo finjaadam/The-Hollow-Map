@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cugivnivoxa48"
+path="res://.godot/imported/Footstep on woodland 3.mp3-a54603c2502f9a880595b407977d8c55.mp3str"
+
+[deps]
+
+source_file="res://audio/soundfx/map-region/wood/Footstep on woodland 3.mp3"
+dest_files=["res://.godot/imported/Footstep on woodland 3.mp3-a54603c2502f9a880595b407977d8c55.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

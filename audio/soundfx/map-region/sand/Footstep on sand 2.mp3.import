@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dah5fdluaigk6"
+path="res://.godot/imported/Footstep on sand 2.mp3-caedd0c3e6b459ff33bbee6f693a5411.mp3str"
+
+[deps]
+
+source_file="res://audio/soundfx/map-region/sand/Footstep on sand 2.mp3"
+dest_files=["res://.godot/imported/Footstep on sand 2.mp3-caedd0c3e6b459ff33bbee6f693a5411.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bp4og6m2ohmxk"
+path="res://.godot/imported/Footstep in water 4.mp3-a74df7c5c3c5c13d69efb059d6c0ecce.mp3str"
+
+[deps]
+
+source_file="res://audio/soundfx/map-region/water/Footstep in water 4.mp3"
+dest_files=["res://.godot/imported/Footstep in water 4.mp3-a74df7c5c3c5c13d69efb059d6c0ecce.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
