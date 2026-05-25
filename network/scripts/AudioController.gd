@@ -14,7 +14,7 @@ func _ready() -> void:
 	var voice_stream_player := RaytracedAudioPlayer3D.new()
 	add_child(voice_stream_player)
 	
-	voice_stream_player.volume_db = 10
+	voice_stream_player.volume_db = 15
 	voice_stream_player.max_db = 6
 	voice_stream_player.max_distance = voice_max_distance
 	voice_stream_player.unit_size = voice_unit_size

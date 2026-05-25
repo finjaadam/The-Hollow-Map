@@ -22,6 +22,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [node name="AudioController" parent="Camera3D" unique_id=846649630 instance=ExtResource("2_rev65")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.12353328, -0.6442464)
+voice_max_distance = 30
+voice_unit_size = 10
 
 [node name="RaytracedAudioListener" type="AudioListener3D" parent="Camera3D" unique_id=13446823]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.12969947, -0.6431797)
