@@ -10,6 +10,7 @@ func _ready() -> void:
 	_load_footstep_sounds()
 
 func _load_footstep_sounds() -> void:
+	# Scans AUDIO_DIR subfolders and loads all .mp3 files per surface
 	var dir = DirAccess.open(AUDIO_DIR)
 	if not dir:
 		print("SoundManager: Directory not found: ", AUDIO_DIR)
@@ -37,6 +38,7 @@ static func surface_name(surface: SurfaceType) -> String:
 	return SurfaceType.keys()[surface].to_lower()
 
 func get_footstep(surface: SurfaceType) -> AudioStream:
+	# Returns a random footstep stream for the given surface, falling back to the default surface
 	var key = surface_name(surface)
 	var streams = _footstep_sounds.get(key)
 	if streams == null or streams.is_empty():
