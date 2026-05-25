@@ -1,9 +1,8 @@
 [gd_scene format=3 uid="uid://cu5gtk0ybh744"]
 
-[ext_resource type="Script" uid="uid://boqjwglaui8xk" path="res://Network/scripts/Player.gd" id="1_4flbx"]
-[ext_resource type="Script" uid="uid://cokh7jryjgs7d" path="res://Network/scripts/area-sounds/FootstepController.gd" id="3_q1thc"]
-[ext_resource type="Script" uid="uid://bjpmu5sklv5h8" path="res://addons/raytraced_audio/raytraced_audio_listener.gd" id="2_q8q3w"]
+[ext_resource type="Script" uid="uid://boqjwglaui8xk" path="res://network/scripts/Player.gd" id="1_4flbx"]
 [ext_resource type="PackedScene" uid="uid://hxag78bqilay" path="res://network/testEnvironment/audioController.tscn" id="2_rev65"]
+[ext_resource type="Script" uid="uid://cokh7jryjgs7d" path="res://network/scripts/areaSounds/FootstepController.gd" id="3_q1thc"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_4flbx"]
 
@@ -31,10 +30,8 @@ mesh = SubResource("CapsuleMesh_4flbx")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1392500315]
 shape = SubResource("CapsuleShape3D_sh265")
 
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1752202761]
-replication_config = SubResource("SceneReplicationConfig_4flbx")
-
-[node name="AudioController" parent="." unique_id=846649630 instance=ExtResource("2_rev65")]
-
 [node name="FootstepController" type="Node3D" parent="." unique_id=95066644]
 script = ExtResource("3_q1thc")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1752202761]
+replication_config = SubResource("SceneReplicationConfig_4flbx")
