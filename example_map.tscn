@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c8liybxhqrhwr"]
 
 [ext_resource type="PackedScene" uid="uid://b2yxpytggb8ro" path="res://map/modular-cave-final.glb" id="1_wb7j6"]
-[ext_resource type="Script" uid="uid://c15wkn1ddol15" path="res://map/regions/FootstepRegion.gd" id="2_ieofv"]
+[ext_resource type="Script" uid="uid://c15wkn1ddol15" path="res://Network/scripts/area-sounds/FootstepRegion.gd" id="2_ieofv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_water"]
 size = Vector3(29.735, 20.005, 13.305)
@@ -40,16 +40,16 @@ size = Vector3(13.46, 20, 23.55)
 [node name="Node3D" type="Node3D" unique_id=1910157186]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=783082715]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.825981, 0.5715618, -50.124283)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 207.27, 216.174, 150.228)
 shadow_enabled = true
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1911869399]
-transform = Transform3D(0.7195459, 0, -0.69444495, 0, 1, 0, 0.69444495, 0, 0.7195459, 3.0253773, 0.1441431, -24.453033)
+transform = Transform3D(0.7195459, 0, -0.69444495, 0, 1, 0, 0.69444495, 0, 0.7195459, 207.305, 215.74, 148.975)
 shadow_enabled = true
 shadow_normal_bias = 0.0
 
 [node name="modular-cave-final" parent="." unique_id=1501415670 instance=ExtResource("1_wb7j6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.98018, -3.1254425, -77.31275)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 185.313, 213.492, 92.155)
 
 [node name="RegionWater" type="Area3D" parent="modular-cave-final" unique_id=841867832]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.71, 0, 77.972)

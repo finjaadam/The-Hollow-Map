@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://boqjwglaui8xk" path="res://network/scripts/Player.gd" id="1_4flbx"]
 [ext_resource type="PackedScene" uid="uid://hxag78bqilay" path="res://network/testEnvironment/audioController.tscn" id="2_rev65"]
+[ext_resource type="Script" uid="uid://cokh7jryjgs7d" path="res://Network/scripts/area-sounds/FootstepController.gd" id="3_q1thc"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_4flbx"]
 
@@ -30,3 +31,9 @@ shape = SubResource("CapsuleShape3D_sh265")
 replication_config = SubResource("SceneReplicationConfig_4flbx")
 
 [node name="AudioController" parent="." unique_id=846649630 instance=ExtResource("2_rev65")]
+
+[node name="FootstepController" type="Node3D" parent="." unique_id=95066644]
+script = ExtResource("3_q1thc")
+footstep_interval = null
+detector_radius = null
+detector_offset = null

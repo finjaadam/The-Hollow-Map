@@ -13,17 +13,11 @@ func _enter_tree():
 	set_multiplayer_authority(name.to_int())
 
 func _ready() -> void:
-	_setup_footstep_controller()
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	if is_multiplayer_authority():
 		$Camera3D.current = true
 	else:
 		$Camera3D.current = false
-
-func _setup_footstep_controller():
-	var controller = load("res://map/regions/FootstepController.gd").new()
-	controller.name = "FootstepController"
-	add_child(controller)
 
 func _input(event):
 	# Only process input for the local player

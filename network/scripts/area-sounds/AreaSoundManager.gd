@@ -4,7 +4,7 @@ enum SurfaceType { STONE, GRAVEL, WATER, WOOD, SAND }
 
 var _footstep_sounds: Dictionary = {}
 var _fallback: Array[AudioStream] = []
-const AUDIO_DIR: String = "res://audio/soundfx/map-region/"
+const AUDIO_DIR: String = "res://audio/soundfx/map-areas/"
 
 func _ready() -> void:
 	_load_footstep_sounds()
