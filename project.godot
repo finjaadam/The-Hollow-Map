@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 SaveData="*uid://d3gbt7it2l7q4"
 SceneLoader="*uid://bljise81d4hka"
 Settings="*uid://dm2ypjtuaq36q"
+SoundManager="*res://audio/SoundManager.gd"
 
 [input]
 

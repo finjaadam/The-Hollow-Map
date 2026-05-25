@@ -10,6 +10,14 @@ var target_velocity = Vector3.ZERO
 func _enter_tree():
 	set_multiplayer_authority(name.to_int())
 
+func _ready():
+	_setup_footstep_controller()
+
+func _setup_footstep_controller():
+	var controller = load("res://map/regions/FootstepController.gd").new()
+	controller.name = "FootstepController"
+	add_child(controller)
+
 func _physics_process(delta):
 	if !is_multiplayer_authority():
 		return
@@ -41,6 +49,8 @@ func _physics_process(delta):
 	# Moving the Character
 	velocity = target_velocity
 	move_and_slide()
+
+	$FootstepController.tick(is_on_floor(), direction != Vector3.ZERO, delta)
 
 func _unhandled_input(event):
 	# CR5: Pause menu implementation in game scene
