@@ -1,13 +1,5 @@
 extends Control
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 func add_lobby(button: Button, lobby: int):
 	button.connect("pressed", Callable(self, "join_lobby").bind(lobby))
 	$CenterContainer/VBoxContainer/ScrollContainer/VBoxContainer.add_child(button)
