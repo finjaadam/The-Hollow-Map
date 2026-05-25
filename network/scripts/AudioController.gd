@@ -1,5 +1,6 @@
 extends Node3D
 
+@export var authority_node: Node
 @export var voice_max_distance: int = 5
 @export var voice_unit_size: int = 2
 
@@ -7,7 +8,10 @@ const SAMPLE_RATE: int = 48000
 var voice_playback: AudioStreamGeneratorPlayback = null
 
 func _enter_tree() -> void:
-	set_multiplayer_authority(get_parent().name.to_int())
+	if authority_node:
+		set_multiplayer_authority(get_parent().name.to_int())
+	else:
+		print("Error: No Authority Node set in AudioController")
 
 func _ready() -> void:
 	# Everyone sets up a playback stream (to hear others)

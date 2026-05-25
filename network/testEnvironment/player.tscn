@@ -20,15 +20,16 @@ script = ExtResource("1_4flbx")
 [node name="Camera3D" type="Camera3D" parent="." unique_id=464028339]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
-[node name="AudioController" parent="Camera3D" unique_id=846649630 instance=ExtResource("2_rev65")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.12353328, -0.6442464)
-voice_max_distance = 30
-voice_unit_size = 10
-
 [node name="RaytracedAudioListener" type="AudioListener3D" parent="Camera3D" unique_id=13446823]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.12969947, -0.6431797)
 script = ExtResource("2_q8q3w")
 metadata/_custom_type_script = "uid://bjpmu5sklv5h8"
+
+[node name="AudioController" parent="Camera3D" unique_id=846649630 node_paths=PackedStringArray("authority_node") instance=ExtResource("2_rev65")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.12353328, -0.6442464)
+authority_node = NodePath("../..")
+voice_max_distance = 30
+voice_unit_size = 10
 
 [node name="Pivot" type="Node3D" parent="." unique_id=648722982]
 
