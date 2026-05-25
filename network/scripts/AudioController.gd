@@ -10,13 +10,18 @@ func _enter_tree() -> void:
 		set_multiplayer_authority(get_parent().get_parent().name.to_int())
 
 func _ready() -> void:
-	raytracedAudioPlayer.play()
-	voice_playback = raytracedAudioPlayer.get_stream_playback()
-
-	# Only the authority records
 	if is_multiplayer_authority():
+		# We are the local player, add the listener
+		var listener = RaytracedAudioListener.new()
+		add_child(listener)
+		listener.owner = get_parent()
+		listener.make_current()
 		Steam.setInGameVoiceSpeaking(480, true)
 		Steam.startVoiceRecording()
+	else:
+		# We are a remote player, set up audio playback
+		raytracedAudioPlayer.play()
+		voice_playback = raytracedAudioPlayer.get_stream_playback()
 
 func _process(_delta: float) -> void:
 	if not multiplayer.has_multiplayer_peer():
