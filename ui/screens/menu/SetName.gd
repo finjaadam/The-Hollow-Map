@@ -9,6 +9,7 @@ func _ready() -> void:
 	text_field.text = SaveData.get_data("player_name", "")
 	if text_field.text != "":
 		back_button.visible = true
+	text_field.text = Steam.getPersonaName()
 	text_field.caret_column = text_field.text.length()
 	text_field.grab_focus()
 
