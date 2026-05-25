@@ -189,17 +189,16 @@ func _on_lobby_match_list(these_lobbies: Array) -> void:
 	for this_lobby in these_lobbies:
 		# Pull lobby data from Steam, these are specific to our example
 		var lobby_name: String = Steam.getLobbyData(this_lobby, "name")
-		var lobby_mode: String = Steam.getLobbyData(this_lobby, "mode")
 
 		# Get the current number of members
 		var lobby_num_members: int = Steam.getNumLobbyMembers(this_lobby)
 
 		# Create a button for the lobby
 		var lobby_button: Button = Button.new()
-		lobby_button.set_text("Lobby %s: %s [%s] - %s Player(s)" % [this_lobby, lobby_name, lobby_mode, lobby_num_members])
+		lobby_button.set_text("Lobby %s: %s - %s Player(s)" % [this_lobby, lobby_name, lobby_num_members])
 		lobby_button.set_size(Vector2(800, 50))
 		lobby_button.set_name("lobby_%s" % this_lobby)
 		lobby_button.connect("pressed", Callable(self, "join_lobby").bind(this_lobby))
 		
-		server_list_menu.add_lobby(lobby_button)
+		server_list_menu.add_lobby(lobby_button, this_lobby)
 	SceneLoader.goto_preloaded_scene(server_list_menu, "res://network/testEnvironment/menuServerList.tscn")
