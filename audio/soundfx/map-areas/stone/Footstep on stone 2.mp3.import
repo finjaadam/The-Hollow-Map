@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b03ghbyqwh4xj"
+path="res://.godot/imported/Footstep on stone 2.mp3-9c3bdf6e2b9cc1fa430eb3e46d2befbf.mp3str"
+
+[deps]
+
+source_file="res://audio/soundfx/map-areas/stone/Footstep on stone 2.mp3"
+dest_files=["res://.godot/imported/Footstep on stone 2.mp3-9c3bdf6e2b9cc1fa430eb3e46d2befbf.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

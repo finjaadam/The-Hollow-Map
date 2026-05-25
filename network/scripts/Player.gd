@@ -62,6 +62,8 @@ func _physics_process(delta):
 	velocity = target_velocity
 	move_and_slide()
 
+	$FootstepController.tick(is_on_floor(), direction != Vector3.ZERO, delta)
+
 func _unhandled_input(event):
 	# CR5: Pause menu implementation in game scene
 	if event.is_action_pressed("pause"):
