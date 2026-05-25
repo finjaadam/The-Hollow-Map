@@ -221,6 +221,3 @@ func calculate_audible_distance_threshold() -> float:
 ## [br]See also [member audibility_threshold_db]
 func is_audible(from_pos: Vector3) -> bool:
 	return get_volume_db_from_pos(from_pos) >= audibility_threshold_db
-
-
-

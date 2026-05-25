@@ -1,9 +1,10 @@
 extends Node3D
 
-@onready var raytracedAudioPlayer = $RaytracedAudioPlayer3D
+@onready var raytracedAudioPlayer: RaytracedAudioPlayer3D = $RaytracedAudioPlayer3D
 
 const SAMPLE_RATE: int = 48000
 var voice_playback: AudioStreamGeneratorPlayback = null
+var audio_in_range: bool = true
 
 func _enter_tree() -> void:
 		set_multiplayer_authority(get_parent().get_parent().name.to_int())
@@ -11,6 +12,10 @@ func _enter_tree() -> void:
 func _ready() -> void:
 	raytracedAudioPlayer.play()
 	voice_playback = raytracedAudioPlayer.get_stream_playback()
+	
+	# Connect the range signals from the raytraced player
+	raytracedAudioPlayer.connect("disabled", _on_audio_disabled)
+	raytracedAudioPlayer.connect("enabled", _on_audio_enabled)
 
 	# Only the authority records
 	if is_multiplayer_authority():
@@ -27,9 +32,19 @@ func _process(_delta: float) -> void:
 	if voice_data['result'] == Steam.VoiceResult.VOICE_RESULT_OK and voice_data['written']:
 		send_voice.rpc(voice_data['buffer'])
 
+func _on_audio_disabled() -> void:
+	audio_in_range = false
+
+func _on_audio_enabled() -> void:
+	audio_in_range = true
+
 @rpc("any_peer", "call_remote", "unreliable")
 func send_voice(voice_data: PackedByteArray) -> void:
 	if voice_playback == null:
+		return
+	
+	# Skip pushing frames if out of range — prevents crackling ghost audio
+	if not audio_in_range:
 		return
 	
 	var decompressed: Dictionary = Steam.decompressVoice(voice_data, SAMPLE_RATE)
