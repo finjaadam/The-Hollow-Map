@@ -21,7 +21,7 @@ script = ExtResource("1_4flbx")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [node name="RaytracedAudioListener" type="AudioListener3D" parent="Camera3D" unique_id=13446823]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.000108242035, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.000108242035, -0.6431797)
 script = ExtResource("2_q8q3w")
 metadata/_custom_type_script = "uid://bjpmu5sklv5h8"
 
