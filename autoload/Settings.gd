@@ -3,10 +3,10 @@ extends Node
 signal setting_changed(setting_name: String, value)
 
 var settings_data_default = {
-		"master_volume": 0.6,
-		"music_volume": 0.6,
-		"sfx_volume": 0.6,
-		"chat_volume": 0.6,
+		"master_volume": 1,
+		"music_volume": 1,
+		"sfx_volume": 1,
+		"chat_volume": 1,
 		"fullscreen": true,
 		"vsync": true,
 		"resolution": {"x": 1920, "y": 1080},  # Store as dict for JSON compatibility
