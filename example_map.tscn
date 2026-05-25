@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c8liybxhqrhwr"]
 
 [ext_resource type="PackedScene" uid="uid://b2yxpytggb8ro" path="res://map/modular-cave-final.glb" id="1_wb7j6"]
-[ext_resource type="Script" uid="uid://c15wkn1ddol15" path="res://Network/scripts/area-sounds/FootstepRegion.gd" id="2_ieofv"]
+[ext_resource type="Script" uid="uid://c15wkn1ddol15" path="res://Network/scripts/area-sounds/MapArea.gd" id="2_ieofv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_water"]
 size = Vector3(29.735, 20.005, 13.305)
