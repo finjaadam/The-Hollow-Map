@@ -1,34 +1,29 @@
 extends Node3D
 
-@export var voice_max_distance: int = 5
-@export var voice_unit_size: int = 2
+@onready var raytracedAudioPlayer: RaytracedAudioPlayer3D = $RaytracedAudioPlayer3D
 
 const SAMPLE_RATE: int = 48000
 var voice_playback: AudioStreamGeneratorPlayback = null
+var audio_in_range: bool = true
 
 func _enter_tree() -> void:
-	set_multiplayer_authority(get_parent().name.to_int())
+		set_multiplayer_authority(get_parent().get_parent().name.to_int())
 
 func _ready() -> void:
-	# Everyone sets up a playback stream (to hear others)
-	var voice_stream_player := AudioStreamPlayer3D.new()
-	add_child(voice_stream_player)
-
-	voice_stream_player.max_distance = voice_max_distance
-	voice_stream_player.unit_size = voice_unit_size
-	
-	voice_stream_player.stream = AudioStreamGenerator.new()
-	voice_stream_player.stream.mix_rate = SAMPLE_RATE
-	voice_stream_player.play()
-	
-	voice_playback = voice_stream_player.get_stream_playback()
-
-	# Only the authority records
 	if is_multiplayer_authority():
+		# We are the local player, add the listener
+		var listener = RaytracedAudioListener.new()
+		add_child(listener)
+		listener.owner = get_parent()
+		listener.make_current()
 		Steam.setInGameVoiceSpeaking(480, true)
 		Steam.startVoiceRecording()
+	else:
+		# We are a remote player, set up audio playback
+		raytracedAudioPlayer.play()
+		voice_playback = raytracedAudioPlayer.get_stream_playback()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if not multiplayer.has_multiplayer_peer():
 		return
 	if not is_multiplayer_authority():

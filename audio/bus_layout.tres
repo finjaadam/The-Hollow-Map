@@ -1,5 +1,12 @@
 [gd_resource type="AudioBusLayout" format=3 uid="uid://cfv3k5meypxay"]
 
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_l5q6b"]
+resource_name = "reverb"
+hipass = 1.0
+
+[sub_resource type="AudioEffectPanner" id="AudioEffectPanner_ioh5l"]
+resource_name = "pan"
+
 [resource]
 bus/1/name = &"Music"
 bus/1/solo = false
@@ -19,3 +26,19 @@ bus/3/mute = false
 bus/3/bypass_fx = false
 bus/3/volume_db = 0.0
 bus/3/send = &"Master"
+bus/4/name = &"RaytracedReverb"
+bus/4/solo = false
+bus/4/mute = false
+bus/4/bypass_fx = false
+bus/4/volume_db = 0.0
+bus/4/send = &"Master"
+bus/4/effect/0/effect = SubResource("AudioEffectReverb_l5q6b")
+bus/4/effect/0/enabled = true
+bus/5/name = &"RaytracedAmbient"
+bus/5/solo = false
+bus/5/mute = false
+bus/5/bypass_fx = false
+bus/5/volume_db = 0.0
+bus/5/send = &"Master"
+bus/5/effect/0/effect = SubResource("AudioEffectPanner_ioh5l")
+bus/5/effect/0/enabled = true
