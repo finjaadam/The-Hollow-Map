@@ -4,7 +4,7 @@ extends Node3D
 @export var detector_radius: float = 0.6			# Radius of the footstep detection sphere
 @export var detector_offset: Vector3 = Vector3(0, -0.3, 0)	# Offset from player origin for ground detection
 
-var current_surface: SoundManager.SurfaceType = SoundManager.SurfaceType.STONE
+var current_surface: AreaSoundManager.SurfaceType = AreaSoundManager.SurfaceType.STONE
 var _footstep_cooldown: float = 0.0		# Timer for enforcing footstep_interval
 var _overlapping_regions: Array[Area3D] = []	# All footstep regions currently overlapping the detector
 var _audio: AudioStreamPlayer3D
@@ -44,7 +44,7 @@ func _on_footstep_area_exited(area: Area3D):
 		current_surface = _overlapping_regions[-1].surface_type
 		print("surface: ", area.name)
 	else:
-		current_surface = SoundManager.SurfaceType.STONE
+		current_surface = AreaSoundManager.SurfaceType.STONE
 		print("surface: STONE (default)")
 
 func tick(on_floor: bool, is_moving: bool, delta: float):
@@ -58,7 +58,7 @@ func tick(on_floor: bool, is_moving: bool, delta: float):
 
 func _play_footstep():
 	# Get a random footstep sound for the current surface and play it
-	var stream = SoundManager.get_footstep(current_surface)
+	var stream = AreaSoundManager.get_footstep(current_surface)
 	if stream:
 		_audio.stream = stream
 		_audio.play()
