@@ -1,7 +1,5 @@
 extends Control
 
-@onready var back_button = $CenterContainer/VBoxContainer/BackButton
-
 func _ready():
 	add_to_group("main_menu")
 
