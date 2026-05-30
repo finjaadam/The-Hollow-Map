@@ -14,9 +14,28 @@ var _ambient_sounds: Array[AudioStream] = []
 func _ready() -> void:
 	_setup_players()
 	_load_ambient_sounds()
-	_start_ambient_timer()
-	play_menu_music()
+	SceneLoader.scene_loading_finished.connect(_on_scene_loaded)
+	await get_tree().process_frame
+	_on_scene_loaded()
 
+
+func _on_scene_loaded(_path: String = "") -> void:
+	var scene := get_tree().current_scene
+	if not scene:
+		return
+	connect_button_sounds(scene)
+	if scene.is_in_group("main_menu"):
+		play_menu_music()
+	else:
+		stop_menu_music()
+
+func connect_button_sounds(root: Node) -> void:
+	for button in root.find_children("*", "Button", true, false):
+		if not button.pressed.is_connected(play_button_click):
+			button.pressed.connect(play_button_click)
+	for option in root.find_children("*", "OptionButton", true, false):
+		if not option.item_selected.is_connected(func(_i): play_button_click()):
+			option.item_selected.connect(func(_i): play_button_click())
 
 func _setup_players() -> void:
 	_music_player = AudioStreamPlayer.new()
@@ -52,10 +71,13 @@ func _load_ambient_sounds() -> void:
 func _start_ambient_timer() -> void:
 	if _ambient_sounds.is_empty():
 		return
-	_ambient_timer = Timer.new()
-	_ambient_timer.one_shot = true
-	_ambient_timer.timeout.connect(_on_ambient_timer_timeout)
-	add_child(_ambient_timer)
+	if _ambient_timer and not _ambient_timer.is_stopped():
+		return
+	if not _ambient_timer:
+		_ambient_timer = Timer.new()
+		_ambient_timer.one_shot = true
+		_ambient_timer.timeout.connect(_on_ambient_timer_timeout)
+		add_child(_ambient_timer)
 	_restart_ambient_timer()
 
 
@@ -82,13 +104,15 @@ func play_menu_music() -> void:
 	var stream = load(MENU_MUSIC_PATH)
 	if stream:
 		_music_player.stream = stream
-		_music_player.volume_db = 4.5
+		_music_player.volume_db = 10.0
 		_music_player.finished.connect(_music_player.play)
 		_music_player.play()
+	_start_ambient_timer()
 
 
 func stop_menu_music() -> void:
 	_music_player.stop()
+	_ambient_player.stop()
 	if _ambient_timer:
 		_ambient_timer.stop()
 

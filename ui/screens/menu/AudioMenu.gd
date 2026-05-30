@@ -13,9 +13,9 @@ extends Control
 @onready var chat_label = $CenterContainer/VBoxContainer/AudioContent/HBoxContainer4/Label4
 
 func _ready():
+	add_to_group("main_menu")
 	_load_audio_settings()
 	_setup_navigation()
-	_setup_button_sounds()
 	master_slider.grab_focus()
 
 func _setup_navigation():
@@ -33,10 +33,6 @@ func _load_audio_settings():
 	music_slider.value = Settings.get_setting("music_volume") * 100
 	sfx_slider.value = Settings.get_setting("sfx_volume") * 100
 	chat_slider.value = Settings.get_setting("chat_volume") * 100
-
-func _setup_button_sounds():
-	for button in [reset_button, back_button]:
-		button.pressed.connect(MenuSoundManager.play_button_click)
 
 func _on_back_button_pressed() -> void:
 	Settings.apply_audio_settings()

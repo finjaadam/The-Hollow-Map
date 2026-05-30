@@ -2,7 +2,6 @@ extends Node
 @onready var host_button = $CenterContainer/VBoxContainer/host_button
 @onready var join_button = $CenterContainer/VBoxContainer/join_button
 @onready var id_prompt = $CenterContainer/VBoxContainer/id_prompt
-@onready var list_server_button = $CenterContainer/VBoxContainer/list_server_button
 @onready var back_button = $CenterContainer/VBoxContainer/BackButton
 
 const next_scene_path = "res://network/testEnvironment/world.tscn"
@@ -10,9 +9,9 @@ var next_scene: PackedScene = preload(next_scene_path)
 var instance
 
 func _ready():
+	add_to_group("main_menu")
 	instance = next_scene.instantiate()
 	_setup_navigation()
-	_setup_button_sounds()
 	if host_button: host_button.grab_focus()
 
 func _setup_navigation():
@@ -36,11 +35,6 @@ func host_and_go_to_next_scene():
 func join_and_go_to_next_scene(lobby_id: int):
 	SceneLoader.goto_preloaded_scene(instance, next_scene_path)
 	instance.join_lobby(lobby_id)
-
-func _setup_button_sounds():
-	for button in [host_button, join_button, list_server_button, back_button]:
-		if button:
-			button.pressed.connect(MenuSoundManager.play_button_click)
 
 func _on_host_button_pressed():
 	host_and_go_to_next_scene()
