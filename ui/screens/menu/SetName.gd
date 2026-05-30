@@ -6,6 +6,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	_setup_button_sounds()
 	text_field.text = SaveData.get_data("player_name", "")
 	if text_field.text != "":
 		back_button.visible = true
@@ -36,6 +37,9 @@ func _on_name_field_text_changed(new_text: String) -> void:
 
 func _on_name_field_text_change_rejected(rejected_substring: String) -> void:
 	warning.visible = true
+
+func _setup_button_sounds():
+	back_button.pressed.connect(MenuSoundManager.play_button_click)
 
 func _on_back_button_pressed() -> void:
 	SceneLoader.goto_scene("res://ui/screens/menu/OptionsMenu.tscn", false)

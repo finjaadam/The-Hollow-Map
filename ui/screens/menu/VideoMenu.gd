@@ -12,6 +12,7 @@ func _ready():
 	loading_check.button_pressed = Settings.get_setting("show_loading_screen")
 		
 	_setup_navigation()
+	_setup_button_sounds()
 	fullscreen_check.grab_focus()
 
 func _setup_navigation():
@@ -34,6 +35,11 @@ func _on_vsync_check_toggled(on: bool) -> void:
 func _on_loading_check_toggled(on: bool) -> void:
 	Settings.set_setting("show_loading_screen", on)
 	Settings.apply_settings()
+
+func _setup_button_sounds():
+	for control in [fullscreen_check, vsync_check, loading_check, back_button]:
+		control.pressed.connect(MenuSoundManager.play_button_click)
+	resolution_dropdown.item_selected.connect(func(_i): MenuSoundManager.play_button_click())
 
 func _on_back_button_pressed() -> void:
 	SceneLoader.goto_scene("res://ui/screens/menu/OptionsMenu.tscn", false)

@@ -1,5 +1,13 @@
 extends Control
 
+@onready var back_button = $CenterContainer/VBoxContainer/BackButton
+
+func _ready():
+	_setup_button_sounds()
+
+func _setup_button_sounds():
+	back_button.pressed.connect(MenuSoundManager.play_button_click)
+
 func add_lobby(button: Button, lobby: int):
 	button.connect("pressed", Callable(self, "join_lobby").bind(lobby))
 	$CenterContainer/VBoxContainer/ScrollContainer/VBoxContainer.add_child(button)

@@ -6,7 +6,12 @@ extends Control
 
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
+	_setup_button_sounds()
 	resume_button.grab_focus()
+
+func _setup_button_sounds():
+	for button in [resume_button, main_menu_button]:
+		button.pressed.connect(MenuSoundManager.play_button_click)
 
 func _on_resume_button_pressed() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED

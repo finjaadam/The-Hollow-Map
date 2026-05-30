@@ -29,6 +29,7 @@ SceneLoader="*uid://bljise81d4hka"
 Settings="*uid://dm2ypjtuaq36q"
 AreaSoundManager="*res://autoload/AreaSoundManager.gd"
 SteamCheck="*uid://bx41bdyvrt3du"
+MenuSoundManager="*res://autoload/MenuSoundManager.gd"
 
 [editor_plugins]
 

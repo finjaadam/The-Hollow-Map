@@ -9,6 +9,7 @@ extends Control
 
 func _ready():
 	_setup_navigation()
+	_setup_button_sounds()
 	audio_button.grab_focus()
 
 func _setup_navigation():
@@ -19,6 +20,10 @@ func _setup_navigation():
 			var next_idx = (i + 1) % controls.size()
 			controls[i].focus_neighbor_top = controls[prev_idx].get_path()
 			controls[i].focus_neighbor_bottom = controls[next_idx].get_path()
+
+func _setup_button_sounds():
+	for button in [audio_button, video_button, name_button, back_button]:
+		button.pressed.connect(MenuSoundManager.play_button_click)
 
 func _on_audio_button_pressed() -> void:
 	SceneLoader.goto_scene("res://ui/screens/menu/AudioMenu.tscn", false)
