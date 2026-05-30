@@ -14,7 +14,9 @@ var _ambient_sounds: Array[AudioStream] = []
 func _ready() -> void:
 	_setup_players()
 	_load_ambient_sounds()
+	# React to scene changes via SceneLoader
 	SceneLoader.scene_loading_finished.connect(_on_scene_loaded)
+	# Wait one frame so the first scene is fully initialized
 	await get_tree().process_frame
 	_on_scene_loaded()
 
@@ -29,6 +31,7 @@ func _on_scene_loaded(_path: String = "") -> void:
 	else:
 		stop_menu_music()
 
+# Recursively connect all buttons and dropdowns in the given node tree to the click sound
 func connect_button_sounds(root: Node) -> void:
 	for button in root.find_children("*", "Button", true, false):
 		if not button.pressed.is_connected(play_button_click):
@@ -71,6 +74,7 @@ func _load_ambient_sounds() -> void:
 func _start_ambient_timer() -> void:
 	if _ambient_sounds.is_empty():
 		return
+	# Don't restart if already running
 	if _ambient_timer and not _ambient_timer.is_stopped():
 		return
 	if not _ambient_timer:
@@ -91,10 +95,12 @@ func _on_ambient_timer_timeout() -> void:
 		return
 
 	_ambient_player.volume_db = -4.5
+	# Pick a random ambient sound from the list
 	var stream = _ambient_sounds[randi() % _ambient_sounds.size()]
 	_ambient_player.stream = stream
 	_ambient_player.play()
 
+	# Schedule next ambient sound after current one finishes
 	_ambient_player.finished.connect(_restart_ambient_timer, CONNECT_ONE_SHOT)
 
 
@@ -105,7 +111,7 @@ func play_menu_music() -> void:
 	if stream:
 		_music_player.stream = stream
 		_music_player.volume_db = 10.0
-		_music_player.finished.connect(_music_player.play)
+		_music_player.finished.connect(_music_player.play)  # loop on finish
 		_music_player.play()
 	_start_ambient_timer()
 
