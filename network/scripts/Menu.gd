@@ -9,6 +9,7 @@ var next_scene: PackedScene = preload(next_scene_path)
 var instance
 
 func _ready():
+	add_to_group("main_menu")
 	instance = next_scene.instantiate()
 	_setup_navigation()
 	if host_button: host_button.grab_focus()

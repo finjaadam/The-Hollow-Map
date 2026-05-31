@@ -13,7 +13,7 @@ func _load_footstep_sounds() -> void:
 	# Scans AUDIO_DIR subfolders and loads all .mp3 files per surface
 	var dir = DirAccess.open(AUDIO_DIR)
 	if not dir:
-		print("SoundManager: Directory not found: ", AUDIO_DIR)
+		print("AreaSoundManager: Directory not found: ", AUDIO_DIR)
 		return
 
 	for surface_dir in dir.get_directories():

@@ -6,6 +6,7 @@ extends Control
 @onready var exit_button = $CenterContainer/VBoxContainer/MenuButtons/ExitButton
 
 func _ready():
+	add_to_group("main_menu")
 	_setup_navigation()
 	play_button.grab_focus()
 

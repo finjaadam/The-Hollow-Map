@@ -7,6 +7,7 @@ extends Control
 @onready var back_button = $CenterContainer/VBoxContainer/BackButton
 
 func _ready():
+	add_to_group("main_menu")
 	fullscreen_check.button_pressed = Settings.get_setting("fullscreen")
 	vsync_check.button_pressed = Settings.get_setting("vsync")
 	loading_check.button_pressed = Settings.get_setting("show_loading_screen")

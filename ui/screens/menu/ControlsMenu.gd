@@ -3,6 +3,7 @@ extends Control
 @onready var title = $CenterContainer/VBoxContainer/Title
 
 func _ready():
+	add_to_group("main_menu")
 	back_button.grab_focus()
 	
 func _on_back_button_pressed() -> void:

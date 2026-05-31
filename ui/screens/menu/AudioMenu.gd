@@ -13,6 +13,7 @@ extends Control
 @onready var chat_label = $CenterContainer/VBoxContainer/AudioContent/HBoxContainer4/Label4
 
 func _ready():
+	add_to_group("main_menu")
 	_load_audio_settings()
 	_setup_navigation()
 	master_slider.grab_focus()

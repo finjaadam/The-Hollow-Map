@@ -4,7 +4,8 @@ extends Control
 @onready var title = $CenterContainer/VBoxContainer/Title
 @onready var context = $CenterContainer/VBoxContainer/Context
 
-func _ready():	
+func _ready():
+	add_to_group("main_menu")
 	back_button.grab_focus()
 	
 func _on_back_button_pressed() -> void:

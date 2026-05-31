@@ -8,6 +8,7 @@ extends Control
 @onready var title_label = $CenterContainer/VBoxContainer/Title
 
 func _ready():
+	add_to_group("main_menu")
 	_setup_navigation()
 	audio_button.grab_focus()
 

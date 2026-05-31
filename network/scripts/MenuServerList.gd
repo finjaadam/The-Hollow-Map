@@ -1,5 +1,8 @@
 extends Control
 
+func _ready():
+	add_to_group("main_menu")
+
 func add_lobby(button: Button, lobby: int):
 	button.connect("pressed", Callable(self, "join_lobby").bind(lobby))
 	$CenterContainer/VBoxContainer/ScrollContainer/VBoxContainer.add_child(button)

@@ -6,6 +6,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	add_to_group("main_menu")
 	text_field.text = SaveData.get_data("player_name", "")
 	if text_field.text != "":
 		back_button.visible = true
