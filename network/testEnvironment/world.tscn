@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://okj6fphk5uo1" path="res://network/scripts/Networking.gd" id="1_f3sb7"]
 [ext_resource type="PackedScene" uid="uid://cu5gtk0ybh744" path="res://network/testEnvironment/player.tscn" id="2_fj7yv"]
 [ext_resource type="PackedScene" uid="uid://jkgmdgtn5ei" path="res://network/testEnvironment/wall.tscn" id="3_8rd3g"]
+[ext_resource type="PackedScene" uid="uid://c8liybxhqrhwr" path="res://network/testEnvironment/map.tscn" id="4_uw1st"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8i81k"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -25,9 +26,10 @@ size = Vector3(60, 2, 60)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8i81k"]
 albedo_color = Color(0.39837635, 0.39837638, 0.39837635, 1)
 
-[node name="World" type="Node3D" unique_id=740440789]
+[node name="World" type="Node3D" unique_id=740440789 node_paths=PackedStringArray("spawn_points")]
 script = ExtResource("1_f3sb7")
 player_scene = ExtResource("2_fj7yv")
+spawn_points = NodePath("PlayerSpawnPoints")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=233421186]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
@@ -91,3 +93,11 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.87
 
 [node name="Wall13" parent="Walls" unique_id=1069381522 instance=ExtResource("3_8rd3g")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -2.8092408, 6.125003, 4.081649)
+
+[node name="Map" parent="." unique_id=1910157186 instance=ExtResource("4_uw1st")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 133.7649)
+
+[node name="PlayerSpawnPoints" type="Node3D" parent="." unique_id=1344328116]
+
+[node name="1" type="Marker3D" parent="PlayerSpawnPoints" unique_id=356586588]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8830624, 0.6357062, 125.86978)
