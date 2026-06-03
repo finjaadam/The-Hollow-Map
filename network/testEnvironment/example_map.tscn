@@ -2,13 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://b2yxpytggb8ro" path="res://map/modular-cave-final.glb" id="1_wb7j6"]
 [ext_resource type="Script" uid="uid://c15wkn1ddol15" path="res://network/scripts/areaSounds/MapArea.gd" id="2_ieofv"]
-[ext_resource type="PackedScene" uid="uid://bf3xify2itc16" path="res://assets/campfire.tscn" id="3_4qid3"]
-[ext_resource type="PackedScene" uid="uid://n3m738uhkyrk" path="res://assets/jukebox.tscn" id="4_07olq"]
 [ext_resource type="PackedScene" uid="uid://defweiiwbw4mq" path="res://assets/stick01.tscn" id="5_pe7kj"]
 [ext_resource type="PackedScene" uid="uid://btee5hd22blia" path="res://assets/stick02.tscn" id="6_cns11"]
 [ext_resource type="PackedScene" uid="uid://dlwaiouyjgvki" path="res://assets/stick03.tscn" id="7_dsb58"]
 [ext_resource type="PackedScene" uid="uid://c6pb4jl5gv7js" path="res://assets/stick04.tscn" id="8_noxxg"]
 [ext_resource type="PackedScene" uid="uid://bglyqt7xe8ubo" path="res://assets/stick05.tscn" id="9_p25gm"]
+[ext_resource type="PackedScene" uid="uid://nd8n5cvv6shg" path="res://assets/camp_fire/campfire.tscn" id="9_pe7kj"]
+[ext_resource type="PackedScene" uid="uid://dg50fnoof8bji" path="res://assets/jukebox/jukebox.tscn" id="10_cns11"]
 [ext_resource type="PackedScene" uid="uid://c3gtgeyoud3ad" path="res://assets/stick06.tscn" id="10_lw7er"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_water"]
@@ -48,7 +48,7 @@ size = Vector3(13.46, 20, 23.55)
 [node name="Node3D" type="Node3D" unique_id=1910157186]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=783082715]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.73774, 2.5573218, 105.56998)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.131516, 1.7504847, 78.802025)
 shadow_enabled = true
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1911869399]
@@ -120,12 +120,6 @@ surface_type = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="modular-cave-final/RegionWater/Puddle6" unique_id=2127311089]
 shape = SubResource("CylinderShape3D_ieofv")
 debug_color = Color(0, 0.6, 0.69803923, 1)
-
-[node name="campfire" parent="modular-cave-final/RegionWater" unique_id=791640529 instance=ExtResource("3_4qid3")]
-transform = Transform3D(0.235, 0, 0, 0, 0.235, 0, 0, 0, 0.235, 17.297096, -0.7613709, 38.046135)
-
-[node name="jukebox" parent="modular-cave-final/RegionWater" unique_id=298373438 instance=ExtResource("4_07olq")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 27.683815, -0.13671182, 0.95012665)
 
 [node name="RegionWater2" type="Area3D" parent="modular-cave-final" unique_id=1310415117]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.652, 0, 90.292)
@@ -1125,29 +1119,17 @@ debug_color = Color(0.41568628, 0.2, 0.043137256, 0.75686276)
 [node name="Stick-Group-01" type="Node3D" parent="modular-cave-final/RegionWood5" unique_id=580407188]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03171277, 0)
 
-[node name="Node3D" parent="modular-cave-final/RegionWood5/Stick-Group-01" unique_id=2111460660 instance=ExtResource("5_pe7kj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7789764, -0.04169169, 1.2072678)
-
 [node name="Node3D2" parent="modular-cave-final/RegionWood5/Stick-Group-01" unique_id=1797411493 instance=ExtResource("6_cns11")]
 transform = Transform3D(-0.41151434, 0, -0.9114033, 0, 1, 0, 0.9114033, 0, -0.41151434, -1.107254, -0.057620637, 0.2945404)
 
 [node name="Node3D3" parent="modular-cave-final/RegionWood5/Stick-Group-01" unique_id=90033380 instance=ExtResource("7_dsb58")]
 transform = Transform3D(-0.7325429, 0, -0.6807209, 0, 1, 0, 0.6807209, 0, -0.7325429, 0.18609238, -0.09331983, 0.688179)
 
-[node name="Node3D4" parent="modular-cave-final/RegionWood5/Stick-Group-01" unique_id=1917049984 instance=ExtResource("8_noxxg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1429996, -0.093411766, 0.7331009)
-
 [node name="Node3D5" parent="modular-cave-final/RegionWood5/Stick-Group-01" unique_id=477649842 instance=ExtResource("9_p25gm")]
 transform = Transform3D(0.98027116, 0, 0.19765733, 0, 1, 0, -0.19765733, 0, 0.98027116, 0.47372818, -0.116767116, 0.18139648)
 
 [node name="Node3D6" parent="modular-cave-final/RegionWood5/Stick-Group-01" unique_id=875215620 instance=ExtResource("10_lw7er")]
 transform = Transform3D(-0.41151434, 0, -0.9114033, 0, 1, 0, 0.9114033, 0, -0.41151434, 1.3497314, -0.08621784, 1.1426697)
-
-[node name="Node3D7" parent="modular-cave-final/RegionWood5/Stick-Group-01" unique_id=71161016 instance=ExtResource("10_lw7er")]
-transform = Transform3D(0.9211854, 0, 0.38912395, 0, 1, 0, -0.38912395, 0, 0.9211854, -2.2592087, -0.11311924, 1.6693726)
-
-[node name="Node3D8" parent="modular-cave-final/RegionWood5/Stick-Group-01" unique_id=271568038 instance=ExtResource("9_p25gm")]
-transform = Transform3D(-0.7325429, 0, -0.6807209, 0, 1, 0, 0.6807209, 0, -0.7325429, -1.0491982, -0.16649804, 1.714386)
 
 [node name="Node3D9" parent="modular-cave-final/RegionWood5/Stick-Group-01" unique_id=1879286552 instance=ExtResource("8_noxxg")]
 transform = Transform3D(0.98027116, 0, 0.19765733, 0, 1, 0, -0.19765733, 0, 0.98027116, -0.34420013, -0.1283831, 1.3901749)
@@ -1157,9 +1139,6 @@ transform = Transform3D(-0.41151434, 0, -0.9114033, 0, 1, 0, 0.9114033, 0, -0.41
 
 [node name="Node3D11" parent="modular-cave-final/RegionWood5/Stick-Group-01" unique_id=1354928563 instance=ExtResource("6_cns11")]
 transform = Transform3D(-0.7325429, 0, -0.6807209, 0, 1, 0, 0.6807209, 0, -0.7325429, 1.3630714, -0.075855784, 1.4961014)
-
-[node name="Node3D12" parent="modular-cave-final/RegionWood5/Stick-Group-01" unique_id=399812196 instance=ExtResource("5_pe7kj")]
-transform = Transform3D(-0.8535508, 0, -0.5210096, 0, 1, 0, 0.5210096, 0, -0.8535508, -0.8061905, -0.09398851, 2.1925125)
 
 [node name="Node3D13" parent="modular-cave-final/RegionWood5/Stick-Group-01" unique_id=2034655149 instance=ExtResource("5_pe7kj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6570015, -0.028533995, -1.3396683)
@@ -1254,6 +1233,9 @@ surface_type = 4
 shape = SubResource("BoxShape3D_g0rns")
 debug_color = Color(0.5921569, 0.5372549, 0.27450982, 0.88235295)
 
+[node name="campfire" parent="modular-cave-final/RegionSand2" unique_id=276771360 instance=ExtResource("9_pe7kj")]
+transform = Transform3D(0.28, 0, 0, 0, 0.28, 0, 0, 0, 0.28, -0.115608215, -0.8370087, 0.3844223)
+
 [node name="RegionSand3" type="Area3D" parent="modular-cave-final" unique_id=139102457]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.045105, 0, 72.51401)
 script = ExtResource("2_ieofv")
@@ -1262,3 +1244,6 @@ surface_type = 4
 [node name="CollisionShape3D" type="CollisionShape3D" parent="modular-cave-final/RegionSand3" unique_id=321221543]
 shape = SubResource("BoxShape3D_g0rns")
 debug_color = Color(0.5921569, 0.5372549, 0.27450982, 0.88235295)
+
+[node name="jukebox" parent="modular-cave-final" unique_id=578076892 instance=ExtResource("10_cns11")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 78.521996, -0.22682153, 79.27753)

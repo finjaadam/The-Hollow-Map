@@ -1,0 +1,11 @@
+Model Information:
+* title:	jukebox
+* source:	https://sketchfab.com/3d-models/jukebox-8397d23c1b1c40ea867ca1a44667be37
+* author:	compost the second (https://sketchfab.com/compostthesecond)
+
+Model License:
+* license type:	CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)
+* requirements:	Author must be credited. No commercial use.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "jukebox" (https://sketchfab.com/3d-models/jukebox-8397d23c1b1c40ea867ca1a44667be37) by compost the second (https://sketchfab.com/compostthesecond) licensed under CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)

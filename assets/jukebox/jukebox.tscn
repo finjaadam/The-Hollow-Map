@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://dg50fnoof8bji"]
+
+[ext_resource type="PackedScene" uid="uid://tlgjwgx7j55g" path="res://assets/jukebox/scene.gltf" id="1_g1ppn"]
+
+[node name="Sketchfab_Scene" unique_id=578076892 instance=ExtResource("1_g1ppn")]
