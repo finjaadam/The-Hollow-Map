@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://ccktkc6tcnd68"]
+
+[ext_resource type="PackedScene" uid="uid://co7mj2mdwaydu" path="res://assets/sticks-set.gltf" id="1_12cql"]
+
+[node name="Sketchfab_Scene" unique_id=1332090270 instance=ExtResource("1_12cql")]
+
+[node name="Sketchfab_model" parent="." index="0" unique_id=1243712601]
+transform = Transform3D(-0.008879498, 0, 0, 0, -1.9716445e-18, 0.008879498, 0, 0.008879498, 1.9716445e-18, 0, 0, 0)
