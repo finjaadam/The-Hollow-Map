@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AudioLibrary" format=3 uid="uid://dnmai0jaqutow"]
+
+[ext_resource type="AudioStream" uid="uid://creuqm3sysge6" path="res://audio/music/menu/ambient/cave_taps.mp3" id="1_4crpu"]
+[ext_resource type="AudioStream" uid="uid://bexcjvotw12l6" path="res://audio/music/menu/ambient/cave_wind.mp3" id="2_ngpu6"]
+[ext_resource type="AudioStream" uid="uid://w3hxod0n8x63" path="res://audio/music/menu/ambient/heartbeat.mp3" id="3_rv3m6"]
+[ext_resource type="Script" uid="uid://d03op35bom06" path="res://audio/AudioLibrary.gd" id="4_4crpu"]
+
+[resource]
+script = ExtResource("4_4crpu")
+menu_ambient = Array[AudioStream]([ExtResource("1_4crpu"), ExtResource("2_ngpu6"), ExtResource("3_rv3m6")])
