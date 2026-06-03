@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://bf3xify2itc16"]
+
+[ext_resource type="PackedScene" uid="uid://dkaqv6j08n3r6" path="res://assets/campfire.gltf" id="1_w1drj"]
+
+[node name="Sketchfab_Scene" unique_id=791640529 instance=ExtResource("1_w1drj")]

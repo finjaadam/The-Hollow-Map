@@ -1,0 +1,247 @@
+{
+  "accessors": [
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 3174,
+      "max": [
+        3.3988099098205566,
+        1.310829997062683,
+        1.4837900400161743
+      ],
+      "min": [
+        -1.285230040550232,
+        -1.3207800388336182,
+        -0.30052998661994934
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 38088,
+      "componentType": 5126,
+      "count": 3174,
+      "max": [
+        1.0,
+        1.0,
+        0.9804285764694214
+      ],
+      "min": [
+        -1.0,
+        -1.0,
+        -1.0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 3174,
+      "max": [
+        0.904420018196106,
+        0.6614000201225281
+      ],
+      "min": [
+        0.07096000015735626,
+        0.021889999508857727
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 25392,
+      "componentType": 5126,
+      "count": 3174,
+      "max": [
+        0.8598799705505371,
+        0.9780899882316589
+      ],
+      "min": [
+        0.0,
+        0.0
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 50784,
+      "componentType": 5126,
+      "count": 3174,
+      "max": [
+        0.8598799705505371,
+        0.9780899882316589
+      ],
+      "min": [
+        0.1029599979519844,
+        0.026990000158548355
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 9966,
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "compost the second (https://sketchfab.com/compostthesecond)",
+      "license": "CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)",
+      "source": "https://sketchfab.com/3d-models/jukebox-8397d23c1b1c40ea867ca1a44667be37",
+      "title": "jukebox"
+    },
+    "generator": "Sketchfab-12.68.0",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 39864,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 76176,
+      "byteOffset": 39864,
+      "byteStride": 8,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 76176,
+      "byteOffset": 116040,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 192216,
+      "uri": "scene.bin"
+    }
+  ],
+  "images": [
+    {
+      "uri": "textures/jukeboxwrap_baseColor.jpeg"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "name": "jukeboxwrap",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.0
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "jukebox_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0,
+            "TEXCOORD_0": 2,
+            "TEXCOORD_1": 3,
+            "TEXCOORD_2": 4
+          },
+          "indices": 5,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "matrix": [
+        0.14835532009601593,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        3.2941498439246415e-17,
+        -0.14835532009601593,
+        0.0,
+        0.0,
+        0.14835532009601593,
+        3.2941498439246415e-17,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "Sketchfab_model"
+    },
+    {
+      "children": [
+        2
+      ],
+      "name": "Root"
+    },
+    {
+      "children": [
+        3
+      ],
+      "matrix": [
+        0.0,
+        0.0,
+        -2.90278,
+        0.0,
+        -2.90278,
+        -0.0,
+        -0.0,
+        0.0,
+        -0.0,
+        2.90278,
+        0.0,
+        0.0,
+        -0.18709000000000003,
+        -3.68082,
+        9.68813,
+        1.0
+      ],
+      "name": "jukebox"
+    },
+    {
+      "mesh": 0,
+      "name": "jukebox_0"
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Sketchfab_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    }
+  ]
+}

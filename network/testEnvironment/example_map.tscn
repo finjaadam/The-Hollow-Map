@@ -2,6 +2,14 @@
 
 [ext_resource type="PackedScene" uid="uid://b2yxpytggb8ro" path="res://map/modular-cave-final.glb" id="1_wb7j6"]
 [ext_resource type="Script" uid="uid://c15wkn1ddol15" path="res://network/scripts/areaSounds/MapArea.gd" id="2_ieofv"]
+[ext_resource type="PackedScene" uid="uid://bf3xify2itc16" path="res://assets/campfire.tscn" id="3_4qid3"]
+[ext_resource type="PackedScene" uid="uid://n3m738uhkyrk" path="res://assets/jukebox.tscn" id="4_07olq"]
+[ext_resource type="PackedScene" uid="uid://defweiiwbw4mq" path="res://assets/stick01.tscn" id="5_pe7kj"]
+[ext_resource type="PackedScene" uid="uid://btee5hd22blia" path="res://assets/stick02.tscn" id="6_cns11"]
+[ext_resource type="PackedScene" uid="uid://dlwaiouyjgvki" path="res://assets/stick03.tscn" id="7_dsb58"]
+[ext_resource type="PackedScene" uid="uid://c6pb4jl5gv7js" path="res://assets/stick04.tscn" id="8_noxxg"]
+[ext_resource type="PackedScene" uid="uid://bglyqt7xe8ubo" path="res://assets/stick05.tscn" id="9_p25gm"]
+[ext_resource type="PackedScene" uid="uid://c3gtgeyoud3ad" path="res://assets/stick06.tscn" id="10_lw7er"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_water"]
 size = Vector3(29.735, 20.005, 13.305)
@@ -40,16 +48,15 @@ size = Vector3(13.46, 20, 23.55)
 [node name="Node3D" type="Node3D" unique_id=1910157186]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=783082715]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 207.27, 216.174, 150.228)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.73774, 2.5573218, 105.56998)
 shadow_enabled = true
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1911869399]
-transform = Transform3D(0.7195459, 0, -0.69444495, 0, 1, 0, 0.69444495, 0, 0.7195459, 207.305, 215.74, 148.975)
+transform = Transform3D(0.7195459, 0, -0.69444495, 0, 1, 0, 0.69444495, 0, 0.7195459, 69.77273, 2.1233313, 104.316986)
 shadow_enabled = true
 shadow_normal_bias = 0.0
 
 [node name="modular-cave-final" parent="." unique_id=1501415670 instance=ExtResource("1_wb7j6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 185.313, 213.492, 92.155)
 
 [node name="RegionWater" type="Area3D" parent="modular-cave-final" unique_id=841867832]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.71, 0, 77.972)
@@ -113,6 +120,12 @@ surface_type = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="modular-cave-final/RegionWater/Puddle6" unique_id=2127311089]
 shape = SubResource("CylinderShape3D_ieofv")
 debug_color = Color(0, 0.6, 0.69803923, 1)
+
+[node name="campfire" parent="modular-cave-final/RegionWater" unique_id=791640529 instance=ExtResource("3_4qid3")]
+transform = Transform3D(0.235, 0, 0, 0, 0.235, 0, 0, 0, 0.235, 17.297096, -0.7613709, 38.046135)
+
+[node name="jukebox" parent="modular-cave-final/RegionWater" unique_id=298373438 instance=ExtResource("4_07olq")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 27.683815, -0.13671182, 0.95012665)
 
 [node name="RegionWater2" type="Area3D" parent="modular-cave-final" unique_id=1310415117]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.652, 0, 90.292)
@@ -248,6 +261,339 @@ surface_type = 3
 shape = SubResource("BoxShape3D_wood")
 debug_color = Color(0.41568628, 0.2, 0.043137256, 0.75686276)
 
+[node name="Stick-Group-01" type="Node3D" parent="modular-cave-final/RegionWood" unique_id=1788970984]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.60349274, 0, -11.791779)
+
+[node name="Node3D" parent="modular-cave-final/RegionWood/Stick-Group-01" unique_id=287799818 instance=ExtResource("5_pe7kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7789764, -0.04169169, 1.2072678)
+
+[node name="Node3D2" parent="modular-cave-final/RegionWood/Stick-Group-01" unique_id=685750934 instance=ExtResource("6_cns11")]
+transform = Transform3D(-0.41151434, 0, -0.9114033, 0, 1, 0, 0.9114033, 0, -0.41151434, -1.107254, -0.057620637, 0.2945404)
+
+[node name="Node3D3" parent="modular-cave-final/RegionWood/Stick-Group-01" unique_id=1990993297 instance=ExtResource("7_dsb58")]
+transform = Transform3D(-0.7325429, 0, -0.6807209, 0, 1, 0, 0.6807209, 0, -0.7325429, 0.18609238, -0.09331983, 0.688179)
+
+[node name="Node3D4" parent="modular-cave-final/RegionWood/Stick-Group-01" unique_id=605569455 instance=ExtResource("8_noxxg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1429996, -0.093411766, 0.7331009)
+
+[node name="Node3D5" parent="modular-cave-final/RegionWood/Stick-Group-01" unique_id=1181414846 instance=ExtResource("9_p25gm")]
+transform = Transform3D(0.98027116, 0, 0.19765733, 0, 1, 0, -0.19765733, 0, 0.98027116, 0.47372818, -0.116767116, 0.18139648)
+
+[node name="Node3D6" parent="modular-cave-final/RegionWood/Stick-Group-01" unique_id=1076731816 instance=ExtResource("10_lw7er")]
+transform = Transform3D(-0.41151434, 0, -0.9114033, 0, 1, 0, 0.9114033, 0, -0.41151434, 1.3497314, -0.08621784, 1.1426697)
+
+[node name="Node3D7" parent="modular-cave-final/RegionWood/Stick-Group-01" unique_id=2079069830 instance=ExtResource("10_lw7er")]
+transform = Transform3D(0.9211854, 0, 0.38912395, 0, 1, 0, -0.38912395, 0, 0.9211854, -2.2592087, -0.11311924, 1.6693726)
+
+[node name="Node3D8" parent="modular-cave-final/RegionWood/Stick-Group-01" unique_id=172338873 instance=ExtResource("9_p25gm")]
+transform = Transform3D(-0.7325429, 0, -0.6807209, 0, 1, 0, 0.6807209, 0, -0.7325429, -1.0491982, -0.16649804, 1.714386)
+
+[node name="Node3D9" parent="modular-cave-final/RegionWood/Stick-Group-01" unique_id=1372458356 instance=ExtResource("8_noxxg")]
+transform = Transform3D(0.98027116, 0, 0.19765733, 0, 1, 0, -0.19765733, 0, 0.98027116, -0.34420013, -0.1283831, 1.3901749)
+
+[node name="Node3D10" parent="modular-cave-final/RegionWood/Stick-Group-01" unique_id=1585362152 instance=ExtResource("7_dsb58")]
+transform = Transform3D(-0.41151434, 0, -0.9114033, 0, 1, 0, 0.9114033, 0, -0.41151434, 0.255579, -0.14842403, 1.8558044)
+
+[node name="Node3D11" parent="modular-cave-final/RegionWood/Stick-Group-01" unique_id=1726496339 instance=ExtResource("6_cns11")]
+transform = Transform3D(-0.7325429, 0, -0.6807209, 0, 1, 0, 0.6807209, 0, -0.7325429, 1.3630714, -0.075855784, 1.4961014)
+
+[node name="Node3D12" parent="modular-cave-final/RegionWood/Stick-Group-01" unique_id=969526849 instance=ExtResource("5_pe7kj")]
+transform = Transform3D(-0.8535508, 0, -0.5210096, 0, 1, 0, 0.5210096, 0, -0.8535508, -0.8061905, -0.09398851, 2.1925125)
+
+[node name="Node3D13" parent="modular-cave-final/RegionWood/Stick-Group-01" unique_id=1081907717 instance=ExtResource("5_pe7kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6570015, -0.028533995, -1.3396683)
+
+[node name="Node3D14" parent="modular-cave-final/RegionWood/Stick-Group-01" unique_id=1902722387 instance=ExtResource("6_cns11")]
+transform = Transform3D(-0.7325429, 0, -0.6807209, 0, 1, 0, 0.6807209, 0, -0.7325429, -0.37010574, -0.10734779, -0.9852905)
+
+[node name="Node3D15" parent="modular-cave-final/RegionWood/Stick-Group-01" unique_id=1182243061 instance=ExtResource("7_dsb58")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.62675476, -0.004295543, -0.3989563)
+
+[node name="Node3D16" parent="modular-cave-final/RegionWood/Stick-Group-01" unique_id=1235063795 instance=ExtResource("8_noxxg")]
+transform = Transform3D(0.98027116, 0, 0.19765733, 0, 1, 0, -0.19765733, 0, 0.98027116, -0.48978233, -0.09703949, -0.4108734)
+
+[node name="Node3D17" parent="modular-cave-final/RegionWood/Stick-Group-01" unique_id=385164811 instance=ExtResource("9_p25gm")]
+transform = Transform3D(0.9211854, 0, 0.38912395, 0, 1, 0, -0.38912395, 0, 0.9211854, 0.6091347, -0.02322404, -0.68413544)
+
+[node name="Node3D18" parent="modular-cave-final/RegionWood/Stick-Group-01" unique_id=1993151654 instance=ExtResource("10_lw7er")]
+transform = Transform3D(-0.8535508, 0, -0.5210096, 0, 1, 0, 0.5210096, 0, -0.8535508, -0.3458767, -0.03594385, -1.5136185)
+
+[node name="Stick-Group-02" type="Node3D" parent="modular-cave-final/RegionWood" unique_id=1186246171]
+transform = Transform3D(0.53245825, 0.10736241, -0.8396199, -0.19765733, 0.98027116, 0, 0.82305515, 0.16595702, 0.54317445, -0.8270397, -0.5024452, -8.030693)
+
+[node name="Node3D" parent="modular-cave-final/RegionWood/Stick-Group-02" unique_id=844616797 instance=ExtResource("5_pe7kj")]
+transform = Transform3D(0.999928, 0.011500597, -0.0034048855, -0.011439726, 0.99978316, 0.017400473, 0.003604263, -0.017360285, 0.9998429, -1.7506027, -0.18241692, 1.207264)
+
+[node name="Node3D2" parent="modular-cave-final/RegionWood/Stick-Group-02" unique_id=1139368106 instance=ExtResource("6_cns11")]
+transform = Transform3D(-0.41151434, 0, -0.9114033, 0, 1, 0, 0.9114033, 0, -0.41151434, -1.107254, -0.057620637, 0.2945404)
+
+[node name="Node3D3" parent="modular-cave-final/RegionWood/Stick-Group-02" unique_id=594172807 instance=ExtResource("7_dsb58")]
+transform = Transform3D(-0.7325429, 0, -0.6807209, 0, 1, 0, 0.6807209, 0, -0.7325429, 0.18609238, -0.09331983, 0.688179)
+
+[node name="Node3D4" parent="modular-cave-final/RegionWood/Stick-Group-02" unique_id=1849267091 instance=ExtResource("8_noxxg")]
+transform = Transform3D(1, -1.4901161e-08, 0, -1.4901161e-08, 1, 0, 0, 0, 1, -1.1390915, -0.11275864, 0.7330971)
+
+[node name="Node3D5" parent="modular-cave-final/RegionWood/Stick-Group-02" unique_id=1511566382 instance=ExtResource("9_p25gm")]
+transform = Transform3D(0.98027116, 0, 0.19765733, 0, 1, 0, -0.19765733, 0, 0.98027116, 0.47372818, -0.116767116, 0.18139648)
+
+[node name="Node3D7" parent="modular-cave-final/RegionWood/Stick-Group-02" unique_id=1124028613 instance=ExtResource("10_lw7er")]
+transform = Transform3D(0.9211854, -1.4901161e-08, 0.38912395, -7.450581e-09, 1, 0, -0.38912398, 0, 0.9211854, -2.2412262, -0.2022934, 1.6693687)
+
+[node name="Node3D8" parent="modular-cave-final/RegionWood/Stick-Group-02" unique_id=2031013209 instance=ExtResource("9_p25gm")]
+transform = Transform3D(-0.7325429, 0, -0.6807209, 0, 1, 0, 0.6807209, 0, -0.7325429, -1.0491982, -0.16649804, 1.714386)
+
+[node name="Node3D9" parent="modular-cave-final/RegionWood/Stick-Group-02" unique_id=309638444 instance=ExtResource("8_noxxg")]
+transform = Transform3D(0.9802712, -1.4901161e-08, 0.19765735, -7.450581e-09, 1, 0, -0.19765732, 0, 0.98027116, -0.3251419, -0.22288513, 1.3901787)
+
+[node name="Node3D10" parent="modular-cave-final/RegionWood/Stick-Group-02" unique_id=2019289811 instance=ExtResource("7_dsb58")]
+transform = Transform3D(-0.41151434, 0, -0.9114033, 0, 1, 0, 0.9114033, 0, -0.41151434, 0.255579, -0.14842403, 1.8558044)
+
+[node name="Node3D12" parent="modular-cave-final/RegionWood/Stick-Group-02" unique_id=484842124 instance=ExtResource("5_pe7kj")]
+transform = Transform3D(-0.85355073, -1.4901161e-08, -0.52100956, 1.4901161e-08, 1, 0, 0.5210097, 0, -0.8535508, -0.794014, -0.15436363, 2.1925125)
+
+[node name="Node3D14" parent="modular-cave-final/RegionWood/Stick-Group-02" unique_id=673705332 instance=ExtResource("6_cns11")]
+transform = Transform3D(-0.7325429, 0, -0.6807209, 0, 1, 0, 0.6807209, 0, -0.7325429, -0.37010574, -0.10734779, -0.9852905)
+
+[node name="Node3D15" parent="modular-cave-final/RegionWood/Stick-Group-02" unique_id=1498989484 instance=ExtResource("7_dsb58")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.62675476, -0.004295543, -0.3989563)
+
+[node name="Node3D16" parent="modular-cave-final/RegionWood/Stick-Group-02" unique_id=1061287066 instance=ExtResource("8_noxxg")]
+transform = Transform3D(0.98027116, 0, 0.19765733, 0, 1, 0, -0.19765733, 0, 0.98027116, -0.48978233, -0.09703949, -0.4108734)
+
+[node name="Node3D17" parent="modular-cave-final/RegionWood/Stick-Group-02" unique_id=1353194097 instance=ExtResource("9_p25gm")]
+transform = Transform3D(0.9211854, 0, 0.38912395, 0, 1, 0, -0.38912395, 0, 0.9211854, 0.6091347, -0.02322404, -0.68413544)
+
+[node name="Node3D18" parent="modular-cave-final/RegionWood/Stick-Group-02" unique_id=1079593647 instance=ExtResource("10_lw7er")]
+transform = Transform3D(-0.8535508, 0, -0.5210096, 0, 1, 0, 0.5210096, 0, -0.8535508, -0.3458767, -0.0015020221, -1.5136185)
+
+[node name="Stick-Group-03" type="Node3D" parent="modular-cave-final/RegionWood" unique_id=2137867332]
+transform = Transform3D(0.6984153, 0, -0.71569276, 0, 1, 0, 0.71569276, 0, 0.6984153, -0.60349274, 0.17990053, 2.4946747)
+
+[node name="Node3D" parent="modular-cave-final/RegionWood/Stick-Group-03" unique_id=659923312 instance=ExtResource("5_pe7kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7789764, -0.23033419, 1.2072754)
+
+[node name="Node3D2" parent="modular-cave-final/RegionWood/Stick-Group-03" unique_id=1710832225 instance=ExtResource("6_cns11")]
+transform = Transform3D(-0.41151434, 0, -0.9114033, 0, 1, 0, 0.9114033, 0, -0.41151434, -1.107254, -0.15599918, 0.29454803)
+
+[node name="Node3D3" parent="modular-cave-final/RegionWood/Stick-Group-03" unique_id=379708615 instance=ExtResource("7_dsb58")]
+transform = Transform3D(-0.7325429, 0, -0.6807209, 0, 1, 0, 0.6807209, 0, -0.7325429, 0.18609619, -0.15648264, 0.688179)
+
+[node name="Node3D4" parent="modular-cave-final/RegionWood/Stick-Group-03" unique_id=368215244 instance=ExtResource("8_noxxg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1429977, -0.17941508, 0.7330971)
+
+[node name="Node3D5" parent="modular-cave-final/RegionWood/Stick-Group-03" unique_id=819952850 instance=ExtResource("9_p25gm")]
+transform = Transform3D(0.98027116, 0, 0.1976574, 0, 1, 0, -0.1976574, 0, 0.98027116, 0.47372437, -0.17872435, 0.18140411)
+
+[node name="Node3D6" parent="modular-cave-final/RegionWood/Stick-Group-03" unique_id=2134418826 instance=ExtResource("10_lw7er")]
+transform = Transform3D(-0.41151434, 0, -0.9114033, 0, 1, 0, 0.9114033, 0, -0.41151434, 1.3497314, -0.13072672, 1.1426697)
+
+[node name="Node3D7" parent="modular-cave-final/RegionWood/Stick-Group-03" unique_id=11329983 instance=ExtResource("10_lw7er")]
+transform = Transform3D(0.9211854, 0, 0.38912392, 0, 1, 0, -0.38912392, 0, 0.9211854, -2.2592087, -0.27126765, 1.6693726)
+
+[node name="Node3D8" parent="modular-cave-final/RegionWood/Stick-Group-03" unique_id=1401155629 instance=ExtResource("9_p25gm")]
+transform = Transform3D(-0.7325429, 0, -0.6807209, 0, 1, 0, 0.6807209, 0, -0.7325429, -1.0491943, -0.25660226, 1.714386)
+
+[node name="Node3D9" parent="modular-cave-final/RegionWood/Stick-Group-03" unique_id=782095563 instance=ExtResource("8_noxxg")]
+transform = Transform3D(0.98027116, 0, 0.19765733, 0, 1, 0, -0.19765733, 0, 0.98027116, -0.34420013, -0.1283831, 1.3901749)
+
+[node name="Node3D10" parent="modular-cave-final/RegionWood/Stick-Group-03" unique_id=294515066 instance=ExtResource("7_dsb58")]
+transform = Transform3D(-0.41151434, 0, -0.9114033, 0, 1, 0, 0.9114033, 0, -0.41151434, 0.255579, -0.14842403, 1.8558044)
+
+[node name="Node3D11" parent="modular-cave-final/RegionWood/Stick-Group-03" unique_id=1245121432 instance=ExtResource("6_cns11")]
+transform = Transform3D(-0.7325429, 0, -0.6807209, 0, 1, 0, 0.6807209, 0, -0.7325429, 1.3630753, -0.14010143, 1.4961014)
+
+[node name="Node3D12" parent="modular-cave-final/RegionWood/Stick-Group-03" unique_id=2035450425 instance=ExtResource("5_pe7kj")]
+transform = Transform3D(-0.85355085, 0, -0.52100956, 0, 1, 0, 0.52100956, 0, -0.85355085, -0.8061905, -0.25311622, 2.1925125)
+
+[node name="Node3D13" parent="modular-cave-final/RegionWood/Stick-Group-03" unique_id=840527997 instance=ExtResource("5_pe7kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6570053, -0.24851793, -1.3396683)
+
+[node name="Node3D14" parent="modular-cave-final/RegionWood/Stick-Group-03" unique_id=22761089 instance=ExtResource("6_cns11")]
+transform = Transform3D(-0.7325429, 0, -0.6807209, 0, 1, 0, 0.6807209, 0, -0.7325429, -0.37010574, -0.10734779, -0.9852905)
+
+[node name="Node3D15" parent="modular-cave-final/RegionWood/Stick-Group-03" unique_id=1996506796 instance=ExtResource("7_dsb58")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.62675476, -0.17078908, -0.3989563)
+
+[node name="Node3D16" parent="modular-cave-final/RegionWood/Stick-Group-03" unique_id=101527314 instance=ExtResource("8_noxxg")]
+transform = Transform3D(0.98027116, 0, 0.19765735, 0, 1, 0, -0.19765735, 0, 0.98027116, -0.48978424, -0.18139413, -0.4108734)
+
+[node name="Node3D17" parent="modular-cave-final/RegionWood/Stick-Group-03" unique_id=948888888 instance=ExtResource("9_p25gm")]
+transform = Transform3D(0.9211854, 0, 0.38912392, 0, 1, 0, -0.38912392, 0, 0.9211854, 0.60913086, -0.14772497, -0.6841278)
+
+[node name="Node3D18" parent="modular-cave-final/RegionWood/Stick-Group-03" unique_id=16294581 instance=ExtResource("10_lw7er")]
+transform = Transform3D(-0.85355085, 0, -0.52100956, 0, 1, 0, 0.52100956, 0, -0.85355085, -0.34587097, -0.16732238, -1.5136185)
+
+[node name="Stick-Group-04" type="Node3D" parent="modular-cave-final/RegionWood" unique_id=1059564347]
+transform = Transform3D(0.82609826, 0, 0.5635261, 0, 1, 0, -0.5635261, 0, 0.82609826, -0.60349274, 0.15481412, 8.095871)
+
+[node name="Node3D" parent="modular-cave-final/RegionWood/Stick-Group-04" unique_id=1477272952 instance=ExtResource("5_pe7kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7789764, -0.04169169, 1.2072678)
+
+[node name="Node3D2" parent="modular-cave-final/RegionWood/Stick-Group-04" unique_id=1419016805 instance=ExtResource("6_cns11")]
+transform = Transform3D(-0.41151434, 0, -0.9114033, 0, 1, 0, 0.9114033, 0, -0.41151434, -1.107254, -0.057620637, 0.2945404)
+
+[node name="Node3D3" parent="modular-cave-final/RegionWood/Stick-Group-04" unique_id=29646337 instance=ExtResource("7_dsb58")]
+transform = Transform3D(-0.7325429, 0, -0.6807209, 0, 1, 0, 0.6807209, 0, -0.7325429, 0.18609238, -0.09331983, 0.688179)
+
+[node name="Node3D4" parent="modular-cave-final/RegionWood/Stick-Group-04" unique_id=1779275361 instance=ExtResource("8_noxxg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1429996, -0.093411766, 0.7331009)
+
+[node name="Node3D5" parent="modular-cave-final/RegionWood/Stick-Group-04" unique_id=726659227 instance=ExtResource("9_p25gm")]
+transform = Transform3D(0.98027116, 0, 0.19765733, 0, 1, 0, -0.19765733, 0, 0.98027116, 0.47372818, -0.116767116, 0.18139648)
+
+[node name="Node3D6" parent="modular-cave-final/RegionWood/Stick-Group-04" unique_id=1404680528 instance=ExtResource("10_lw7er")]
+transform = Transform3D(-0.41151434, 0, -0.9114033, 0, 1, 0, 0.9114033, 0, -0.41151434, 1.3497314, -0.08621784, 1.1426697)
+
+[node name="Node3D7" parent="modular-cave-final/RegionWood/Stick-Group-04" unique_id=1255232161 instance=ExtResource("10_lw7er")]
+transform = Transform3D(0.9211854, 0, 0.38912395, 0, 1, 0, -0.38912395, 0, 0.9211854, -2.2592087, -0.11311924, 1.6693726)
+
+[node name="Node3D8" parent="modular-cave-final/RegionWood/Stick-Group-04" unique_id=1193206311 instance=ExtResource("9_p25gm")]
+transform = Transform3D(-0.7325429, 0, -0.6807209, 0, 1, 0, 0.6807209, 0, -0.7325429, -1.0491982, -0.16649804, 1.714386)
+
+[node name="Node3D9" parent="modular-cave-final/RegionWood/Stick-Group-04" unique_id=717457068 instance=ExtResource("8_noxxg")]
+transform = Transform3D(0.98027116, 0, 0.19765733, 0, 1, 0, -0.19765733, 0, 0.98027116, -0.34420013, -0.1283831, 1.3901749)
+
+[node name="Node3D10" parent="modular-cave-final/RegionWood/Stick-Group-04" unique_id=1557888274 instance=ExtResource("7_dsb58")]
+transform = Transform3D(-0.41151434, 0, -0.9114033, 0, 1, 0, 0.9114033, 0, -0.41151434, 0.255579, -0.14842403, 1.8558044)
+
+[node name="Node3D11" parent="modular-cave-final/RegionWood/Stick-Group-04" unique_id=187123324 instance=ExtResource("6_cns11")]
+transform = Transform3D(-0.7325429, 0, -0.6807209, 0, 1, 0, 0.6807209, 0, -0.7325429, 1.3630714, -0.075855784, 1.4961014)
+
+[node name="Node3D12" parent="modular-cave-final/RegionWood/Stick-Group-04" unique_id=12873970 instance=ExtResource("5_pe7kj")]
+transform = Transform3D(-0.8535508, 0, -0.5210096, 0, 1, 0, 0.5210096, 0, -0.8535508, -0.8061905, -0.09398851, 2.1925125)
+
+[node name="Node3D13" parent="modular-cave-final/RegionWood/Stick-Group-04" unique_id=1116134994 instance=ExtResource("5_pe7kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6570053, -0.13588148, -1.3396759)
+
+[node name="Node3D14" parent="modular-cave-final/RegionWood/Stick-Group-04" unique_id=270733333 instance=ExtResource("6_cns11")]
+transform = Transform3D(-0.7325429, 0, -0.6807209, 0, 1, 0, 0.6807209, 0, -0.7325429, -0.37010574, -0.10734779, -0.9852905)
+
+[node name="Node3D15" parent="modular-cave-final/RegionWood/Stick-Group-04" unique_id=22743586 instance=ExtResource("7_dsb58")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.62675476, -0.07335289, -0.39896393)
+
+[node name="Node3D16" parent="modular-cave-final/RegionWood/Stick-Group-04" unique_id=1354385794 instance=ExtResource("8_noxxg")]
+transform = Transform3D(0.98027116, 0, 0.19765733, 0, 1, 0, -0.19765733, 0, 0.98027116, -0.48978233, -0.09703949, -0.4108734)
+
+[node name="Node3D17" parent="modular-cave-final/RegionWood/Stick-Group-04" unique_id=1295885864 instance=ExtResource("9_p25gm")]
+transform = Transform3D(0.92118543, 0, 0.38912398, 0, 1, 0, -0.38912398, 0, 0.92118543, 0.60913086, -0.08127095, -0.68413544)
+
+[node name="Node3D18" parent="modular-cave-final/RegionWood/Stick-Group-04" unique_id=1326105666 instance=ExtResource("10_lw7er")]
+transform = Transform3D(-0.8535508, 0, -0.5210097, 0, 1, 0, 0.5210097, 0, -0.8535508, -0.34587097, -0.09645818, -1.5136261)
+
+[node name="Stick-Group-05" type="Node3D" parent="modular-cave-final/RegionWood" unique_id=2109420296]
+transform = Transform3D(1, 0, 0, 0, 0.995736, 0.09224894, 0, -0.09224894, 0.995736, -1.4688778, -0.5437647, -5.1910706)
+
+[node name="Node3D" parent="modular-cave-final/RegionWood/Stick-Group-05" unique_id=637002012 instance=ExtResource("5_pe7kj")]
+transform = Transform3D(0.97569925, 0.2181797, 0.020213034, -0.2181797, 0.9759061, -0.0022321567, -0.020213034, -0.0022321641, 0.9997933, -1.7789764, -0.28942585, 1.1843262)
+
+[node name="Node3D2" parent="modular-cave-final/RegionWood/Stick-Group-05" unique_id=854937680 instance=ExtResource("6_cns11")]
+transform = Transform3D(-0.41151434, 0, -0.9114033, 0, 1, -3.7252903e-09, 0.91140336, 0, -0.41151434, -1.107254, -0.17605305, 0.28356934)
+
+[node name="Node3D3" parent="modular-cave-final/RegionWood/Stick-Group-05" unique_id=627979240 instance=ExtResource("7_dsb58")]
+transform = Transform3D(-0.7325428, 0, -0.68072087, -0.08001018, 0.9930686, 0.086101204, 0.67600256, 0.11753741, -0.7274654, 0.18609238, -0.2088604, 0.677475)
+
+[node name="Node3D4" parent="modular-cave-final/RegionWood/Stick-Group-05" unique_id=1429300642 instance=ExtResource("8_noxxg")]
+transform = Transform3D(0.99564695, 0.092807315, 0.008598038, -0.09280733, 0.9956841, -0.00039985776, -0.008598038, -0.0003998503, 0.9999631, -1.1429996, -0.21673107, 0.7216797)
+
+[node name="Node3D5" parent="modular-cave-final/RegionWood/Stick-Group-05" unique_id=1515745375 instance=ExtResource("9_p25gm")]
+transform = Transform3D(0.98027116, 0, 0.19765733, 0, 1, 0, -0.19765733, 0, 0.98027116, 0.47372818, -0.116767116, 0.18139648)
+
+[node name="Node3D6" parent="modular-cave-final/RegionWood/Stick-Group-05" unique_id=1103488305 instance=ExtResource("10_lw7er")]
+transform = Transform3D(-0.41151434, 0, -0.9114033, -0.2116336, 0.9726667, 0.09555623, 0.8864916, 0.23220631, -0.40026626, 1.3497334, -0.19399548, 1.132698)
+
+[node name="Node3D7" parent="modular-cave-final/RegionWood/Stick-Group-05" unique_id=1510844783 instance=ExtResource("10_lw7er")]
+transform = Transform3D(0.9211854, 0, 0.38912395, 0, 1, 0, -0.38912395, 0, 0.9211854, -2.2592087, -0.11311924, 1.6693726)
+
+[node name="Node3D8" parent="modular-cave-final/RegionWood/Stick-Group-05" unique_id=1775780353 instance=ExtResource("9_p25gm")]
+transform = Transform3D(-0.7344821, -0.040238503, -0.6774341, -0.02952749, 0.9991902, -0.027336247, 0.6779854, -7.50348e-05, -0.7350755, -1.0491982, -0.4142332, 1.6914368)
+
+[node name="Node3D9" parent="modular-cave-final/RegionWood/Stick-Group-05" unique_id=236781833 instance=ExtResource("8_noxxg")]
+transform = Transform3D(0.9735674, -0.13606663, 0.18344615, 0.1335525, 0.9906993, 0.026049912, -0.18528455, -0.0008616671, 0.9826848, -0.33981514, -0.34578323, 1.3700333)
+
+[node name="Node3D10" parent="modular-cave-final/RegionWood/Stick-Group-05" unique_id=1225508705 instance=ExtResource("7_dsb58")]
+transform = Transform3D(-0.41914305, -0.1360666, -0.89766634, -0.056778684, 0.9906993, -0.123657, 0.9061432, -0.0008616671, -0.4229704, 0.251194, -0.28442955, 1.8432007)
+
+[node name="Node3D11" parent="modular-cave-final/RegionWood/Stick-Group-05" unique_id=1347026560 instance=ExtResource("6_cns11")]
+transform = Transform3D(-0.7325429, 0, -0.6807209, -0.16330914, 0.97079617, 0.17574152, 0.66084135, 0.23990613, -0.7111499, 1.3630695, -0.24444485, 1.480484)
+
+[node name="Node3D12" parent="modular-cave-final/RegionWood/Stick-Group-05" unique_id=622502062 instance=ExtResource("5_pe7kj")]
+transform = Transform3D(-0.8535508, 0, -0.5210096, -0.1377874, 0.9643962, 0.225732, 0.5024598, 0.26446226, -0.82316124, -0.8061905, -0.39746952, 2.1643982)
+
+[node name="Node3D13" parent="modular-cave-final/RegionWood/Stick-Group-05" unique_id=191788471 instance=ExtResource("5_pe7kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6570015, -0.028533995, -1.3396683)
+
+[node name="Node3D14" parent="modular-cave-final/RegionWood/Stick-Group-05" unique_id=738390147 instance=ExtResource("6_cns11")]
+transform = Transform3D(-0.7325429, 0, -0.6807209, 0, 1, 0, 0.6807209, 0, -0.7325429, -0.37010574, -0.10734779, -0.9852905)
+
+[node name="Node3D15" parent="modular-cave-final/RegionWood/Stick-Group-05" unique_id=1084631001 instance=ExtResource("7_dsb58")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.62675476, -0.08989143, -0.40688324)
+
+[node name="Node3D16" parent="modular-cave-final/RegionWood/Stick-Group-05" unique_id=1759543495 instance=ExtResource("8_noxxg")]
+transform = Transform3D(0.98027116, 0, 0.19765733, 0, 1, 0, -0.19765735, 0, 0.98027116, -0.48978233, -0.14830971, -0.4156189)
+
+[node name="Node3D17" parent="modular-cave-final/RegionWood/Stick-Group-05" unique_id=1828181739 instance=ExtResource("9_p25gm")]
+transform = Transform3D(0.9211854, 0, 0.38912395, 0, 1, 0, -0.38912395, 0, 0.9211854, 0.6091347, -0.02322404, -0.68413544)
+
+[node name="Node3D18" parent="modular-cave-final/RegionWood/Stick-Group-05" unique_id=504101755 instance=ExtResource("10_lw7er")]
+transform = Transform3D(-0.8535508, 0, -0.5210096, 0, 1, 0, 0.5210096, 0, -0.8535508, -0.3458767, -0.0015020221, -1.5136185)
+
+[node name="Stick-Group-06" type="Node3D" parent="modular-cave-final/RegionWood" unique_id=1416357553]
+transform = Transform3D(1, 0, 0, 0, 0.96678776, 0.25558075, 0, -0.25558075, 0.96678776, -0.60349274, -0.21454322, -0.94260406)
+
+[node name="Node3D" parent="modular-cave-final/RegionWood/Stick-Group-06" unique_id=1592191208 instance=ExtResource("5_pe7kj")]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, -1.7789764, -0.13065529, 1.1837463)
+
+[node name="Node3D2" parent="modular-cave-final/RegionWood/Stick-Group-06" unique_id=1140516808 instance=ExtResource("6_cns11")]
+transform = Transform3D(-0.41151434, 0, -0.9114033, 0, 1, 0, 0.9114033, 0, -0.41151434, -1.107254, -0.057620637, 0.2945404)
+
+[node name="Node3D3" parent="modular-cave-final/RegionWood/Stick-Group-06" unique_id=515540926 instance=ExtResource("7_dsb58")]
+transform = Transform3D(-0.7325429, 0, -0.6807209, 0, 1, 0, 0.6807209, 0, -0.7325429, 0.18609238, -0.09331983, 0.688179)
+
+[node name="Node3D4" parent="modular-cave-final/RegionWood/Stick-Group-06" unique_id=1531216208 instance=ExtResource("8_noxxg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1429996, -0.093411766, 0.7331009)
+
+[node name="Node3D5" parent="modular-cave-final/RegionWood/Stick-Group-06" unique_id=525302527 instance=ExtResource("9_p25gm")]
+transform = Transform3D(0.98027116, 0, 0.19765733, 0, 1, 0, -0.19765733, 0, 0.98027116, 0.47372818, -0.116767116, 0.18139648)
+
+[node name="Node3D6" parent="modular-cave-final/RegionWood/Stick-Group-06" unique_id=556721826 instance=ExtResource("10_lw7er")]
+transform = Transform3D(-0.41151434, 0, -0.9114033, 0.13109447, 0.989601, -0.059191406, 0.90192574, -0.14383803, -0.40723506, 1.3497314, -0.3360653, 1.0821381)
+
+[node name="Node3D7" parent="modular-cave-final/RegionWood/Stick-Group-06" unique_id=1440404608 instance=ExtResource("10_lw7er")]
+transform = Transform3D(0.9211855, 0, 0.38912404, 0.09838193, 0.96751076, -0.2329026, -0.37648162, 0.2528293, 0.89125675, -2.2592087, -0.20402908, 1.6393661)
+
+[node name="Node3D8" parent="modular-cave-final/RegionWood/Stick-Group-06" unique_id=344788107 instance=ExtResource("9_p25gm")]
+transform = Transform3D(-0.7325429, 0, -0.6807209, 0, 1, 0, 0.6807209, 0, -0.7325429, -1.0491982, -0.16649804, 1.714386)
+
+[node name="Node3D9" parent="modular-cave-final/RegionWood/Stick-Group-06" unique_id=908738718 instance=ExtResource("8_noxxg")]
+transform = Transform3D(0.98027116, 0, 0.19765733, 0, 1, 0, -0.19765733, 0, 0.98027116, -0.34420013, -0.1283831, 1.3901749)
+
+[node name="Node3D10" parent="modular-cave-final/RegionWood/Stick-Group-06" unique_id=464039935 instance=ExtResource("7_dsb58")]
+transform = Transform3D(-0.41151434, 0, -0.9114033, -0.23042947, 0.96751064, 0.10404289, 0.8817924, 0.25282928, -0.39814454, 0.255579, -0.28531456, 1.8108063)
+
+[node name="Node3D11" parent="modular-cave-final/RegionWood/Stick-Group-06" unique_id=625225484 instance=ExtResource("6_cns11")]
+transform = Transform3D(-0.7325429, 0, -0.6807209, -0.07558409, 0.9938163, 0.08133816, 0.67651147, 0.11103527, -0.7280131, 1.3630714, -0.3249359, 1.4225693)
+
+[node name="Node3D12" parent="modular-cave-final/RegionWood/Stick-Group-06" unique_id=125277458 instance=ExtResource("5_pe7kj")]
+transform = Transform3D(-0.8535508, 0, -0.5210096, -0.13172653, 0.96751076, 0.21580268, 0.5040824, 0.2528293, -0.8258197, -0.8061905, -0.31778336, 2.1503448)
+
+[node name="Node3D13" parent="modular-cave-final/RegionWood/Stick-Group-06" unique_id=736140669 instance=ExtResource("5_pe7kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6570015, -0.028533995, -1.3396683)
+
+[node name="Node3D14" parent="modular-cave-final/RegionWood/Stick-Group-06" unique_id=898005493 instance=ExtResource("6_cns11")]
+transform = Transform3D(-0.7325429, 0, -0.6807209, 0, 1, 0, 0.6807209, 0, -0.7325429, -0.37010574, -0.10734779, -0.9852905)
+
+[node name="Node3D15" parent="modular-cave-final/RegionWood/Stick-Group-06" unique_id=75118596 instance=ExtResource("7_dsb58")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.62675476, -0.004295543, -0.3989563)
+
+[node name="Node3D16" parent="modular-cave-final/RegionWood/Stick-Group-06" unique_id=1755501830 instance=ExtResource("8_noxxg")]
+transform = Transform3D(0.98027116, 0, 0.19765733, 0, 1, 0, -0.19765733, 0, 0.98027116, -0.48978233, -0.09703949, -0.4108734)
+
+[node name="Node3D17" parent="modular-cave-final/RegionWood/Stick-Group-06" unique_id=2029437689 instance=ExtResource("9_p25gm")]
+transform = Transform3D(0.9211854, 0, 0.38912395, 0, 1, 0, -0.38912395, 0, 0.9211854, 0.6091347, -0.02322404, -0.68413544)
+
+[node name="Node3D18" parent="modular-cave-final/RegionWood/Stick-Group-06" unique_id=95962088 instance=ExtResource("10_lw7er")]
+transform = Transform3D(-0.8535508, 0, -0.5210096, -1.4901161e-08, 0.99999994, 1.4901161e-08, 0.5210096, 0, -0.8535508, -0.3458767, -0.09166527, -1.5374527)
+
 [node name="RegionWood2" type="Area3D" parent="modular-cave-final" unique_id=841867834]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.139, 0, 51.827)
 script = ExtResource("2_ieofv")
@@ -256,6 +602,234 @@ surface_type = 3
 [node name="CollisionShape3D" type="CollisionShape3D" parent="modular-cave-final/RegionWood2" unique_id=646101133]
 shape = SubResource("BoxShape3D_ieofv")
 debug_color = Color(0.41568628, 0.2, 0.043137256, 0.75686276)
+
+[node name="Stick-Group-01" type="Node3D" parent="modular-cave-final/RegionWood2" unique_id=634258072]
+transform = Transform3D(0.41177493, -0.024435185, -0.91095793, 0.024455702, 0.9995767, -0.015757697, 0.91095746, -0.015789496, 0.41219822, -16.601597, 0.17770886, 0.18264008)
+
+[node name="Node3D" parent="modular-cave-final/RegionWood2/Stick-Group-01" unique_id=256304082 instance=ExtResource("5_pe7kj")]
+transform = Transform3D(1.0000001, 6.519258e-09, 0, 2.7939677e-09, 1, 9.313226e-10, -5.9604645e-08, -1.3969839e-09, 1, -1.7829056, -0.21171045, 1.2081776)
+
+[node name="Node3D2" parent="modular-cave-final/RegionWood2/Stick-Group-01" unique_id=697323793 instance=ExtResource("6_cns11")]
+transform = Transform3D(-0.40666017, -0.07907892, -0.9101507, -0.19117942, 0.9815552, 0.00013701618, 0.8933523, 0.17405778, -0.41427758, -1.1107254, -0.1997776, 0.29678535)
+
+[node name="Node3D3" parent="modular-cave-final/RegionWood2/Stick-Group-01" unique_id=1492303330 instance=ExtResource("7_dsb58")]
+transform = Transform3D(-0.6663921, -0.49830374, -0.5546309, -0.20736617, 0.83838683, -0.50409037, 0.716185, -0.22091025, -0.66202563, 0.185112, -0.13337505, 0.68881226)
+
+[node name="Node3D4" parent="modular-cave-final/RegionWood2/Stick-Group-01" unique_id=855198706 instance=ExtResource("8_noxxg")]
+transform = Transform3D(1.0000001, 6.519258e-09, 0, 2.7939677e-09, 1, 9.313226e-10, -5.9604645e-08, -1.3969839e-09, 1, -1.1469307, -0.2634306, 0.7340126)
+
+[node name="Node3D5" parent="modular-cave-final/RegionWood2/Stick-Group-01" unique_id=1531230629 instance=ExtResource("9_p25gm")]
+transform = Transform3D(0.9547997, -0.23161554, 0.18631124, 0.20559101, 0.96725184, 0.14884937, -0.21468586, -0.10381739, 0.97114986, 0.47372818, -0.11676717, 0.18139458)
+
+[node name="Node3D6" parent="modular-cave-final/RegionWood2/Stick-Group-01" unique_id=728102716 instance=ExtResource("10_lw7er")]
+transform = Transform3D(-0.41151434, 0, -0.9114033, 0, 1, 0, 0.9114033, 0, -0.41151434, 1.3497314, -0.08621784, 1.1426697)
+
+[node name="Node3D7" parent="modular-cave-final/RegionWood2/Stick-Group-01" unique_id=249636862 instance=ExtResource("10_lw7er")]
+transform = Transform3D(0.89960873, 0.25187713, 0.35673827, -0.18871655, 0.9609139, -0.20256072, -0.39381516, 0.11490295, 0.9119797, -1.6396065, -0.12857533, 1.650547)
+
+[node name="Node3D8" parent="modular-cave-final/RegionWood2/Stick-Group-01" unique_id=891918293 instance=ExtResource("9_p25gm")]
+transform = Transform3D(-0.7312343, 0.024442175, -0.6816883, 0.05474304, 0.99823725, -0.02292971, 0.6799262, -0.05408467, -0.73128325, -1.052002, -0.2907864, 1.7145691)
+
+[node name="Node3D9" parent="modular-cave-final/RegionWood2/Stick-Group-01" unique_id=814799596 instance=ExtResource("8_noxxg")]
+transform = Transform3D(0.9669498, -0.16650634, 0.19308972, 0.14795423, 0.98319817, 0.10691624, -0.20764759, -0.074814186, 0.97533846, -0.34725952, -0.26307607, 1.3905296)
+
+[node name="Node3D10" parent="modular-cave-final/RegionWood2/Stick-Group-01" unique_id=227373966 instance=ExtResource("7_dsb58")]
+transform = Transform3D(-0.41151434, 0, -0.9114033, 0, 1, 0, 0.9114033, 0, -0.41151434, 0.255579, -0.14842403, 1.8558044)
+
+[node name="Node3D11" parent="modular-cave-final/RegionWood2/Stick-Group-01" unique_id=1650762372 instance=ExtResource("6_cns11")]
+transform = Transform3D(-0.7325429, 0, -0.6807209, 0, 1, 0, 0.6807209, 0, -0.7325429, 1.3630714, -0.075855784, 1.4961014)
+
+[node name="Node3D12" parent="modular-cave-final/RegionWood2/Stick-Group-01" unique_id=455261665 instance=ExtResource("5_pe7kj")]
+transform = Transform3D(-0.8535508, 1.8626451e-09, -0.5210097, 1.8626451e-09, 1, 0, 0.5210096, -9.313226e-10, -0.8535508, -0.8093262, -0.22209167, 2.1945343)
+
+[node name="Node3D13" parent="modular-cave-final/RegionWood2/Stick-Group-01" unique_id=468825099 instance=ExtResource("5_pe7kj")]
+transform = Transform3D(1.0000001, 1.8626451e-09, 0, 9.313226e-10, 1, 9.313226e-10, 0, -9.313226e-10, 1, 0.6552658, -0.09956384, -1.3385487)
+
+[node name="Node3D14" parent="modular-cave-final/RegionWood2/Stick-Group-01" unique_id=641557923 instance=ExtResource("6_cns11")]
+transform = Transform3D(-0.7325429, 0, -0.6807209, 0, 1, 0, 0.6807209, 0, -0.7325429, -0.37010574, -0.10734779, -0.9852905)
+
+[node name="Node3D15" parent="modular-cave-final/RegionWood2/Stick-Group-01" unique_id=792083821 instance=ExtResource("7_dsb58")]
+transform = Transform3D(0.9967035, 0.081049904, -0.0036642253, -0.081129774, 0.9960326, -0.036566187, 0.00068601966, 0.036742914, 0.9993246, 0.62501526, -0.07544029, -0.39783478)
+
+[node name="Node3D16" parent="modular-cave-final/RegionWood2/Stick-Group-01" unique_id=1517043402 instance=ExtResource("8_noxxg")]
+transform = Transform3D(0.9653089, -0.17672454, 0.19221693, 0.15700805, 0.9810546, 0.113492355, -0.20863226, -0.07937557, 0.9747678, -0.48978043, -0.09703958, -0.4108715)
+
+[node name="Node3D17" parent="modular-cave-final/RegionWood2/Stick-Group-01" unique_id=1504475584 instance=ExtResource("9_p25gm")]
+transform = Transform3D(0.92083436, 0.04767795, 0.38702837, -0.035568856, 0.9986296, -0.03839398, -0.38832867, 0.02158833, 0.9212682, 0.6080284, -0.068529606, -0.683424)
+
+[node name="Node3D18" parent="modular-cave-final/RegionWood2/Stick-Group-01" unique_id=1701148488 instance=ExtResource("10_lw7er")]
+transform = Transform3D(-0.8535508, 1.8626451e-09, -0.5210097, 1.8626451e-09, 1, 0, 0.5210096, -9.313226e-10, -0.8535508, -0.350708, -0.1989243, -1.5105057)
+
+[node name="Stick-Group-02" type="Node3D" parent="modular-cave-final/RegionWood2" unique_id=1714821670]
+transform = Transform3D(0.98472583, 0.17411228, 0, -0.17411228, 0.98472583, 0, 0, 0, 1, -7.862911, -0.41922402, -0.98620224)
+
+[node name="Node3D" parent="modular-cave-final/RegionWood2/Stick-Group-02" unique_id=1077033926 instance=ExtResource("5_pe7kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7657776, -0.11633015, 1.2072678)
+
+[node name="Node3D2" parent="modular-cave-final/RegionWood2/Stick-Group-02" unique_id=158582030 instance=ExtResource("6_cns11")]
+transform = Transform3D(-0.41151437, 0, -0.91140336, 7.450581e-09, 1, 0, 0.9114033, 0, -0.41151434, -1.090229, -0.15387726, 0.2945404)
+
+[node name="Node3D3" parent="modular-cave-final/RegionWood2/Stick-Group-02" unique_id=1072395332 instance=ExtResource("7_dsb58")]
+transform = Transform3D(-0.7272742, -0.119721, -0.67582494, -0.087700754, 0.99280757, -0.081496574, 0.6807209, 0, -0.7325429, 0.21113586, -0.25430155, 0.688179)
+
+[node name="Node3D4" parent="modular-cave-final/RegionWood2/Stick-Group-02" unique_id=517992938 instance=ExtResource("8_noxxg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1285744, -0.1749773, 0.7331009)
+
+[node name="Node3D5" parent="modular-cave-final/RegionWood2/Stick-Group-02" unique_id=970801252 instance=ExtResource("9_p25gm")]
+transform = Transform3D(0.9732207, -0.119720995, 0.19623572, 0.11735906, 0.99280757, 0.023663737, -0.19765732, 0, 0.9802711, 0.4995079, -0.24314451, 0.18139648)
+
+[node name="Node3D6" parent="modular-cave-final/RegionWood2/Stick-Group-02" unique_id=1760126256 instance=ExtResource("10_lw7er")]
+transform = Transform3D(-0.41151434, 0, -0.9114033, 0, 1, 0, 0.9114033, 0, -0.41151434, 1.3497314, -0.08621784, 1.1426697)
+
+[node name="Node3D7" parent="modular-cave-final/RegionWood2/Stick-Group-02" unique_id=152063246 instance=ExtResource("10_lw7er")]
+transform = Transform3D(0.9211854, 0, 0.38912395, 0, 1, 0, -0.38912395, 0, 0.9211854, -2.2592087, -0.11311924, 1.6693726)
+
+[node name="Node3D8" parent="modular-cave-final/RegionWood2/Stick-Group-02" unique_id=739909716 instance=ExtResource("9_p25gm")]
+transform = Transform3D(-0.7325429, 0, -0.6807209, 0, 1, 0, 0.6807209, 0, -0.7325429, -1.0491982, -0.16649804, 1.714386)
+
+[node name="Node3D9" parent="modular-cave-final/RegionWood2/Stick-Group-02" unique_id=570747978 instance=ExtResource("8_noxxg")]
+transform = Transform3D(0.9802713, 0, 0.19765735, 0, 1, 0, -0.19765733, 0, 0.98027116, -0.32470703, -0.23862362, 1.3901749)
+
+[node name="Node3D10" parent="modular-cave-final/RegionWood2/Stick-Group-02" unique_id=752062060 instance=ExtResource("7_dsb58")]
+transform = Transform3D(-0.42033377, 0.00026613474, -0.9073696, 0.04987985, 0.99849486, -0.022813603, 0.90599763, -0.054848764, -0.41971427, 0.2758484, -0.26303005, 1.8558044)
+
+[node name="Node3D11" parent="modular-cave-final/RegionWood2/Stick-Group-02" unique_id=1062836551 instance=ExtResource("6_cns11")]
+transform = Transform3D(-0.7325429, 0, -0.6807209, 0, 1, 0, 0.6807209, 0, -0.7325429, 1.3630714, -0.075855784, 1.4961014)
+
+[node name="Node3D12" parent="modular-cave-final/RegionWood2/Stick-Group-02" unique_id=727099498 instance=ExtResource("5_pe7kj")]
+transform = Transform3D(-0.8535508, 0, -0.5210096, 0, 1, 0, 0.5210096, 0, -0.8535508, -0.8061905, -0.09398851, 2.1925125)
+
+[node name="Node3D13" parent="modular-cave-final/RegionWood2/Stick-Group-02" unique_id=1840052560 instance=ExtResource("5_pe7kj")]
+transform = Transform3D(0.98125243, -0.19272748, 0, 0.19272748, 0.98125243, 0, 0, 0, 1, 0.67385864, -0.12379122, -1.3396683)
+
+[node name="Node3D14" parent="modular-cave-final/RegionWood2/Stick-Group-02" unique_id=331192252 instance=ExtResource("6_cns11")]
+transform = Transform3D(-0.7325429, 0, -0.6807209, 0, 1, 0, 0.6807209, 0, -0.7325429, -0.36251068, -0.15030813, -0.9852905)
+
+[node name="Node3D15" parent="modular-cave-final/RegionWood2/Stick-Group-02" unique_id=625182618 instance=ExtResource("7_dsb58")]
+transform = Transform3D(0.9731068, -0.23035549, 0, 0.23035549, 0.9731068, 0, 0, 0, 1, 0.6674423, -0.23433447, -0.3989563)
+
+[node name="Node3D16" parent="modular-cave-final/RegionWood2/Stick-Group-02" unique_id=1212522847 instance=ExtResource("8_noxxg")]
+transform = Transform3D(0.973215, 0.11977294, 0.19623454, -0.11740999, 0.99280155, -0.023674011, -0.19765732, 0, 0.9802711, -0.4629364, -0.2487855, -0.4108734)
+
+[node name="Node3D17" parent="modular-cave-final/RegionWood2/Stick-Group-02" unique_id=1164144696 instance=ExtResource("9_p25gm")]
+transform = Transform3D(0.9092919, -0.1601741, 0.38410008, 0.14755005, 0.98708904, 0.062327582, -0.38912395, 0, 0.9211854, 0.6473503, -0.2392726, -0.68413544)
+
+[node name="Node3D18" parent="modular-cave-final/RegionWood2/Stick-Group-02" unique_id=2001018240 instance=ExtResource("10_lw7er")]
+transform = Transform3D(-0.8520679, 0.05892308, -0.5201044, 0.050293848, 0.99826264, 0.030699499, 0.5210096, 0, -0.8535508, -0.33436584, -0.066581726, -1.5136185)
+
+[node name="Stick-Group-03" type="Node3D" parent="modular-cave-final/RegionWood2" unique_id=1292515417]
+transform = Transform3D(0.9586113, 0, -0.2847181, 0.0254484, 0.9959975, 0.085681684, 0.28357852, -0.08938105, 0.95477444, -10.947971, 0.0014601946, -2.7758408)
+
+[node name="Node3D" parent="modular-cave-final/RegionWood2/Stick-Group-03" unique_id=436859480 instance=ExtResource("5_pe7kj")]
+transform = Transform3D(1, 0, 0, -1.8626451e-09, 1, -7.450581e-09, -2.9802322e-08, 0, 0.99999994, -1.7825241, -0.18052864, 1.195324)
+
+[node name="Node3D2" parent="modular-cave-final/RegionWood2/Stick-Group-03" unique_id=1693152816 instance=ExtResource("6_cns11")]
+transform = Transform3D(-0.41151434, 0, -0.9114033, 0, 1, 3.7252903e-09, 0.9114033, 0, -0.4115143, -1.1100082, -0.16551161, 0.28525925)
+
+[node name="Node3D3" parent="modular-cave-final/RegionWood2/Stick-Group-03" unique_id=1626941209 instance=ExtResource("7_dsb58")]
+transform = Transform3D(-0.7325429, 0, -0.6807209, 0, 1, 0, 0.6807209, 0, -0.7325429, 0.18609238, -0.09331983, 0.688179)
+
+[node name="Node3D4" parent="modular-cave-final/RegionWood2/Stick-Group-03" unique_id=297496879 instance=ExtResource("8_noxxg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1429996, -0.093411766, 0.7331009)
+
+[node name="Node3D5" parent="modular-cave-final/RegionWood2/Stick-Group-03" unique_id=628265984 instance=ExtResource("9_p25gm")]
+transform = Transform3D(0.97452885, 0.08833298, 0.20613313, -0.09192353, 0.9957347, 0.0078875795, -0.20455712, -0.026635163, 0.9784921, 0.47228622, -0.17291975, 0.17656326)
+
+[node name="Node3D6" parent="modular-cave-final/RegionWood2/Stick-Group-03" unique_id=2034079681 instance=ExtResource("10_lw7er")]
+transform = Transform3D(-0.41151434, 0, -0.9114033, 0, 1, 2.6077032e-08, 0.9114033, 0, -0.4115143, 1.2628479, -0.27558565, 1.0459137)
+
+[node name="Node3D7" parent="modular-cave-final/RegionWood2/Stick-Group-03" unique_id=502154416 instance=ExtResource("10_lw7er")]
+transform = Transform3D(0.9211854, 0, 0.38912398, -1.8626451e-09, 1, -7.450581e-09, -0.38912392, 0, 0.9211853, -2.2627563, -0.2519555, 1.6574287)
+
+[node name="Node3D8" parent="modular-cave-final/RegionWood2/Stick-Group-03" unique_id=530401417 instance=ExtResource("9_p25gm")]
+transform = Transform3D(-0.7325429, 0, -0.6807209, 0, 1, 0, 0.6807209, 0, -0.7325429, -1.0491982, -0.16649804, 1.714386)
+
+[node name="Node3D9" parent="modular-cave-final/RegionWood2/Stick-Group-03" unique_id=1602048680 instance=ExtResource("8_noxxg")]
+transform = Transform3D(0.98027116, 0, 0.19765733, 0, 1, 0, -0.19765733, 0, 0.98027116, -0.34420013, -0.1283831, 1.3901749)
+
+[node name="Node3D10" parent="modular-cave-final/RegionWood2/Stick-Group-03" unique_id=1643217877 instance=ExtResource("7_dsb58")]
+transform = Transform3D(-0.41151434, 0, -0.9114033, 0, 1, 0, 0.9114033, 0, -0.41151434, 0.255579, -0.14842403, 1.8558044)
+
+[node name="Node3D11" parent="modular-cave-final/RegionWood2/Stick-Group-03" unique_id=1753009719 instance=ExtResource("6_cns11")]
+transform = Transform3D(-0.70977885, 0.16163507, -0.6856297, 0.15085469, 0.9856158, 0.07618778, 0.6880821, -0.049353983, -0.72395253, 1.3577881, -0.28254747, 1.4783211)
+
+[node name="Node3D12" parent="modular-cave-final/RegionWood2/Stick-Group-03" unique_id=1139963375 instance=ExtResource("5_pe7kj")]
+transform = Transform3D(-0.8535507, 0, -0.5210096, -5.5879354e-09, 1, 7.450581e-09, 0.5210097, 0, -0.85355073, -0.80717087, -0.13226604, 2.1892204)
+
+[node name="Node3D13" parent="modular-cave-final/RegionWood2/Stick-Group-03" unique_id=411965061 instance=ExtResource("5_pe7kj")]
+transform = Transform3D(1, 0, 0, -1.8626451e-09, 1, -7.450581e-09, -2.9802322e-08, 0, 0.99999994, 0.6533432, -0.17165136, -1.3519783)
+
+[node name="Node3D14" parent="modular-cave-final/RegionWood2/Stick-Group-03" unique_id=1909919836 instance=ExtResource("6_cns11")]
+transform = Transform3D(-0.7325429, 0, -0.6807209, 0, 1, 0, 0.6807209, 0, -0.7325429, -0.37010574, -0.10734779, -0.9852905)
+
+[node name="Node3D15" parent="modular-cave-final/RegionWood2/Stick-Group-03" unique_id=2039817170 instance=ExtResource("7_dsb58")]
+transform = Transform3D(1, 0, 0, -1.8626451e-09, 1, -7.450581e-09, -2.9802322e-08, 0, 0.99999994, 0.6223602, -0.17627192, -0.4137535)
+
+[node name="Node3D16" parent="modular-cave-final/RegionWood2/Stick-Group-03" unique_id=1386296648 instance=ExtResource("8_noxxg")]
+transform = Transform3D(0.9802711, 0, 0.19765735, 0, 1, 0, -0.19765732, 0, 0.9802711, -0.4907608, -0.13533735, -0.41417313)
+
+[node name="Node3D17" parent="modular-cave-final/RegionWood2/Stick-Group-03" unique_id=347091846 instance=ExtResource("9_p25gm")]
+transform = Transform3D(0.9177171, 0.05370596, 0.3935869, -0.055706218, 0.99842703, -0.0063491315, -0.3933088, -0.01609853, 0.9192652, 0.6043434, -0.21039677, -0.7002449)
+
+[node name="Node3D18" parent="modular-cave-final/RegionWood2/Stick-Group-03" unique_id=184739927 instance=ExtResource("10_lw7er")]
+transform = Transform3D(-0.8535507, 0, -0.5210096, -5.5879354e-09, 1, 7.450581e-09, 0.5210097, 0, -0.85355073, -0.34828186, -0.09549761, -1.5217056)
+
+[node name="Stick-Group-04" type="Node3D" parent="modular-cave-final/RegionWood2" unique_id=170697461]
+transform = Transform3D(0.44448328, -0.1305608, -0.8862214, 0.058533125, 0.9914403, -0.11670474, 0.89387274, 0, 0.4483208, -2.139305, -0.27019554, 0.7871628)
+
+[node name="Node3D" parent="modular-cave-final/RegionWood2/Stick-Group-04" unique_id=543859702 instance=ExtResource("5_pe7kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7789764, -0.04169169, 1.2072678)
+
+[node name="Node3D2" parent="modular-cave-final/RegionWood2/Stick-Group-04" unique_id=1851155539 instance=ExtResource("6_cns11")]
+transform = Transform3D(-0.4133421, 0.0028144796, -0.91057175, -0.00020767763, 0.99999523, 0.0031851376, 0.91057605, 0.001505648, -0.41333944, -1.1187744, -0.25276327, 0.31751442)
+
+[node name="Node3D3" parent="modular-cave-final/RegionWood2/Stick-Group-04" unique_id=1699006633 instance=ExtResource("7_dsb58")]
+transform = Transform3D(-0.72861296, -0.061185203, -0.6821878, -0.12786365, 0.99064344, 0.04771471, 0.67288524, 0.12199251, -0.7296188, 0.17877197, -0.21740055, 0.7027855)
+
+[node name="Node3D4" parent="modular-cave-final/RegionWood2/Stick-Group-04" unique_id=380750083 instance=ExtResource("8_noxxg")]
+transform = Transform3D(1.0000001, 3.7252903e-09, 2.9802322e-08, 3.9535442e-10, 1, -1.6701254e-09, 0, 7.450581e-09, 1.0000001, -1.1545181, -0.28855515, 0.7560711)
+
+[node name="Node3D5" parent="modular-cave-final/RegionWood2/Stick-Group-04" unique_id=997657027 instance=ExtResource("9_p25gm")]
+transform = Transform3D(0.9430568, -0.22410037, 0.24581155, 0.2624541, 0.95531714, -0.13596651, -0.20435777, 0.1927384, 0.9597346, 0.473732, -0.11676741, 0.1814003)
+
+[node name="Node3D6" parent="modular-cave-final/RegionWood2/Stick-Group-04" unique_id=375922352 instance=ExtResource("10_lw7er")]
+transform = Transform3D(-0.41151434, 0, -0.9114033, 0, 1, 0, 0.9114033, 0, -0.41151434, 1.3497314, -0.08621784, 1.1426697)
+
+[node name="Node3D7" parent="modular-cave-final/RegionWood2/Stick-Group-04" unique_id=1178877627 instance=ExtResource("10_lw7er")]
+transform = Transform3D(0.9211854, 0, 0.38912395, 0, 1, 0, -0.38912395, 0, 0.9211854, -2.2592087, -0.11311924, 1.6693726)
+
+[node name="Node3D8" parent="modular-cave-final/RegionWood2/Stick-Group-04" unique_id=564373925 instance=ExtResource("9_p25gm")]
+transform = Transform3D(-0.7325429, 0, -0.6807209, 0, 1, 0, 0.6807209, 0, -0.7325429, -1.0491982, -0.16649804, 1.714386)
+
+[node name="Node3D9" parent="modular-cave-final/RegionWood2/Stick-Group-04" unique_id=1046059026 instance=ExtResource("8_noxxg")]
+transform = Transform3D(0.95690954, -0.1979363, 0.21247575, 0.17115101, 0.9755349, 0.13798158, -0.23458898, -0.09567042, 0.9673755, -0.10297394, -0.15073156, 1.3213062)
+
+[node name="Node3D10" parent="modular-cave-final/RegionWood2/Stick-Group-04" unique_id=1221547333 instance=ExtResource("7_dsb58")]
+transform = Transform3D(-0.41151434, 0, -0.9114033, 0, 1, 0, 0.9114033, 0, -0.41151434, 0.255579, -0.14842403, 1.8558044)
+
+[node name="Node3D11" parent="modular-cave-final/RegionWood2/Stick-Group-04" unique_id=1958812760 instance=ExtResource("6_cns11")]
+transform = Transform3D(-0.7325429, 0, -0.6807209, 0, 1, 0, 0.6807209, 0, -0.7325429, 1.3630714, -0.075855784, 1.4961014)
+
+[node name="Node3D12" parent="modular-cave-final/RegionWood2/Stick-Group-04" unique_id=571872863 instance=ExtResource("5_pe7kj")]
+transform = Transform3D(-0.8535508, 0, -0.5210096, 0, 1, 0, 0.5210096, 0, -0.8535508, -0.8061905, -0.09398851, 2.1925125)
+
+[node name="Node3D13" parent="modular-cave-final/RegionWood2/Stick-Group-04" unique_id=1900299029 instance=ExtResource("5_pe7kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6570015, -0.028533995, -1.3396683)
+
+[node name="Node3D14" parent="modular-cave-final/RegionWood2/Stick-Group-04" unique_id=1301886313 instance=ExtResource("6_cns11")]
+transform = Transform3D(-0.72603023, -0.07864363, -0.6831517, -0.16434804, 0.984494, 0.06132952, 0.66773546, 0.15680163, -0.72769725, -0.46475983, -0.17641449, -0.79654694)
+
+[node name="Node3D15" parent="modular-cave-final/RegionWood2/Stick-Group-04" unique_id=303032646 instance=ExtResource("7_dsb58")]
+transform = Transform3D(0.9202378, -0.39096433, 0.017593384, 0.37942743, 0.9022941, 0.20469569, -0.0959031, -0.18169332, 0.9786676, 0.62675476, -0.004295349, -0.39895248)
+
+[node name="Node3D16" parent="modular-cave-final/RegionWood2/Stick-Group-04" unique_id=1610890978 instance=ExtResource("8_noxxg")]
+transform = Transform3D(0.9802713, 3.7252903e-09, 0.19765738, -2.9341276e-09, 1, -9.745943e-09, -0.19765735, 7.450581e-09, 0.9802712, -0.501297, -0.29218292, -0.3879013)
+
+[node name="Node3D17" parent="modular-cave-final/RegionWood2/Stick-Group-04" unique_id=1056129090 instance=ExtResource("9_p25gm")]
+transform = Transform3D(0.9211854, 0, 0.38912395, 0, 1, 0, -0.38912395, 0, 0.9211854, 0.6091347, -0.02322404, -0.68413544)
+
+[node name="Node3D18" parent="modular-cave-final/RegionWood2/Stick-Group-04" unique_id=1778772963 instance=ExtResource("10_lw7er")]
+transform = Transform3D(-0.8268293, -0.16507432, -0.5376838, -0.31237873, 0.9297444, 0.19492307, 0.46773174, 0.3291291, -0.8203057, -0.34587097, -0.0015025139, -1.5136166)
 
 [node name="RegionWood3" type="Area3D" parent="modular-cave-final" unique_id=169615218]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.295, 0, 111.918)
@@ -266,6 +840,156 @@ surface_type = 3
 shape = SubResource("BoxShape3D_c7dxg")
 debug_color = Color(0.41568628, 0.2, 0.043137256, 0.75686276)
 
+[node name="Stick-Group-01" type="Node3D" parent="modular-cave-final/RegionWood3" unique_id=1940650064]
+transform = Transform3D(0.012653934, 0.32622817, -0.9452064, -0.0043669827, 0.94529104, 0.32619894, 0.9999104, 0, 0.013386283, 7.151581, 0.4594319, 0.044509888)
+
+[node name="Node3D" parent="modular-cave-final/RegionWood3/Stick-Group-01" unique_id=2078926638 instance=ExtResource("5_pe7kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7789764, -0.04169169, 1.2072678)
+
+[node name="Node3D2" parent="modular-cave-final/RegionWood3/Stick-Group-01" unique_id=2055812391 instance=ExtResource("6_cns11")]
+transform = Transform3D(-0.41060445, -0.0050587715, -0.9117999, -0.3464754, 0.9258445, 0.15088904, 0.8434211, 0.37787157, -0.38190824, -1.1203461, -0.8961258, 1.272789)
+
+[node name="Node3D3" parent="modular-cave-final/RegionWood3/Stick-Group-01" unique_id=12571625 instance=ExtResource("7_dsb58")]
+transform = Transform3D(-0.7318579, -0.005058738, -0.68143904, -0.260931, 0.9258441, 0.2733636, 0.6295233, 0.37787154, -0.67890644, 0.17286682, -0.9185276, 1.6777725)
+
+[node name="Node3D4" parent="modular-cave-final/RegionWood3/Stick-Group-01" unique_id=1200304416 instance=ExtResource("8_noxxg")]
+transform = Transform3D(0.99998695, -0.0050587505, 0.0009925738, 0.0050587486, 0.92584425, -0.37787166, 0.0009925803, 0.37787148, 0.92585737, -1.1558762, -0.9995899, 1.698288)
+
+[node name="Node3D5" parent="modular-cave-final/RegionWood3/Stick-Group-01" unique_id=111255556 instance=ExtResource("9_p25gm")]
+transform = Transform3D(0.97367203, -0.18713333, 0.1301692, 0.18431379, 0.98229676, 0.03348902, -0.1341317, -0.008615398, 0.99092615, 0.47390747, -0.15250778, 0.16905212)
+
+[node name="Node3D6" parent="modular-cave-final/RegionWood3/Stick-Group-01" unique_id=478152531 instance=ExtResource("10_lw7er")]
+transform = Transform3D(-0.41060442, -0.0050587715, -0.91179985, -0.3464754, 0.92584443, 0.15088902, 0.8434211, 0.37787154, -0.3819082, 1.3368835, -1.0778084, 2.1024551)
+
+[node name="Node3D7" parent="modular-cave-final/RegionWood3/Stick-Group-01" unique_id=1356548713 instance=ExtResource("10_lw7er")]
+transform = Transform3D(0.9211854, 0, 0.38912395, 0, 1, 0, -0.38912395, 0, 0.9211854, -2.2592087, -0.11311924, 1.6693726)
+
+[node name="Node3D8" parent="modular-cave-final/RegionWood3/Stick-Group-01" unique_id=882872996 instance=ExtResource("9_p25gm")]
+transform = Transform3D(-0.7318579, -0.005058738, -0.68143904, -0.260931, 0.9258441, 0.2733636, 0.6295233, 0.37787154, -0.67890644, -1.0610428, -1.3803082, 2.5990143)
+
+[node name="Node3D9" parent="modular-cave-final/RegionWood3/Stick-Group-01" unique_id=463986508 instance=ExtResource("8_noxxg")]
+transform = Transform3D(0.98006266, -0.00505874, 0.19862787, 0.07964805, 0.9258444, -0.36941692, -0.18202958, 0.37787148, 0.9077883, -0.35655975, -1.2189312, 2.3139496)
+
+[node name="Node3D10" parent="modular-cave-final/RegionWood3/Stick-Group-01" unique_id=1763987446 instance=ExtResource("7_dsb58")]
+transform = Transform3D(-0.41060445, -0.0050587715, -0.9117999, -0.3464754, 0.9258445, 0.15088904, 0.8434211, 0.37787157, -0.38190824, 0.24354553, -1.3583584, 2.756073)
+
+[node name="Node3D11" parent="modular-cave-final/RegionWood3/Stick-Group-01" unique_id=1900503072 instance=ExtResource("6_cns11")]
+transform = Transform3D(-0.7318579, -0.005058738, -0.68143904, -0.260931, 0.9258441, 0.2733636, 0.6295233, 0.37787154, -0.67890644, 1.3505478, -1.2017002, 2.4335556)
+
+[node name="Node3D12" parent="modular-cave-final/RegionWood3/Stick-Group-01" unique_id=1393050356 instance=ExtResource("5_pe7kj")]
+transform = Transform3D(-0.85302246, -0.00505873, -0.52185005, -0.2011926, 0.9258443, 0.31989694, 0.48153332, 0.37787145, -0.7907835, -0.81793976, -1.4926167, 3.0693665)
+
+[node name="Node3D13" parent="modular-cave-final/RegionWood3/Stick-Group-01" unique_id=1932274051 instance=ExtResource("5_pe7kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6570015, -0.028533995, -1.3396683)
+
+[node name="Node3D14" parent="modular-cave-final/RegionWood3/Stick-Group-01" unique_id=938938521 instance=ExtResource("6_cns11")]
+transform = Transform3D(-0.7325429, 0, -0.6807209, 0, 1, 0, 0.6807209, 0, -0.7325429, -0.37010574, -0.10734779, -0.9852905)
+
+[node name="Node3D15" parent="modular-cave-final/RegionWood3/Stick-Group-01" unique_id=213045599 instance=ExtResource("7_dsb58")]
+transform = Transform3D(0.986184, -0.15653273, -0.054210614, 0.15664685, 0.98765236, -0.0021645725, 0.053880066, -0.0063573, 0.99852717, 0.626976, -0.04942131, -0.41454315)
+
+[node name="Node3D16" parent="modular-cave-final/RegionWood3/Stick-Group-01" unique_id=1471141884 instance=ExtResource("8_noxxg")]
+transform = Transform3D(0.9802712, 0, 0.19765735, 0, 1, 2.9802322e-08, -0.19765735, -2.9802322e-08, 0.9802712, -0.48958588, -0.13875961, -0.42527008)
+
+[node name="Node3D17" parent="modular-cave-final/RegionWood3/Stick-Group-01" unique_id=34410914 instance=ExtResource("9_p25gm")]
+transform = Transform3D(0.9211854, 0, 0.38912395, 0, 1, 0, -0.38912395, 0, 0.9211854, 0.6091347, -0.02322404, -0.68413544)
+
+[node name="Node3D18" parent="modular-cave-final/RegionWood3/Stick-Group-01" unique_id=1238092565 instance=ExtResource("10_lw7er")]
+transform = Transform3D(-0.8535508, 0, -0.5210096, 0, 1, 0, 0.5210096, 0, -0.8535508, -0.3458767, -0.0015020221, -1.5136185)
+
+[node name="Stick-Group-02" type="Node3D" parent="modular-cave-final/RegionWood3" unique_id=1412743944]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9940186, 0, -4.051964)
+
+[node name="Node3D3" parent="modular-cave-final/RegionWood3/Stick-Group-02" unique_id=1108999134 instance=ExtResource("7_dsb58")]
+transform = Transform3D(-0.7325429, 0, -0.6807209, 0, 1, 0, 0.6807209, 0, -0.7325429, 0.18609238, -0.09331983, 0.688179)
+
+[node name="Node3D5" parent="modular-cave-final/RegionWood3/Stick-Group-02" unique_id=716723391 instance=ExtResource("9_p25gm")]
+transform = Transform3D(0.98027116, 0, 0.19765733, 0, 1, 0, -0.19765733, 0, 0.98027116, 0.47372818, -0.116767116, 0.18139648)
+
+[node name="Node3D6" parent="modular-cave-final/RegionWood3/Stick-Group-02" unique_id=1818461275 instance=ExtResource("10_lw7er")]
+transform = Transform3D(-0.41151434, 0, -0.9114033, 0, 1, 0, 0.9114033, 0, -0.41151434, 1.3497314, -0.08621784, 1.1426697)
+
+[node name="Node3D9" parent="modular-cave-final/RegionWood3/Stick-Group-02" unique_id=445421548 instance=ExtResource("8_noxxg")]
+transform = Transform3D(0.98027116, 0, 0.19765733, 0, 1, 0, -0.19765733, 0, 0.98027116, -0.34420013, -0.1283831, 1.3901749)
+
+[node name="Node3D10" parent="modular-cave-final/RegionWood3/Stick-Group-02" unique_id=554612421 instance=ExtResource("7_dsb58")]
+transform = Transform3D(-0.41151434, 0, -0.9114033, 0, 1, 0, 0.9114033, 0, -0.41151434, 0.255579, -0.14842403, 1.8558044)
+
+[node name="Node3D11" parent="modular-cave-final/RegionWood3/Stick-Group-02" unique_id=533410690 instance=ExtResource("6_cns11")]
+transform = Transform3D(-0.7325429, 0, -0.6807209, 0, 1, 0, 0.6807209, 0, -0.7325429, 1.3630714, -0.075855784, 1.4961014)
+
+[node name="Node3D13" parent="modular-cave-final/RegionWood3/Stick-Group-02" unique_id=502224257 instance=ExtResource("5_pe7kj")]
+transform = Transform3D(0.990459, -0.13780758, 0, 0.13780758, 0.990459, 0, 0, 0, 1, 0.6569977, -0.07644111, -1.3396683)
+
+[node name="Node3D14" parent="modular-cave-final/RegionWood3/Stick-Group-02" unique_id=2142910985 instance=ExtResource("6_cns11")]
+transform = Transform3D(-0.7325429, 0, -0.6807209, 0, 1, 0, 0.6807209, 0, -0.7325429, -0.37010574, -0.10734779, -0.9852905)
+
+[node name="Node3D15" parent="modular-cave-final/RegionWood3/Stick-Group-02" unique_id=460929279 instance=ExtResource("7_dsb58")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.62675476, -0.004295543, -0.3989563)
+
+[node name="Node3D17" parent="modular-cave-final/RegionWood3/Stick-Group-02" unique_id=2027354644 instance=ExtResource("9_p25gm")]
+transform = Transform3D(0.9211854, 0, 0.38912395, 0, 1, 0, -0.38912395, 0, 0.9211854, 0.6091347, -0.02322404, -0.68413544)
+
+[node name="Node3D18" parent="modular-cave-final/RegionWood3/Stick-Group-02" unique_id=1087991179 instance=ExtResource("10_lw7er")]
+transform = Transform3D(-0.8535508, 0, -0.5210096, 0, 1, 0, 0.5210096, 0, -0.8535508, -0.3458786, -0.07567625, -1.5136185)
+
+[node name="Stick-Group-03" type="Node3D" parent="modular-cave-final/RegionWood3" unique_id=1925232036]
+transform = Transform3D(-0.002862374, 0, 0.9999959, 0, 1, 0, -0.9999959, 0, -0.002862374, 2.589882, 0.08528268, -9.186508)
+
+[node name="Node3D" parent="modular-cave-final/RegionWood3/Stick-Group-03" unique_id=994524647 instance=ExtResource("5_pe7kj")]
+transform = Transform3D(1.0000001, 0, 2.3283064e-10, 0, 1, 0, -2.3283064e-10, 0, 1.0000001, -1.7789764, -0.1265612, 1.2072678)
+
+[node name="Node3D2" parent="modular-cave-final/RegionWood3/Stick-Group-03" unique_id=1070298273 instance=ExtResource("6_cns11")]
+transform = Transform3D(-0.41151437, 0, -0.91140336, 0, 1, 0, 0.91140336, 0, -0.41151437, -1.1072617, -0.14698398, 0.2945404)
+
+[node name="Node3D3" parent="modular-cave-final/RegionWood3/Stick-Group-03" unique_id=1757563759 instance=ExtResource("7_dsb58")]
+transform = Transform3D(-0.7325429, 0, -0.6807209, 0, 1, 0, 0.6807209, 0, -0.7325429, 0.18609238, -0.09331983, 0.688179)
+
+[node name="Node3D4" parent="modular-cave-final/RegionWood3/Stick-Group-03" unique_id=1333956692 instance=ExtResource("8_noxxg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1429996, -0.093411766, 0.7331009)
+
+[node name="Node3D5" parent="modular-cave-final/RegionWood3/Stick-Group-03" unique_id=736029733 instance=ExtResource("9_p25gm")]
+transform = Transform3D(0.98027116, 0, 0.19765733, 0, 1, 0, -0.19765733, 0, 0.98027116, 0.47372818, -0.116767116, 0.18139648)
+
+[node name="Node3D6" parent="modular-cave-final/RegionWood3/Stick-Group-03" unique_id=1215298937 instance=ExtResource("10_lw7er")]
+transform = Transform3D(-0.41151437, 0, -0.91140336, 0, 1, 0, 0.91140336, 0, -0.41151437, 1.3497314, -0.17977092, 1.1426697)
+
+[node name="Node3D7" parent="modular-cave-final/RegionWood3/Stick-Group-03" unique_id=1240267243 instance=ExtResource("10_lw7er")]
+transform = Transform3D(0.9211854, 0, 0.38912395, 0, 1, 0, -0.38912395, 0, 0.9211854, -2.2592087, -0.11311924, 1.6693726)
+
+[node name="Node3D8" parent="modular-cave-final/RegionWood3/Stick-Group-03" unique_id=1843235605 instance=ExtResource("9_p25gm")]
+transform = Transform3D(-0.7325429, 0, -0.6807209, 0, 1, 0, 0.6807209, 0, -0.7325429, -1.0491982, -0.16649804, 1.714386)
+
+[node name="Node3D9" parent="modular-cave-final/RegionWood3/Stick-Group-03" unique_id=689962178 instance=ExtResource("8_noxxg")]
+transform = Transform3D(0.98027116, 0, 0.19765733, 0, 1, 0, -0.19765733, 0, 0.98027116, -0.34420013, -0.1283831, 1.3901749)
+
+[node name="Node3D10" parent="modular-cave-final/RegionWood3/Stick-Group-03" unique_id=574607988 instance=ExtResource("7_dsb58")]
+transform = Transform3D(-0.41151434, 0, -0.9114033, 0, 1, 0, 0.9114033, 0, -0.41151434, 0.255579, -0.14842403, 1.8558044)
+
+[node name="Node3D11" parent="modular-cave-final/RegionWood3/Stick-Group-03" unique_id=1100715931 instance=ExtResource("6_cns11")]
+transform = Transform3D(-0.73254293, 0, -0.680721, 0, 1, 0, 0.680721, 0, -0.73254293, 1.3630676, -0.16940886, 1.4961014)
+
+[node name="Node3D12" parent="modular-cave-final/RegionWood3/Stick-Group-03" unique_id=1224984431 instance=ExtResource("5_pe7kj")]
+transform = Transform3D(-0.8535508, 0, -0.5210096, 0, 1, 0, 0.5210096, 0, -0.8535508, -0.8061905, -0.09398851, 2.1925125)
+
+[node name="Node3D13" parent="modular-cave-final/RegionWood3/Stick-Group-03" unique_id=2032606794 instance=ExtResource("5_pe7kj")]
+transform = Transform3D(0.99892014, 0.046469353, 1.6808044e-06, -0.046392314, 0.9972619, 0.057588313, 0.0026744138, -0.057526156, 0.99834085, 0.6569519, -0.24678068, -1.338562)
+
+[node name="Node3D14" parent="modular-cave-final/RegionWood3/Stick-Group-03" unique_id=1720075416 instance=ExtResource("6_cns11")]
+transform = Transform3D(-0.73175067, 0.046469346, -0.67998713, 0.07318592, 0.9972619, -0.010605674, 0.67763233, -0.057526156, -0.73314774, -0.37269592, -0.25732237, -0.9830246)
+
+[node name="Node3D15" parent="modular-cave-final/RegionWood3/Stick-Group-03" unique_id=1441051532 instance=ExtResource("7_dsb58")]
+transform = Transform3D(1.0000001, 0, 2.3283064e-10, 0, 1, 0, -2.3283064e-10, 0, 1.0000001, 0.62674713, -0.13921799, -0.3989563)
+
+[node name="Node3D16" parent="modular-cave-final/RegionWood3/Stick-Group-03" unique_id=547447453 instance=ExtResource("8_noxxg")]
+transform = Transform3D(0.9802712, 0, 0.19765735, 0, 1, 0, -0.19765735, 0, 0.9802712, -0.48978424, -0.18360241, -0.4108734)
+
+[node name="Node3D17" parent="modular-cave-final/RegionWood3/Stick-Group-03" unique_id=28466416 instance=ExtResource("9_p25gm")]
+transform = Transform3D(0.9201898, 0.046469342, 0.38870528, -0.065144904, 0.9972619, 0.034997128, -0.3860148, -0.057526156, 0.9206973, 0.609375, -0.20151477, -0.6845932)
+
+[node name="Node3D18" parent="modular-cave-final/RegionWood3/Stick-Group-03" unique_id=1537590493 instance=ExtResource("10_lw7er")]
+transform = Transform3D(-0.85262835, 0.046469357, -0.5204485, 0.06960226, 0.9972618, -0.024983712, 0.51786244, -0.057526156, -0.8535283, -0.34358978, -0.18331411, -1.5164566)
+
 [node name="RegionWood4" type="Area3D" parent="modular-cave-final" unique_id=588500969]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 115.02, 0, 112.016)
 script = ExtResource("2_ieofv")
@@ -275,6 +999,120 @@ surface_type = 3
 shape = SubResource("BoxShape3D_c7dxg")
 debug_color = Color(0.41568628, 0.2, 0.043137256, 0.75686276)
 
+[node name="Stick-Group-01" type="Node3D" parent="modular-cave-final/RegionWood4" unique_id=942326610]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5814743, 0.35555375, -1.948204)
+
+[node name="Node3D" parent="modular-cave-final/RegionWood4/Stick-Group-01" unique_id=143840147 instance=ExtResource("5_pe7kj")]
+transform = Transform3D(0.98612094, -0.16602871, 0, 0.16602871, 0.98612094, 0, 0, 0, 1, -1.7850723, -0.2927958, 1.2072678)
+
+[node name="Node3D2" parent="modular-cave-final/RegionWood4/Stick-Group-01" unique_id=1498523748 instance=ExtResource("6_cns11")]
+transform = Transform3D(-0.41151434, 0, -0.9114033, 0, 1, 0, 0.9114033, 0, -0.41151434, -1.107254, -0.21970654, 0.2945404)
+
+[node name="Node3D3" parent="modular-cave-final/RegionWood4/Stick-Group-01" unique_id=1976817174 instance=ExtResource("7_dsb58")]
+transform = Transform3D(-0.7325429, 0, -0.6807209, 0, 1, 0, 0.6807209, 0, -0.7325429, 0.18609619, -0.22792476, 0.688179)
+
+[node name="Node3D4" parent="modular-cave-final/RegionWood4/Stick-Group-01" unique_id=1497922498 instance=ExtResource("8_noxxg")]
+transform = Transform3D(0.98612094, -0.16602871, 0, 0.16602871, 0.98612094, 0, 0, 0, 1, -1.1493301, -0.23820734, 0.7331009)
+
+[node name="Node3D5" parent="modular-cave-final/RegionWood4/Stick-Group-01" unique_id=614855866 instance=ExtResource("9_p25gm")]
+transform = Transform3D(0.98027116, 0, 0.19765733, 0, 1, 0, -0.19765733, 0, 0.98027116, 0.47372437, -0.24979752, 0.18139648)
+
+[node name="Node3D6" parent="modular-cave-final/RegionWood4/Stick-Group-01" unique_id=1094529190 instance=ExtResource("10_lw7er")]
+transform = Transform3D(-0.41151434, 0, -0.9114033, 0, 1, 0, 0.9114033, 0, -0.41151434, 1.3497314, -0.36470708, 1.1426697)
+
+[node name="Node3D7" parent="modular-cave-final/RegionWood4/Stick-Group-01" unique_id=182979762 instance=ExtResource("10_lw7er")]
+transform = Transform3D(0.9084003, -0.16602872, 0.38372332, 0.15294322, 0.98612094, 0.06460574, -0.389124, 0, 0.9211855, -2.2467804, -0.44296435, 1.6693726)
+
+[node name="Node3D8" parent="modular-cave-final/RegionWood4/Stick-Group-01" unique_id=1968435885 instance=ExtResource("9_p25gm")]
+transform = Transform3D(-0.7325429, 0, -0.6807209, 0, 1, 0, 0.6807209, 0, -0.7325429, -1.0491943, -0.313521, 1.714386)
+
+[node name="Node3D9" parent="modular-cave-final/RegionWood4/Stick-Group-01" unique_id=2028572596 instance=ExtResource("8_noxxg")]
+transform = Transform3D(0.98027116, 0, 0.19765733, 0, 1, 0, -0.19765733, 0, 0.98027116, -0.34420013, -0.26240498, 1.3901749)
+
+[node name="Node3D10" parent="modular-cave-final/RegionWood4/Stick-Group-01" unique_id=789865433 instance=ExtResource("7_dsb58")]
+transform = Transform3D(-0.41151434, 0, -0.9114033, 0, 1, 0, 0.9114033, 0, -0.41151434, 0.2555771, -0.29045308, 1.8558044)
+
+[node name="Node3D11" parent="modular-cave-final/RegionWood4/Stick-Group-01" unique_id=2088811720 instance=ExtResource("6_cns11")]
+transform = Transform3D(-0.7325429, 0, -0.6807209, 0, 1, 0, 0.6807209, 0, -0.7325429, 1.3630676, -0.34824806, 1.4961014)
+
+[node name="Node3D12" parent="modular-cave-final/RegionWood4/Stick-Group-01" unique_id=1936537455 instance=ExtResource("5_pe7kj")]
+transform = Transform3D(-0.8535508, 0, -0.5210096, 0, 1, 0, 0.5210096, 0, -0.8535508, -0.8061905, -0.09398851, 2.1925125)
+
+[node name="Node3D13" parent="modular-cave-final/RegionWood4/Stick-Group-01" unique_id=1752573111 instance=ExtResource("5_pe7kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6570015, -0.028533995, -1.3396683)
+
+[node name="Node3D14" parent="modular-cave-final/RegionWood4/Stick-Group-01" unique_id=1478039962 instance=ExtResource("6_cns11")]
+transform = Transform3D(-0.7325429, 0, -0.6807209, 0, 1, 0, 0.6807209, 0, -0.7325429, -0.37010574, -0.10734779, -0.9852905)
+
+[node name="Node3D15" parent="modular-cave-final/RegionWood4/Stick-Group-01" unique_id=1776910660 instance=ExtResource("7_dsb58")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.62675476, -0.096328855, -0.3989563)
+
+[node name="Node3D16" parent="modular-cave-final/RegionWood4/Stick-Group-01" unique_id=1043630282 instance=ExtResource("8_noxxg")]
+transform = Transform3D(0.97671205, -0.0851387, 0.19693968, 0.083459005, 0.9963691, 0.016828286, -0.19765735, 0, 0.9802713, -0.48978424, -0.24127498, -0.4108734)
+
+[node name="Node3D17" parent="modular-cave-final/RegionWood4/Stick-Group-01" unique_id=1993573347 instance=ExtResource("9_p25gm")]
+transform = Transform3D(0.9211854, 0, 0.38912395, 0, 1, 0, -0.38912395, 0, 0.9211854, 0.6091347, -0.02322404, -0.68413544)
+
+[node name="Node3D18" parent="modular-cave-final/RegionWood4/Stick-Group-01" unique_id=1983093570 instance=ExtResource("10_lw7er")]
+transform = Transform3D(-0.8535508, 0, -0.5210096, 0, 1, 0, 0.5210096, 0, -0.8535508, -0.3458767, -0.0015020221, -1.5136185)
+
+[node name="Stick-Group-02" type="Node3D" parent="modular-cave-final/RegionWood4" unique_id=1213145743]
+transform = Transform3D(-0.9990769, 0, -0.04295687, 0, 1, 0, 0.04295687, 0, -0.9990769, -3.7931519, 0.07317603, -8.038902)
+
+[node name="Node3D" parent="modular-cave-final/RegionWood4/Stick-Group-02" unique_id=1644085561 instance=ExtResource("5_pe7kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6596985, -0.04169169, 2.2624664)
+
+[node name="Node3D2" parent="modular-cave-final/RegionWood4/Stick-Group-02" unique_id=1430830614 instance=ExtResource("6_cns11")]
+transform = Transform3D(-0.41151437, 0, -0.91140336, 0, 1, 0, 0.91140336, 0, -0.41151437, -1.107254, -0.1419977, 0.29453278)
+
+[node name="Node3D3" parent="modular-cave-final/RegionWood4/Stick-Group-02" unique_id=1455636383 instance=ExtResource("7_dsb58")]
+transform = Transform3D(-0.7325429, 0, -0.6807209, 0, 1, 0, 0.6807209, 0, -0.7325429, 0.18609238, -0.09331983, 0.688179)
+
+[node name="Node3D4" parent="modular-cave-final/RegionWood4/Stick-Group-02" unique_id=2002439456 instance=ExtResource("8_noxxg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1429996, -0.093411766, 0.7331009)
+
+[node name="Node3D5" parent="modular-cave-final/RegionWood4/Stick-Group-02" unique_id=1768238204 instance=ExtResource("9_p25gm")]
+transform = Transform3D(0.98027116, 0, 0.19765733, 0, 1, 0, -0.19765733, 0, 0.98027116, 0.47372818, -0.116767116, 0.18139648)
+
+[node name="Node3D6" parent="modular-cave-final/RegionWood4/Stick-Group-02" unique_id=414651425 instance=ExtResource("10_lw7er")]
+transform = Transform3D(-0.4115144, 0, -0.9114034, 0, 1, 0, 0.9114034, 0, -0.4115144, 2.0013428, -0.20156977, 1.3983002)
+
+[node name="Node3D7" parent="modular-cave-final/RegionWood4/Stick-Group-02" unique_id=1554589735 instance=ExtResource("10_lw7er")]
+transform = Transform3D(0.9211854, 0, 0.38912395, 0, 1, 0, -0.38912395, 0, 0.9211854, -2.2592087, -0.11311924, 1.6693726)
+
+[node name="Node3D8" parent="modular-cave-final/RegionWood4/Stick-Group-02" unique_id=337518111 instance=ExtResource("9_p25gm")]
+transform = Transform3D(-0.7325429, 0, -0.6807209, 0, 1, 0, 0.6807209, 0, -0.7325429, -1.0491982, -0.16649804, 1.714386)
+
+[node name="Node3D9" parent="modular-cave-final/RegionWood4/Stick-Group-02" unique_id=1193934707 instance=ExtResource("8_noxxg")]
+transform = Transform3D(0.9802714, 0, 0.19765736, 0, 1, 0, -0.19765736, 0, 0.9802714, 0.086883545, -0.1283831, 2.6687088)
+
+[node name="Node3D10" parent="modular-cave-final/RegionWood4/Stick-Group-02" unique_id=1340158137 instance=ExtResource("7_dsb58")]
+transform = Transform3D(-0.4115144, 0, -0.9114034, 0, 1, 0, 0.9114034, 0, -0.4115144, 0.686676, -0.14842403, 3.1343307)
+
+[node name="Node3D11" parent="modular-cave-final/RegionWood4/Stick-Group-02" unique_id=428415354 instance=ExtResource("6_cns11")]
+transform = Transform3D(-0.732543, 0, -0.6807209, 0, 1, 0, 0.6807209, 0, -0.732543, 2.0146713, -0.1912077, 1.7517395)
+
+[node name="Node3D12" parent="modular-cave-final/RegionWood4/Stick-Group-02" unique_id=122387350 instance=ExtResource("5_pe7kj")]
+transform = Transform3D(-0.853551, 0, -0.5210096, 0, 1, 0, 0.5210096, 0, -0.853551, -0.37509918, -0.057219714, 3.4710388)
+
+[node name="Node3D13" parent="modular-cave-final/RegionWood4/Stick-Group-02" unique_id=1126131414 instance=ExtResource("5_pe7kj")]
+transform = Transform3D(0.9712375, -0.23811014, -0.0012366883, 0.23811008, 0.9711842, 0.0102379145, -0.0012366958, -0.010237917, 0.99994695, 0.72172546, -0.12917817, -2.8452911)
+
+[node name="Node3D14" parent="modular-cave-final/RegionWood4/Stick-Group-02" unique_id=207216649 instance=ExtResource("6_cns11")]
+transform = Transform3D(-0.73254293, 0, -0.6807209, 0, 1, 0, 0.6807209, 0, -0.73254293, -0.37010193, -0.21971685, -0.98529816)
+
+[node name="Node3D15" parent="modular-cave-final/RegionWood4/Stick-Group-02" unique_id=1508960131 instance=ExtResource("7_dsb58")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4270172, -0.101372674, -0.28939056)
+
+[node name="Node3D16" parent="modular-cave-final/RegionWood4/Stick-Group-02" unique_id=963336766 instance=ExtResource("8_noxxg")]
+transform = Transform3D(0.9802713, 0, 0.19765735, 0, 1, 0, -0.19765735, 0, 0.9802713, -0.48978424, -0.18141654, -0.41088104)
+
+[node name="Node3D17" parent="modular-cave-final/RegionWood4/Stick-Group-02" unique_id=1015212646 instance=ExtResource("9_p25gm")]
+transform = Transform3D(0.92118555, 0, 0.38912398, 0, 1, 0, -0.38912398, 0, 0.92118555, 1.4093933, -0.12030117, -0.57455444)
+
+[node name="Node3D18" parent="modular-cave-final/RegionWood4/Stick-Group-02" unique_id=1109616102 instance=ExtResource("10_lw7er")]
+transform = Transform3D(-0.7236104, 0.5368331, -0.43381825, 0.44618842, 0.8433727, 0.29939684, 0.52659667, 0.023081975, -0.84980196, -0.3151474, -0.0015020221, -2.2282104)
+
 [node name="RegionWood5" type="Area3D" parent="modular-cave-final" unique_id=1438006321]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 102.08, 0, 117.046)
 script = ExtResource("2_ieofv")
@@ -283,6 +1121,120 @@ surface_type = 3
 [node name="CollisionShape3D" type="CollisionShape3D" parent="modular-cave-final/RegionWood5" unique_id=130354581]
 shape = SubResource("BoxShape3D_oyyej")
 debug_color = Color(0.41568628, 0.2, 0.043137256, 0.75686276)
+
+[node name="Stick-Group-01" type="Node3D" parent="modular-cave-final/RegionWood5" unique_id=580407188]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03171277, 0)
+
+[node name="Node3D" parent="modular-cave-final/RegionWood5/Stick-Group-01" unique_id=2111460660 instance=ExtResource("5_pe7kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7789764, -0.04169169, 1.2072678)
+
+[node name="Node3D2" parent="modular-cave-final/RegionWood5/Stick-Group-01" unique_id=1797411493 instance=ExtResource("6_cns11")]
+transform = Transform3D(-0.41151434, 0, -0.9114033, 0, 1, 0, 0.9114033, 0, -0.41151434, -1.107254, -0.057620637, 0.2945404)
+
+[node name="Node3D3" parent="modular-cave-final/RegionWood5/Stick-Group-01" unique_id=90033380 instance=ExtResource("7_dsb58")]
+transform = Transform3D(-0.7325429, 0, -0.6807209, 0, 1, 0, 0.6807209, 0, -0.7325429, 0.18609238, -0.09331983, 0.688179)
+
+[node name="Node3D4" parent="modular-cave-final/RegionWood5/Stick-Group-01" unique_id=1917049984 instance=ExtResource("8_noxxg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1429996, -0.093411766, 0.7331009)
+
+[node name="Node3D5" parent="modular-cave-final/RegionWood5/Stick-Group-01" unique_id=477649842 instance=ExtResource("9_p25gm")]
+transform = Transform3D(0.98027116, 0, 0.19765733, 0, 1, 0, -0.19765733, 0, 0.98027116, 0.47372818, -0.116767116, 0.18139648)
+
+[node name="Node3D6" parent="modular-cave-final/RegionWood5/Stick-Group-01" unique_id=875215620 instance=ExtResource("10_lw7er")]
+transform = Transform3D(-0.41151434, 0, -0.9114033, 0, 1, 0, 0.9114033, 0, -0.41151434, 1.3497314, -0.08621784, 1.1426697)
+
+[node name="Node3D7" parent="modular-cave-final/RegionWood5/Stick-Group-01" unique_id=71161016 instance=ExtResource("10_lw7er")]
+transform = Transform3D(0.9211854, 0, 0.38912395, 0, 1, 0, -0.38912395, 0, 0.9211854, -2.2592087, -0.11311924, 1.6693726)
+
+[node name="Node3D8" parent="modular-cave-final/RegionWood5/Stick-Group-01" unique_id=271568038 instance=ExtResource("9_p25gm")]
+transform = Transform3D(-0.7325429, 0, -0.6807209, 0, 1, 0, 0.6807209, 0, -0.7325429, -1.0491982, -0.16649804, 1.714386)
+
+[node name="Node3D9" parent="modular-cave-final/RegionWood5/Stick-Group-01" unique_id=1879286552 instance=ExtResource("8_noxxg")]
+transform = Transform3D(0.98027116, 0, 0.19765733, 0, 1, 0, -0.19765733, 0, 0.98027116, -0.34420013, -0.1283831, 1.3901749)
+
+[node name="Node3D10" parent="modular-cave-final/RegionWood5/Stick-Group-01" unique_id=2016322555 instance=ExtResource("7_dsb58")]
+transform = Transform3D(-0.41151434, 0, -0.9114033, 0, 1, 0, 0.9114033, 0, -0.41151434, 0.255579, -0.14842403, 1.8558044)
+
+[node name="Node3D11" parent="modular-cave-final/RegionWood5/Stick-Group-01" unique_id=1354928563 instance=ExtResource("6_cns11")]
+transform = Transform3D(-0.7325429, 0, -0.6807209, 0, 1, 0, 0.6807209, 0, -0.7325429, 1.3630714, -0.075855784, 1.4961014)
+
+[node name="Node3D12" parent="modular-cave-final/RegionWood5/Stick-Group-01" unique_id=399812196 instance=ExtResource("5_pe7kj")]
+transform = Transform3D(-0.8535508, 0, -0.5210096, 0, 1, 0, 0.5210096, 0, -0.8535508, -0.8061905, -0.09398851, 2.1925125)
+
+[node name="Node3D13" parent="modular-cave-final/RegionWood5/Stick-Group-01" unique_id=2034655149 instance=ExtResource("5_pe7kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6570015, -0.028533995, -1.3396683)
+
+[node name="Node3D14" parent="modular-cave-final/RegionWood5/Stick-Group-01" unique_id=1798355307 instance=ExtResource("6_cns11")]
+transform = Transform3D(-0.7325429, 0, -0.6807209, 0, 1, 0, 0.6807209, 0, -0.7325429, -0.37010574, -0.10734779, -0.9852905)
+
+[node name="Node3D15" parent="modular-cave-final/RegionWood5/Stick-Group-01" unique_id=1682232890 instance=ExtResource("7_dsb58")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.62675476, -0.004295543, -0.3989563)
+
+[node name="Node3D16" parent="modular-cave-final/RegionWood5/Stick-Group-01" unique_id=1078598822 instance=ExtResource("8_noxxg")]
+transform = Transform3D(0.98027116, 0, 0.19765733, 0, 1, 0, -0.19765733, 0, 0.98027116, -0.48978233, -0.09703949, -0.4108734)
+
+[node name="Node3D17" parent="modular-cave-final/RegionWood5/Stick-Group-01" unique_id=586010765 instance=ExtResource("9_p25gm")]
+transform = Transform3D(0.9211854, 0, 0.38912395, 0, 1, 0, -0.38912395, 0, 0.9211854, 0.6091347, -0.02322404, -0.68413544)
+
+[node name="Node3D18" parent="modular-cave-final/RegionWood5/Stick-Group-01" unique_id=749087564 instance=ExtResource("10_lw7er")]
+transform = Transform3D(-0.8535508, 0, -0.5210096, 0, 1, 0, 0.5210096, 0, -0.8535508, -0.3458786, -0.09094779, -1.5136185)
+
+[node name="Stick-Group-02" type="Node3D" parent="modular-cave-final/RegionWood5" unique_id=371161253]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.31340027, -0.037299395, -5.897629)
+
+[node name="Node3D" parent="modular-cave-final/RegionWood5/Stick-Group-02" unique_id=769525924 instance=ExtResource("5_pe7kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7789764, -0.04169169, 1.2072678)
+
+[node name="Node3D2" parent="modular-cave-final/RegionWood5/Stick-Group-02" unique_id=1007049213 instance=ExtResource("6_cns11")]
+transform = Transform3D(-0.41151434, 0, -0.9114033, 0, 1, 0, 0.9114033, 0, -0.41151434, -1.107254, -0.014661603, 0.2945404)
+
+[node name="Node3D3" parent="modular-cave-final/RegionWood5/Stick-Group-02" unique_id=941966831 instance=ExtResource("7_dsb58")]
+transform = Transform3D(-0.7325429, 0, -0.6807209, 0, 1, 0, 0.6807209, 0, -0.7325429, 0.18609619, 0.073994815, 0.688179)
+
+[node name="Node3D4" parent="modular-cave-final/RegionWood5/Stick-Group-02" unique_id=740538060 instance=ExtResource("8_noxxg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1661606, -0.043097526, 0.7225952)
+
+[node name="Node3D5" parent="modular-cave-final/RegionWood5/Stick-Group-02" unique_id=639427859 instance=ExtResource("9_p25gm")]
+transform = Transform3D(0.98027116, 0, 0.19765733, 0, 1, 0, -0.19765733, 0, 0.98027116, 0.47372437, 0.05365938, 0.18139648)
+
+[node name="Node3D6" parent="modular-cave-final/RegionWood5/Stick-Group-02" unique_id=1340939203 instance=ExtResource("10_lw7er")]
+transform = Transform3D(-0.41151434, 0, -0.9114033, 0, 1, 0, 0.9114033, 0, -0.41151434, 1.3497314, 0.107751645, 1.1426697)
+
+[node name="Node3D7" parent="modular-cave-final/RegionWood5/Stick-Group-02" unique_id=699590554 instance=ExtResource("10_lw7er")]
+transform = Transform3D(0.9211854, 0, 0.38912395, 0, 1, 0, -0.38912395, 0, 0.9211854, -2.2592087, -0.11311924, 1.6693726)
+
+[node name="Node3D8" parent="modular-cave-final/RegionWood5/Stick-Group-02" unique_id=1642985818 instance=ExtResource("9_p25gm")]
+transform = Transform3D(-0.7325429, 0, -0.6807209, 0, 1, 0, 0.6807209, 0, -0.7325429, -1.0491982, -0.16649804, 1.714386)
+
+[node name="Node3D9" parent="modular-cave-final/RegionWood5/Stick-Group-02" unique_id=1378340999 instance=ExtResource("8_noxxg")]
+transform = Transform3D(0.98027116, 0, 0.19765733, 0, 1, 0, -0.19765733, 0, 0.98027116, -0.34420013, -0.05482322, 3.4975357)
+
+[node name="Node3D10" parent="modular-cave-final/RegionWood5/Stick-Group-02" unique_id=1179397590 instance=ExtResource("7_dsb58")]
+transform = Transform3D(-0.41151434, 0, -0.9114033, 0, 1, 0, 0.9114033, 0, -0.41151434, 0.255579, -0.14842403, 1.8558044)
+
+[node name="Node3D11" parent="modular-cave-final/RegionWood5/Stick-Group-02" unique_id=8232321 instance=ExtResource("6_cns11")]
+transform = Transform3D(-0.7325429, 0, -0.6807209, 0, 1, 0, 0.6807209, 0, -0.7325429, 1.3630714, -0.075855784, 1.4961014)
+
+[node name="Node3D12" parent="modular-cave-final/RegionWood5/Stick-Group-02" unique_id=1919952396 instance=ExtResource("5_pe7kj")]
+transform = Transform3D(-0.8535508, 0, -0.5210096, 0, 1, 0, 0.5210096, 0, -0.8535508, -0.8061905, -0.09398851, 2.1925125)
+
+[node name="Node3D13" parent="modular-cave-final/RegionWood5/Stick-Group-02" unique_id=241838115 instance=ExtResource("5_pe7kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6570015, -0.028533995, -1.3396683)
+
+[node name="Node3D14" parent="modular-cave-final/RegionWood5/Stick-Group-02" unique_id=342226088 instance=ExtResource("6_cns11")]
+transform = Transform3D(-0.7325429, 0, -0.6807209, 0, 1, 0, 0.6807209, 0, -0.7325429, -0.37010574, -0.10734779, -0.9852905)
+
+[node name="Node3D15" parent="modular-cave-final/RegionWood5/Stick-Group-02" unique_id=1852772953 instance=ExtResource("7_dsb58")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.62675476, -0.004295543, -0.3989563)
+
+[node name="Node3D16" parent="modular-cave-final/RegionWood5/Stick-Group-02" unique_id=583872350 instance=ExtResource("8_noxxg")]
+transform = Transform3D(0.98027116, 0, 0.19765733, 0, 1, 0, -0.19765733, 0, 0.98027116, -0.48978233, -0.09703949, -0.4108734)
+
+[node name="Node3D17" parent="modular-cave-final/RegionWood5/Stick-Group-02" unique_id=418565813 instance=ExtResource("9_p25gm")]
+transform = Transform3D(0.9211854, 0, 0.38912395, 0, 1, 0, -0.38912395, 0, 0.9211854, 0.6091347, -0.02322404, -0.68413544)
+
+[node name="Node3D18" parent="modular-cave-final/RegionWood5/Stick-Group-02" unique_id=802498416 instance=ExtResource("10_lw7er")]
+transform = Transform3D(-0.8535508, 0, -0.5210096, 0, 1, 0, 0.5210096, 0, -0.8535508, -0.3458767, -0.0015020221, -1.5136185)
 
 [node name="RegionSand" type="Area3D" parent="modular-cave-final" unique_id=841867836]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98.739, 0, 57.703)
