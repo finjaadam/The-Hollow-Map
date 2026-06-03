@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://ccktkc6tcnd68"]
 
-[ext_resource type="PackedScene" uid="uid://co7mj2mdwaydu" path="res://assets/sticks-set.gltf" id="1_12cql"]
+[ext_resource type="PackedScene" uid="uid://bst6fjp3nosdo" path="res://assets/lowpoly_sticks_-_free_download/scene.gltf" id="1_12cql"]
 
-[node name="Sketchfab_Scene" unique_id=1332090270 instance=ExtResource("1_12cql")]
+[node name="Sketchfab_Scene" unique_id=977865749 instance=ExtResource("1_12cql")]
 
-[node name="Sketchfab_model" parent="." index="0" unique_id=1243712601]
-transform = Transform3D(-0.008879498, 0, 0, 0, -1.9716445e-18, 0.008879498, 0, 0.008879498, 1.9716445e-18, 0, 0, 0)
+[node name="Sketchfab_model" parent="." index="0" unique_id=870377479]
+transform = Transform3D(-0.008879498, -7.762703e-10, -3.3931855e-17, 0, -3.8813516e-10, 0.008879498, -7.762703e-10, 0.008879498, 3.8813516e-10, 0, 0, 0)
