@@ -30,11 +30,11 @@ func _setup_navigation():
 
 func host_and_go_to_next_scene():
 	SceneLoader.goto_preloaded_scene(instance, next_scene_path)
-	instance.host_lobby()
+	instance.get_node("NetworkManager").host_lobby()
 	
 func join_and_go_to_next_scene(lobby_id: int):
 	SceneLoader.goto_preloaded_scene(instance, next_scene_path)
-	instance.join_lobby(lobby_id)
+	instance.get_node("NetworkManager").join_lobby()
 
 func _on_host_button_pressed():
 	host_and_go_to_next_scene()

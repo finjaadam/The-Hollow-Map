@@ -2,7 +2,7 @@ extends Node
 @export var player_scene : PackedScene
 
 @export var spawn_points : Node3D
-var spawn_index: int = 0
+@onready var spawn_index: int = randi() % spawn_points.get_children().size()
 
 var peer : SteamMultiplayerPeer
 const PACKET_READ_LIMIT: int = 32
@@ -37,7 +37,7 @@ func _get_spawn_position() -> Vector3:
 	if points.is_empty():
 		return Vector3.ZERO
 	var point = points[spawn_index % points.size()]
-	# spawn_index += 1
+	spawn_index += 1
 	return point.global_position
 
 func host_lobby():

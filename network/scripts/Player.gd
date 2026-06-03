@@ -23,6 +23,12 @@ func _input(event):
 	if not is_multiplayer_authority():
 		return
 	
+	if OS.is_debug_build():
+		if event.is_action_pressed("DEBUG_TELEPORT"):
+			teleport(Vector3(0, 2, -120))
+		if event.is_action_pressed("MAP_TELEPORT"):
+			teleport(Vector3(-33, 2, 41))
+	
 	if event is InputEventMouseMotion:
 		rotate_y(-event.relative.x * mouse_sensitivity)
 		$Camera3D.rotate_x(-event.relative.y * mouse_sensitivity)
@@ -72,3 +78,6 @@ func _unhandled_input(event):
 		if paused and ResourceLoader.exists("res://ui/screens/menu/PauseMenu.tscn"):
 			var pause_menu: Node = load("res://ui/screens/menu/PauseMenu.tscn").instantiate()
 			get_tree().root.add_child(pause_menu)
+
+func teleport(position: Vector3):
+	global_position = position
