@@ -33,6 +33,7 @@ mesh = SubResource("CapsuleMesh_4flbx")
 shape = SubResource("CapsuleShape3D_sh265")
 
 [node name="FootstepController" type="Node3D" parent="." unique_id=95066644]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.47013602, -0.76869315)
 script = ExtResource("3_q1thc")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1752202761]
