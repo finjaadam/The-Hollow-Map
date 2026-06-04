@@ -41,7 +41,7 @@ environment = SubResource("Environment_uw1st")
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=1617664168]
 _spawnable_scenes = PackedStringArray("uid://cu5gtk0ybh744")
-spawn_path = NodePath("..")
+spawn_path = NodePath("../NetworkManager")
 
 [node name="Map" parent="." unique_id=1910157186 instance=ExtResource("4_uw1st")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.4840088)
