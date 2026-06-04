@@ -37,32 +37,27 @@ func _input(event):
 func _physics_process(delta):
 	if not multiplayer.has_multiplayer_peer():
 		return
-	if !is_multiplayer_authority():
+	if not is_multiplayer_authority():
 		return
 
 	var direction = Vector3.ZERO
-	if Input.is_action_pressed("move_right"):
-		direction.x += 1
-	if Input.is_action_pressed("move_left"):
-		direction.x -= 1
-	if Input.is_action_pressed("move_back"):
-		direction.z += 1
-	if Input.is_action_pressed("move_forward"):
-		direction.z -= 1
+	if Input.is_action_pressed("move_right"):  	direction.x += 1
+	if Input.is_action_pressed("move_left"):   	direction.x -= 1
+	if Input.is_action_pressed("move_back"):   	direction.z += 1
+	if Input.is_action_pressed("move_forward"):	direction.z -= 1
 
 	if direction != Vector3.ZERO:
-		# Transform direction relative to where the player is facing
 		direction = transform.basis * direction
-		direction.y = 0  # Keep movement horizontal (ignore camera tilt)
+		direction.y = 0
 		direction = direction.normalized()
 
-	# Ground Velocity
 	target_velocity.x = direction.x * speed
 	target_velocity.z = direction.z * speed
 
-	# Vertical Velocity
-	if not is_on_floor():
-		target_velocity.y = target_velocity.y - (fall_acceleration * delta)
+	if is_on_floor():
+		target_velocity.y = -0.5
+	else:
+		target_velocity.y -= fall_acceleration * delta
 
 	velocity = target_velocity
 	move_and_slide()
