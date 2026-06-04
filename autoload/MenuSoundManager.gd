@@ -99,6 +99,8 @@ func play_menu_music() -> void:
 
 
 func stop_menu_music() -> void:
+	if (_music_player.finished.is_connected(_music_player.play)):
+		_music_player.finished.disconnect(_music_player.play)
 	_music_player.stop()
 	_ambient_player.stop()
 	if _ambient_timer:
