@@ -1,19 +1,17 @@
 extends Node
 
-const MENU_MUSIC_PATH = "res://audio/music/menu/menu_music.mp3"
-const AMBIENT_DIR = "res://audio/music/menu/ambient/"
-const BUTTON_CLICK_PATH = "res://audio/soundfx/menu/button_click.mp3"
+const MENU_MUSIC = preload("res://audio/music/menu/menu_music.mp3")
+const BUTTON_CLICK = preload("res://audio/soundfx/menu/button_click.mp3")
+const AMBIENT_LIBRARY: AudioLibrary = preload("res://audio/music/menu/ambient/ambient_sounds.tres")
 
 var _music_player: AudioStreamPlayer
 var _sfx_player: AudioStreamPlayer
 var _ambient_player: AudioStreamPlayer
 var _ambient_timer: Timer
-var _ambient_sounds: Array[AudioStream] = []
 
 
 func _ready() -> void:
 	_setup_players()
-	_load_ambient_sounds()
 	# React to scene changes via SceneLoader
 	SceneLoader.scene_loading_finished.connect(_on_scene_loaded)
 	# Wait one frame so the first scene is fully initialized
@@ -57,22 +55,8 @@ func _setup_players() -> void:
 	add_child(_ambient_player)
 
 
-func _load_ambient_sounds() -> void:
-	var dir = DirAccess.open(AMBIENT_DIR)
-	if not dir:
-		print("MenuSoundManager: Directory not found: ", AMBIENT_DIR)
-		return
-		
-	for file in dir.get_files():
-		if not file.get_extension().to_lower() == "mp3":
-			continue
-		var stream = load(AMBIENT_DIR + file)
-		if stream:
-			_ambient_sounds.append(stream)
-
-
 func _start_ambient_timer() -> void:
-	if _ambient_sounds.is_empty():
+	if AMBIENT_LIBRARY.menu_ambient.is_empty():
 		return
 	# Don't restart if already running
 	if _ambient_timer and not _ambient_timer.is_stopped():
@@ -91,12 +75,12 @@ func _restart_ambient_timer() -> void:
 
 
 func _on_ambient_timer_timeout() -> void:
-	if _ambient_sounds.is_empty():
+	if AMBIENT_LIBRARY.menu_ambient.is_empty():
 		return
 
 	_ambient_player.volume_db = -4.5
 	# Pick a random ambient sound from the list
-	var stream = _ambient_sounds[randi() % _ambient_sounds.size()]
+	var stream = AMBIENT_LIBRARY.menu_ambient[randi() % AMBIENT_LIBRARY.menu_ambient.size()]
 	_ambient_player.stream = stream
 	_ambient_player.play()
 
@@ -107,12 +91,10 @@ func _on_ambient_timer_timeout() -> void:
 func play_menu_music() -> void:
 	if _music_player.playing:
 		return
-	var stream = load(MENU_MUSIC_PATH)
-	if stream:
-		_music_player.stream = stream
-		_music_player.volume_db = 10.0
-		_music_player.finished.connect(_music_player.play)  # loop on finish
-		_music_player.play()
+	_music_player.stream = MENU_MUSIC
+	_music_player.volume_db = 10.0
+	_music_player.finished.connect(_music_player.play, CONNECT_ONE_SHOT)
+	_music_player.play()
 	_start_ambient_timer()
 
 
@@ -124,8 +106,6 @@ func stop_menu_music() -> void:
 
 
 func play_button_click() -> void:
-	var stream = load(BUTTON_CLICK_PATH)
-	if stream:
-		_sfx_player.stream = stream
-		_sfx_player.volume_db = -10.0
-		_sfx_player.play()
+	_sfx_player.stream = BUTTON_CLICK
+	_sfx_player.volume_db = -10.0
+	_sfx_player.play()
