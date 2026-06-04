@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="AudioLibrary" format=3 uid="uid://dr7hu77qol37e"]
+
+[ext_resource type="AudioStream" uid="uid://bp1qcuj11s5ka" path="res://audio/soundfx/map-areas/gravel/Footstep on gravel 1.mp3" id="1_p7bjk"]
+[ext_resource type="AudioStream" uid="uid://btorcxk0s645c" path="res://audio/soundfx/map-areas/gravel/Footstep on gravel 2.mp3" id="2_k7mhg"]
+[ext_resource type="AudioStream" uid="uid://1gcs0s5exlcd" path="res://audio/soundfx/map-areas/gravel/Footstep on gravel 3.mp3" id="3_dshfs"]
+[ext_resource type="AudioStream" uid="uid://cnbjoflej05hs" path="res://audio/soundfx/map-areas/sand/Footstep on sand 1.mp3" id="4_3eyib"]
+[ext_resource type="AudioStream" uid="uid://dah5fdluaigk6" path="res://audio/soundfx/map-areas/sand/Footstep on sand 2.mp3" id="5_v0krn"]
+[ext_resource type="AudioStream" uid="uid://b2wya0u08jjmk" path="res://audio/soundfx/map-areas/sand/Footstep on sand 3.mp3" id="6_xpitr"]
+[ext_resource type="AudioStream" uid="uid://yqm20mwf5t2u" path="res://audio/soundfx/map-areas/sand/Footstep on sand 4.mp3" id="7_4h0ip"]
+[ext_resource type="AudioStream" uid="uid://cpwb0h6bebd03" path="res://audio/soundfx/map-areas/stone/Footstep on stone 1.mp3" id="8_4qcul"]
+[ext_resource type="AudioStream" uid="uid://b03ghbyqwh4xj" path="res://audio/soundfx/map-areas/stone/Footstep on stone 2.mp3" id="9_1dwtu"]
+[ext_resource type="AudioStream" uid="uid://dkmnqvm20q530" path="res://audio/soundfx/map-areas/stone/Footstep on stone 3.mp3" id="10_yb6nh"]
+[ext_resource type="AudioStream" uid="uid://p6giay87rhxj" path="res://audio/soundfx/map-areas/stone/Footstep on stone 4.mp3" id="11_0mls8"]
+[ext_resource type="AudioStream" uid="uid://da6s225twkp27" path="res://audio/soundfx/map-areas/water/Footstep in water 1.mp3" id="12_ejc6j"]
+[ext_resource type="AudioStream" uid="uid://bbnv16743r1i7" path="res://audio/soundfx/map-areas/water/Footstep in water 2.mp3" id="13_3ln30"]
+[ext_resource type="AudioStream" uid="uid://bbyxk8kry7xej" path="res://audio/soundfx/map-areas/water/Footstep in water 3.mp3" id="14_rdfm0"]
+[ext_resource type="AudioStream" uid="uid://d4d2xlp73cdvl" path="res://audio/soundfx/map-areas/water/Footstep in water 4.mp3" id="15_8e2pb"]
+[ext_resource type="AudioStream" uid="uid://cbth4ob12s4tn" path="res://audio/soundfx/map-areas/wood/Footstep on woodland 1.mp3" id="16_n76dd"]
+[ext_resource type="AudioStream" uid="uid://byuhu4v38iw60" path="res://audio/soundfx/map-areas/wood/Footstep on woodland 2.mp3" id="17_7iosf"]
+[ext_resource type="AudioStream" uid="uid://cugivnivoxa48" path="res://audio/soundfx/map-areas/wood/Footstep on woodland 3.mp3" id="18_28ub0"]
+[ext_resource type="AudioStream" uid="uid://73xak8evgie" path="res://audio/soundfx/map-areas/wood/Footstep on woodland 4.mp3" id="19_f4wb0"]
+[ext_resource type="Script" uid="uid://d03op35bom06" path="res://audio/AudioLibrary.gd" id="20_p7bjk"]
+
+[resource]
+script = ExtResource("20_p7bjk")
+footstep_surfaces = {
+"gravel": Array[AudioStream]([ExtResource("1_p7bjk"), ExtResource("2_k7mhg"), ExtResource("3_dshfs")]),
+"sand": Array[AudioStream]([ExtResource("4_3eyib"), ExtResource("5_v0krn"), ExtResource("6_xpitr"), ExtResource("7_4h0ip")]),
+"stone": Array[AudioStream]([ExtResource("8_4qcul"), ExtResource("9_1dwtu"), ExtResource("10_yb6nh"), ExtResource("11_0mls8")]),
+"water": Array[AudioStream]([ExtResource("12_ejc6j"), ExtResource("13_3ln30"), ExtResource("14_rdfm0"), ExtResource("15_8e2pb")]),
+"wood": Array[AudioStream]([ExtResource("16_n76dd"), ExtResource("17_7iosf"), ExtResource("18_28ub0"), ExtResource("19_f4wb0")])
+}
