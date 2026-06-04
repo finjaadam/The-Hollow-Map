@@ -9,7 +9,7 @@ static func surface_name(surface: SurfaceType) -> String:
 
 func get_footstep(surface: SurfaceType) -> AudioStream:
 	var key := surface_name(surface)
-	var streams := FOOTSTEP_LIBRARY.footstep_surfaces.get(key) as Array[AudioStream]
+	var streams: Array = FOOTSTEP_LIBRARY.footstep_surfaces.get(key, [])
 	if streams == null or streams.is_empty():
-		streams = FOOTSTEP_LIBRARY.footstep_surfaces.values()[0] as Array[AudioStream]
+		streams = FOOTSTEP_LIBRARY.footstep_surfaces.values()[0]
 	return streams[randi() % streams.size()]
