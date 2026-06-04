@@ -48,15 +48,16 @@ size = Vector3(13.46, 20, 23.55)
 [node name="Node3D" type="Node3D" unique_id=1910157186]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=783082715]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.131516, 1.7504847, 78.802025)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65.30751, 0, -87.19774)
 shadow_enabled = true
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1911869399]
-transform = Transform3D(0.7195459, 0, -0.69444495, 0, 1, 0, 0.69444495, 0, 0.7195459, 69.77273, 2.1233313, 104.316986)
+transform = Transform3D(0.7195459, 0, -0.69444495, 0, 1, 0, 0.69444495, 0, 0.7195459, -65.30751, 0, -87.19774)
 shadow_enabled = true
 shadow_normal_bias = 0.0
 
 [node name="modular-cave-final" parent="." unique_id=1501415670 instance=ExtResource("1_wb7j6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65.30751, 0, -87.19774)
 
 [node name="RegionWater" type="Area3D" parent="modular-cave-final" unique_id=841867832]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.71, 0, 77.972)

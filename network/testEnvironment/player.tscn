@@ -13,8 +13,10 @@ properties/0/path = NodePath(".:position")
 properties/0/spawn = true
 properties/0/replication_mode = 1
 
-[node name="CharacterBody3D" type="CharacterBody3D" unique_id=1104604618]
+[node name="Player" type="CharacterBody3D" unique_id=1104604618]
 script = ExtResource("1_4flbx")
+mouse_sensitivity = 0.001
+speed = 5
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=464028339]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

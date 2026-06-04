@@ -20,7 +20,7 @@ func _on_main_menu_button_pressed() -> void:
 	# Find networking node and leave lobby before changing scene
 	var world = SceneLoader.get_current_scene()
 	if is_instance_valid(world):
-		world.leave_lobby()
+		world.get_node("NetworkManager").leave_lobby()
 	
 	queue_free()
 	SceneLoader.goto_scene("res://ui/screens/menu/MainMenu.tscn", false)
