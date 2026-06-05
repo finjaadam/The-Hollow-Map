@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://boqjwglaui8xk" path="res://network/scripts/Player.gd" id="1_4flbx"]
 [ext_resource type="Environment" uid="uid://bixn4bbcuffnd" path="res://environments/debug_env.tres" id="2_6i2bt"]
 [ext_resource type="PackedScene" uid="uid://hxag78bqilay" path="res://network/testEnvironment/audioController.tscn" id="2_rev65"]
-[ext_resource type="Environment" uid="uid://bci0hl560ie0n" path="res://environments/fog_ambiance_env.tres" id="3_3nxfo"]
+[ext_resource type="Environment" uid="uid://cv5uoqolnda4m" path="res://environments/light_cone_env.tres" id="3_3nxfo"]
 [ext_resource type="Script" uid="uid://cokh7jryjgs7d" path="res://network/scripts/areaSounds/FootstepController.gd" id="3_q1thc"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_4flbx"]
