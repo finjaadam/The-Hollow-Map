@@ -1,5 +1,21 @@
 [gd_scene format=3 uid="uid://nd8n5cvv6shg"]
 
 [ext_resource type="PackedScene" uid="uid://bqc3fq8o8x28y" path="res://assets/camp_fire/scene.gltf" id="1_0aj1k"]
+[ext_resource type="AudioStream" uid="uid://b6g0yp5dl7lx3" path="res://audio/soundfx/map-areas/Fireplace.mp3" id="2_eg0mj"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_fire"]
+radius = 3.2
 
 [node name="Sketchfab_Scene" unique_id=276771360 instance=ExtResource("1_0aj1k")]
+
+[node name="CollisionZone" type="StaticBody3D" parent="." index="1" unique_id=574841423]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CollisionZone" index="0" unique_id=2127511713]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2917204, 0, -0.08334887)
+shape = SubResource("SphereShape3D_fire")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="2" unique_id=224912587]
+stream = ExtResource("2_eg0mj")
+autoplay = true
+max_distance = 15.0
+pitch_scale = 0.8
