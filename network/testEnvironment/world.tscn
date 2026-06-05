@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bdbdpfsquvmcr" path="res://network/testEnvironment/networkManager.tscn" id="1_8rd3g"]
 [ext_resource type="PackedScene" uid="uid://cu5gtk0ybh744" path="res://network/testEnvironment/player.tscn" id="2_fj7yv"]
 [ext_resource type="PackedScene" uid="uid://jkgmdgtn5ei" path="res://network/testEnvironment/wall.tscn" id="3_8rd3g"]
+[ext_resource type="Script" uid="uid://ca5umlvtvh4el" path="res://network/scripts/Map.gd" id="4_5nbxc"]
 [ext_resource type="PackedScene" uid="uid://c8liybxhqrhwr" path="res://network/testEnvironment/map.tscn" id="4_uw1st"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8i81k"]
@@ -43,8 +44,10 @@ environment = SubResource("Environment_uw1st")
 _spawnable_scenes = PackedStringArray("uid://cu5gtk0ybh744")
 spawn_path = NodePath("..")
 
-[node name="Map" parent="." unique_id=1910157186 instance=ExtResource("4_uw1st")]
+[node name="Map" parent="." unique_id=1910157186 node_paths=PackedStringArray("spawn_exit_door_points") instance=ExtResource("4_uw1st")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.4840088)
+script = ExtResource("4_5nbxc")
+spawn_exit_door_points = NodePath("ExitsSpawnPoints")
 
 [node name="PlayerSpawnPoints" type="Node3D" parent="Map" unique_id=902470412]
 
@@ -59,6 +62,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.974022, 2.010975, -43.27272
 
 [node name="4" type="Marker3D" parent="Map/PlayerSpawnPoints" unique_id=670691903]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -69.42361, -1.5130281, -2.6034832)
+
+[node name="ExitsSpawnPoints" type="Node3D" parent="Map" unique_id=1588001583]
+
+[node name="1" type="Marker3D" parent="Map/ExitsSpawnPoints" unique_id=527565717]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.47502, 1.2373495, 45.086914)
+
+[node name="2" type="Marker3D" parent="Map/ExitsSpawnPoints" unique_id=1536906986]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.441292, 1.2373495, -44.051224)
+
+[node name="3" type="Marker3D" parent="Map/ExitsSpawnPoints" unique_id=1743314264]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.954456, 1.2373495, -6.305378)
 
 [node name="TestMap" type="StaticBody3D" parent="." unique_id=146694575]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -120)
