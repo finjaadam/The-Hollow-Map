@@ -50,4 +50,4 @@ func _on_back_button_pressed():
 
 func _on_list_server_button_pressed() -> void:
 	SceneLoader.goto_preloaded_scene(instance, next_scene_path)
-	instance.request_lobby_list()
+	instance.get_node("NetworkManager").request_lobby_list()
