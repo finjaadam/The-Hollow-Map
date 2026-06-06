@@ -24,9 +24,8 @@ func _ready():
 	add_child(detector)
 
 	# Audio player for playing surface-specific footstep sounds
-	_audio = AudioStreamPlayer3D.new()
+	_audio = RaytracedAudioPlayer3D.new()
 	_audio.name = "FootstepAudio"
-	_audio.bus = &"SFX"
 	add_child(_audio)
 
 func _on_footstep_area_entered(area: Area3D):
@@ -54,11 +53,11 @@ func tick(on_floor: bool, is_moving: bool, delta: float):
 		return
 	_footstep_cooldown -= delta
 	if _footstep_cooldown <= 0:
-		_play_footstep()
+		_play_footstep.rpc(current_surface)
 
-func _play_footstep():
-	# Get a random footstep sound for the current surface and play it
-	var stream = AreaSoundManager.get_footstep(current_surface)
+@rpc("any_peer", "call_local", "unreliable")
+func _play_footstep(surface: AreaSoundManager.SurfaceType):
+	var stream = AreaSoundManager.get_footstep(surface)
 	if stream:
 		_audio.stream = stream
 		_audio.play()
