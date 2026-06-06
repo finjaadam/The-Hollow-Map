@@ -26,7 +26,6 @@ func _ready():
 	# Audio player for playing surface-specific footstep sounds
 	_audio = RaytracedAudioPlayer3D.new()
 	_audio.name = "FootstepAudio"
-	_audio.bus = &"SFX"
 	add_child(_audio)
 
 func _on_footstep_area_entered(area: Area3D):
