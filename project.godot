@@ -31,6 +31,11 @@ AreaSoundManager="*res://autoload/AreaSoundManager.gd"
 SteamCheck="*uid://bx41bdyvrt3du"
 MenuSoundManager="*res://autoload/MenuSoundManager.gd"
 
+[display]
+
+mouse_cursor/custom_image="uid://b0h3vuk3rflno"
+mouse_cursor/custom_image_hotspot=Vector2(10, 8)
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godotsteam/plugin.cfg", "res://addons/raytraced_audio/plugin.cfg", "res://addons/snappy/plugin.cfg")

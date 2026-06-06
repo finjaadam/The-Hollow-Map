@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://6avbosoj4scw"]
+
+[ext_resource type="Theme" uid="uid://ndcfyi0cq3bv" path="res://ui/theme.tres" id="1_v6kx1"]
+[ext_resource type="Script" uid="uid://cepprtj2gjfih" path="res://ui/screens/minigames/minigameStone.gd" id="2_teec2"]
+
+[node name="Control" type="Control" unique_id=1310700600]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_v6kx1")
+script = ExtResource("2_teec2")
+
+[node name="Background" type="ColorRect" parent="." unique_id=329702329]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -250.0
+offset_right = 400.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.7019608)
+
+[node name="ColorRect2" type="ColorRect" parent="Background" unique_id=1374672772]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -250.0
+offset_bottom = 250.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.7019608)
