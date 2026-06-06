@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b2yxpytggb8ro" path="res://map/modular-cave-final.glb" id="1_wb7j6"]
 [ext_resource type="Script" uid="uid://c15wkn1ddol15" path="res://network/scripts/areaSounds/MapArea.gd" id="2_ieofv"]
+[ext_resource type="PackedScene" uid="uid://dnk8iwck0vfdf" path="res://assets/wasser.tscn" id="3_xqtg2"]
 [ext_resource type="PackedScene" uid="uid://defweiiwbw4mq" path="res://assets/stick01.tscn" id="5_pe7kj"]
 [ext_resource type="PackedScene" uid="uid://btee5hd22blia" path="res://assets/stick02.tscn" id="6_cns11"]
 [ext_resource type="PackedScene" uid="uid://dlwaiouyjgvki" path="res://assets/stick03.tscn" id="7_dsb58"]
@@ -122,6 +123,9 @@ surface_type = 2
 shape = SubResource("CylinderShape3D_ieofv")
 debug_color = Color(0, 0.6, 0.69803923, 1)
 
+[node name="Wasser" parent="modular-cave-final/RegionWater" unique_id=754175342 instance=ExtResource("3_xqtg2")]
+transform = Transform3D(12.07, 0, 0, 0, 4.625, 0, 0, 0, 4.775, 1.990058, -0.16570413, 1.8574042)
+
 [node name="RegionWater2" type="Area3D" parent="modular-cave-final" unique_id=1310415117]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.652, 0, 90.292)
 
@@ -184,6 +188,9 @@ surface_type = 2
 shape = SubResource("CylinderShape3D_ieofv")
 debug_color = Color(0, 0.6, 0.69803923, 1)
 
+[node name="Wasser2" parent="modular-cave-final/RegionWater2" unique_id=1843005992 instance=ExtResource("3_xqtg2")]
+transform = Transform3D(12.07, 0, 0, 0, 4.625, 0, 0, 0, 4.775, -1.5966873, -0.4262656, 3.9224253)
+
 [node name="RegionWater3" type="Area3D" parent="modular-cave-final" unique_id=1407337735]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 135.171, 0, 77.383)
 
@@ -227,6 +234,9 @@ surface_type = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="modular-cave-final/RegionWater3/Puddle4" unique_id=50235313]
 shape = SubResource("CylinderShape3D_ieofv")
 debug_color = Color(0, 0.6, 0.69803923, 1)
+
+[node name="Wasser2" parent="modular-cave-final/RegionWater3" unique_id=498596678 instance=ExtResource("3_xqtg2")]
+transform = Transform3D(12.07, 0, 0, 0, 4.625, 0, 0, 0, 4.775, 1.358078, -0.1967107, 1.3060694)
 
 [node name="RegionGravel" type="Area3D" parent="modular-cave-final" unique_id=841867833]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.869, 0, 85.116)
