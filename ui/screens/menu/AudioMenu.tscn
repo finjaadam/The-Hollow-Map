@@ -49,6 +49,7 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Gesamtlautstaerke"
+vertical_alignment = 2
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer/AudioContent/HBoxContainer" unique_id=730211441]
 layout_mode = 2
@@ -65,6 +66,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Musik"
+vertical_alignment = 2
 
 [node name="Label2" type="Label" parent="CenterContainer/VBoxContainer/AudioContent/HBoxContainer2" unique_id=692264570]
 layout_mode = 2
@@ -80,6 +82,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Effekte"
+vertical_alignment = 2
 
 [node name="Label3" type="Label" parent="CenterContainer/VBoxContainer/AudioContent/HBoxContainer3" unique_id=354278642]
 layout_mode = 2
@@ -95,6 +98,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Mitspieler"
+vertical_alignment = 2
 
 [node name="Label4" type="Label" parent="CenterContainer/VBoxContainer/AudioContent/HBoxContainer4" unique_id=1758206366]
 layout_mode = 2
