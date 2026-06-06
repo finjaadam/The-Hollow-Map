@@ -34,7 +34,7 @@ func host_and_go_to_next_scene():
 	
 func join_and_go_to_next_scene(lobby_id: int):
 	SceneLoader.goto_preloaded_scene(instance, next_scene_path)
-	instance.get_node("NetworkManager").join_lobby()
+	instance.get_node("NetworkManager").join_lobby(lobby_id)
 
 func _on_host_button_pressed():
 	host_and_go_to_next_scene()
@@ -50,4 +50,4 @@ func _on_back_button_pressed():
 
 func _on_list_server_button_pressed() -> void:
 	SceneLoader.goto_preloaded_scene(instance, next_scene_path)
-	instance.request_lobby_list()
+	instance.get_node("NetworkManager").request_lobby_list()

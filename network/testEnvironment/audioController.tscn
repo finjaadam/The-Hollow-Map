@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c3rvlkjqnsxvj" path="res://network/scripts/AudioController.gd" id="1_ut2eg"]
 [ext_resource type="Script" uid="uid://dkb8ltjc6067n" path="res://addons/raytraced_audio/raytraced_audio_player_3d.gd" id="2_ijefr"]
+[ext_resource type="Script" uid="uid://bjpmu5sklv5h8" path="res://addons/raytraced_audio/raytraced_audio_listener.gd" id="3_qhl78"]
 
 [sub_resource type="AudioStreamGenerator" id="AudioStreamGenerator_qhl78"]
 mix_rate = 48000.0
@@ -16,3 +17,8 @@ volume_db = 25.0
 max_distance = 15.0
 script = ExtResource("2_ijefr")
 metadata/_custom_type_script = "uid://dkb8ltjc6067n"
+
+[node name="RaytracedAudioListener" type="AudioListener3D" parent="." unique_id=763737867]
+script = ExtResource("3_qhl78")
+is_enabled = false
+metadata/_custom_type_script = "uid://bjpmu5sklv5h8"
