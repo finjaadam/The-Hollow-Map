@@ -1,4 +1,10 @@
 [gd_resource type="Theme" format=3 uid="uid://cbksa12r5e4vq"]
 
+[ext_resource type="FontFile" uid="uid://j8rs8bpyensl" path="res://ui/screens/menu/fonts/Kust 400.otf" id="1_rqugq"]
+
 [resource]
 default_font_size = 16
+Button/font_sizes/font_size = 30
+Button/fonts/font = ExtResource("1_rqugq")
+Label/font_sizes/font_size = 50
+Label/fonts/font = ExtResource("1_rqugq")
