@@ -42,7 +42,7 @@ horizontal_alignment = 1
 layout_mode = 2
 alignment = 1
 
-[node name="FullscreenLabel" type="Label" parent="CenterContainer/VBoxContainer/FullscreenRow" unique_id=865706687]
+[node name="FullscreenLabel" type="RichTextLabel" parent="CenterContainer/VBoxContainer/FullscreenRow" unique_id=2134892126]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Vollbild:"
@@ -54,7 +54,7 @@ layout_mode = 2
 layout_mode = 2
 alignment = 1
 
-[node name="ResolutionLabel" type="Label" parent="CenterContainer/VBoxContainer/ResolutionRow" unique_id=409634372]
+[node name="ResolutionLabel" type="RichTextLabel" parent="CenterContainer/VBoxContainer/ResolutionRow" unique_id=700944266]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Aufloesung:"
@@ -78,7 +78,7 @@ popup/item_4/id = 4
 layout_mode = 2
 alignment = 1
 
-[node name="VsyncLabel" type="Label" parent="CenterContainer/VBoxContainer/VsyncRow" unique_id=1052693128]
+[node name="VsyncLabel" type="RichTextLabel" parent="CenterContainer/VBoxContainer/VsyncRow" unique_id=1024364546]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "VSync:"
@@ -90,7 +90,7 @@ layout_mode = 2
 layout_mode = 2
 alignment = 1
 
-[node name="LoadingLabel" type="Label" parent="CenterContainer/VBoxContainer/LoadingRow" unique_id=1061605332]
+[node name="LoadingLabel" type="RichTextLabel" parent="CenterContainer/VBoxContainer/LoadingRow" unique_id=644446327]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Lade-Bildschirm anzeigen:"

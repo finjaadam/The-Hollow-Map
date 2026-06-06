@@ -45,7 +45,7 @@ layout_mode = 2
 layout_mode = 2
 alignment = 1
 
-[node name="Master" type="Label" parent="CenterContainer/VBoxContainer/AudioContent/HBoxContainer" unique_id=1596681449]
+[node name="Master" type="RichTextLabel" parent="CenterContainer/VBoxContainer/AudioContent/HBoxContainer" unique_id=1554429627]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Gesamtlautstaerke"
@@ -61,7 +61,7 @@ size_flags_horizontal = 3
 [node name="HBoxContainer2" type="HBoxContainer" parent="CenterContainer/VBoxContainer/AudioContent" unique_id=1816297942]
 layout_mode = 2
 
-[node name="Music" type="Label" parent="CenterContainer/VBoxContainer/AudioContent/HBoxContainer2" unique_id=1534654287]
+[node name="Music" type="RichTextLabel" parent="CenterContainer/VBoxContainer/AudioContent/HBoxContainer2" unique_id=64519032]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Musik"
@@ -76,7 +76,7 @@ size_flags_horizontal = 3
 [node name="HBoxContainer3" type="HBoxContainer" parent="CenterContainer/VBoxContainer/AudioContent" unique_id=629433248]
 layout_mode = 2
 
-[node name="SFX" type="Label" parent="CenterContainer/VBoxContainer/AudioContent/HBoxContainer3" unique_id=723268542]
+[node name="SFX" type="RichTextLabel" parent="CenterContainer/VBoxContainer/AudioContent/HBoxContainer3" unique_id=839965494]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Effekte"
@@ -91,7 +91,7 @@ size_flags_horizontal = 3
 [node name="HBoxContainer4" type="HBoxContainer" parent="CenterContainer/VBoxContainer/AudioContent" unique_id=1636796064]
 layout_mode = 2
 
-[node name="Chat" type="Label" parent="CenterContainer/VBoxContainer/AudioContent/HBoxContainer4" unique_id=1534612260]
+[node name="Chat" type="RichTextLabel" parent="CenterContainer/VBoxContainer/AudioContent/HBoxContainer4" unique_id=1027515163]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Mitspieler"
