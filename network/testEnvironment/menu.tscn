@@ -61,7 +61,7 @@ alignment = 1
 [node name="BackButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1613575061]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
-text = "Zurück"
+text = "Zurueck"
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/host_button" to="." method="_on_host_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/list_server_button" to="." method="_on_list_server_button_pressed"]
