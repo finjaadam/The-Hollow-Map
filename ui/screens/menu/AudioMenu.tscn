@@ -48,7 +48,7 @@ alignment = 1
 [node name="Master" type="Label" parent="CenterContainer/VBoxContainer/AudioContent/HBoxContainer" unique_id=1596681449]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Gesamtlautstärke"
+text = "Gesamtlautstaerke"
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer/AudioContent/HBoxContainer" unique_id=730211441]
 layout_mode = 2
@@ -110,7 +110,7 @@ layout_mode = 2
 [node name="Reset" type="Button" parent="CenterContainer/VBoxContainer/AudioContent" unique_id=1962962273]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
-text = "Audio-Einstellungen zurücksetzen"
+text = "Zuruecksetzen"
 
 [node name="Spacer2" type="Control" parent="CenterContainer/VBoxContainer" unique_id=1520080618]
 custom_minimum_size = Vector2(0, 40)
@@ -119,7 +119,7 @@ layout_mode = 2
 [node name="BackButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=148322905]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
-text = "Zurück"
+text = "Zurueck"
 
 [connection signal="value_changed" from="CenterContainer/VBoxContainer/AudioContent/HSliderMaster" to="." method="_on_h_slider_master_value_changed"]
 [connection signal="value_changed" from="CenterContainer/VBoxContainer/AudioContent/HSliderMusic" to="." method="_on_h_slider_music_value_changed"]

@@ -63,7 +63,7 @@ layout_mode = 2
 [node name="NameButton" type="Button" parent="CenterContainer/VBoxContainer/OptionsButtons" unique_id=52222855]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
-text = "Anzeigenamen ändern"
+text = "Anzeigename"
 
 [node name="Spacer4" type="Control" parent="CenterContainer/VBoxContainer" unique_id=119345010]
 custom_minimum_size = Vector2(0, 30)
@@ -76,7 +76,7 @@ layout_mode = 2
 [node name="BackButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1946108174]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
-text = "Zurück"
+text = "Zurueck"
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/OptionsButtons/AudioButton" to="." method="_on_audio_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/OptionsButtons/VideoButton" to="." method="_on_video_button_pressed"]

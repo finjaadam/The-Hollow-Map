@@ -65,7 +65,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Bestätigen"
+text = "Bestaetigen"
 
 [node name="Spacer3" type="Control" parent="CenterContainer/VBoxContainer" unique_id=150308751]
 custom_minimum_size = Vector2(0, 10)
@@ -76,7 +76,7 @@ visible = false
 custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Zurück"
+text = "Zurueck"
 
 [connection signal="text_change_rejected" from="CenterContainer/VBoxContainer/NameField" to="." method="_on_name_field_text_change_rejected"]
 [connection signal="text_changed" from="CenterContainer/VBoxContainer/NameField" to="." method="_on_name_field_text_changed"]

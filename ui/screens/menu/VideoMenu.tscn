@@ -57,7 +57,7 @@ alignment = 1
 [node name="ResolutionLabel" type="Label" parent="CenterContainer/VBoxContainer/ResolutionRow" unique_id=409634372]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Auflösung:"
+text = "Aufloesung:"
 
 [node name="OptionButton" type="OptionButton" parent="CenterContainer/VBoxContainer/ResolutionRow" unique_id=373614003]
 layout_mode = 2
@@ -105,7 +105,7 @@ layout_mode = 2
 [node name="BackButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=994467874]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
-text = "Zurück"
+text = "Zurueck"
 
 [connection signal="toggled" from="CenterContainer/VBoxContainer/FullscreenRow/FullscreenCheck" to="." method="_on_fullscreen_check_toggled"]
 [connection signal="item_selected" from="CenterContainer/VBoxContainer/ResolutionRow/OptionButton" to="." method="_on_option_button_item_selected"]

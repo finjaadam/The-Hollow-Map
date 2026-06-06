@@ -35,7 +35,7 @@ alignment = 1
 [node name="GameTitle" type="Label" parent="CenterContainer/VBoxContainer" unique_id=125270682]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
-text = "Hollow Map"
+text = "The Hollow Map"
 horizontal_alignment = 1
 
 [node name="MenuButtons" type="VBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=2006623568]

@@ -68,6 +68,6 @@ layout_mode = 2
 [node name="BackButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=646573004]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
-text = "Back"
+text = "Zurueck"
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
