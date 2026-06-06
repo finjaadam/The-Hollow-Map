@@ -35,6 +35,10 @@ MenuSoundManager="*res://autoload/MenuSoundManager.gd"
 
 enabled=PackedStringArray("res://addons/godotsteam/plugin.cfg", "res://addons/raytraced_audio/plugin.cfg", "res://addons/snappy/plugin.cfg")
 
+[gui]
+
+theme/custom="uid://cbksa12r5e4vq"
+
 [input]
 
 move_left={
