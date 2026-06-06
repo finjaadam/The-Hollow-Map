@@ -30,6 +30,8 @@ Settings="*uid://dm2ypjtuaq36q"
 AreaSoundManager="*res://autoload/AreaSoundManager.gd"
 SteamCheck="*uid://bx41bdyvrt3du"
 MenuSoundManager="*res://autoload/MenuSoundManager.gd"
+Debug="*uid://xnvvoqv42hb6"
+BusManager="*uid://b1sk838qwcaqq"
 
 [editor_plugins]
 
