@@ -14,7 +14,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1")
 script = ExtResource("2")
-back_Button_Destionation = "\"res://ui/screens/menu/OptionsMenu.tscn\""
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1452042816]
 layout_mode = 0

@@ -21,10 +21,13 @@ func _ready() -> void:
 		$Camera3D.environment = player_env
 	else:
 		$Camera3D.current = false
+	SceneLoader.paused.connect(_on_pause)
 
 func _input(event):
 	# Only process input for the local player
 	if not is_multiplayer_authority():
+		return
+	if SceneLoader.is_paused:
 		return
 	
 	if OS.is_debug_build():
@@ -65,6 +68,9 @@ func _physics_process(delta):
 	else:
 		target_velocity.y -= fall_acceleration * delta
 
+	if SceneLoader.is_paused:
+		return
+	
 	velocity = target_velocity
 	move_and_slide()
 
@@ -80,3 +86,8 @@ func teleport(position: Vector3):
 
 func change_env(environment: Environment):
 	get_node("Camera3D").environment = environment
+
+func _on_pause(is_paused: bool):
+	if is_paused:
+		var pause_menu: Node = load("res://ui/screens/menu/pause/PauseMenu.tscn").instantiate()
+		get_tree().root.add_child(pause_menu)

@@ -12,15 +12,11 @@ func _ready():
 
 func _on_resume_button_pressed() -> void:
 	SceneLoader.toggle_pause()
-	
-func _unhandled_input(event):
-	# CR5: Pause menu implementation in game scene
-	if event.is_action_pressed("pause"):
-		SceneLoader.toggle_pause()
 		
 func _on_pause(is_paused: bool):
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	queue_free()
+	if not is_paused:
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		queue_free()
 
 func _on_main_menu_button_pressed() -> void:
 	get_tree().paused = false
@@ -35,7 +31,14 @@ func _on_main_menu_button_pressed() -> void:
 
 
 func _on_audio_button_pressed() -> void:
-	if ResourceLoader.exists("res://ui/screens/menu/pause/AudioMenu.tscn"):
-			var audio_menu: Node = load("res://ui/screens/menu/pause/AudioMenu.tscn").instantiate()
-			get_tree().root.add_child(audio_menu)
-			queue_free()
+	if ResourceLoader.exists("res://ui/screens/menu/pause/AudioPauseMenu.tscn"):
+		var audio_menu: Node = load("res://ui/screens/menu/pause/AudioPauseMenu.tscn").instantiate()
+		get_tree().root.add_child(audio_menu)
+		queue_free()
+
+
+func _on_video_button_pressed() -> void:
+	if ResourceLoader.exists("res://ui/screens/menu/pause/VideoPauseMenu.tscn"):
+		var video_menu: Node = load("res://ui/screens/menu/pause/VideoPauseMenu.tscn").instantiate()
+		get_tree().root.add_child(video_menu)
+		queue_free()

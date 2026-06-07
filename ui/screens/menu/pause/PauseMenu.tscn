@@ -55,15 +55,6 @@ custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 text = "Video"
 
-[node name="Spacer3" type="Control" parent="CenterContainer/VBoxContainer/OptionsButtons" unique_id=333770166]
-custom_minimum_size = Vector2(0, 10)
-layout_mode = 2
-
-[node name="NameButton" type="Button" parent="CenterContainer/VBoxContainer/OptionsButtons" unique_id=1357479996]
-custom_minimum_size = Vector2(200, 50)
-layout_mode = 2
-text = "Anzeigenamen ändern"
-
 [node name="Spacer3" type="Control" parent="CenterContainer/VBoxContainer" unique_id=1210608299]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
@@ -83,5 +74,6 @@ layout_mode = 2
 text = "Zum Hauptmenü"
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/OptionsButtons/AudioButton" to="." method="_on_audio_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/OptionsButtons/VideoButton" to="." method="_on_video_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

@@ -6,7 +6,10 @@ extends Control
 @onready var loading_check = $CenterContainer/VBoxContainer/LoadingRow/LoadingCheck
 @onready var back_button = $CenterContainer/VBoxContainer/BackButton
 
+@export var is_Pause_Menu: bool
+
 func _ready():
+	SceneLoader.paused.connect(_on_pause)
 	add_to_group("main_menu")
 	fullscreen_check.button_pressed = Settings.get_setting("fullscreen")
 	vsync_check.button_pressed = Settings.get_setting("vsync")
@@ -37,7 +40,13 @@ func _on_loading_check_toggled(on: bool) -> void:
 	Settings.apply_settings()
 
 func _on_back_button_pressed() -> void:
-	SceneLoader.goto_scene("res://ui/screens/menu/OptionsMenu.tscn", false)
+	if is_Pause_Menu:
+		if ResourceLoader.exists("res://ui/screens/menu/pause/PauseMenu.tscn"):
+			var back_destination: Node = load("res://ui/screens/menu/pause/PauseMenu.tscn").instantiate()
+			get_tree().root.add_child(back_destination)
+			queue_free()
+	else:
+		SceneLoader.goto_scene("res://ui/screens/menu/OptionsMenu.tscn", false)
 
 
 func _on_option_button_item_selected(index: int) -> void:
@@ -48,3 +57,8 @@ func _on_option_button_item_selected(index: int) -> void:
 		3: Settings.set_resolution(2560, 1440)
 		4: Settings.set_resolution(3840, 2160)
 	Settings.apply_settings()
+
+func _on_pause(is_paused: bool):
+	if is_Pause_Menu:
+		SceneLoader.is_paused = true
+		_on_back_button_pressed()

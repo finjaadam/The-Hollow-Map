@@ -12,11 +12,10 @@ extends Control
 @onready var sfx_label = $CenterContainer/VBoxContainer/AudioContent/HBoxContainer3/Label3
 @onready var chat_label = $CenterContainer/VBoxContainer/AudioContent/HBoxContainer4/Label4
 
-
 @export var is_Pause_Menu: bool
 
 func _ready():
-	process_mode = Node.PROCESS_MODE_ALWAYS
+	SceneLoader.paused.connect(_on_pause)
 	add_to_group("main_menu")
 	_load_audio_settings()
 	_setup_navigation()
@@ -77,3 +76,8 @@ func _on_h_slider_chat_value_changed(value: float) -> void:
 func _on_reset_pressed() -> void:
 	Settings.reset_audio()
 	_load_audio_settings()
+	
+func _on_pause(is_paused: bool):
+	if is_Pause_Menu:
+		SceneLoader.is_paused = true
+		_on_back_button_pressed()
