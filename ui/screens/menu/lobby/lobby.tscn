@@ -12,76 +12,80 @@ grow_vertical = 2
 script = ExtResource("1_h6ygp")
 
 [node name="LobbyName" type="Label" parent="." unique_id=1995118717]
-layout_mode = 0
-offset_left = 39.0
-offset_top = 30.0
-offset_right = 166.0
-offset_bottom = 81.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.033854168
+anchor_top = 0.046296295
+anchor_right = 0.23003472
+anchor_bottom = 0.125
+offset_right = -99.0
 text = "Lobbyname"
+metadata/_edit_use_anchors_ = true
 
-[node name="PlayerList" type="Control" parent="." unique_id=1127085538]
-anchors_preset = 0
-offset_left = -9.0
-offset_top = -3.0
-offset_right = 31.0
-offset_bottom = 37.0
-
-[node name="HBox1" type="HBoxContainer" parent="PlayerList" unique_id=116220741]
+[node name="Info" type="HBoxContainer" parent="." unique_id=116220741]
 layout_mode = 0
-offset_left = 50.0
-offset_top = 135.0
-offset_right = 424.0
-offset_bottom = 166.0
+anchor_left = 0.035590276
+anchor_top = 0.2037037
+anchor_right = 0.36024305
+anchor_bottom = 0.25154322
+offset_bottom = -1.5258789e-05
+metadata/_edit_use_anchors_ = true
 
-[node name="PlayersLabel" type="Label" parent="PlayerList/HBox1" unique_id=1128903111]
+[node name="PlayersLabel" type="Label" parent="Info" unique_id=1128903111]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 30
 text = "Spielende"
 
-[node name="ReadyLabel" type="Label" parent="PlayerList/HBox1" unique_id=1122481778]
+[node name="ReadyLabel" type="Label" parent="Info" unique_id=1122481778]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Bereit?"
 
-[node name="HSeparator" type="HSeparator" parent="PlayerList" unique_id=874237595]
+[node name="HSeparator" type="HSeparator" parent="." unique_id=874237595]
 layout_mode = 0
-offset_left = 52.0
-offset_top = 175.0
-offset_right = 426.0
-offset_bottom = 179.0
+anchor_left = 0.037326388
+anchor_top = 0.2654321
+anchor_right = 0.36197916
+anchor_bottom = 0.27160493
+offset_bottom = 1.5258789e-05
+metadata/_edit_use_anchors_ = true
 
-[node name="PlayerEntries" type="VBoxContainer" parent="PlayerList" unique_id=995214062]
+[node name="PlayerEntries" type="VBoxContainer" parent="." unique_id=995214062]
 layout_mode = 0
-offset_left = 52.0
-offset_top = 197.0
-offset_right = 405.0
-offset_bottom = 283.0
+anchor_left = 0.037326388
+anchor_top = 0.29938272
+anchor_right = 0.34375
+anchor_bottom = 0.712963
+metadata/_edit_use_anchors_ = true
 
 [node name="BackButton" type="Button" parent="." unique_id=298467018]
 layout_mode = 0
-offset_left = 46.0
-offset_top = 570.0
-offset_right = 243.79999
-offset_bottom = 616.0
+anchor_left = 0.039930556
+anchor_top = 0.8796296
+anchor_right = 0.21163194
+anchor_bottom = 0.9506173
 text = "Zurueck"
+metadata/_edit_use_anchors_ = true
 
 [node name="StartButton" type="Button" parent="." unique_id=345351270]
 layout_mode = 0
-offset_left = 903.0
-offset_top = 570.0
-offset_right = 1101.0
-offset_bottom = 616.0
+anchor_left = 0.7838542
+anchor_top = 0.8796296
+anchor_right = 0.9557292
+anchor_bottom = 0.9506173
 text = "Start"
+metadata/_edit_use_anchors_ = true
 
 [node name="ReadyCheckbox" type="CheckBox" parent="." unique_id=714088129]
 layout_mode = 0
-offset_left = 510.0
-offset_top = 575.0
-offset_right = 615.0
-offset_bottom = 609.0
+anchor_left = 0.44270834
+anchor_top = 0.8873457
+anchor_right = 0.5338542
+anchor_bottom = 0.9398148
 theme_override_font_sizes/font_size = 25
 text = "Bereit?"
+metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]

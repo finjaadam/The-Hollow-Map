@@ -1,6 +1,6 @@
 extends Control
 
-@onready var player_list = $PlayerList/PlayerEntries
+@onready var player_list = $PlayerEntries
 @onready var start_button = $StartButton
 @onready var ready_button = $ReadyCheckbox
 @onready var player_entry = preload("res://ui/screens/menu/lobby/playerEntry.tscn")
@@ -19,7 +19,6 @@ func _ready():
 	start_button.disabled = true
 
 func _refresh_player_list():
-	print("REFRESHING PLAYER LIST")
 	for child in player_list.get_children():
 		child.queue_free()
 	for member in NetworkManager.lobby_members:
