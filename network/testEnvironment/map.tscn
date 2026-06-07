@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://nd8n5cvv6shg" path="res://assets/camp_fire/campfire.tscn" id="9_pe7kj"]
 [ext_resource type="PackedScene" uid="uid://dg50fnoof8bji" path="res://assets/jukebox/jukebox.tscn" id="10_cns11"]
 [ext_resource type="PackedScene" uid="uid://c3gtgeyoud3ad" path="res://assets/stick06.tscn" id="10_lw7er"]
+[ext_resource type="PackedScene" uid="uid://dud2rq3uvwwr2" path="res://assets/blob_monster/blob_monster.tscn" id="11_xqtg2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_water"]
 size = Vector3(29.735, 20.005, 13.305)
@@ -44,6 +45,22 @@ size = Vector3(51.705, 20, 33.24)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g0rns"]
 size = Vector3(13.46, 20, 23.55)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0an4t"]
+radius = 0.90478516
+height = 2.59375
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xqtg2"]
+animation = &"mixamo_com"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0an4t"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_p0ad6"]
+states/Start/position = Vector2(231, 100)
+states/mixamo_com/node = SubResource("AnimationNodeAnimation_xqtg2")
+states/mixamo_com/position = Vector2(488, 53)
+transitions = ["Start", "mixamo_com", SubResource("AnimationNodeStateMachineTransition_0an4t")]
 
 [node name="Node3D" type="Node3D" unique_id=1910157186]
 
@@ -1248,3 +1265,43 @@ debug_color = Color(0.5921569, 0.5372549, 0.27450982, 0.88235295)
 
 [node name="jukebox" parent="modular-cave-final" unique_id=578076892 instance=ExtResource("10_cns11")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 78.521996, -0.22682153, 79.27753)
+
+[node name="Monster" type="CharacterBody3D" parent="." unique_id=890408639]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2663164, 0, -5.00718)
+
+[node name="blob_monster" parent="Monster" unique_id=890782185 instance=ExtResource("11_xqtg2")]
+transform = Transform3D(1.605, 0, 0, 0, 1.605, 0, 0, 0, 1.605, 0, 0.06785911, 0)
+
+[node name="Skeleton3D" parent="Monster/blob_monster/Sketchfab_model/3f6d8c832002440e97bb2e8e289744c0_fbx/Object_2/RootNode/Object_4" parent_id_path=PackedInt32Array(890782185, 953601971) index="0" unique_id=1220243144]
+bones/1/position = Vector3(0.13274701, 1.3762333, -0.07229365)
+bones/1/rotation = Quaternion(0, 0, 0, 1)
+bones/2/rotation = Quaternion(0.031954154, 0, 0, 0.99948937)
+bones/3/rotation = Quaternion(3.0525045e-09, 0, 0, 1)
+bones/4/rotation = Quaternion(0, 0, 0, 1)
+bones/5/rotation = Quaternion(-0.031954158, 0, 0, 0.99948937)
+bones/6/rotation = Quaternion(0, 0, 0, 1)
+bones/8/rotation = Quaternion(0.63647515, 0.34211957, -0.58474845, 0.36867723)
+bones/9/rotation = Quaternion(-0.13558137, 0.0031498712, -0.023011483, 0.99049395)
+bones/10/rotation = Quaternion(0.08015897, -0.0017046393, -0.02119248, 0.9965553)
+bones/12/rotation = Quaternion(0.6106629, -0.35540956, 0.61361045, 0.35250136)
+bones/13/rotation = Quaternion(-0.13673612, -0.0014877741, 0.010777776, 0.9905478)
+bones/14/rotation = Quaternion(0.076543145, -0.0015540165, -0.020238733, 0.9968596)
+bones/16/rotation = Quaternion(0.005095175, 0.043442596, 0.9922417, -0.11637528)
+bones/17/rotation = Quaternion(-0.1331675, 0.008907174, -0.06614081, 0.98884404)
+bones/18/rotation = Quaternion(0.591465, 0.40825, -0.47959954, 0.50347334)
+bones/19/rotation = Quaternion(0.011196917, 0.0021384356, 0.18758161, 0.9821829)
+bones/21/rotation = Quaternion(-0.009671277, 0.08329245, 0.9898281, 0.114931196)
+bones/22/rotation = Quaternion(-0.1705374, -0.0110236835, 0.06355731, 0.9832375)
+bones/23/rotation = Quaternion(0.5416383, -0.45711747, 0.523145, 0.47327676)
+bones/24/rotation = Quaternion(-0.0036148748, 0.00031781188, -0.08757942, 0.996151)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Monster" unique_id=1897117262]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1532463, 0)
+shape = SubResource("CapsuleShape3D_0an4t")
+
+[node name="AnimationTree" type="AnimationTree" parent="Monster" unique_id=255979026]
+root_node = NodePath("../blob_monster")
+tree_root = SubResource("AnimationNodeStateMachine_p0ad6")
+anim_player = NodePath("../blob_monster/AnimationPlayer")
+
+[editable path="Monster/blob_monster"]
