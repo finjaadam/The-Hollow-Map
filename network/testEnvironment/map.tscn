@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://dnk8iwck0vfdf" path="res://assets/wasser.tscn" id="3_xqtg2"]
 [ext_resource type="PackedScene" uid="uid://drhm8uhvkuffw" path="res://assets/fountain_3d_model_free-edited/fountain-small.tscn" id="4_e062h"]
 [ext_resource type="PackedScene" uid="uid://defweiiwbw4mq" path="res://assets/stick01.tscn" id="5_pe7kj"]
-[ext_resource type="PackedScene" uid="uid://bpifk28wn1eia" path="res://assets/water_fountain/scene.gltf" id="5_un0he"]
 [ext_resource type="PackedScene" uid="uid://btee5hd22blia" path="res://assets/stick02.tscn" id="6_cns11"]
 [ext_resource type="PackedScene" uid="uid://dgxfwymoqv4kr" path="res://assets/fountain_3d_model_free-edited/fountain-without-wall.tscn" id="6_hmamp"]
 [ext_resource type="PackedScene" uid="uid://dlwaiouyjgvki" path="res://assets/stick03.tscn" id="7_dsb58"]
@@ -14,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://nd8n5cvv6shg" path="res://assets/camp_fire/campfire.tscn" id="9_pe7kj"]
 [ext_resource type="PackedScene" uid="uid://dg50fnoof8bji" path="res://assets/jukebox/jukebox.tscn" id="10_cns11"]
 [ext_resource type="PackedScene" uid="uid://c3gtgeyoud3ad" path="res://assets/stick06.tscn" id="10_lw7er"]
+[ext_resource type="PackedScene" uid="uid://62l58j2attqx" path="res://assets/water_fountain/fountain-old.tscn" id="11_fountain"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_water"]
 size = Vector3(29.735, 20.005, 13.305)
@@ -78,6 +78,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.71, 0, 77.972)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28782654, 0, 0.95936584)
 shape = SubResource("BoxShape3D_water")
 debug_color = Color(0, 0.5485544, 0.93054354, 0.41960785)
+debug_fill = false
 
 [node name="Puddle3" type="Area3D" parent="modular-cave-final/RegionWater" unique_id=938093041]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.6832733, 2.81, 0.90505886)
@@ -88,6 +89,7 @@ surface_type = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24105453, -0.13259792, 0.48672962)
 shape = SubResource("CylinderShape3D_xqtg2")
 debug_color = Color(0, 0.6, 0.69803923, 1)
+debug_fill = false
 
 [node name="Wasser" parent="modular-cave-final/RegionWater" unique_id=754175342 instance=ExtResource("3_xqtg2")]
 transform = Transform3D(12.07, 0, 0, 0, 4.625, 0, 0, 0, 4.775, 1.990058, -0.16570413, 1.8574042)
@@ -102,6 +104,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.652, 0, 90.292)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3837433, 0, 2.494339)
 shape = SubResource("BoxShape3D_water")
 debug_color = Color(0, 0.5485544, 0.93054354, 0.41960785)
+debug_fill = false
 
 [node name="Puddle3" type="Area3D" parent="modular-cave-final/RegionWater2" unique_id=742013632]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.7269726, 2.81, 3.7094235)
@@ -111,11 +114,12 @@ surface_type = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="modular-cave-final/RegionWater2/Puddle3" unique_id=462047277]
 shape = SubResource("CylinderShape3D_ieofv")
 debug_color = Color(0, 0.6, 0.69803923, 1)
+debug_fill = false
 
 [node name="Wasser2" parent="modular-cave-final/RegionWater2" unique_id=1843005992 instance=ExtResource("3_xqtg2")]
 transform = Transform3D(12.07, 0, 0, 0, 4.625, 0, 0, 0, 4.775, -1.5966873, -0.4262656, 3.9224253)
 
-[node name="Sketchfab_Scene" parent="modular-cave-final/RegionWater2" unique_id=2008938621 instance=ExtResource("5_un0he")]
+[node name="FountainOld" parent="modular-cave-final/RegionWater2" unique_id=2008938621 instance=ExtResource("11_fountain")]
 transform = Transform3D(0.175, 0, 0, 0, 0.175, 0, 0, 0, 0.175, -6.3754044, -0.7030166, 3.7814622)
 
 [node name="RegionWater3" type="Area3D" parent="modular-cave-final" unique_id=1407337735]
@@ -125,6 +129,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 135.171, 0, 77.383)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28782654, 0, 0.95936584)
 shape = SubResource("BoxShape3D_o6c5f")
 debug_color = Color(0, 0.5485544, 0.93054354, 0.41960785)
+debug_fill = false
 
 [node name="Puddle1" type="Area3D" parent="modular-cave-final/RegionWater3" unique_id=1829762837]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8253632, 2.81, 1.2728729)
@@ -134,6 +139,7 @@ surface_type = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="modular-cave-final/RegionWater3/Puddle1" unique_id=756247878]
 shape = SubResource("CylinderShape3D_ieofv")
 debug_color = Color(0, 0.6, 0.69803923, 1)
+debug_fill = false
 
 [node name="Puddle4" type="Area3D" parent="modular-cave-final/RegionWater3" unique_id=356469997]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.099556, 2.81, -2.1211605)
@@ -144,6 +150,7 @@ surface_type = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24629974, 0, 0.23361874)
 shape = SubResource("CylinderShape3D_0an4t")
 debug_color = Color(0, 0.6, 0.69803923, 1)
+debug_fill = false
 
 [node name="Wasser2" parent="modular-cave-final/RegionWater3" unique_id=498596678 instance=ExtResource("3_xqtg2")]
 transform = Transform3D(12.07, 0, 0, 0, 4.625, 0, 0, 0, 4.775, 1.358078, -0.1967107, 1.3060694)

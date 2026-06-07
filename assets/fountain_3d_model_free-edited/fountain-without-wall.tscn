@@ -178,6 +178,10 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_gvel3")
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_pl0yq"]
+height = 0.9394531
+radius = 0.26611328
+
 [node name="FountainWithoutWall" type="Node3D" unique_id=448202211]
 
 [node name="Object_4_001" type="MeshInstance3D" parent="." unique_id=1449904473]
@@ -194,3 +198,9 @@ mesh = SubResource("ArrayMesh_a7qvg")
 
 [node name="Object_4_005" type="MeshInstance3D" parent="." unique_id=945104316]
 mesh = SubResource("ArrayMesh_ynm8t")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=253967502]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1811580920]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46289063, 0)
+shape = SubResource("CylinderShape3D_pl0yq")
