@@ -10,7 +10,7 @@ extends Control
 
 func _ready():
 	SceneLoader.paused.connect(_on_pause)
-	add_to_group("main_menu")
+	if not is_Pause_Menu: add_to_group("main_menu")
 	fullscreen_check.button_pressed = Settings.get_setting("fullscreen")
 	vsync_check.button_pressed = Settings.get_setting("vsync")
 	loading_check.button_pressed = Settings.get_setting("show_loading_screen")

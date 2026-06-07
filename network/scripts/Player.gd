@@ -90,4 +90,5 @@ func change_env(environment: Environment):
 func _on_pause(is_paused: bool):
 	if is_paused:
 		var pause_menu: Node = load("res://ui/screens/menu/pause/PauseMenu.tscn").instantiate()
-		get_tree().root.add_child(pause_menu)
+		get_tree().current_scene.add_child(pause_menu)
+		SceneLoader.scene_loading_finished

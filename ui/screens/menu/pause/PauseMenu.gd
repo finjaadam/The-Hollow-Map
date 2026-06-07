@@ -31,14 +31,16 @@ func _on_main_menu_button_pressed() -> void:
 
 
 func _on_audio_button_pressed() -> void:
-	if ResourceLoader.exists("res://ui/screens/menu/pause/AudioPauseMenu.tscn"):
-		var audio_menu: Node = load("res://ui/screens/menu/pause/AudioPauseMenu.tscn").instantiate()
-		get_tree().root.add_child(audio_menu)
+	if ResourceLoader.exists("res://ui/screens/menu/pause/AudioMenu.tscn"):
+		var audio_menu: Node = load("res://ui/screens/menu/pause/AudioMenu.tscn").instantiate()
+		get_tree().current_scene.add_child(audio_menu)
+		SceneLoader.scene_loading_finished.emit("res://ui/screens/menu/pause/AudioMenu.tscn")
 		queue_free()
 
 
 func _on_video_button_pressed() -> void:
-	if ResourceLoader.exists("res://ui/screens/menu/pause/VideoPauseMenu.tscn"):
-		var video_menu: Node = load("res://ui/screens/menu/pause/VideoPauseMenu.tscn").instantiate()
-		get_tree().root.add_child(video_menu)
+	if ResourceLoader.exists("res://ui/screens/menu/pause/VideoMenu.tscn"):
+		var video_menu: Node = load("res://ui/screens/menu/pause/VideoMenu.tscn").instantiate()
+		get_tree().current_scene.add_child(video_menu)
+		SceneLoader.scene_loading_finished.emit("res://ui/screens/menu/pause/VideoMenu.tscn")
 		queue_free()

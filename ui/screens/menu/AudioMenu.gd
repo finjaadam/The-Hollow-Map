@@ -16,7 +16,7 @@ extends Control
 
 func _ready():
 	SceneLoader.paused.connect(_on_pause)
-	add_to_group("main_menu")
+	if not is_Pause_Menu: add_to_group("main_menu")
 	_load_audio_settings()
 	_setup_navigation()
 	master_slider.grab_focus()
