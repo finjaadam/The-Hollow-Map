@@ -27,6 +27,7 @@ func _ready():
 	Steam.lobby_match_list.connect(_on_lobby_match_list)
 	Steam.join_requested.connect(_on_lobby_join_requested)
 	Steam.persona_state_change.connect(_on_persona_change)
+	
 	spawner.spawn_function = _spawn_player
 
 func _spawn_player(data: Dictionary) -> Node:
@@ -86,14 +87,6 @@ func get_lobby_members() -> void:
 		var member_steam_id: int = Steam.getLobbyMemberByIndex(lobby_id, this_member)
 		var member_steam_name: String = Steam.getFriendPersonaName(member_steam_id)
 		lobby_members.append({"steam_id":member_steam_id, "steam_name":member_steam_name})
-
-@rpc("authority", "call_remote", "reliable")
-func _send_spawn_position(pos: Vector3) -> void:
-	# Find this client's own player node (its name matches its peer id)
-	var my_id = multiplayer.get_unique_id()
-	var my_player = get_node_or_null(str(my_id))
-	if my_player:
-		my_player.global_position = pos
 
 func _add_player(id: int = 1):
 	if not multiplayer.is_server():
