@@ -15,10 +15,14 @@ theme = ExtResource("1")
 script = ExtResource("2")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=677599869]
-layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("3_e2a05")
+expand_mode = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=1651977262]
 layout_mode = 1

@@ -16,11 +16,15 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jmblp")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=576537284]
-layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1469517144]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("2_4bmkt")
+expand_mode = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=1903862857]
 layout_mode = 1
