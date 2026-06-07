@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://hxag78bqilay"]
 
-[ext_resource type="Script" uid="uid://c3rvlkjqnsxvj" path="res://network/scripts/AudioController.gd" id="1_ut2eg"]
+[ext_resource type="Script" uid="uid://c3rvlkjqnsxvj" path="res://network/scripts/VoiceChatController.gd" id="1_ut2eg"]
 [ext_resource type="Script" uid="uid://dkb8ltjc6067n" path="res://addons/raytraced_audio/raytraced_audio_player_3d.gd" id="2_ijefr"]
 [ext_resource type="Script" uid="uid://bjpmu5sklv5h8" path="res://addons/raytraced_audio/raytraced_audio_listener.gd" id="3_qhl78"]
 
