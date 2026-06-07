@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://f7of5cgi0hou"]
 
-[ext_resource type="PackedScene" uid="uid://bdbdpfsquvmcr" path="res://network/testEnvironment/networkManager.tscn" id="1_8rd3g"]
-[ext_resource type="PackedScene" uid="uid://cu5gtk0ybh744" path="res://network/testEnvironment/player.tscn" id="2_fj7yv"]
+[ext_resource type="Script" uid="uid://brjdpp3vab0uk" path="res://network/testEnvironment/World.gd" id="1_5nbxc"]
 [ext_resource type="Environment" uid="uid://bixn4bbcuffnd" path="res://environments/debug_env.tres" id="3_5nbxc"]
 [ext_resource type="PackedScene" uid="uid://jkgmdgtn5ei" path="res://network/testEnvironment/wall.tscn" id="3_8rd3g"]
 [ext_resource type="Script" uid="uid://ca5umlvtvh4el" path="res://network/scripts/Map.gd" id="4_5nbxc"]
@@ -17,10 +16,7 @@ size = Vector3(60, 2, 60)
 albedo_color = Color(0.39837635, 0.39837638, 0.39837635, 1)
 
 [node name="World" type="Node3D" unique_id=740440789]
-
-[node name="NetworkManager" parent="." unique_id=2061567717 node_paths=PackedStringArray("spawn_points") instance=ExtResource("1_8rd3g")]
-player_scene = ExtResource("2_fj7yv")
-spawn_points = NodePath("../Map/PlayerSpawnPoints")
+script = ExtResource("1_5nbxc")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=658407793]
 environment = ExtResource("3_5nbxc")
@@ -31,7 +27,7 @@ shadow_enabled = true
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=1617664168]
 _spawnable_scenes = PackedStringArray("uid://cu5gtk0ybh744")
-spawn_path = NodePath("../NetworkManager")
+spawn_path = NodePath("..")
 
 [node name="Map" parent="." unique_id=1910157186 node_paths=PackedStringArray("spawn_exit_door_points") instance=ExtResource("4_uw1st")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.4840088)

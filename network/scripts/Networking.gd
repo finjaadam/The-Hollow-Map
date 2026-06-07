@@ -1,9 +1,8 @@
 extends Node
-@export var player_scene : PackedScene
 
-@export var spawn_points : Node3D
-@onready var spawn_index: int = randi() % spawn_points.get_children().size()
-@onready var spawner: MultiplayerSpawner = $"../MultiplayerSpawner"
+var player_scene : PackedScene = preload("res://network/testEnvironment/player.tscn")
+var spawn_points : Node3D = null
+var spawner: MultiplayerSpawner = null
 
 var peer : SteamMultiplayerPeer
 const PACKET_READ_LIMIT: int = 32
@@ -16,6 +15,21 @@ var lobby_members_max: int = 4
 
 var steam_id: int = 0
 
+signal player_joined
+signal player_left
+signal lobby_ready_state_changed
+signal game_starting
+signal lobby_is_ready
+signal lobby_created
+
+var ready_states: Dictionary = {}  # { steam_id: bool }
+var connected_peers: Array = []
+
+func register_world(s: MultiplayerSpawner, sp: Node3D) -> void:
+	spawner = s
+	spawn_points = sp
+	spawner.spawn_function = _spawn_player
+
 func _ready():
 	if not SteamCheck.steam_initialized:
 		print("Initializing Steam Network")
@@ -27,8 +41,6 @@ func _ready():
 	Steam.lobby_match_list.connect(_on_lobby_match_list)
 	Steam.join_requested.connect(_on_lobby_join_requested)
 	Steam.persona_state_change.connect(_on_persona_change)
-	
-	spawner.spawn_function = _spawn_player
 
 func _spawn_player(data: Dictionary) -> Node:
 	var player = player_scene.instantiate()
@@ -63,14 +75,27 @@ func leave_lobby() -> void:
 		multiplayer.multiplayer_peer.close()
 		multiplayer.multiplayer_peer = null
 	# Disconnect multiplayer signals to avoid duplicates on next host
-	if multiplayer.peer_connected.is_connected(_add_player):
-		multiplayer.peer_connected.disconnect(_add_player)
-	if multiplayer.peer_disconnected.is_connected(_remove_player):
-		multiplayer.peer_disconnected.disconnect(_remove_player)
+	if multiplayer.peer_connected.is_connected(_on_peer_connected):
+		multiplayer.peer_connected.disconnect(_on_peer_connected)
+	if multiplayer.peer_disconnected.is_connected(_on_peer_disconnected):
+		multiplayer.peer_disconnected.disconnect(_on_peer_disconnected)
 
 	peer = null
 	is_host = false
 	is_joining = false
+
+func _on_peer_connected(id: int):
+	connected_peers.append(id)
+	var sid := peer.get_steam_id_for_peer_id(id)
+	if sid != 0:
+		ready_states[sid] = false
+
+func _on_peer_disconnected(id: int):
+	connected_peers.erase(id)
+	var sid := peer.get_steam_id_for_peer_id(id)
+	if sid != 0:
+		ready_states.erase(sid)
+	_remove_player(id)
 
 func request_lobby_list():
 	# Set distance to worldwide
@@ -106,6 +131,11 @@ func _on_lobby_created(result: int, lobby_id: int):
 	if result == Steam.RESULT_OK:
 		self.lobby_id = lobby_id
 		
+		# Add host's own steam ID to ready_states
+		var my_steam_id = Steam.getSteamID()
+		ready_states[my_steam_id] = false
+		steam_id = my_steam_id
+		
 		peer = SteamMultiplayerPeer.new()
 		peer.server_relay = true
 		peer.create_host()
@@ -121,11 +151,12 @@ func _on_lobby_created(result: int, lobby_id: int):
 		var set_relay: bool = Steam.allowP2PPacketRelay(true)
 		
 		multiplayer.multiplayer_peer = peer
-		multiplayer.peer_connected.connect(_add_player)
-		multiplayer.peer_disconnected.connect(_remove_player)
-		_add_player()
+		multiplayer.peer_connected.connect(_on_peer_connected)
+		multiplayer.peer_disconnected.connect(_on_peer_disconnected)
 		
+		get_lobby_members()
 		print(lobby_id)
+		lobby_created.emit()
 
 func _on_lobby_joined(lobby_id: int, permissions: int, locked: bool, response: int):
 	if !is_joining:
@@ -187,3 +218,30 @@ func _on_lobby_match_list(these_lobbies: Array) -> void:
 		
 		server_list_menu.add_lobby(lobby_button, this_lobby)
 	SceneLoader.goto_preloaded_scene(server_list_menu, "res://network/testEnvironment/menuServerList.tscn")
+
+@rpc("any_peer", "call_local", "reliable")
+func set_player_ready(is_ready: bool) -> void:
+	var sender_peer_id := multiplayer.get_remote_sender_id()
+	if sender_peer_id == 0:
+		sender_peer_id = multiplayer.get_unique_id()
+
+	var sid := peer.get_steam_id_for_peer_id(sender_peer_id)
+	if sid == 0:
+		return
+
+	ready_states[sid] = is_ready
+	lobby_ready_state_changed.emit()
+
+	if multiplayer.is_server():
+		_check_all_ready()
+
+func _check_all_ready():
+	if ready_states.is_empty():
+		return
+	var all_ready = ready_states.values().all(func(r): return r == true)
+	if all_ready:
+		lobby_is_ready.emit()
+
+@rpc("authority", "call_local", "reliable")
+func start_game():
+	game_starting.emit()

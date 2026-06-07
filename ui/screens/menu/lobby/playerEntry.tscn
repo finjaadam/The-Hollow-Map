@@ -17,4 +17,4 @@ clip_text = true
 [node name="Status" type="Label" parent="." unique_id=1156746316]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
-text = "READY"
+text = "Nicht Bereit"
