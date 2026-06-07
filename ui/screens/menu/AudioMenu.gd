@@ -12,7 +12,11 @@ extends Control
 @onready var sfx_label = $CenterContainer/VBoxContainer/AudioContent/HBoxContainer3/Label3
 @onready var chat_label = $CenterContainer/VBoxContainer/AudioContent/HBoxContainer4/Label4
 
+
+@export var is_Pause_Menu: bool
+
 func _ready():
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	add_to_group("main_menu")
 	_load_audio_settings()
 	_setup_navigation()
@@ -37,7 +41,13 @@ func _load_audio_settings():
 func _on_back_button_pressed() -> void:
 	Settings.apply_audio_settings()
 	Settings.save_settings()
-	SceneLoader.goto_scene("res://ui/screens/menu/OptionsMenu.tscn", false)
+	if is_Pause_Menu:
+		if ResourceLoader.exists("res://ui/screens/menu/pause/PauseMenu.tscn"):
+			var back_destination: Node = load("res://ui/screens/menu/pause/PauseMenu.tscn").instantiate()
+			get_tree().root.add_child(back_destination)
+			queue_free()
+	else:
+		SceneLoader.goto_scene("res://ui/screens/menu/OptionsMenu.tscn", false)
 
 
 func _on_h_slider_master_value_changed(value: float) -> void:

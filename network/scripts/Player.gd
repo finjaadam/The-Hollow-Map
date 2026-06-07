@@ -73,12 +73,7 @@ func _physics_process(delta):
 func _unhandled_input(event):
 	# CR5: Pause menu implementation in game scene
 	if event.is_action_pressed("pause"):
-		var paused: bool = not get_tree().paused
-		get_tree().paused = paused
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		if paused and ResourceLoader.exists("res://ui/screens/menu/PauseMenu.tscn"):
-			var pause_menu: Node = load("res://ui/screens/menu/PauseMenu.tscn").instantiate()
-			get_tree().root.add_child(pause_menu)
+		SceneLoader.toggle_pause()
 
 func teleport(position: Vector3):
 	global_position = position
