@@ -44,18 +44,14 @@ func _on_footstep_area_entered(area: Area3D):
 	if area.is_in_group("footstep_region"):
 		_overlapping_regions.append(area)
 		current_surface = area.surface_type
-		print("entered ", area.name)
 
 func _on_footstep_area_exited(area: Area3D):
 	# Fall back to the last overlapping region, or default surface if none remain
 	_overlapping_regions.erase(area)
-	print("exited ", area.name)
 	if _overlapping_regions:
 		current_surface = _overlapping_regions[-1].surface_type
-		print("surface: ", area.name)
 	else:
 		current_surface = AreaSoundManager.SurfaceType.STONE
-		print("surface: STONE (default)")
 
 func tick(on_floor: bool, is_moving: bool, delta: float):
 	# Plays footsteps at interval when walking on ground
@@ -73,4 +69,3 @@ func _play_footstep(surface: AreaSoundManager.SurfaceType):
 		_audio.stream = stream
 		_audio.play()
 	_footstep_cooldown = footstep_interval
-	Debug.print_bus_order()
