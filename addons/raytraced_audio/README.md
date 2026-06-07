@@ -40,4 +40,3 @@ Raytraced Audio also adds 2 performance monitors:
 - Download or clone this repository
 - Copy the `addons/raytraced_audio` folder into your project's `addons/` folder
 - Enable the plugin in `Project Settings > Plugins > Raytraced Audio`
-

@@ -37,6 +37,9 @@ func connect_button_sounds(root: Node) -> void:
 	for option in root.find_children("*", "OptionButton", true, false):
 		if not option.item_selected.is_connected(func(_i): play_button_click()):
 			option.item_selected.connect(func(_i): play_button_click())
+	for slider in root.find_children("*", "Slider", true, false):
+		if not slider.drag_ended.is_connected(func(_i): play_button_click()):
+			slider.drag_ended.connect(func(_i): play_button_click())
 
 func _setup_players() -> void:
 	_music_player = AudioStreamPlayer.new()
