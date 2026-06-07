@@ -17,9 +17,11 @@ signal keys_changed(new_amount)
 #signal lives_changed(new_amount)
 
 func collect_key() -> void:
-	print("Key aufgehoben")
-	team_keys += 1
-	keys_changed.emit(team_keys)
+	# is checked here because if a player leaves the game, it is still possible to open the door!
+	var player_count = get_tree().get_nodes_in_group("player").size()
+	if player_count > team_keys:
+		team_keys += 1
+		keys_changed.emit(team_keys)
 
 func reset() -> void:
 	team_keys = 0
