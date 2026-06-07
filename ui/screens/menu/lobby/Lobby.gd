@@ -19,7 +19,7 @@ func _ready():
 	if (NetworkManager.is_host):
 		lobby_name.editable = true
 	else:
-		lobby_name.editable = true
+		lobby_name.editable = false
 
 	start_button.disabled = true
 
