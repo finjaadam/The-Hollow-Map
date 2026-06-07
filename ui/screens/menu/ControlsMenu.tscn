@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://k0ea0bmkdnyd"]
 
-[ext_resource type="Theme" path="res://ui/theme.tres" id="1"]
+[ext_resource type="Theme" uid="uid://cbksa12r5e4vq" path="res://ui/theme.tres" id="1"]
 [ext_resource type="Script" uid="uid://bmapjprgg8gcv" path="res://ui/screens/menu/ControlsMenu.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://d0lu66dah1ayb" path="res://ui/background.png" id="3_5f8st"]
 
 [node name="ControlsMenu" type="Control" unique_id=1077161349]
 layout_mode = 3
@@ -47,5 +48,11 @@ layout_mode = 2
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 text = "Zurück"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=804965468]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_5f8st")
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

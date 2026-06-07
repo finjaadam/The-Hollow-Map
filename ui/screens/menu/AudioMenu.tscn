@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://cakofeaiidg2t"]
 
-[ext_resource type="Theme" path="res://ui/theme.tres" id="1"]
+[ext_resource type="Theme" uid="uid://cbksa12r5e4vq" path="res://ui/theme.tres" id="1"]
 [ext_resource type="Script" uid="uid://wck7ja84fak5" path="res://ui/screens/menu/AudioMenu.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://d0lu66dah1ayb" path="res://ui/background.png" id="3_i667k"]
+[ext_resource type="FontFile" uid="uid://bjus3huwiu5rb" path="res://ui/screens/menu/fonts/NotoSans-Bold.ttf" id="4_8s8vu"]
 
-[node name="AudioMenu" type="Control" unique_id=1202660654]
+[node name="AudioMenu2" type="Control" unique_id=1202660654]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,6 +14,12 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1")
 script = ExtResource("2")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1452042816]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_i667k")
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=925139239]
 layout_mode = 1
@@ -38,13 +46,16 @@ layout_mode = 2
 layout_mode = 2
 alignment = 1
 
-[node name="Master" type="Label" parent="CenterContainer/VBoxContainer/AudioContent/HBoxContainer" unique_id=1596681449]
+[node name="Master" type="RichTextLabel" parent="CenterContainer/VBoxContainer/AudioContent/HBoxContainer" unique_id=1554429627]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Gesamtlautstärke"
+text = "Gesamtlautstaerke"
+vertical_alignment = 2
 
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/AudioContent/HBoxContainer" unique_id=730211441]
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/AudioContent/HBoxContainer" unique_id=1595803817]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_8s8vu")
+theme_override_font_sizes/font_size = 20
 horizontal_alignment = 2
 
 [node name="HSliderMaster" type="HSlider" parent="CenterContainer/VBoxContainer/AudioContent" unique_id=98588325]
@@ -54,13 +65,16 @@ size_flags_horizontal = 3
 [node name="HBoxContainer2" type="HBoxContainer" parent="CenterContainer/VBoxContainer/AudioContent" unique_id=1816297942]
 layout_mode = 2
 
-[node name="Music" type="Label" parent="CenterContainer/VBoxContainer/AudioContent/HBoxContainer2" unique_id=1534654287]
+[node name="Music" type="RichTextLabel" parent="CenterContainer/VBoxContainer/AudioContent/HBoxContainer2" unique_id=64519032]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Musik"
+vertical_alignment = 2
 
 [node name="Label2" type="Label" parent="CenterContainer/VBoxContainer/AudioContent/HBoxContainer2" unique_id=692264570]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_8s8vu")
+theme_override_font_sizes/font_size = 20
 
 [node name="HSliderMusic" type="HSlider" parent="CenterContainer/VBoxContainer/AudioContent" unique_id=34309598]
 layout_mode = 2
@@ -69,13 +83,16 @@ size_flags_horizontal = 3
 [node name="HBoxContainer3" type="HBoxContainer" parent="CenterContainer/VBoxContainer/AudioContent" unique_id=629433248]
 layout_mode = 2
 
-[node name="SFX" type="Label" parent="CenterContainer/VBoxContainer/AudioContent/HBoxContainer3" unique_id=723268542]
+[node name="SFX" type="RichTextLabel" parent="CenterContainer/VBoxContainer/AudioContent/HBoxContainer3" unique_id=839965494]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Effekte"
+vertical_alignment = 2
 
 [node name="Label3" type="Label" parent="CenterContainer/VBoxContainer/AudioContent/HBoxContainer3" unique_id=354278642]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_8s8vu")
+theme_override_font_sizes/font_size = 20
 
 [node name="HSliderSFX" type="HSlider" parent="CenterContainer/VBoxContainer/AudioContent" unique_id=370894156]
 layout_mode = 2
@@ -84,13 +101,16 @@ size_flags_horizontal = 3
 [node name="HBoxContainer4" type="HBoxContainer" parent="CenterContainer/VBoxContainer/AudioContent" unique_id=1636796064]
 layout_mode = 2
 
-[node name="Chat" type="Label" parent="CenterContainer/VBoxContainer/AudioContent/HBoxContainer4" unique_id=1534612260]
+[node name="Chat" type="RichTextLabel" parent="CenterContainer/VBoxContainer/AudioContent/HBoxContainer4" unique_id=1027515163]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Mitspieler"
+vertical_alignment = 2
 
 [node name="Label4" type="Label" parent="CenterContainer/VBoxContainer/AudioContent/HBoxContainer4" unique_id=1758206366]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_8s8vu")
+theme_override_font_sizes/font_size = 20
 
 [node name="HSliderChat" type="HSlider" parent="CenterContainer/VBoxContainer/AudioContent" unique_id=253298943]
 layout_mode = 2
@@ -103,7 +123,7 @@ layout_mode = 2
 [node name="Reset" type="Button" parent="CenterContainer/VBoxContainer/AudioContent" unique_id=1962962273]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
-text = "Audio-Einstellungen zurücksetzen"
+text = "Zuruecksetzen"
 
 [node name="Spacer2" type="Control" parent="CenterContainer/VBoxContainer" unique_id=1520080618]
 custom_minimum_size = Vector2(0, 40)
@@ -112,7 +132,7 @@ layout_mode = 2
 [node name="BackButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=148322905]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
-text = "Zurück"
+text = "Zurueck"
 
 [connection signal="value_changed" from="CenterContainer/VBoxContainer/AudioContent/HSliderMaster" to="." method="_on_h_slider_master_value_changed"]
 [connection signal="value_changed" from="CenterContainer/VBoxContainer/AudioContent/HSliderMusic" to="." method="_on_h_slider_music_value_changed"]
