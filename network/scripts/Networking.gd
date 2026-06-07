@@ -93,6 +93,7 @@ func leave_lobby() -> void:
 			if this_member['steam_id'] != steam_id:
 				Steam.closeP2PSessionWithUser(this_member['steam_id'])
 		lobby_members.clear()
+		ready_states.clear()
 
 	# Clean up the multiplayer peer
 	if multiplayer.multiplayer_peer:
@@ -113,6 +114,10 @@ func _on_peer_connected(id: int):
 	var sid := peer.get_steam_id_for_peer_id(id)
 	if sid != 0:
 		ready_states[sid] = false
+
+	# Host pushes current state snapshot to the new peer
+	if multiplayer.is_server():
+		sync_ready_states.rpc_id(id, ready_states)
 
 func _on_peer_disconnected(id: int):
 	connected_peers.erase(id)
@@ -287,3 +292,8 @@ func get_lobby_name() -> String:
 func set_lobby_name(new_name: String):
 	Steam.setLobbyData(lobby_id, "name", new_name)
 	lobby_name_updated.emit()
+
+@rpc("authority", "call_local", "reliable")
+func sync_ready_states(states: Dictionary) -> void:
+	ready_states = states
+	lobby_updated.emit()
