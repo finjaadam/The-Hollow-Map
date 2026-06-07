@@ -191,7 +191,6 @@ func _on_lobby_joined(lobby_id: int, permissions: int, locked: bool, response: i
 		return
 		
 	get_lobby_members()
-	lobby_name_updated.emit()
 	
 	self.lobby_id = lobby_id
 	peer = SteamMultiplayerPeer.new()
@@ -200,6 +199,7 @@ func _on_lobby_joined(lobby_id: int, permissions: int, locked: bool, response: i
 	multiplayer.multiplayer_peer = peer
 	
 	is_joining = false
+	lobby_name_updated.emit()
 
 # A user's information has changed (downloaded info from steam that was not stored locally at first)
 func _on_persona_change(this_steam_id: int, _flag: int) -> void:
