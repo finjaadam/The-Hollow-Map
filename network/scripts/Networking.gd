@@ -1,6 +1,7 @@
 extends Node
 
 var player_scene : PackedScene = preload("res://network/testEnvironment/player.tscn")
+var monster_scene: PackedScene = preload("res://network/testEnvironment/player.tscn") # Keep it as player for now
 var spawn_points : Node3D = null
 var spawner: MultiplayerSpawner = null
 
@@ -15,6 +16,8 @@ var lobby_members_max: int = 4
 
 var steam_id: int = 0
 
+var player_roles: Dictionary = {}  # { peer_id: "player" | "monster" }
+
 signal game_starting
 signal lobby_is_ready
 signal lobby_is_not_ready
@@ -22,6 +25,14 @@ signal lobby_updated
 
 var ready_states: Dictionary = {}  # { steam_id: bool }
 var connected_peers: Array = []
+
+func _assign_roles() -> void:
+	var all_peers = [1] + connected_peers.duplicate()
+	all_peers.shuffle()
+	
+	for i in all_peers.size():
+		var pid = all_peers[i]
+		player_roles[pid] = "monster" if i == 0 else "player"
 
 func register_world(s: MultiplayerSpawner, sp: Node3D) -> void:
 	spawner = s
@@ -46,11 +57,18 @@ func _ready():
 	Steam.join_requested.connect(_on_lobby_join_requested)
 	Steam.persona_state_change.connect(_on_persona_change)
 
+
 func _spawn_player(data: Dictionary) -> Node:
-	var player = player_scene.instantiate()
-	player.name = str(data["id"])
-	player.position = data["position"]
-	return player
+	var instance: Node
+	if data.get("role", "player") == "monster":
+		instance = monster_scene.instantiate()
+	else:
+		instance = player_scene.instantiate()
+
+	instance.name = str(data["id"])
+	instance.position = data["position"]
+	instance.set_multiplayer_authority(data["id"])
+	return instance
 
 func _process(_delta: float) -> void:
 	Steam.run_callbacks()
@@ -121,12 +139,13 @@ func get_lobby_members() -> void:
 
 func _add_player(id: int = 1):
 	if not multiplayer.is_server():
-		return  # Only host should call spawn
-	
+		return # Only host shuld call spawn
+
 	var index = randi() % spawn_points.get_children().size()
 	var pos = spawn_points.get_children()[index].global_position
-	
-	spawner.spawn({"id": id, "position": pos})
+	var role = player_roles.get(id, "player")  # default to player if missing
+
+	spawner.spawn({"id": id, "position": pos, "role": role})
 
 func _remove_player(id: int):
 	if !self.has_node(str(id)):
@@ -254,6 +273,8 @@ func _check_all_ready():
 
 @rpc("authority", "call_local", "reliable")
 func start_game():
+	if multiplayer.is_server():
+		_assign_roles()
 	game_starting.emit()
 
 func get_lobby_name() -> String:
