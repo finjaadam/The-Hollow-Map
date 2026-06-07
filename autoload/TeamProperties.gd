@@ -12,9 +12,11 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-#signal keys_changed(new_amount)
+signal keys_changed(new_amount)
 
 #signal lives_changed(new_amount)
 
 func collect_key() -> void:
 	print("Key aufgehoben")
+	team_keys += 1
+	keys_changed.emit(team_keys)
