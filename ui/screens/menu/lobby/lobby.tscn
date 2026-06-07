@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://d1yrysttmtds8"]
+
+[ext_resource type="PackedScene" uid="uid://ca0788w2no1rw" path="res://ui/screens/menu/lobby/playerEntry.tscn" id="1_md1ih"]
+
+[node name="Lobby" type="Control" unique_id=1728966789]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LobbyName" type="Label" parent="." unique_id=1995118717]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 30.0
+offset_right = 166.0
+offset_bottom = 81.0
+text = "Lobby"
+
+[node name="PlayerList" type="Control" parent="." unique_id=1127085538]
+anchors_preset = 0
+offset_left = -9.0
+offset_top = -3.0
+offset_right = 31.0
+offset_bottom = 37.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PlayerList" unique_id=116220741]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 135.0
+offset_right = 424.0
+offset_bottom = 166.0
+
+[node name="PlayersLabel" type="Label" parent="PlayerList/HBoxContainer2" unique_id=1128903111]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+text = "Spielende"
+
+[node name="ReadyLabel" type="Label" parent="PlayerList/HBoxContainer2" unique_id=1122481778]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Bereit?"
+
+[node name="HSeparator" type="HSeparator" parent="PlayerList" unique_id=874237595]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 175.0
+offset_right = 426.0
+offset_bottom = 179.0
+
+[node name="PlayerEntries" type="VBoxContainer" parent="PlayerList" unique_id=995214062]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 197.0
+offset_right = 405.0
+offset_bottom = 283.0
+
+[node name="PlayerEntry" parent="PlayerList/PlayerEntries" unique_id=594336573 instance=ExtResource("1_md1ih")]
+layout_mode = 2
+
+[node name="PlayerEntry2" parent="PlayerList/PlayerEntries" unique_id=866323897 instance=ExtResource("1_md1ih")]
+layout_mode = 2
+
+[node name="PlayerEntry3" parent="PlayerList/PlayerEntries" unique_id=965678035 instance=ExtResource("1_md1ih")]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="." unique_id=298467018]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 570.0
+offset_right = 243.79999
+offset_bottom = 616.0
+text = "ZUrueck"
