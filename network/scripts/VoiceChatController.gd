@@ -30,6 +30,8 @@ func _process(_delta: float) -> void:
 		return
 	if not is_multiplayer_authority():
 		return
+	if SceneLoader.is_paused:
+		return
 	
 	var voice_data: Dictionary = Steam.getVoice()
 	if voice_data['result'] == Steam.VoiceResult.VOICE_RESULT_OK and voice_data['written']:
