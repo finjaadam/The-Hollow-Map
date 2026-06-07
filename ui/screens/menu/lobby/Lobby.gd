@@ -39,7 +39,6 @@ func _on_start_button_pressed():
 func _on_game_starting():
 	var world = preload("res://network/testEnvironment/world.tscn")
 	var instance = world.instantiate()
-	NetworkManager.register_world(instance.get_node("MultiplayerSpawner"), instance.get_node("Map/PlayerSpawnPoints"))
 	SceneLoader.goto_preloaded_scene(instance, "res://network/testEnvironment/world.tscn")
 
 func _on_ready_checkbox_toggled(toggled_on: bool) -> void:
