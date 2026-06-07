@@ -22,6 +22,7 @@ signal game_starting
 signal lobby_is_ready
 signal lobby_is_not_ready
 signal lobby_updated
+signal lobby_name_updated
 
 var ready_states: Dictionary = {}  # { steam_id: bool }
 var connected_peers: Array = []
@@ -181,6 +182,7 @@ func _on_lobby_created(result: int, lobby_id: int):
 		multiplayer.peer_disconnected.connect(_on_peer_disconnected)
 		
 		get_lobby_members()
+		lobby_name_updated.emit()
 		print(lobby_id)
 
 # You joined the Lobby
@@ -189,6 +191,7 @@ func _on_lobby_joined(lobby_id: int, permissions: int, locked: bool, response: i
 		return
 		
 	get_lobby_members()
+	lobby_name_updated.emit()
 	
 	self.lobby_id = lobby_id
 	peer = SteamMultiplayerPeer.new()
@@ -283,4 +286,4 @@ func get_lobby_name() -> String:
 @rpc("any_peer", "call_local", "reliable")
 func set_lobby_name(new_name: String):
 	Steam.setLobbyData(lobby_id, "name", new_name)
-	lobby_updated.emit()
+	lobby_name_updated.emit()
