@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bqc3fq8o8x28y" path="res://assets/camp_fire/scene.gltf" id="1_0aj1k"]
 [ext_resource type="AudioStream" uid="uid://b6g0yp5dl7lx3" path="res://audio/soundfx/Fireplace.mp3" id="2_eg0mj"]
+[ext_resource type="Script" uid="uid://dkb8ltjc6067n" path="res://addons/raytraced_audio/raytraced_audio_player_3d.gd" id="3_rii8a"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_fire"]
 radius = 3.2
@@ -14,8 +15,12 @@ radius = 3.2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2917204, 0, -0.08334887)
 shape = SubResource("SphereShape3D_fire")
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="2" unique_id=224912587]
+[node name="RaytracedAudioPlayer3D" type="AudioStreamPlayer3D" parent="." index="2" unique_id=50972414]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13628674, 1.94208, 0)
 stream = ExtResource("2_eg0mj")
+volume_db = 30.0
 pitch_scale = 0.8
 autoplay = true
-max_distance = 15.0
+max_distance = 25.0
+script = ExtResource("3_rii8a")
+metadata/_custom_type_script = "uid://dkb8ltjc6067n"
