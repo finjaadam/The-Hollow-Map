@@ -2,11 +2,19 @@
 
 [ext_resource type="Script" uid="uid://bn122bylkbcko" path="res://network/scripts/ExitDoor.gd" id="1_aw5go"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_aw5go"]
+
 [sub_resource type="BoxMesh" id="BoxMesh_jmoqk"]
 size = Vector3(1, 100, 1)
 
 [node name="ExitDoor" type="Node3D" unique_id=2006881130]
 script = ExtResource("1_aw5go")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=896358510]
+[node name="Area3D" type="Area3D" parent="." unique_id=77206060]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1046659019]
+transform = Transform3D(3.425, 0, 0, 0, 3.425, 0, 0, 0, 3.425, 0, 0, 0)
+shape = SubResource("BoxShape3D_aw5go")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D/CollisionShape3D" unique_id=896358510]
 mesh = SubResource("BoxMesh_jmoqk")
