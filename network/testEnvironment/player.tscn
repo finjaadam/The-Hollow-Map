@@ -4,6 +4,7 @@
 [ext_resource type="Environment" uid="uid://bixn4bbcuffnd" path="res://environments/debug_env.tres" id="2_6i2bt"]
 [ext_resource type="PackedScene" uid="uid://hxag78bqilay" path="res://network/testEnvironment/audioController.tscn" id="2_rev65"]
 [ext_resource type="Script" uid="uid://cokh7jryjgs7d" path="res://network/scripts/areaSounds/FootstepController.gd" id="3_q1thc"]
+[ext_resource type="PackedScene" uid="uid://cssh4udxb71ra" path="res://network/testEnvironment/in-game-ui-overlay.tscn" id="5_3nxfo"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_4flbx"]
 
@@ -42,3 +43,5 @@ script = ExtResource("3_q1thc")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1752202761]
 replication_config = SubResource("SceneReplicationConfig_4flbx")
+
+[node name="CanvasLayer" parent="." unique_id=349315403 instance=ExtResource("5_3nxfo")]
