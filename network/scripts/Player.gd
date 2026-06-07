@@ -91,6 +91,8 @@ func change_env(environment: Environment):
 	get_node("Camera3D").environment = environment
 
 func _on_pause(is_paused: bool):
+	if not is_multiplayer_authority():
+		return
 	if is_paused:
 		var pause_menu: Node = load("res://ui/screens/menu/pause/PauseMenu.tscn").instantiate()
 		get_tree().current_scene.add_child(pause_menu)
