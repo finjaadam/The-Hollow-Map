@@ -15,12 +15,10 @@ var lobby_members_max: int = 4
 
 var steam_id: int = 0
 
-signal lobby_ready_state_changed
 signal game_starting
 signal lobby_is_ready
 signal lobby_is_not_ready
 signal lobby_updated
-signal lobby_created
 
 var ready_states: Dictionary = {}  # { steam_id: bool }
 var connected_peers: Array = []
@@ -165,7 +163,6 @@ func _on_lobby_created(result: int, lobby_id: int):
 		
 		get_lobby_members()
 		print(lobby_id)
-		lobby_created.emit()
 
 # You joined the Lobby
 func _on_lobby_joined(lobby_id: int, permissions: int, locked: bool, response: int):
@@ -241,7 +238,7 @@ func set_player_ready(is_ready: bool) -> void:
 		return
 
 	ready_states[sid] = is_ready
-	lobby_ready_state_changed.emit()
+	lobby_updated.emit()
 
 	if multiplayer.is_server():
 		_check_all_ready()

@@ -13,21 +13,13 @@ func _ready():
 	NetworkManager.lobby_is_ready.connect(_on_lobby_ready)
 	NetworkManager.lobby_is_not_ready.connect(_on_lobby_not_ready)
 	NetworkManager.game_starting.connect(_on_game_starting)
-	NetworkManager.lobby_updated.connect(_refresh_player_list)
-	NetworkManager.lobby_created.connect(_setup_ui)
-	NetworkManager.lobby_ready_state_changed.connect(_refresh_player_list)
+	NetworkManager.lobby_updated.connect(_update_ui)
 
-func _setup_ui():
+func _update_ui():
 	lobby_name.editable = true if NetworkManager.is_host else false
 	start_button.disabled = true
-
-func _refresh_player_list():
-	if (NetworkManager.is_host):
-		lobby_name.editable = true
-	else:
-		lobby_name.editable = false
 	lobby_name.text = NetworkManager.get_lobby_name()
-
+	
 	for child in player_list.get_children():
 		child.queue_free()
 	for member in NetworkManager.lobby_members:
