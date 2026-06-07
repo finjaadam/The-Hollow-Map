@@ -14,17 +14,20 @@ func _ready():
 	NetworkManager.lobby_is_not_ready.connect(_on_lobby_not_ready)
 	NetworkManager.game_starting.connect(_on_game_starting)
 	NetworkManager.lobby_updated.connect(_refresh_player_list)
+	NetworkManager.lobby_created.connect(_setup_ui)
 	NetworkManager.lobby_ready_state_changed.connect(_refresh_player_list)
-	
+
+func _setup_ui():
+	lobby_name.editable = true if NetworkManager.is_host else false
+	start_button.disabled = true
+
+func _refresh_player_list():
 	if (NetworkManager.is_host):
 		lobby_name.editable = true
 	else:
 		lobby_name.editable = false
-
-	start_button.disabled = true
-
-func _refresh_player_list():
 	lobby_name.text = NetworkManager.get_lobby_name()
+
 	for child in player_list.get_children():
 		child.queue_free()
 	for member in NetworkManager.lobby_members:
@@ -47,7 +50,6 @@ func _on_ready_checkbox_toggled(toggled_on: bool) -> void:
 	NetworkManager.set_player_ready.rpc(toggled_on)
 
 func _on_lobby_ready():
-	print("should enable startbutton")
 	start_button.disabled = false
 
 func _on_lobby_not_ready():
@@ -59,3 +61,7 @@ func _on_back_button_pressed() -> void:
 
 func _on_lobby_name_text_submitted(new_text: String) -> void:
 	NetworkManager.set_lobby_name(new_text)
+
+func _on_lobby_name_editing_toggled(toggled_on: bool) -> void:
+	if not toggled_on:
+		NetworkManager.set_lobby_name(lobby_name.text)
