@@ -3,6 +3,7 @@ extends Node
 
 @export var spawn_points : Node3D
 @onready var spawn_index: int = randi() % spawn_points.get_children().size()
+@onready var spawner: MultiplayerSpawner = $"../MultiplayerSpawner"
 
 var peer : SteamMultiplayerPeer
 const PACKET_READ_LIMIT: int = 32
@@ -26,21 +27,16 @@ func _ready():
 	Steam.lobby_match_list.connect(_on_lobby_match_list)
 	Steam.join_requested.connect(_on_lobby_join_requested)
 	Steam.persona_state_change.connect(_on_persona_change)
+	spawner.spawn_function = _spawn_player
+
+func _spawn_player(data: Dictionary) -> Node:
+	var player = player_scene.instantiate()
+	player.name = str(data["id"])
+	player.position = data["position"]
+	return player
 
 func _process(_delta: float) -> void:
 	Steam.run_callbacks()
-
-func _get_spawn_position() -> Vector3:
-	if not spawn_points:
-		print("no spawn points :(")
-		return Vector3.ZERO
-	var points = spawn_points.get_children()
-	if points.is_empty():
-		print("no spawn points children are empty :(")
-		return Vector3.ZERO
-	var point = points[spawn_index % points.size()]
-	print(spawn_index)
-	return point.global_position
 
 func host_lobby():
 	if lobby_id == 0:
@@ -91,11 +87,22 @@ func get_lobby_members() -> void:
 		var member_steam_name: String = Steam.getFriendPersonaName(member_steam_id)
 		lobby_members.append({"steam_id":member_steam_id, "steam_name":member_steam_name})
 
+@rpc("authority", "call_remote", "reliable")
+func _send_spawn_position(pos: Vector3) -> void:
+	# Find this client's own player node (its name matches its peer id)
+	var my_id = multiplayer.get_unique_id()
+	var my_player = get_node_or_null(str(my_id))
+	if my_player:
+		my_player.global_position = pos
+
 func _add_player(id: int = 1):
-	var player = player_scene.instantiate()
-	player.name = str(id)
-	player.position = _get_spawn_position()
-	call_deferred("add_child", player)
+	if not multiplayer.is_server():
+		return  # Only host should call spawn
+	
+	var index = randi() % spawn_points.get_children().size()
+	var pos = spawn_points.get_children()[index].global_position
+	
+	spawner.spawn({"id": id, "position": pos})
 
 func _remove_player(id: int):
 	if !self.has_node(str(id)):
