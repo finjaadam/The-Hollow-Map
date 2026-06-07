@@ -77,6 +77,8 @@ func _physics_process(delta):
 	$FootstepController.tick(is_on_floor(), direction != Vector3.ZERO, delta)
 
 func _unhandled_input(event):
+	if not is_multiplayer_authority():
+		return
 	# CR5: Pause menu implementation in game scene
 	if event.is_action_pressed("pause"):
 		SceneLoader.toggle_pause()
