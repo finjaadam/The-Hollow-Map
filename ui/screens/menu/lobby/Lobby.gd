@@ -52,8 +52,8 @@ func _on_back_button_pressed() -> void:
 	SceneLoader.goto_scene("res://network/testEnvironment/menu.tscn")
 
 func _on_lobby_name_text_submitted(new_text: String) -> void:
-	NetworkManager.set_lobby_name(new_text)
+	NetworkManager.set_lobby_name.rpc(new_text)
 
 func _on_lobby_name_editing_toggled(toggled_on: bool) -> void:
 	if not toggled_on:
-		NetworkManager.set_lobby_name(lobby_name.text)
+		NetworkManager.set_lobby_name.rpc(lobby_name.text)

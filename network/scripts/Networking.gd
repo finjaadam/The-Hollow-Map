@@ -259,5 +259,7 @@ func start_game():
 func get_lobby_name() -> String:
 	return Steam.getLobbyData(lobby_id, "name")
 
+@rpc("any_peer", "call_local", "reliable")
 func set_lobby_name(new_name: String):
 	Steam.setLobbyData(lobby_id, "name", new_name)
+	lobby_updated.emit()
