@@ -15,6 +15,7 @@ func _ready():
 	NetworkManager.player_joined.connect(_refresh_player_list)
 	NetworkManager.player_left.connect(_refresh_player_list)
 	NetworkManager.lobby_created.connect(_refresh_player_list)
+	NetworkManager.lobby_joined.connect(_refresh_player_list)
 	
 	# Only host sees Start button
 	# start_button.visible = NetworkManager.is_host
@@ -40,7 +41,6 @@ func _on_game_starting():
 	var instance = world.instantiate()
 	NetworkManager.register_world(instance.get_node("MultiplayerSpawner"), instance.get_node("Map/PlayerSpawnPoints"))
 	SceneLoader.goto_preloaded_scene(instance, "res://network/testEnvironment/world.tscn")
-	NetworkManager._add_player()
 
 func _on_ready_checkbox_toggled(toggled_on: bool) -> void:
 	NetworkManager.set_player_ready.rpc(toggled_on)

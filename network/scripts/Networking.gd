@@ -21,6 +21,7 @@ signal lobby_ready_state_changed
 signal game_starting
 signal lobby_is_ready
 signal lobby_created
+signal lobby_joined
 
 var ready_states: Dictionary = {}  # { steam_id: bool }
 var connected_peers: Array = []
@@ -29,6 +30,12 @@ func register_world(s: MultiplayerSpawner, sp: Node3D) -> void:
 	spawner = s
 	spawn_points = sp
 	spawner.spawn_function = _spawn_player
+	
+	# Only host spawns all players
+	if multiplayer.is_server():
+		_add_player(1)  # host
+		for id in connected_peers:
+			_add_player(id)  # each remote peer
 
 func _ready():
 	if not SteamCheck.steam_initialized:
@@ -171,6 +178,7 @@ func _on_lobby_joined(lobby_id: int, permissions: int, locked: bool, response: i
 	multiplayer.multiplayer_peer = peer
 	
 	is_joining = false
+	lobby_joined.emit()
 
 # A user's information has changed (downloaded info from steam that was not stored locally at first)
 func _on_persona_change(this_steam_id: int, _flag: int) -> void:
