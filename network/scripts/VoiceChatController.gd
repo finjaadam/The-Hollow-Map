@@ -22,6 +22,7 @@ func _ready() -> void:
 	else:
 		# We are a remote player, set up audio playback
 		raytracedAudioPlayer.play()
+		raytracedAudioPlayer.enabled.connect(BusManager.route_to_Chat_bus.bind(raytracedAudioPlayer))
 		voice_playback = raytracedAudioPlayer.get_stream_playback()
 
 func _process(_delta: float) -> void:

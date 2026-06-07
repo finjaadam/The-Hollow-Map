@@ -3,6 +3,7 @@ extends Node
 
 @export var spawn_points : Node3D
 @onready var spawn_index: int = randi() % spawn_points.get_children().size()
+@onready var spawner: MultiplayerSpawner = $"../MultiplayerSpawner"
 
 var peer : SteamMultiplayerPeer
 const PACKET_READ_LIMIT: int = 32
@@ -26,19 +27,17 @@ func _ready():
 	Steam.lobby_match_list.connect(_on_lobby_match_list)
 	Steam.join_requested.connect(_on_lobby_join_requested)
 	Steam.persona_state_change.connect(_on_persona_change)
+	
+	spawner.spawn_function = _spawn_player
+
+func _spawn_player(data: Dictionary) -> Node:
+	var player = player_scene.instantiate()
+	player.name = str(data["id"])
+	player.position = data["position"]
+	return player
 
 func _process(_delta: float) -> void:
 	Steam.run_callbacks()
-
-func _get_spawn_position() -> Vector3:
-	if not spawn_points:
-		return Vector3.ZERO
-	var points = spawn_points.get_children()
-	if points.is_empty():
-		return Vector3.ZERO
-	var point = points[spawn_index % points.size()]
-	spawn_index += 1
-	return point.global_position
 
 func host_lobby():
 	if lobby_id == 0:
@@ -90,10 +89,13 @@ func get_lobby_members() -> void:
 		lobby_members.append({"steam_id":member_steam_id, "steam_name":member_steam_name})
 
 func _add_player(id: int = 1):
-	var player = player_scene.instantiate()
-	player.name = str(id)
-	player.position = _get_spawn_position()
-	call_deferred("add_child", player)
+	if not multiplayer.is_server():
+		return  # Only host should call spawn
+	
+	var index = randi() % spawn_points.get_children().size()
+	var pos = spawn_points.get_children()[index].global_position
+	
+	spawner.spawn({"id": id, "position": pos})
 
 func _remove_player(id: int):
 	if !self.has_node(str(id)):

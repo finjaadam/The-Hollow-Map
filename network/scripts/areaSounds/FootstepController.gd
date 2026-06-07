@@ -7,7 +7,7 @@ extends Node3D
 var current_surface: AreaSoundManager.SurfaceType = AreaSoundManager.SurfaceType.STONE
 var _footstep_cooldown: float = 0.0		# Timer for enforcing footstep_interval
 var _overlapping_regions: Array[Area3D] = []	# All footstep regions currently overlapping the detector
-var _audio: AudioStreamPlayer3D
+var _audio: RaytracedAudioPlayer3D
 
 func _ready():
 	# Create a spherical detector to sense footstep regions beneath the player
@@ -27,24 +27,31 @@ func _ready():
 	_audio = RaytracedAudioPlayer3D.new()
 	_audio.name = "FootstepAudio"
 	add_child(_audio)
+	
+	# RaytracedAudioPlayer creates a CUSTOM BUS – EXPLICIT to this Player
+	# So we need to route THAT bus to SFX in order to change volume (or make it even more fine grained)
+	# Since the CUSTOM BUS is always enabling / disabling to save ressources
+	# We need to constantly set the bus back to route through our SFX Bus
+	_audio.enabled.connect(BusManager.route_to_SFX_bus.bind(_audio))
+
+func _route_to_SFX_bus():
+	var idx := AudioServer.get_bus_index(_audio.bus)
+	if idx != -1:
+		AudioServer.set_bus_send(idx, "SFX")
 
 func _on_footstep_area_entered(area: Area3D):
 	# Track overlapping regions and switch to the new surface
 	if area.is_in_group("footstep_region"):
 		_overlapping_regions.append(area)
 		current_surface = area.surface_type
-		print("entered ", area.name)
 
 func _on_footstep_area_exited(area: Area3D):
 	# Fall back to the last overlapping region, or default surface if none remain
 	_overlapping_regions.erase(area)
-	print("exited ", area.name)
 	if _overlapping_regions:
 		current_surface = _overlapping_regions[-1].surface_type
-		print("surface: ", area.name)
 	else:
 		current_surface = AreaSoundManager.SurfaceType.STONE
-		print("surface: STONE (default)")
 
 func tick(on_floor: bool, is_moving: bool, delta: float):
 	# Plays footsteps at interval when walking on ground
