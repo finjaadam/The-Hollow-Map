@@ -55,13 +55,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -69.42361, -1.063669, -2.6034
 [node name="ExitsSpawnPoints" type="Node3D" parent="Map" unique_id=1588001583]
 
 [node name="1" type="Marker3D" parent="Map/ExitsSpawnPoints" unique_id=527565717]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.47502, 1.2373495, 45.086914)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.704548, 1.2373495, 33.84215)
 
 [node name="2" type="Marker3D" parent="Map/ExitsSpawnPoints" unique_id=1536906986]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.441292, 1.2373495, -44.051224)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.567677, 1.2373495, -6.792183)
 
 [node name="3" type="Marker3D" parent="Map/ExitsSpawnPoints" unique_id=1743314264]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.954456, 1.2373495, -6.305378)
+
+[node name="4" type="Marker3D" parent="Map/ExitsSpawnPoints" unique_id=200345702]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.635197, 1.2373495, 0.9520836)
 
 [node name="TestMap" type="StaticBody3D" parent="." unique_id=146694575]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -120)
