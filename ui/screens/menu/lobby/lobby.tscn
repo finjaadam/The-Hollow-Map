@@ -11,22 +11,23 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_h6ygp")
 
-[node name="LobbyName" type="Label" parent="." unique_id=1995118717]
+[node name="LobbyName" type="LineEdit" parent="." unique_id=1853593111]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.033854168
 anchor_top = 0.046296295
 anchor_right = 0.23003472
 anchor_bottom = 0.125
-offset_right = -99.0
-text = "Lobbyname"
+placeholder_text = "Lobbyname"
+editable = false
 metadata/_edit_use_anchors_ = true
 
 [node name="Info" type="HBoxContainer" parent="." unique_id=116220741]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
 anchor_left = 0.035590276
 anchor_top = 0.2037037
-anchor_right = 0.36024305
+anchor_right = 0.4904514
 anchor_bottom = 0.25154322
 offset_bottom = -1.5258789e-05
 metadata/_edit_use_anchors_ = true
@@ -43,19 +44,21 @@ theme_override_font_sizes/font_size = 30
 text = "Bereit?"
 
 [node name="HSeparator" type="HSeparator" parent="." unique_id=874237595]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
 anchor_left = 0.037326388
 anchor_top = 0.2654321
-anchor_right = 0.36197916
-anchor_bottom = 0.27160493
+anchor_right = 0.4904514
+anchor_bottom = 0.27314812
 offset_bottom = 1.5258789e-05
 metadata/_edit_use_anchors_ = true
 
 [node name="PlayerEntries" type="VBoxContainer" parent="." unique_id=995214062]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
 anchor_left = 0.037326388
 anchor_top = 0.29938272
-anchor_right = 0.34375
+anchor_right = 0.47569445
 anchor_bottom = 0.712963
 metadata/_edit_use_anchors_ = true
 
@@ -87,6 +90,7 @@ theme_override_font_sizes/font_size = 25
 text = "Bereit?"
 metadata/_edit_use_anchors_ = true
 
+[connection signal="text_submitted" from="LobbyName" to="." method="_on_lobby_name_text_submitted"]
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="toggled" from="ReadyCheckbox" to="." method="_on_ready_checkbox_toggled"]

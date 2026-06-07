@@ -3,6 +3,7 @@ extends Control
 @onready var player_list = $PlayerEntries
 @onready var start_button = $StartButton
 @onready var ready_button = $ReadyCheckbox
+@onready var lobby_name = $LobbyName
 @onready var player_entry = preload("res://ui/screens/menu/lobby/playerEntry.tscn")
 
 var readyString: Dictionary = {"Ready": "Bereit", "NotReady": "Nicht Bereit"}
@@ -10,23 +11,28 @@ var readyString: Dictionary = {"Ready": "Bereit", "NotReady": "Nicht Bereit"}
 func _ready():
 	# Connect to NetworkManager signals
 	NetworkManager.lobby_is_ready.connect(_on_lobby_ready)
+	NetworkManager.lobby_is_not_ready.connect(_on_lobby_not_ready)
 	NetworkManager.game_starting.connect(_on_game_starting)
 	NetworkManager.lobby_updated.connect(_refresh_player_list)
 	NetworkManager.lobby_ready_state_changed.connect(_refresh_player_list)
 	
-	# Only host sees Start button
-	# start_button.visible = NetworkManager.is_host
+	if (NetworkManager.is_host):
+		lobby_name.editable = true
+	else:
+		lobby_name.editable = true
+
 	start_button.disabled = true
 
 func _refresh_player_list():
+	lobby_name.text = NetworkManager.get_lobby_name()
 	for child in player_list.get_children():
 		child.queue_free()
 	for member in NetworkManager.lobby_members:
 		var id = member["steam_id"]
-		var ready = NetworkManager.ready_states.get(id, false)
+		var player_ready = NetworkManager.ready_states.get(id, false)
 		var player_entry_instance = player_entry.instantiate()
 		player_entry_instance.get_node("PlayerName").text = member["steam_name"]
-		player_entry_instance.get_node("Status").text = readyString.Ready if ready else readyString.NotReady
+		player_entry_instance.get_node("Status").text = readyString.Ready if player_ready else readyString.NotReady
 		player_list.add_child(player_entry_instance)
 
 func _on_start_button_pressed():
@@ -41,8 +47,15 @@ func _on_ready_checkbox_toggled(toggled_on: bool) -> void:
 	NetworkManager.set_player_ready.rpc(toggled_on)
 
 func _on_lobby_ready():
+	print("should enable startbutton")
 	start_button.disabled = false
+
+func _on_lobby_not_ready():
+	start_button.disabled = true
 
 func _on_back_button_pressed() -> void:
 	NetworkManager.leave_lobby()
 	SceneLoader.goto_scene("res://network/testEnvironment/menu.tscn")
+
+func _on_lobby_name_text_submitted(new_text: String) -> void:
+	NetworkManager.set_lobby_name(new_text)

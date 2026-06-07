@@ -18,6 +18,7 @@ var steam_id: int = 0
 signal lobby_ready_state_changed
 signal game_starting
 signal lobby_is_ready
+signal lobby_is_not_ready
 signal lobby_updated
 
 var ready_states: Dictionary = {}  # { steam_id: bool }
@@ -218,8 +219,9 @@ func _on_lobby_match_list(these_lobbies: Array) -> void:
 		var lobby_num_members: int = Steam.getNumLobbyMembers(this_lobby)
 		# Create a button for the 1 lobby each
 		var lobby_button: Button = Button.new()
-		lobby_button.set_text("Lobby %s: %s - %s Player(s)" % [this_lobby, lobby_name, lobby_num_members])
+		lobby_button.set_text("%s: %s - %s Spielende" % [this_lobby, lobby_name, lobby_num_members])
 		lobby_button.set_size(Vector2(800, 50))
+		lobby_button.add_theme_font_size_override("font_size", 20)
 		lobby_button.set_name("lobby_%s" % this_lobby)
 		lobby_button.connect("pressed", Callable(self, "join_lobby").bind(this_lobby))
 		
@@ -248,7 +250,15 @@ func _check_all_ready():
 	var all_ready = ready_states.values().all(func(r): return r == true)
 	if all_ready:
 		lobby_is_ready.emit()
+		return
+	lobby_is_not_ready.emit()
 
 @rpc("authority", "call_local", "reliable")
 func start_game():
 	game_starting.emit()
+
+func get_lobby_name() -> String:
+	return Steam.getLobbyData(lobby_id, "name")
+
+func set_lobby_name(new_name: String):
+	Steam.setLobbyData(lobby_id, "name", new_name)
