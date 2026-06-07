@@ -37,7 +37,7 @@ alignment = 1
 [node name="BackButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=247657173]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
-text = "Zurück"
+text = "Zurueck"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="CenterContainer/VBoxContainer" unique_id=238819728]
 custom_minimum_size = Vector2(500, 200)

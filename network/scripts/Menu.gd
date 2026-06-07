@@ -49,5 +49,5 @@ func _on_back_button_pressed():
 	SceneLoader.goto_scene("res://ui/screens/menu/MainMenu.tscn", false)
 
 func _on_list_server_button_pressed() -> void:
-	SceneLoader.goto_preloaded_scene(instance, next_scene_path)
+	SceneLoader.goto_scene("res://network/testEnvironment/menuServerList.tscn")
 	NetworkManager.request_lobby_list()
