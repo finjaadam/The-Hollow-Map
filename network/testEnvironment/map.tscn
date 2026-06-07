@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c8liybxhqrhwr"]
 
 [ext_resource type="PackedScene" uid="uid://b2yxpytggb8ro" path="res://map/modular-cave-final.glb" id="1_wb7j6"]
-[ext_resource type="Script" uid="uid://c15wkn1ddol15" path="res://network/scripts/areaSounds/MapArea.gd" id="2_ieofv"]
+[ext_resource type="Script" uid="uid://c15wkn1ddol15" path="res://Network/scripts/areaSounds/MapArea.gd" id="2_ieofv"]
 [ext_resource type="PackedScene" uid="uid://dnk8iwck0vfdf" path="res://assets/wasser.tscn" id="3_xqtg2"]
 [ext_resource type="PackedScene" uid="uid://drhm8uhvkuffw" path="res://assets/fountain_3d_model_free-edited/fountain-small.tscn" id="4_e062h"]
 [ext_resource type="PackedScene" uid="uid://defweiiwbw4mq" path="res://assets/stick01.tscn" id="5_pe7kj"]
@@ -20,18 +20,36 @@ size = Vector3(29.735, 20.005, 13.305)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_xqtg2"]
 height = 11.091
-radius = 5.045
+radius = 5.1
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_ieofv"]
-height = 11.091
-radius = 3.227
+[sub_resource type="BoxShape3D" id="BoxShape3D_bra6q"]
+size = Vector3(4.8239136, 11.721558, 2.2120972)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tj3bm"]
+size = Vector3(3.2663574, 10.380432, 4.004486)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r6vd7"]
+size = Vector3(4.682968, 4.4069824, 2.102417)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qrdw5"]
+size = Vector3(6.368637, 5.3171387, 1.2990723)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_clsdl"]
+size = Vector3(7.217102, 6.0510254, 5.548828)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o6c5f"]
 size = Vector3(16.045, 20, 12.39)
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bra6q"]
+radius = 2.7182617
+height = 9.364437
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g8gtg"]
+size = Vector3(0.8786316, 3.1430664, 2.9934082)
+
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_0an4t"]
-height = 11.091
-radius = 1.409
+height = 11.255461
+radius = 1.4487305
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gravel"]
 size = Vector3(34.045, 20, 27.48)
@@ -86,9 +104,29 @@ script = ExtResource("2_ieofv")
 surface_type = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="modular-cave-final/RegionWater/Puddle3" unique_id=1400977402]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24105453, -0.13259792, 0.48672962)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.98141, -0.13259768, 1.5340161)
 shape = SubResource("CylinderShape3D_xqtg2")
 debug_color = Color(0, 0.6, 0.69803923, 1)
+debug_fill = false
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="modular-cave-final/RegionWater/Puddle3" unique_id=1971820354]
+transform = Transform3D(0.96814764, 0, -0.25038, 0, 1, 0, 0.25038, 0, 0.96814764, -3.7710218, -0.6333618, -2.1798935)
+shape = SubResource("BoxShape3D_bra6q")
+debug_fill = false
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="modular-cave-final/RegionWater/Puddle3" unique_id=1344958015]
+transform = Transform3D(0.92718387, 0, -0.37460658, 0, 1, 0, 0.37460658, 0, 0.92718387, -3.3146791, 1.7770953, 3.9926634)
+shape = SubResource("BoxShape3D_tj3bm")
+debug_fill = false
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="modular-cave-final/RegionWater/Puddle3" unique_id=1224770142]
+transform = Transform3D(0.9335804, 0, -0.35836795, 0, 1, 0, 0.35836795, 0, 0.9335804, -7.2109833, -1.3318603, 4.138006)
+shape = SubResource("BoxShape3D_r6vd7")
+debug_fill = false
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="modular-cave-final/RegionWater/Puddle3" unique_id=1018093527]
+transform = Transform3D(0.9953961, 0, -0.09584574, 0, 1, 0, 0.09584574, 0, 0.9953961, -11.100805, -1.8350029, 2.5946593)
+shape = SubResource("BoxShape3D_qrdw5")
 debug_fill = false
 
 [node name="Wasser" parent="modular-cave-final/RegionWater" unique_id=754175342 instance=ExtResource("3_xqtg2")]
@@ -112,7 +150,8 @@ script = ExtResource("2_ieofv")
 surface_type = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="modular-cave-final/RegionWater2/Puddle3" unique_id=462047277]
-shape = SubResource("CylinderShape3D_ieofv")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10621452, -2.3553002, 0.05934143)
+shape = SubResource("BoxShape3D_clsdl")
 debug_color = Color(0, 0.6, 0.69803923, 1)
 debug_fill = false
 
@@ -137,8 +176,14 @@ script = ExtResource("2_ieofv")
 surface_type = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="modular-cave-final/RegionWater3/Puddle1" unique_id=756247878]
-shape = SubResource("CylinderShape3D_ieofv")
+transform = Transform3D(0.121869326, 0.99254614, 0, 0.017322265, -0.0021269063, -0.9998477, -0.992395, 0.121850766, -0.017452352, 0.060958862, -2.684215, 0.013979912)
+shape = SubResource("CapsuleShape3D_bra6q")
 debug_color = Color(0, 0.6, 0.69803923, 1)
+debug_fill = false
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="modular-cave-final/RegionWater3/Puddle1" unique_id=907418986]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 5.1700745, -1.394706, 2.2441492)
+shape = SubResource("BoxShape3D_g8gtg")
 debug_fill = false
 
 [node name="Puddle4" type="Area3D" parent="modular-cave-final/RegionWater3" unique_id=356469997]
@@ -147,7 +192,7 @@ script = ExtResource("2_ieofv")
 surface_type = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="modular-cave-final/RegionWater3/Puddle4" unique_id=50235313]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24629974, 0, 0.23361874)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2916031, -0.08223057, 0.17850208)
 shape = SubResource("CylinderShape3D_0an4t")
 debug_color = Color(0, 0.6, 0.69803923, 1)
 debug_fill = false
