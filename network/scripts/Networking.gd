@@ -32,12 +32,14 @@ func _process(_delta: float) -> void:
 
 func _get_spawn_position() -> Vector3:
 	if not spawn_points:
+		print("no spawn points :(")
 		return Vector3.ZERO
 	var points = spawn_points.get_children()
 	if points.is_empty():
+		print("no spawn points children are empty :(")
 		return Vector3.ZERO
 	var point = points[spawn_index % points.size()]
-	spawn_index += 1
+	print(spawn_index)
 	return point.global_position
 
 func host_lobby():
