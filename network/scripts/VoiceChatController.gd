@@ -1,6 +1,7 @@
 extends Node3D
 
 @onready var raytracedAudioPlayer: RaytracedAudioPlayer3D = $RaytracedAudioPlayer3D
+@onready var raytracedAudioListener: RaytracedAudioListener = $RaytracedAudioListener
 
 const SAMPLE_RATE: int = 48000
 var voice_playback: AudioStreamGeneratorPlayback = null
@@ -12,8 +13,8 @@ func _enter_tree() -> void:
 func _ready() -> void:
 	if is_multiplayer_authority():
 		# We are the local player, add the listener
-		var listener = RaytracedAudioListener.new()
-		add_child(listener)
+		var listener = raytracedAudioListener
+		listener.is_enabled = true
 		listener.owner = get_parent()
 		listener.make_current()
 		Steam.setInGameVoiceSpeaking(480, true)
@@ -21,6 +22,7 @@ func _ready() -> void:
 	else:
 		# We are a remote player, set up audio playback
 		raytracedAudioPlayer.play()
+		raytracedAudioPlayer.enabled.connect(BusManager.route_to_Chat_bus.bind(raytracedAudioPlayer))
 		voice_playback = raytracedAudioPlayer.get_stream_playback()
 
 func _process(_delta: float) -> void:
