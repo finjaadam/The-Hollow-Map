@@ -32,6 +32,7 @@ SteamCheck="*uid://bx41bdyvrt3du"
 MenuSoundManager="*res://autoload/MenuSoundManager.gd"
 Debug="*uid://xnvvoqv42hb6"
 BusManager="*uid://b1sk838qwcaqq"
+TeamProperties="*uid://bodhbltj3ercw"
 
 [editor_plugins]
 
