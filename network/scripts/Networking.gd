@@ -15,13 +15,10 @@ var lobby_members_max: int = 4
 
 var steam_id: int = 0
 
-signal player_joined
-signal player_left
 signal lobby_ready_state_changed
 signal game_starting
 signal lobby_is_ready
-signal lobby_created
-signal lobby_joined
+signal lobby_updated
 
 var ready_states: Dictionary = {}  # { steam_id: bool }
 var connected_peers: Array = []
@@ -63,6 +60,7 @@ func host_lobby():
 		Steam.createLobby(Steam.LOBBY_TYPE_PUBLIC, lobby_members_max)
 		is_host = true
 
+# You are joining YOURSELF
 func join_lobby(lobby_id: int):
 	is_joining = true
 	lobby_members.clear()
@@ -119,6 +117,7 @@ func get_lobby_members() -> void:
 		var member_steam_id: int = Steam.getLobbyMemberByIndex(lobby_id, this_member)
 		var member_steam_name: String = Steam.getFriendPersonaName(member_steam_id)
 		lobby_members.append({"steam_id":member_steam_id, "steam_name":member_steam_name})
+	lobby_updated.emit()
 
 func _add_player(id: int = 1):
 	if not multiplayer.is_server():
@@ -134,6 +133,7 @@ func _remove_player(id: int):
 		return
 	self.get_node(str(id)).queue_free()
 
+# You created the Lobby yourself
 func _on_lobby_created(result: int, lobby_id: int):	
 	if result == Steam.RESULT_OK:
 		self.lobby_id = lobby_id
@@ -163,8 +163,8 @@ func _on_lobby_created(result: int, lobby_id: int):
 		
 		get_lobby_members()
 		print(lobby_id)
-		lobby_created.emit()
 
+# You joined the Lobby
 func _on_lobby_joined(lobby_id: int, permissions: int, locked: bool, response: int):
 	if !is_joining:
 		return
@@ -178,7 +178,6 @@ func _on_lobby_joined(lobby_id: int, permissions: int, locked: bool, response: i
 	multiplayer.multiplayer_peer = peer
 	
 	is_joining = false
-	lobby_joined.emit()
 
 # A user's information has changed (downloaded info from steam that was not stored locally at first)
 func _on_persona_change(this_steam_id: int, _flag: int) -> void:

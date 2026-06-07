@@ -9,20 +9,17 @@ var readyString: Dictionary = {"Ready": "Bereit", "NotReady": "Nicht Bereit"}
 
 func _ready():
 	# Connect to NetworkManager signals
-	NetworkManager.lobby_ready_state_changed.connect(_refresh_player_list)
 	NetworkManager.lobby_is_ready.connect(_on_lobby_ready)
 	NetworkManager.game_starting.connect(_on_game_starting)
-	NetworkManager.player_joined.connect(_refresh_player_list)
-	NetworkManager.player_left.connect(_refresh_player_list)
-	NetworkManager.lobby_created.connect(_refresh_player_list)
-	NetworkManager.lobby_joined.connect(_refresh_player_list)
+	NetworkManager.lobby_updated.connect(_refresh_player_list)
+	NetworkManager.lobby_ready_state_changed.connect(_refresh_player_list)
 	
 	# Only host sees Start button
 	# start_button.visible = NetworkManager.is_host
 	start_button.disabled = true
 
 func _refresh_player_list():
-	print(NetworkManager.lobby_members)
+	print("REFRESHING PLAYER LIST")
 	for child in player_list.get_children():
 		child.queue_free()
 	for member in NetworkManager.lobby_members:
