@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://dwiijf810qnuf"]
+
+[ext_resource type="PackedScene" uid="uid://dfiiji35cwgr3" path="res://assets/fountain_3d_model_free-edited/untitled.glb" id="1_lw1cb"]
+
+[node name="untitled" unique_id=998410728 instance=ExtResource("1_lw1cb")]
