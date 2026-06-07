@@ -1,5 +1,36 @@
 [gd_scene format=3 uid="uid://dg50fnoof8bji"]
 
 [ext_resource type="PackedScene" uid="uid://tlgjwgx7j55g" path="res://assets/jukebox/scene.gltf" id="1_g1ppn"]
+[ext_resource type="AudioStream" uid="uid://q6shwuhotrws" path="res://audio/soundfx/jukebox/Jukebox1.mp3" id="2_orhqi"]
+[ext_resource type="Script" uid="uid://xfi2bmoovb4r" path="res://assets/jukebox/Jukebox.gd" id="2_wk1fg"]
+[ext_resource type="AudioStream" uid="uid://fcacyg685sac" path="res://audio/soundfx/jukebox/Jukebox2.mp3" id="3_npckj"]
+[ext_resource type="Script" uid="uid://dkb8ltjc6067n" path="res://addons/raytraced_audio/raytraced_audio_player_3d.gd" id="3_qp7qy"]
+[ext_resource type="AudioStream" uid="uid://jh1n3a6h5m0v" path="res://audio/soundfx/jukebox/Jukebox3.mp3" id="4_6ro6b"]
 
-[node name="Sketchfab_Scene" unique_id=578076892 instance=ExtResource("1_g1ppn")]
+[sub_resource type="BoxShape3D" id="BoxShape3D_jukebox"]
+size = Vector3(1.3431381, 2.0283935, 0.93892825)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jukebox_detect"]
+size = Vector3(1.3479004, 3, 0.9465637)
+
+[node name="Jukebox" type="Area3D" unique_id=890776983]
+script = ExtResource("2_wk1fg")
+sounds = Array[AudioStream]([ExtResource("2_orhqi"), ExtResource("3_npckj"), ExtResource("4_6ro6b")])
+
+[node name="Sketchfab_Scene" parent="." unique_id=128151855 instance=ExtResource("1_g1ppn")]
+
+[node name="Audio" type="AudioStreamPlayer3D" parent="." unique_id=1794802581]
+max_distance = 20.0
+script = ExtResource("3_qp7qy")
+
+[node name="CollisionBody" type="StaticBody3D" parent="." unique_id=359035021]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CollisionBody" unique_id=157513920]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.025738955, 0.9868749, 0.315046)
+shape = SubResource("BoxShape3D_jukebox")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=653357550]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.027954102, 0, 0.3159027)
+shape = SubResource("BoxShape3D_jukebox_detect")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

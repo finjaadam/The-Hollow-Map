@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cbnyshb2pjuw5"
+path="res://.godot/imported/Footstep on breaking wood 1.mp3-007a40c6ac96d7fd9c62dd59e5aa04f0.mp3str"
+
+[deps]
+
+source_file="res://audio/soundfx/map-areas/wood/Footstep on breaking wood 1.mp3"
+dest_files=["res://.godot/imported/Footstep on breaking wood 1.mp3-007a40c6ac96d7fd9c62dd59e5aa04f0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
