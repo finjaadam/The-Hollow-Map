@@ -4,4 +4,4 @@ extends General_Player
 # General_Player --> Use _on_ready() instead
 func _on_ready() -> void:
 	add_to_group("monster")
-	print("you are monster")
+	ownRole = Role.MONSTER

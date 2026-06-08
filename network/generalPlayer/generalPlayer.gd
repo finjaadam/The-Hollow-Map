@@ -12,8 +12,11 @@ extends CharacterBody3D
 
 @export var footstep_controller: Node
 @export var camera3d: Camera3D
+@export var canvas: CanvasLayer
 
 var target_velocity = Vector3.ZERO
+enum Role {PLAYER, MONSTER}
+var ownRole: Role
 
 func _enter_tree():
 	set_multiplayer_authority(name.to_int())
@@ -26,11 +29,17 @@ func _ready() -> void:
 	else:
 		camera3d.current = false
 	SceneLoader.paused.connect(_on_pause)
+	
 	_on_ready()
+	_setup_ui()
 
 # Overwrite in Subclass
 func _on_ready():
 	pass
+
+func _setup_ui():
+	var roleLabel: Label = canvas.get_node("Role")
+	roleLabel.text = "Spielende" if ownRole == Role.PLAYER else "Monster" 
 
 func _input(event):
 	# Only process input for the local player

@@ -9,3 +9,13 @@ script = ExtResource("1_keruy")
 offset_right = 40.0
 offset_bottom = 51.0
 metadata/_edit_use_anchors_ = true
+
+[node name="Role" type="Label" parent="." unique_id=739166447]
+anchors_preset = -1
+anchor_left = 0.7647569
+anchor_top = 0.018518519
+anchor_right = 0.9904514
+anchor_bottom = 0.097222224
+text = "Monster"
+horizontal_alignment = 2
+metadata/_edit_use_anchors_ = true
