@@ -21,6 +21,8 @@ properties/0/replication_mode = 1
 
 [node name="Monster" type="CharacterBody3D" unique_id=907472801 node_paths=PackedStringArray("footstep_controller", "camera3d")]
 script = ExtResource("1_dlha7")
+mouse_sensitivity = 0.001
+speed = 5
 debug_env = ExtResource("2_fmeki")
 player_env = ExtResource("2_fmeki")
 footstep_controller = NodePath("FootstepController")
