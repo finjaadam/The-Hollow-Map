@@ -201,17 +201,36 @@ func _on_lobby_created(result: int, lobby_id: int):
 func _on_lobby_joined(lobby_id: int, permissions: int, locked: bool, response: int):
 	if !is_joining:
 		return
+	
+	if response == Steam.CHAT_ROOM_ENTER_RESPONSE_SUCCESS:
+		get_lobby_members()
 		
-	get_lobby_members()
-	
-	self.lobby_id = lobby_id
-	peer = SteamMultiplayerPeer.new()
-	peer.server_relay = true
-	peer.create_client(Steam.getLobbyOwner(lobby_id))
-	multiplayer.multiplayer_peer = peer
-	
-	is_joining = false
-	lobby_name_updated.emit()
+		self.lobby_id = lobby_id
+		peer = SteamMultiplayerPeer.new()
+		peer.server_relay = true
+		peer.create_client(Steam.getLobbyOwner(lobby_id))
+		multiplayer.multiplayer_peer = peer
+		
+		is_joining = false
+		lobby_name_updated.emit()
+	else:
+		# Get the failure reason
+		var fail_reason: String
+
+		match response:
+			Steam.CHAT_ROOM_ENTER_RESPONSE_DOESNT_EXIST: fail_reason = "This lobby no longer exists."
+			Steam.CHAT_ROOM_ENTER_RESPONSE_NOT_ALLOWED: fail_reason = "You don't have permission to join this lobby."
+			Steam.CHAT_ROOM_ENTER_RESPONSE_FULL: fail_reason = "The lobby is now full."
+			Steam.CHAT_ROOM_ENTER_RESPONSE_ERROR: fail_reason = "Uh... something unexpected happened!"
+			Steam.CHAT_ROOM_ENTER_RESPONSE_BANNED: fail_reason = "You are banned from this lobby."
+			Steam.CHAT_ROOM_ENTER_RESPONSE_LIMITED: fail_reason = "You cannot join due to having a limited account."
+			Steam.CHAT_ROOM_ENTER_RESPONSE_CLAN_DISABLED: fail_reason = "This lobby is locked or disabled."
+			Steam.CHAT_ROOM_ENTER_RESPONSE_COMMUNITY_BAN: fail_reason = "This lobby is community locked."
+			Steam.CHAT_ROOM_ENTER_RESPONSE_MEMBER_BLOCKED_YOU: fail_reason = "A user in the lobby has blocked you from joining."
+			Steam.CHAT_ROOM_ENTER_RESPONSE_YOU_BLOCKED_MEMBER: fail_reason = "A user you have blocked is in the lobby."
+
+		print("Failed to join this chat room: %s" % fail_reason)
+		request_lobby_list()
 
 # A user's information has changed (downloaded info from steam that was not stored locally at first)
 func _on_persona_change(this_steam_id: int, _flag: int) -> void:
@@ -290,6 +309,7 @@ func _check_all_ready():
 func start_game():
 	if multiplayer.is_server():
 		_assign_roles()
+		Steam.setLobbyJoinable(lobby_id, false) # No one else can join
 	game_starting.emit()
 
 func get_lobby_name() -> String:
