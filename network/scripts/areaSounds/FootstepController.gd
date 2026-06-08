@@ -61,6 +61,7 @@ func tick(on_floor: bool, is_moving: bool, delta: float):
 	_footstep_cooldown -= delta
 	if _footstep_cooldown <= 0:
 		_play_footstep.rpc(current_surface)
+		
 
 @rpc("any_peer", "call_local", "unreliable")
 func _play_footstep(surface: AreaSoundManager.SurfaceType):

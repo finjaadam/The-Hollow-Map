@@ -18,10 +18,6 @@ var target_velocity = Vector3.ZERO
 enum Role {PLAYER, MONSTER}
 var ownRole: Role
 
-func _enter_tree():
-	# set_multiplayer_authority(name.to_int())
-	pass
-
 func _ready() -> void:
 	_on_ready()
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
