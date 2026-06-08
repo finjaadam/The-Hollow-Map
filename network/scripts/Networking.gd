@@ -29,10 +29,8 @@ var connected_peers: Array = []
 func _assign_roles() -> void:
 	var all_peers = [1] + connected_peers.duplicate()
 	all_peers.shuffle()
-	print(all_peers)
 	
 	for i in all_peers.size():
-		print("i: ", i)
 		var pid = all_peers[i]
 		player_roles[pid] = "monster" if i == 0 else "player"
 
@@ -41,11 +39,17 @@ func register_world(s: MultiplayerSpawner, sp: Node3D) -> void:
 	spawn_points = sp
 	spawner.spawn_function = _spawn_player
 	
+	# Shuffle all Spawnpoints
+	var spawn_point_array = spawn_points.get_children().duplicate()
+	spawn_point_array.shuffle()
+	
+	assert(spawn_point_array.size() >= connected_peers.size() + 1, "Not enough spawn points!")
+	
 	# Only host spawns all players
 	if multiplayer.is_server():
-		_add_player(1)  # host
-		for id in connected_peers:
-			_add_player(id)  # each remote peer
+		_add_player(spawn_point_array[0], 1)  # host, gets the first spawnpoint of shuffled array
+		for i in connected_peers.size():
+			_add_player(spawn_point_array[i+1], connected_peers[i])  # each remote peer gets the following spawnpoints
 
 func _ready():
 	if not SteamCheck.steam_initialized:
@@ -58,7 +62,6 @@ func _ready():
 	Steam.lobby_match_list.connect(_on_lobby_match_list)
 	Steam.join_requested.connect(_on_lobby_join_requested)
 	Steam.persona_state_change.connect(_on_persona_change)
-
 
 func _spawn_player(data: Dictionary) -> Node:
 	var instance: Node
@@ -144,12 +147,11 @@ func get_lobby_members() -> void:
 		lobby_members.append({"steam_id":member_steam_id, "steam_name":member_steam_name})
 	lobby_updated.emit()
 
-func _add_player(id: int = 1):
+func _add_player(sp: Node, id: int = 1):
 	if not multiplayer.is_server():
 		return # Only host shuld call spawn
 
-	var index = randi() % spawn_points.get_children().size()
-	var pos = spawn_points.get_children()[index].global_position
+	var pos = sp.global_position
 	var role = player_roles.get(id, "player")  # default to player if missing
 
 	spawner.spawn({"id": id, "position": pos, "role": role})
