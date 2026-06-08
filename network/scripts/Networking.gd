@@ -1,12 +1,11 @@
 extends Node
 
 var player_scene : PackedScene = preload("res://network/testEnvironment/player.tscn")
-var monster_scene: PackedScene = preload("res://network/testEnvironment/player.tscn") # Keep it as player for now
+var monster_scene: PackedScene = preload("res://network/monster/monster.tscn")
 var spawn_points : Node3D = null
 var spawner: MultiplayerSpawner = null
 
 var peer : SteamMultiplayerPeer
-const PACKET_READ_LIMIT: int = 32
 var is_host : bool = false
 var is_joining : bool = false
 
@@ -40,11 +39,17 @@ func register_world(s: MultiplayerSpawner, sp: Node3D) -> void:
 	spawn_points = sp
 	spawner.spawn_function = _spawn_player
 	
+	# Shuffle all Spawnpoints
+	var spawn_point_array = spawn_points.get_children().duplicate()
+	spawn_point_array.shuffle()
+	
+	assert(spawn_point_array.size() >= connected_peers.size() + 1, "Not enough spawn points!")
+	
 	# Only host spawns all players
 	if multiplayer.is_server():
-		_add_player(1)  # host
-		for id in connected_peers:
-			_add_player(id)  # each remote peer
+		_add_player(spawn_point_array[0], 1)  # host, gets the first spawnpoint of shuffled array
+		for i in connected_peers.size():
+			_add_player(spawn_point_array[i+1], connected_peers[i])  # each remote peer gets the following spawnpoints
 
 func _ready():
 	if not SteamCheck.steam_initialized:
@@ -57,7 +62,6 @@ func _ready():
 	Steam.lobby_match_list.connect(_on_lobby_match_list)
 	Steam.join_requested.connect(_on_lobby_join_requested)
 	Steam.persona_state_change.connect(_on_persona_change)
-
 
 func _spawn_player(data: Dictionary) -> Node:
 	var instance: Node
@@ -143,20 +147,23 @@ func get_lobby_members() -> void:
 		lobby_members.append({"steam_id":member_steam_id, "steam_name":member_steam_name})
 	lobby_updated.emit()
 
-func _add_player(id: int = 1):
+func _add_player(sp: Node, id: int = 1):
 	if not multiplayer.is_server():
 		return # Only host shuld call spawn
 
-	var index = randi() % spawn_points.get_children().size()
-	var pos = spawn_points.get_children()[index].global_position
+	var pos = sp.global_position
 	var role = player_roles.get(id, "player")  # default to player if missing
 
 	spawner.spawn({"id": id, "position": pos, "role": role})
 
 func _remove_player(id: int):
-	if !self.has_node(str(id)):
+	var world = get_tree().root.get_node("World")
+	if not world:
 		return
-	self.get_node(str(id)).queue_free()
+	for child in world.get_children():
+		if child is CharacterBody3D and child.get_multiplayer_authority() == id:
+			child.queue_free()
+			return
 
 # You created the Lobby yourself
 func _on_lobby_created(result: int, lobby_id: int):	
@@ -194,17 +201,36 @@ func _on_lobby_created(result: int, lobby_id: int):
 func _on_lobby_joined(lobby_id: int, permissions: int, locked: bool, response: int):
 	if !is_joining:
 		return
+	
+	if response == Steam.CHAT_ROOM_ENTER_RESPONSE_SUCCESS:
+		get_lobby_members()
 		
-	get_lobby_members()
-	
-	self.lobby_id = lobby_id
-	peer = SteamMultiplayerPeer.new()
-	peer.server_relay = true
-	peer.create_client(Steam.getLobbyOwner(lobby_id))
-	multiplayer.multiplayer_peer = peer
-	
-	is_joining = false
-	lobby_name_updated.emit()
+		self.lobby_id = lobby_id
+		peer = SteamMultiplayerPeer.new()
+		peer.server_relay = true
+		peer.create_client(Steam.getLobbyOwner(lobby_id))
+		multiplayer.multiplayer_peer = peer
+		
+		is_joining = false
+		lobby_name_updated.emit()
+	else:
+		# Get the failure reason
+		var fail_reason: String
+
+		match response:
+			Steam.CHAT_ROOM_ENTER_RESPONSE_DOESNT_EXIST: fail_reason = "This lobby no longer exists."
+			Steam.CHAT_ROOM_ENTER_RESPONSE_NOT_ALLOWED: fail_reason = "You don't have permission to join this lobby."
+			Steam.CHAT_ROOM_ENTER_RESPONSE_FULL: fail_reason = "The lobby is now full."
+			Steam.CHAT_ROOM_ENTER_RESPONSE_ERROR: fail_reason = "Uh... something unexpected happened!"
+			Steam.CHAT_ROOM_ENTER_RESPONSE_BANNED: fail_reason = "You are banned from this lobby."
+			Steam.CHAT_ROOM_ENTER_RESPONSE_LIMITED: fail_reason = "You cannot join due to having a limited account."
+			Steam.CHAT_ROOM_ENTER_RESPONSE_CLAN_DISABLED: fail_reason = "This lobby is locked or disabled."
+			Steam.CHAT_ROOM_ENTER_RESPONSE_COMMUNITY_BAN: fail_reason = "This lobby is community locked."
+			Steam.CHAT_ROOM_ENTER_RESPONSE_MEMBER_BLOCKED_YOU: fail_reason = "A user in the lobby has blocked you from joining."
+			Steam.CHAT_ROOM_ENTER_RESPONSE_YOU_BLOCKED_MEMBER: fail_reason = "A user you have blocked is in the lobby."
+
+		print("Failed to join this chat room: %s" % fail_reason)
+		request_lobby_list()
 
 # A user's information has changed (downloaded info from steam that was not stored locally at first)
 func _on_persona_change(this_steam_id: int, _flag: int) -> void:
@@ -283,6 +309,7 @@ func _check_all_ready():
 func start_game():
 	if multiplayer.is_server():
 		_assign_roles()
+		Steam.setLobbyJoinable(lobby_id, false) # No one else can join
 	game_starting.emit()
 
 func get_lobby_name() -> String:
@@ -297,3 +324,22 @@ func set_lobby_name(new_name: String):
 func sync_ready_states(states: Dictionary) -> void:
 	ready_states = states
 	lobby_updated.emit()
+
+@rpc("any_peer", "call_local", "reliable")
+func _debug_respawn_peer(peer_id: int, new_role: String) -> void:
+	if not multiplayer.is_server():
+		return
+	
+	player_roles[peer_id] = new_role
+	
+	# Find node by authority instead of name
+	var respawn_pos = Vector3.ZERO
+	var world = get_tree().root.get_node("World")
+	if world:
+		for child in world.get_children():
+			if child is CharacterBody3D and child.get_multiplayer_authority() == peer_id:
+				respawn_pos = child.global_position
+				break
+	
+	_remove_player(peer_id)
+	spawner.spawn({"id": peer_id, "position": respawn_pos, "role": new_role})

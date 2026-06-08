@@ -7,9 +7,6 @@ const SAMPLE_RATE: int = 48000
 var voice_playback: AudioStreamGeneratorPlayback = null
 var audio_in_range: bool = true
 
-func _enter_tree() -> void:
-		set_multiplayer_authority(get_parent().get_parent().name.to_int())
-
 func _ready() -> void:
 	if is_multiplayer_authority():
 		# We are the local player, add the listener
