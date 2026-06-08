@@ -157,9 +157,13 @@ func _add_player(sp: Node, id: int = 1):
 	spawner.spawn({"id": id, "position": pos, "role": role})
 
 func _remove_player(id: int):
-	if !self.has_node(str(id)):
+	var world = get_tree().root.get_node("World")
+	if not world:
 		return
-	self.get_node(str(id)).queue_free()
+	for child in world.get_children():
+		if child is CharacterBody3D and child.get_multiplayer_authority() == id:
+			child.queue_free()
+			return
 
 # You created the Lobby yourself
 func _on_lobby_created(result: int, lobby_id: int):	
@@ -300,3 +304,22 @@ func set_lobby_name(new_name: String):
 func sync_ready_states(states: Dictionary) -> void:
 	ready_states = states
 	lobby_updated.emit()
+
+@rpc("any_peer", "call_local", "reliable")
+func _debug_respawn_peer(peer_id: int, new_role: String) -> void:
+	if not multiplayer.is_server():
+		return
+	
+	player_roles[peer_id] = new_role
+	
+	# Find node by authority instead of name
+	var respawn_pos = Vector3.ZERO
+	var world = get_tree().root.get_node("World")
+	if world:
+		for child in world.get_children():
+			if child is CharacterBody3D and child.get_multiplayer_authority() == peer_id:
+				respawn_pos = child.global_position
+				break
+	
+	_remove_player(peer_id)
+	spawner.spawn({"id": peer_id, "position": respawn_pos, "role": new_role})

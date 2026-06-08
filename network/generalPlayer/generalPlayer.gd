@@ -19,7 +19,8 @@ enum Role {PLAYER, MONSTER}
 var ownRole: Role
 
 func _enter_tree():
-	set_multiplayer_authority(name.to_int())
+	# set_multiplayer_authority(name.to_int())
+	pass
 
 func _ready() -> void:
 	_on_ready()
@@ -54,9 +55,11 @@ func _input(event):
 		if event.is_action_pressed("DEBUG_TELEPORT"):
 			teleport(Vector3(0, 2, -120))
 			camera3d.environment = debug_env
-		if event.is_action_pressed("MAP_TELEPORT"):
+		if event.is_action_pressed("DEBUG_MAP_TELEPORT"):
 			teleport(Vector3(-33, 2, 41))
 			camera3d.environment = player_env
+		if event.is_action_pressed("DEBUG_TOGGLE_ROLE"):
+			_debug_toggle_role()
 	
 	if event is InputEventMouseMotion:
 		rotate_y(-event.relative.x * mouse_sensitivity)
@@ -115,3 +118,18 @@ func _on_pause(is_paused: bool):
 		var pause_menu: Node = load("res://ui/screens/menu/pause/PauseMenu.tscn").instantiate()
 		get_tree().current_scene.add_child(pause_menu)
 		SceneLoader.scene_loading_finished
+
+func _debug_toggle_role() -> void:
+	var new_role: String
+	if ownRole == Role.PLAYER:
+		ownRole = Role.MONSTER
+		new_role = "monster"
+	else:
+		ownRole = Role.PLAYER
+		new_role = "player"
+
+	var my_id = multiplayer.get_unique_id()
+	NetworkManager.player_roles[my_id] = new_role
+	
+	# Tell the host/spawner to swap the scene for this peer
+	NetworkManager._debug_respawn_peer.rpc_id(1, my_id, new_role)
