@@ -1,12 +1,11 @@
 extends Node
 
 var player_scene : PackedScene = preload("res://network/testEnvironment/player.tscn")
-var monster_scene: PackedScene = preload("res://network/testEnvironment/player.tscn") # Keep it as player for now
+var monster_scene: PackedScene = preload("res://network/monster/monster.tscn")
 var spawn_points : Node3D = null
 var spawner: MultiplayerSpawner = null
 
 var peer : SteamMultiplayerPeer
-const PACKET_READ_LIMIT: int = 32
 var is_host : bool = false
 var is_joining : bool = false
 
@@ -30,8 +29,10 @@ var connected_peers: Array = []
 func _assign_roles() -> void:
 	var all_peers = [1] + connected_peers.duplicate()
 	all_peers.shuffle()
+	print(all_peers)
 	
 	for i in all_peers.size():
+		print("i: ", i)
 		var pid = all_peers[i]
 		player_roles[pid] = "monster" if i == 0 else "player"
 

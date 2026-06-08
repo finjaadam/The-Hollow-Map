@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cssh4udxb71ra"]
 
-[ext_resource type="Script" uid="uid://c4g8g82sdhghf" path="res://network/scripts/in_game_ui_overlay.gd" id="1_keruy"]
+[ext_resource type="Script" path="res://network/scripts/in_game_ui_overlay.gd" id="1_keruy"]
 
 [node name="PlayerInGameOverlay" type="CanvasLayer" unique_id=349315403]
 script = ExtResource("1_keruy")

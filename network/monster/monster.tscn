@@ -1,3 +1,51 @@
 [gd_scene format=3 uid="uid://deefor15sgl47"]
 
-[node name="Monster" type="Node3D" unique_id=112716486]
+[ext_resource type="Script" uid="uid://jp8vxktkmh3n" path="res://network/monster/Monster.gd" id="1_dlha7"]
+[ext_resource type="Environment" uid="uid://bixn4bbcuffnd" path="res://environments/debug_env.tres" id="2_fmeki"]
+[ext_resource type="PackedScene" uid="uid://hxag78bqilay" path="res://network/testEnvironment/audioController.tscn" id="3_mhf6n"]
+[ext_resource type="Script" uid="uid://cokh7jryjgs7d" path="res://network/scripts/areaSounds/FootstepController.gd" id="4_yrgqy"]
+[ext_resource type="PackedScene" uid="uid://cssh4udxb71ra" path="res://network/testEnvironment/in-game-ui-overlay.tscn" id="5_ir3iy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fmeki"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_aj4qo"]
+material = SubResource("StandardMaterial3D_fmeki")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o6jvr"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_vfbk3"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
+[node name="Monster" type="CharacterBody3D" unique_id=907472801 node_paths=PackedStringArray("footstep_controller", "camera3d")]
+script = ExtResource("1_dlha7")
+debug_env = ExtResource("2_fmeki")
+player_env = ExtResource("2_fmeki")
+footstep_controller = NodePath("FootstepController")
+camera3d = NodePath("Camera3D")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=632415741]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+environment = ExtResource("2_fmeki")
+
+[node name="AudioController" parent="Camera3D" unique_id=896399656 instance=ExtResource("3_mhf6n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.012199789, -0.76869315)
+
+[node name="Pivot" type="Node3D" parent="." unique_id=581671935]
+
+[node name="Character" type="MeshInstance3D" parent="Pivot" unique_id=1309371996]
+mesh = SubResource("CapsuleMesh_aj4qo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=44229677]
+shape = SubResource("CapsuleShape3D_o6jvr")
+
+[node name="FootstepController" type="Node3D" parent="." unique_id=1812438175]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.47013602, -0.76869315)
+script = ExtResource("4_yrgqy")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1644290355]
+replication_config = SubResource("SceneReplicationConfig_vfbk3")
+
+[node name="CanvasLayer" parent="." unique_id=349315403 instance=ExtResource("5_ir3iy")]
