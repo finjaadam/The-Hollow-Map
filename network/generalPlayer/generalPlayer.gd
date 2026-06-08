@@ -22,16 +22,15 @@ func _enter_tree():
 	set_multiplayer_authority(name.to_int())
 
 func _ready() -> void:
+	_on_ready()
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	if is_multiplayer_authority():
 		camera3d.current = true
 		camera3d.environment = player_env
+		_setup_ui()
 	else:
 		camera3d.current = false
 	SceneLoader.paused.connect(_on_pause)
-	
-	_on_ready()
-	_setup_ui()
 
 # Overwrite in Subclass
 func _on_ready():
