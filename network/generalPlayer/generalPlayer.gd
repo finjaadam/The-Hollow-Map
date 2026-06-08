@@ -24,10 +24,11 @@ func _enter_tree():
 func _ready() -> void:
 	_on_ready()
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	# Only create Camera + Environment for yourself
 	if is_multiplayer_authority():
 		camera3d.current = true
 		camera3d.environment = player_env
-		_setup_ui()
+		_setup_ui() # Only Render UI for yourself
 	else:
 		camera3d.current = false
 	SceneLoader.paused.connect(_on_pause)
