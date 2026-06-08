@@ -31,6 +31,7 @@ func _ready() -> void:
 		_setup_ui() # Only Render UI for yourself
 	else:
 		camera3d.current = false
+		canvas.visible = false
 	SceneLoader.paused.connect(_on_pause)
 
 # Overwrite in Subclass
@@ -38,6 +39,7 @@ func _on_ready():
 	pass
 
 func _setup_ui():
+	canvas.visible = true
 	var roleLabel: Label = canvas.get_node("Role")
 	roleLabel.text = "Spielende" if ownRole == Role.PLAYER else "Monster" 
 
