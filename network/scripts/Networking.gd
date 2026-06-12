@@ -34,7 +34,8 @@ func _assign_roles() -> void:
 	for i in all_peers.size():
 		var pid = all_peers[i]
 		player_roles[pid] = "monster" if i == 0 else "player"
-	
+
+	sync_player_roles.rpc_id(1, player_roles)
 	player_roles_updated.emit(player_roles)
 
 func register_world(s: MultiplayerSpawner, sp: Node3D) -> void:
@@ -331,6 +332,10 @@ func sync_ready_states(states: Dictionary) -> void:
 	ready_states = states
 	lobby_updated.emit()
 
+@rpc("authority", "call_local", "reliable")
+func sync_player_roles(roles: Dictionary) -> void:
+	player_roles = roles
+
 @rpc("any_peer", "call_local", "reliable")
 func _debug_respawn_peer(peer_id: int, new_role: String) -> void:
 	if not multiplayer.is_server():
@@ -352,5 +357,5 @@ func _debug_respawn_peer(peer_id: int, new_role: String) -> void:
 	spawner.spawn({"id": peer_id, "position": respawn_pos, "role": new_role})
 	
 func reset_player_roles() -> void:
-	player_roles = {}
+	player_roles.clear()
 	player_roles_updated.emit(player_roles)
