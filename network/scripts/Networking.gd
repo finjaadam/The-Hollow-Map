@@ -337,6 +337,7 @@ func sync_ready_states(states: Dictionary) -> void:
 func sync_player_roles(roles: Dictionary) -> void:
 	print("syncing...")
 	player_roles = roles
+	print(player_roles)
 	player_roles_ready = true
 	player_roles_updated.emit()
 
