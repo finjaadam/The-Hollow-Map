@@ -35,9 +35,11 @@ func reset() -> void:
 func get_player_count() -> int:
 	var player_count = 0
 	var player_roles = NetworkManager.player_roles
+	print("player_roles: ", player_roles)
 	for player in player_roles:
 		if player_roles[player] == "player":
 			player_count += 1
+	print("player_count: ", player_count)
 	return player_count
 
 func reset_team_lives() -> void:
