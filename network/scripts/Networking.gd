@@ -101,6 +101,7 @@ func leave_lobby() -> void:
 				Steam.closeP2PSessionWithUser(this_member['steam_id'])
 		lobby_members.clear()
 		ready_states.clear()
+		player_roles.clear()
 
 	# Clean up the multiplayer peer
 	if multiplayer.multiplayer_peer:
@@ -132,6 +133,7 @@ func _on_peer_disconnected(id: int):
 	if sid != 0:
 		ready_states.erase(sid)
 	_remove_player(id)
+	player_roles.erase(id)
 
 func request_lobby_list():
 	# Set distance to worldwide
