@@ -324,7 +324,7 @@ func _debug_respawn_peer(peer_id: int, new_role: String) -> void:
 		return
 	
 	GameManager.player_roles[peer_id] = new_role
-	GameManager._push_state_to_all() 
+	GameManager.request_resetting_starting_properties.rpc()
 	
 	# Find node by authority instead of name
 	var respawn_pos = Vector3.ZERO

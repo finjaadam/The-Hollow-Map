@@ -61,7 +61,7 @@ func remove_peer(peer_id: int) -> void:
 	team_keys = team_keys + 1
 	_push_state_to_all()
 
-func apply_state(state: Dictionary) -> void:
+func _apply_state(state: Dictionary) -> void:
 	player_roles = state.get("player_roles", {})
 	team_lives = state.get("team_lives", 0)
 	team_keys = state.get("team_keys",  0)
@@ -80,21 +80,21 @@ func _build_state() -> Dictionary:
 func _push_state_to_all() -> void:
 	if not multiplayer.is_server():
 		return
-	receive_state.rpc(_build_state())
+	_receive_state.rpc(_build_state())
 
 @rpc("authority", "call_local", "reliable")
-func receive_state(state: Dictionary) -> void:
-	apply_state(state)
+func _receive_state(state: Dictionary) -> void:
+	_apply_state(state)
 	print("CURRENT GAME STATE FOR EVERYONE: ", state)
 
-func collect_key() -> void:
+func _collect_key() -> void:
 	if not multiplayer.is_server():
 		return
 	if get_player_count() > team_keys:
 		team_keys += 1
 		_push_state_to_all()
 
-func remove_lives(amount: int) -> void:
+func _remove_lives(amount: int) -> void:
 	if not multiplayer.is_server():
 		return
 	team_lives -= amount
@@ -105,12 +105,12 @@ func remove_lives(amount: int) -> void:
 @rpc("any_peer", "call_local", "reliable")
 func request_collect_key() -> void:
 	if multiplayer.is_server():
-		collect_key()
+		_collect_key()
 
 @rpc("any_peer", "call_local", "reliable")
 func request_remove_life(amount: int) -> void:
 	if multiplayer.is_server():
-		remove_lives(amount)
+		_remove_lives(amount)
 
 @rpc("any_peer", "call_local", "reliable")
 func request_resetting_starting_properties() -> void:
@@ -128,4 +128,4 @@ func stop_life_drain() -> void:
 func _on_life_drain_timeout() -> void:
 	if not multiplayer.is_server():
 		return
-	remove_lives(1)
+	_remove_lives(1)
