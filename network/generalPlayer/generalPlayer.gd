@@ -129,3 +129,5 @@ func _debug_toggle_role() -> void:
 	
 	# Tell the host/spawner to swap the scene for this peer
 	NetworkManager._debug_respawn_peer.rpc_id(1, my_id, new_role)
+	
+	TeamProperties.update_team_lives()

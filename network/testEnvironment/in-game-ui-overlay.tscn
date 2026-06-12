@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cssh4udxb71ra"]
 
-[ext_resource type="Script" path="res://network/scripts/in_game_ui_overlay.gd" id="1_keruy"]
+[ext_resource type="Script" uid="uid://c4g8g82sdhghf" path="res://network/scripts/in_game_ui_overlay.gd" id="1_keruy"]
 
 [node name="PlayerInGameOverlay" type="CanvasLayer" unique_id=349315403]
 script = ExtResource("1_keruy")
@@ -8,6 +8,13 @@ script = ExtResource("1_keruy")
 [node name="KeyLabel" type="Label" parent="." unique_id=1719171892]
 offset_right = 40.0
 offset_bottom = 51.0
+metadata/_edit_use_anchors_ = true
+
+[node name="LiveLabel" type="Label" parent="." unique_id=1633225081]
+offset_left = 71.0
+offset_top = 163.0
+offset_right = 111.0
+offset_bottom = 214.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Role" type="Label" parent="." unique_id=739166447]
