@@ -15,9 +15,16 @@ func collect_key() -> void:
 		
 func remove_one_live() -> void:
 	team_lives -= 1
+	lives_changed.emit(team_lives)
+	monster_wins_if_necessary()
+		
+
+func monster_wins_if_necessary() -> void:
 	if team_lives <= 0:
 		print("Monster hat gewonnen")
 		#monster_win()
+	return
+		
 
 func reset() -> void:
 	team_keys = 0
