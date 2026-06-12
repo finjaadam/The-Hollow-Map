@@ -35,7 +35,7 @@ func _assign_roles() -> void:
 		var pid = all_peers[i]
 		player_roles[pid] = "monster" if i == 0 else "player"
 
-	sync_player_roles.rpc_id(1, player_roles)
+	sync_player_roles.rpc(player_roles)
 	player_roles_updated.emit(player_roles)
 
 func register_world(s: MultiplayerSpawner, sp: Node3D) -> void:
@@ -334,7 +334,9 @@ func sync_ready_states(states: Dictionary) -> void:
 
 @rpc("authority", "call_local", "reliable")
 func sync_player_roles(roles: Dictionary) -> void:
+	print("syncing player roles given from authority: ")
 	player_roles = roles
+	print(player_roles)
 
 @rpc("any_peer", "call_local", "reliable")
 func _debug_respawn_peer(peer_id: int, new_role: String) -> void:
