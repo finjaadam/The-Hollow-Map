@@ -14,5 +14,5 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body) -> void:
 	if body.is_in_group("player"):
-		GameManager.request_collect_key.rpc()
+		GameManager.collect_key.rpc()
 		queue_free()

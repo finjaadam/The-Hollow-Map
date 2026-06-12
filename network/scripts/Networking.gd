@@ -299,9 +299,7 @@ func _check_all_ready():
 func start_game():
 	if multiplayer.is_server():
 		var all_peers = [1] + connected_peers.duplicate()
-		GameManager.assign_roles(all_peers)
-		GameManager.set_starting_team_properties()
-		GameManager.start_life_drain()
+		GameManager.start_game(all_peers)
 		Steam.setLobbyJoinable(lobby_id, false)
 	game_starting.emit()
 
@@ -324,7 +322,7 @@ func _debug_respawn_peer(peer_id: int, new_role: String) -> void:
 		return
 	
 	GameManager.player_roles[peer_id] = new_role
-	GameManager.request_resetting_starting_properties.rpc()
+	GameManager.set_starting_team_properties.rpc()
 	
 	# Find node by authority instead of name
 	var respawn_pos = Vector3.ZERO
