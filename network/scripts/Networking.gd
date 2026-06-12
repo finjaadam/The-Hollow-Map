@@ -308,6 +308,7 @@ func _check_all_ready():
 @rpc("authority", "call_local", "reliable")
 func start_game():
 	if multiplayer.is_server():
+		reset_player_roles()
 		_assign_roles()
 		Steam.setLobbyJoinable(lobby_id, false) # No one else can join
 	game_starting.emit()
@@ -343,3 +344,6 @@ func _debug_respawn_peer(peer_id: int, new_role: String) -> void:
 	
 	_remove_player(peer_id)
 	spawner.spawn({"id": peer_id, "position": respawn_pos, "role": new_role})
+	
+func reset_player_roles() -> void:
+	player_roles = {}
