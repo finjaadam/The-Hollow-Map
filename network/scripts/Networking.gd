@@ -17,6 +17,8 @@ var steam_id: int = 0
 
 var player_roles: Dictionary = {}  # { peer_id: "player" | "monster" }
 
+var player_roles_ready
+
 signal game_starting
 signal lobby_is_ready
 signal lobby_is_not_ready
@@ -334,7 +336,14 @@ func sync_ready_states(states: Dictionary) -> void:
 @rpc("authority", "call_local", "reliable")
 func sync_player_roles(roles: Dictionary) -> void:
 	player_roles = roles
+	player_roles_ready = true
 	player_roles_updated.emit()
+
+func request_roles(callback: Callable):
+	if player_roles_ready:
+		callback.call()
+	else:
+		player_roles_updated.connect(callback, CONNECT_ONE_SHOT)
 
 @rpc("any_peer", "call_local", "reliable")
 func _debug_respawn_peer(peer_id: int, new_role: String) -> void:

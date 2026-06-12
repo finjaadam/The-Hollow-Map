@@ -7,10 +7,9 @@ var spawn_exit_door_second_index: int
 
 var exit_door_scene = preload("res://network/testEnvironment/ExitDoor.tscn")
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	NetworkManager.player_roles_updated.connect(_on_player_roles_updated)
+	NetworkManager.request_roles(_on_player_roles_updated)
 	
 	# get_children() gives back a const array => to remove a value from the array we need the second variable
 	var spawn_exit_door_points_dynamic = spawn_exit_door_points.get_children()
@@ -38,4 +37,5 @@ func _on_removes_lives_timer_timeout() -> void:
 	TeamProperties.remove_one_live()
 
 func _on_player_roles_updated():
+	print("triggered")
 	TeamProperties.reset()
