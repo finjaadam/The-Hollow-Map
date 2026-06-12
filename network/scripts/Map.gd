@@ -11,6 +11,7 @@ var exit_door_scene = preload("res://network/testEnvironment/ExitDoor.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	TeamProperties.reset()
+	
 	# get_children() gives back a const array => to remove a value from the array we need the second variable
 	var spawn_exit_door_points_dynamic = spawn_exit_door_points.get_children()
 	
@@ -35,3 +36,7 @@ func spawn_exit(doorPosition: Marker3D) -> void:
 	self.add_child(exit_door_scene_instance)
 	exit_door_scene_instance.global_position = doorPosition.global_position
 	
+
+
+func _on_removes_lives_timer_timeout() -> void:
+	TeamProperties.remove_one_live()
