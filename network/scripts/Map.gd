@@ -24,7 +24,7 @@ func _ready() -> void:
 	spawn_exit_door_second_index = randi() % spawn_exit_door_points_dynamic.size()
 	spawn_exit(spawn_exit_door_points_dynamic[spawn_exit_door_second_index])
 	
-	pass # Replace with function body.
+	NetworkManager.player_roles_updated.connect(_on_player_roles_updated)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -35,8 +35,9 @@ func spawn_exit(doorPosition: Marker3D) -> void:
 	var exit_door_scene_instance = exit_door_scene.instantiate()
 	self.add_child(exit_door_scene_instance)
 	exit_door_scene_instance.global_position = doorPosition.global_position
-	
-
 
 func _on_removes_lives_timer_timeout() -> void:
 	TeamProperties.remove_one_live()
+
+func _on_player_roles_updated(updated_player_roles) -> void :
+	NetworkManager.player_roles = updated_player_roles

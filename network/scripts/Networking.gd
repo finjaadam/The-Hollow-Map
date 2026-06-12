@@ -22,6 +22,7 @@ signal lobby_is_ready
 signal lobby_is_not_ready
 signal lobby_updated
 signal lobby_name_updated
+signal player_roles_updated(updated_player_roles)
 
 var ready_states: Dictionary = {}  # { steam_id: bool }
 var connected_peers: Array = []
@@ -33,6 +34,8 @@ func _assign_roles() -> void:
 	for i in all_peers.size():
 		var pid = all_peers[i]
 		player_roles[pid] = "monster" if i == 0 else "player"
+	
+	player_roles_updated.emit(player_roles)
 
 func register_world(s: MultiplayerSpawner, sp: Node3D) -> void:
 	spawner = s
@@ -332,6 +335,7 @@ func _debug_respawn_peer(peer_id: int, new_role: String) -> void:
 		return
 	
 	player_roles[peer_id] = new_role
+	player_roles_updated.emit(player_roles)
 	
 	# Find node by authority instead of name
 	var respawn_pos = Vector3.ZERO
@@ -347,3 +351,4 @@ func _debug_respawn_peer(peer_id: int, new_role: String) -> void:
 	
 func reset_player_roles() -> void:
 	player_roles = {}
+	player_roles_updated.emit(player_roles)
