@@ -62,10 +62,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.954456, 1.2373495, -6.3053
 [node name="4" type="Marker3D" parent="Map/ExitsSpawnPoints" unique_id=200345702]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.635197, 1.2373495, 0.9520836)
 
-[node name="RemovesLivesTimer" type="Timer" parent="Map" unique_id=1735947358]
-wait_time = 5.0
-autostart = true
-
 [node name="TestMap" type="StaticBody3D" parent="." unique_id=146694575]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -120)
 
@@ -118,5 +114,3 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.87
 
 [node name="Wall13" parent="TestMap/Walls" unique_id=1069381522 instance=ExtResource("3_8rd3g")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -2.8092408, 6.125003, 4.081649)
-
-[connection signal="timeout" from="Map/RemovesLivesTimer" to="Map" method="_on_removes_lives_timer_timeout"]

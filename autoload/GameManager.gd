@@ -2,6 +2,8 @@ extends Node
 
 const LIVES_PER_PLAYER = 50
 
+var life_drain_timer: Timer
+
 var player_roles: Dictionary = {}
 var team_lives: int = 0
 var team_keys: int = 0
@@ -11,10 +13,17 @@ signal state_updated
 signal keys_changed
 signal lives_changed
 
+func _ready() -> void:
+	life_drain_timer = Timer.new()
+	life_drain_timer.wait_time = 5.0
+	life_drain_timer.timeout.connect(_on_life_drain_timeout)
+	add_child(life_drain_timer)
+
 func clear() -> void:
 	player_roles.clear()
 	team_lives = 0
 	team_keys = 0
+	stop_life_drain()
 	state_updated.emit()
 	keys_changed.emit(team_keys)
 	lives_changed.emit(team_lives)
@@ -85,10 +94,10 @@ func collect_key() -> void:
 		team_keys += 1
 		_push_state_to_all()
 
-func remove_one_life() -> void:
+func remove_lives(amount: int) -> void:
 	if not multiplayer.is_server():
 		return
-	team_lives -= 1
+	team_lives -= amount
 	_push_state_to_all()
 	if team_lives <= 0:
 		print("Monster hat gewonnen")
@@ -99,11 +108,24 @@ func request_collect_key() -> void:
 		collect_key()
 
 @rpc("any_peer", "call_local", "reliable")
-func request_remove_life() -> void:
+func request_remove_life(amount: int) -> void:
 	if multiplayer.is_server():
-		remove_one_life()
+		remove_lives(amount)
 
 @rpc("any_peer", "call_local", "reliable")
 func request_resetting_starting_properties() -> void:
 	if multiplayer.is_server():
 		set_starting_team_properties()
+
+func start_life_drain() -> void:
+	if not multiplayer.is_server():
+		return
+	life_drain_timer.start()
+
+func stop_life_drain() -> void:
+	life_drain_timer.stop()
+
+func _on_life_drain_timeout() -> void:
+	if not multiplayer.is_server():
+		return
+	remove_lives(1)

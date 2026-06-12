@@ -301,6 +301,7 @@ func start_game():
 		var all_peers = [1] + connected_peers.duplicate()
 		GameManager.assign_roles(all_peers)
 		GameManager.set_starting_team_properties()
+		GameManager.start_life_drain()
 		Steam.setLobbyJoinable(lobby_id, false)
 	game_starting.emit()
 

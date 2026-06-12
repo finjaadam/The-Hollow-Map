@@ -21,7 +21,6 @@ func _ready() -> void:
 	spawn_exit_door_second_index = randi() % spawn_exit_door_points_dynamic.size()
 	spawn_exit(spawn_exit_door_points_dynamic[spawn_exit_door_second_index])
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
@@ -30,6 +29,3 @@ func spawn_exit(doorPosition: Marker3D) -> void:
 	var exit_door_scene_instance = exit_door_scene.instantiate()
 	self.add_child(exit_door_scene_instance)
 	exit_door_scene_instance.global_position = doorPosition.global_position
-
-func _on_removes_lives_timer_timeout() -> void:
-	GameManager.request_remove_life.rpc()
