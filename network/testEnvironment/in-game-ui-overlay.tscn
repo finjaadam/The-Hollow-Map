@@ -11,10 +11,10 @@ offset_bottom = 51.0
 metadata/_edit_use_anchors_ = true
 
 [node name="LiveLabel" type="Label" parent="." unique_id=1633225081]
-offset_left = 71.0
-offset_top = 163.0
-offset_right = 111.0
-offset_bottom = 214.0
+offset_left = 2.0
+offset_top = 69.0
+offset_right = 42.0
+offset_bottom = 120.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Role" type="Label" parent="." unique_id=739166447]
