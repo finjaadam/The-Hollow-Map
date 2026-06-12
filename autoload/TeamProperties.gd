@@ -15,12 +15,15 @@ func collect_key() -> void:
 		
 func remove_one_live() -> void:
 	team_lives -= 1
+	if team_lives <= 0:
+		print("Monster hat gewonnen")
+		#monster_win()
 
 func reset() -> void:
 	team_keys = 0
 	keys_changed.emit(team_keys)
 	
-	update_team_lives()
+	reset_team_lives()
 
 func get_player_count() -> int:
 	var player_count = 0
@@ -30,6 +33,6 @@ func get_player_count() -> int:
 			player_count += 1
 	return player_count
 
-func update_team_lives() -> void:
+func reset_team_lives() -> void:
 	team_lives = get_player_count() * 50
 	lives_changed.emit(team_lives)
