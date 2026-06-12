@@ -22,7 +22,7 @@ signal lobby_is_ready
 signal lobby_is_not_ready
 signal lobby_updated
 signal lobby_name_updated
-signal player_roles_updated(updated_player_roles)
+signal player_roles_updated
 
 var ready_states: Dictionary = {}  # { steam_id: bool }
 var connected_peers: Array = []
@@ -36,7 +36,6 @@ func _assign_roles() -> void:
 		player_roles[pid] = "monster" if i == 0 else "player"
 
 	sync_player_roles.rpc(player_roles)
-	player_roles_updated.emit(player_roles)
 
 func register_world(s: MultiplayerSpawner, sp: Node3D) -> void:
 	spawner = s
@@ -314,7 +313,7 @@ func _check_all_ready():
 @rpc("authority", "call_local", "reliable")
 func start_game():
 	if multiplayer.is_server():
-		reset_player_roles()
+		player_roles.clear()
 		_assign_roles()
 		Steam.setLobbyJoinable(lobby_id, false) # No one else can join
 	game_starting.emit()
@@ -334,9 +333,8 @@ func sync_ready_states(states: Dictionary) -> void:
 
 @rpc("authority", "call_local", "reliable")
 func sync_player_roles(roles: Dictionary) -> void:
-	print("syncing player roles given from authority: ")
 	player_roles = roles
-	print(player_roles)
+	player_roles_updated.emit()
 
 @rpc("any_peer", "call_local", "reliable")
 func _debug_respawn_peer(peer_id: int, new_role: String) -> void:
@@ -344,7 +342,6 @@ func _debug_respawn_peer(peer_id: int, new_role: String) -> void:
 		return
 	
 	player_roles[peer_id] = new_role
-	player_roles_updated.emit(player_roles)
 	
 	# Find node by authority instead of name
 	var respawn_pos = Vector3.ZERO
@@ -357,7 +354,3 @@ func _debug_respawn_peer(peer_id: int, new_role: String) -> void:
 	
 	_remove_player(peer_id)
 	spawner.spawn({"id": peer_id, "position": respawn_pos, "role": new_role})
-	
-func reset_player_roles() -> void:
-	player_roles.clear()
-	player_roles_updated.emit(player_roles)
