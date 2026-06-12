@@ -1,0 +1,108 @@
+[gd_scene format=3 uid="uid://ds2iobtyo3v4r"]
+
+[ext_resource type="Theme" uid="uid://ndcfyi0cq3bv" path="res://ui/theme.tres" id="1_iyslx"]
+[ext_resource type="Script" uid="uid://be8jk35jqgltk" path="res://ui/screens/minigames/fishing minigame/minigameFishing.gd" id="2_mnwjs"]
+[ext_resource type="Texture2D" uid="uid://b8830f76foucb" path="res://assets/minispiel_angeln/key.png" id="3_5lp51"]
+[ext_resource type="Texture2D" uid="uid://dbpldpst4scd2" path="res://assets/minispiel_angeln/AngelBild.png" id="4_0insf"]
+[ext_resource type="Texture2D" uid="uid://cjti1olbwnv14" path="res://assets/mouse_icons/pngwing.com.png" id="4_1foeg"]
+
+[node name="minigameFishing" type="Control" unique_id=1310700600]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_iyslx")
+script = ExtResource("2_mnwjs")
+
+[node name="Background" type="ColorRect" parent="." unique_id=329702329]
+custom_minimum_size = Vector2(500, 640)
+layout_mode = 0
+offset_left = 330.0
+offset_top = 10.0
+offset_right = 830.0
+offset_bottom = 650.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 1, 1, 0.91764706)
+
+[node name="Wand" type="ColorRect" parent="Background" unique_id=1085817834]
+layout_mode = 0
+offset_top = 336.0
+offset_right = 108.0
+offset_bottom = 558.0
+
+[node name="Area2D_Wand" type="Area2D" parent="Background/Wand" unique_id=1168482142]
+position = Vector2(-326, -274)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Background/Wand/Area2D_Wand" unique_id=206153331]
+polygon = PackedVector2Array(327, 92, 536, 111, 619, 202, 502, 251, 469, 324, 595, 330, 618, 401, 514, 460, 420, 548, 574, 584, 648, 584, 738, 511, 689, 442, 783, 340, 692, 318, 664, 270, 755, 249, 764, 146, 667, 72, 829, -3, 831, 584, 322, 590)
+
+[node name="Polygon2D" type="Polygon2D" parent="Background/Wand" unique_id=504112553]
+position = Vector2(-327, -273)
+color = Color(0.15487596, 0.154876, 0.1548759, 1)
+polygon = PackedVector2Array(327, 92, 536, 111, 619, 202, 502, 251, 469, 324, 595, 330, 618, 401, 514, 460, 420, 548, 574, 584, 648, 584, 738, 511, 689, 442, 783, 340, 692, 318, 664, 270, 755, 249, 764, 146, 667, 72, 829, -3, 831, 584, 322, 590)
+
+[node name="Key" type="Sprite2D" parent="Background" unique_id=874240456]
+position = Vector2(299, 590)
+scale = Vector2(0.066406295, 0.066406295)
+texture = ExtResource("3_5lp51")
+
+[node name="Area2D_Key" type="Area2D" parent="Background/Key" unique_id=2387692]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Background/Key/Area2D_Key" unique_id=808983354]
+polygon = PackedVector2Array(-256, 165.64648, -60.23535, -30.118164, -60.23535, -225.88281, 135.5293, -271.0586, 256, -180.70605, 256, -15.058594, 105.41211, 75.293945, 0, 30.118164, -60.23535, 90.353516, 0, 150.58887, -135.5293, 286.1172)
+
+[node name="Angelrute" type="Sprite2D" parent="Background" unique_id=1782544606]
+unique_name_in_owner = true
+position = Vector2(61.15, 48.232)
+rotation = 0.44854963
+scale = Vector2(0.3084112, 0.30841118)
+texture = ExtResource("4_0insf")
+
+[node name="RutenSpitze" type="Node2D" parent="Background/Angelrute" unique_id=1631631942]
+unique_name_in_owner = true
+position = Vector2(104.98003, -184.49863)
+
+[node name="Haken" type="Sprite2D" parent="." unique_id=1573728568]
+unique_name_in_owner = true
+position = Vector2(521.468, 115.695)
+scale = Vector2(0.05078123, 0.048524283)
+texture = ExtResource("4_1foeg")
+
+[node name="Area2D_Haken" type="Area2D" parent="Haken" unique_id=138632822]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Haken/Area2D_Haken" unique_id=894355984]
+polygon = PackedVector2Array(-52.92285, -412.8802, 222.76953, 61.109253, 144, 349.62463, -112, 390.84106, -230.15332, 184.75879, -190.76953, 61.109253, -131.69238, 246.5835, 25.84668, 308.4082, 144, 143.54224, 84.92285, -62.54016, -52.92285, -227.406)
+
+[node name="HakenOehr" type="Node2D" parent="Haken" unique_id=1916415542]
+unique_name_in_owner = true
+position = Vector2(-28.908665, -344.0545)
+
+[node name="Angelschnur" type="Line2D" parent="." unique_id=2129486701]
+unique_name_in_owner = true
+position = Vector2(326, 4)
+points = PackedVector2Array(131, 62)
+width = 2.0
+default_color = Color(0, 0, 0, 0.95686275)
+joint_mode = 2
+antialiased = true
+
+[node name="StatusLabel" type="Label" parent="." unique_id=2084555]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 389.0
+offset_top = 320.0
+offset_right = 450.0
+offset_bottom = 362.0
+theme_override_colors/font_color = Color(1, 0.09803922, 0, 1)
+theme_override_font_sizes/font_size = 20
+
+[node name="ResetTimer" type="Timer" parent="." unique_id=1823616146]
+unique_name_in_owner = true
+one_shot = true
+
+[connection signal="area_entered" from="Background/Wand/Area2D_Wand" to="." method="_on_area_2d_wand_area_entered"]
+[connection signal="area_entered" from="Background/Key/Area2D_Key" to="." method="_on_area_2d_key_area_entered"]
+[connection signal="timeout" from="ResetTimer" to="." method="_on_reset_timer_timeout"]
