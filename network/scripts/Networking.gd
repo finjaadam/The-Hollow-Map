@@ -333,8 +333,9 @@ func sync_ready_states(states: Dictionary) -> void:
 	ready_states = states
 	lobby_updated.emit()
 
-@rpc("authority", "call_local", "reliable")
+@rpc("any_peer", "call_local", "reliable")
 func sync_player_roles(roles: Dictionary) -> void:
+	print("syncing...")
 	player_roles = roles
 	player_roles_ready = true
 	player_roles_updated.emit()
@@ -351,6 +352,7 @@ func _debug_respawn_peer(peer_id: int, new_role: String) -> void:
 		return
 	
 	player_roles[peer_id] = new_role
+	sync_player_roles.rpc(player_roles)
 	
 	# Find node by authority instead of name
 	var respawn_pos = Vector3.ZERO
