@@ -89,5 +89,20 @@ default_color = Color(0, 0, 0, 0.95686275)
 joint_mode = 2
 antialiased = true
 
+[node name="StatusLabel" type="Label" parent="." unique_id=2084555]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 389.0
+offset_top = 320.0
+offset_right = 450.0
+offset_bottom = 362.0
+theme_override_colors/font_color = Color(1, 0.09803922, 0, 1)
+theme_override_font_sizes/font_size = 20
+
+[node name="ResetTimer" type="Timer" parent="." unique_id=1823616146]
+unique_name_in_owner = true
+one_shot = true
+
 [connection signal="area_entered" from="Background/Wand/Area2D_Wand" to="." method="_on_area_2d_wand_area_entered"]
 [connection signal="area_entered" from="Background/Key/Area2D_Key" to="." method="_on_area_2d_key_area_entered"]
+[connection signal="timeout" from="ResetTimer" to="." method="_on_reset_timer_timeout"]

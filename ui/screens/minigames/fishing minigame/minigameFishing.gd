@@ -6,8 +6,20 @@ signal fishing_finished(success: bool)
 @onready var haken: Sprite2D = %Haken 
 @onready var schnur: Line2D = %Angelschnur
 @onready var angel_rute: Sprite2D = %Angelrute 
+@onready var status_label: Label = $StatusLabel
+@onready var reset_timer: Timer = $ResetTimer
 
 var game_active := true
+
+func start_game() -> void:
+	game_active = true
+	status_label.text = "" 
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+
+	# Init Angelschnur
+	schnur.clear_points()
+	schnur.add_point(Vector2.ZERO)
+	schnur.add_point(Vector2.ZERO)
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
@@ -36,7 +48,12 @@ func _on_area_2d_wand_area_entered(_area: Area2D) -> void:
 		print("Wand berührt")
 		game_active = false
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) # Maus wieder zeigen
+		
+		status_label.text = "Wand berührt! Das Monster hat dich gehört..."
+		
 		fishing_finished.emit(false) # Dem Hauptspiel sagen: "Verloren!"
+		
+		reset_timer.start()
 
 # SCHLÜSSEL ERREICHT (Gewonnen)
 func _on_area_2d_key_area_entered(_area: Area2D) -> void:
@@ -44,4 +61,11 @@ func _on_area_2d_key_area_entered(_area: Area2D) -> void:
 		print("Schlüssel gefangen")
 		game_active = false
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) # Maus wieder zeigen
+		
+		status_label.text = "Erfolgreich! Schlüssel erhalten."
+		
 		fishing_finished.emit(true) # Dem Hauptspiel sagen: "Gewonnen!"
+
+
+func _on_reset_timer_timeout() -> void:
+	start_game()
