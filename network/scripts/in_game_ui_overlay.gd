@@ -11,11 +11,11 @@ func _ready() -> void:
 	
 	if is_monster: return
 	
-	key_label.text = "Schlüssel: %d" % TeamProperties.team_keys
-	TeamProperties.keys_changed.connect(_on_keys_changed)
+	key_label.text = "Schlüssel: %d" % GameManager.team_keys
+	GameManager.keys_changed.connect(_on_keys_changed)
 	
-	live_label.text = "Teamleben: %d" % TeamProperties.team_lives
-	TeamProperties.lives_changed.connect(_on_lives_changed)
+	live_label.text = "Teamleben: %d" % GameManager.team_lives
+	GameManager.lives_changed.connect(_on_lives_changed)
 
 func _on_keys_changed(amount: int) -> void:
 	key_label.text = "Schlüssel: %d" % amount

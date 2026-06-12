@@ -125,9 +125,8 @@ func _debug_toggle_role() -> void:
 		new_role = "player"
 
 	var my_id = multiplayer.get_unique_id()
-	NetworkManager.player_roles[my_id] = new_role
+	GameManager.player_roles[my_id] = new_role
+	GameManager.set_starting_team_properties()
 	
 	# Tell the host/spawner to swap the scene for this peer
 	NetworkManager._debug_respawn_peer.rpc_id(1, my_id, new_role)
-	
-	TeamProperties.reset_team_lives()

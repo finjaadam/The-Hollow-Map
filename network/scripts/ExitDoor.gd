@@ -24,7 +24,7 @@ func check_if_exit_should_open() -> bool:
 		if body.is_in_group("player"):
 			players_in_area.append(body)
 	
-	if players_in_area.size() == all_players.size() && TeamProperties.team_keys == all_players.size():
+	if players_in_area.size() == all_players.size() && GameManager.team_keys == all_players.size():
 		return true
 	
 	return false

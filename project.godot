@@ -29,11 +29,11 @@ Settings="*uid://dm2ypjtuaq36q"
 AreaSoundManager="*res://autoload/AreaSoundManager.gd"
 MenuSoundManager="*res://autoload/MenuSoundManager.gd"
 Debug="*uid://xnvvoqv42hb6"
-TeamProperties="*res://autoload/TeamProperties.gd"
 BusManager="*uid://b1sk838qwcaqq"
 SteamCheck="*uid://bx41bdyvrt3du"
 NetworkManager="*uid://okj6fphk5uo1"
 SceneLoader="*uid://bljise81d4hka"
+GameManager="*uid://bo21nmnwnbeab"
 
 [editor_plugins]
 

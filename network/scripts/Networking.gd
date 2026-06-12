@@ -15,29 +15,14 @@ var lobby_members_max: int = 4
 
 var steam_id: int = 0
 
-var player_roles: Dictionary = {}  # { peer_id: "player" | "monster" }
-
-var player_roles_ready
-
 signal game_starting
 signal lobby_is_ready
 signal lobby_is_not_ready
 signal lobby_updated
 signal lobby_name_updated
-signal player_roles_updated
 
 var ready_states: Dictionary = {}  # { steam_id: bool }
 var connected_peers: Array = []
-
-func _assign_roles() -> void:
-	var all_peers = [1] + connected_peers.duplicate()
-	all_peers.shuffle()
-	
-	for i in all_peers.size():
-		var pid = all_peers[i]
-		player_roles[pid] = "monster" if i == 0 else "player"
-
-	sync_player_roles.rpc(player_roles)
 
 func register_world(s: MultiplayerSpawner, sp: Node3D) -> void:
 	spawner = s
@@ -103,7 +88,7 @@ func leave_lobby() -> void:
 				Steam.closeP2PSessionWithUser(this_member['steam_id'])
 		lobby_members.clear()
 		ready_states.clear()
-		player_roles.clear()
+		GameManager.clear()
 
 	# Clean up the multiplayer peer
 	if multiplayer.multiplayer_peer:
@@ -131,11 +116,9 @@ func _on_peer_connected(id: int):
 
 func _on_peer_disconnected(id: int):
 	connected_peers.erase(id)
-	var sid := peer.get_steam_id_for_peer_id(id)
-	if sid != 0:
-		ready_states.erase(sid)
+	ready_states.erase(peer.get_steam_id_for_peer_id(id))
+	GameManager.remove_peer(id)
 	_remove_player(id)
-	player_roles.erase(id)
 
 func request_lobby_list():
 	# Set distance to worldwide
@@ -159,7 +142,7 @@ func _add_player(sp: Node, id: int = 1):
 		return # Only host shuld call spawn
 
 	var pos = sp.global_position
-	var role = player_roles.get(id, "player")  # default to player if missing
+	var role = GameManager.player_roles.get(id, "player")
 
 	spawner.spawn({"id": id, "position": pos, "role": role})
 
@@ -315,9 +298,10 @@ func _check_all_ready():
 @rpc("authority", "call_local", "reliable")
 func start_game():
 	if multiplayer.is_server():
-		player_roles.clear()
-		_assign_roles()
-		Steam.setLobbyJoinable(lobby_id, false) # No one else can join
+		var all_peers = [1] + connected_peers.duplicate()
+		GameManager.assign_roles(all_peers)
+		GameManager.set_starting_team_properties()
+		Steam.setLobbyJoinable(lobby_id, false)
 	game_starting.emit()
 
 func get_lobby_name() -> String:
@@ -334,26 +318,12 @@ func sync_ready_states(states: Dictionary) -> void:
 	lobby_updated.emit()
 
 @rpc("any_peer", "call_local", "reliable")
-func sync_player_roles(roles: Dictionary) -> void:
-	print("syncing...")
-	player_roles = roles
-	print(player_roles)
-	player_roles_ready = true
-	player_roles_updated.emit()
-
-func request_roles(callback: Callable):
-	if player_roles_ready:
-		callback.call()
-	else:
-		player_roles_updated.connect(callback, CONNECT_ONE_SHOT)
-
-@rpc("any_peer", "call_local", "reliable")
 func _debug_respawn_peer(peer_id: int, new_role: String) -> void:
 	if not multiplayer.is_server():
 		return
 	
-	player_roles[peer_id] = new_role
-	sync_player_roles.rpc(player_roles)
+	GameManager.player_roles[peer_id] = new_role
+	GameManager._push_state_to_all() 
 	
 	# Find node by authority instead of name
 	var respawn_pos = Vector3.ZERO
