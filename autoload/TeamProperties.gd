@@ -8,7 +8,7 @@ signal lives_changed(new_amount)
 
 func collect_key() -> void:
 	# is checked here because if a player leaves the game, it is still possible to open the door!
-	var player_count = get_tree().get_nodes_in_group("player").size()
+	var player_count = get_player_count()
 	if player_count > team_keys:
 		team_keys += 1
 		keys_changed.emit(team_keys)
@@ -31,5 +31,5 @@ func get_player_count() -> int:
 	return player_count
 
 func update_team_lives() -> void:
-	team_lives = get_player_count()
+	team_lives = get_player_count() * 50
 	lives_changed.emit(team_lives)
