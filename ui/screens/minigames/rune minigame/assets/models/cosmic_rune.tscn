@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://carldam8k4ult"]
+
+[ext_resource type="PackedScene" uid="uid://comlq6qd2krfc" path="res://ui/screens/minigames/rune minigame/assets/models/cosmic_rune.glb" id="1_isx3a"]
+
+[node name="Sketchfab_Scene" unique_id=767295807 instance=ExtResource("1_isx3a")]

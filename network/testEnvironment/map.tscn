@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c8liybxhqrhwr"]
 
 [ext_resource type="PackedScene" uid="uid://b2yxpytggb8ro" path="res://map/modular-cave-final.glb" id="1_wb7j6"]
-[ext_resource type="Script" uid="uid://c15wkn1ddol15" path="res://Network/scripts/areaSounds/MapArea.gd" id="2_ieofv"]
+[ext_resource type="Script" uid="uid://c15wkn1ddol15" path="res://network/scripts/areaSounds/MapArea.gd" id="2_ieofv"]
 [ext_resource type="PackedScene" uid="uid://dnk8iwck0vfdf" path="res://assets/wasser.tscn" id="3_xqtg2"]
 [ext_resource type="PackedScene" uid="uid://drhm8uhvkuffw" path="res://assets/fountain_3d_model_free-edited/fountain-small.tscn" id="4_e062h"]
 [ext_resource type="PackedScene" uid="uid://defweiiwbw4mq" path="res://assets/stick01.tscn" id="5_pe7kj"]
@@ -15,6 +15,10 @@
 [ext_resource type="PackedScene" uid="uid://c3gtgeyoud3ad" path="res://assets/stick06.tscn" id="10_lw7er"]
 [ext_resource type="PackedScene" uid="uid://62l58j2attqx" path="res://assets/water_fountain/fountain-old.tscn" id="11_fountain"]
 [ext_resource type="PackedScene" uid="uid://dud2rq3uvwwr2" path="res://assets/blob_monster/blob_monster.tscn" id="11_xqtg2"]
+[ext_resource type="PackedScene" uid="uid://comlq6qd2krfc" path="res://ui/screens/minigames/rune minigame/assets/models/cosmic_rune.glb" id="16_hmamp"]
+[ext_resource type="PackedScene" uid="uid://bu5tb67t43u4e" path="res://ui/screens/minigames/rune minigame/assets/models/nature_rune.tscn" id="16_u131e"]
+[ext_resource type="PackedScene" uid="uid://8d7udijdjuke" path="res://ui/screens/minigames/rune minigame/assets/models/water_rune.tscn" id="17_22shp"]
+[ext_resource type="PackedScene" uid="uid://d1mcndihyc22n" path="res://ui/screens/minigames/rune minigame/assets/models/statue.tscn" id="18_22shp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_water"]
 size = Vector3(29.735, 20.005, 13.305)
@@ -1241,34 +1245,48 @@ debug_color = Color(0.5921569, 0.5372549, 0.27450982, 0.88235295)
 [node name="jukebox" parent="modular-cave-final" unique_id=578076892 instance=ExtResource("10_cns11")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 78.521996, -0.22682153, 79.27753)
 
+[node name="Runes" type="Node3D" parent="modular-cave-final" unique_id=322281652]
+
+[node name="CosmicRune" parent="modular-cave-final/Runes" unique_id=767295807 instance=ExtResource("16_hmamp")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 58.64551, -0.247, 102.86374)
+
+[node name="NatureRune" parent="modular-cave-final/Runes" unique_id=1299002772 instance=ExtResource("16_u131e")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 39.766, -0.719, 50.993)
+
+[node name="WaterRune" parent="modular-cave-final/Runes" unique_id=1979040935 instance=ExtResource("17_22shp")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 138.01599, 0.042509228, 78.39522)
+
+[node name="Statue" parent="modular-cave-final/Runes" unique_id=1726906155 instance=ExtResource("18_22shp")]
+transform = Transform3D(-0.0006186121, 0, -0.0029355271, 0, 0.003, 0, 0.0029355271, 0, -0.0006186121, 21.804989, 2.2886248, 51.736454)
+
 [node name="Monster" type="CharacterBody3D" parent="." unique_id=890408639]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2663164, 0, -5.00718)
 
 [node name="blob_monster" parent="Monster" unique_id=890782185 instance=ExtResource("11_xqtg2")]
 transform = Transform3D(1.605, 0, 0, 0, 1.605, 0, 0, 0, 1.605, 0, 0.06785911, 0)
 
-[node name="Skeleton3D" parent="Monster/blob_monster/Sketchfab_model/3f6d8c832002440e97bb2e8e289744c0_fbx/Object_2/RootNode/Object_4" parent_id_path=PackedInt32Array(890782185, 953601971) index="0" unique_id=1220243144]
-bones/1/position = Vector3(0.13274701, 1.3762333, -0.07229365)
-bones/1/rotation = Quaternion(0, 0, 0, 1)
-bones/2/rotation = Quaternion(0.031954154, 0, 0, 0.99948937)
-bones/3/rotation = Quaternion(3.0525045e-09, 0, 0, 1)
-bones/4/rotation = Quaternion(0, 0, 0, 1)
-bones/5/rotation = Quaternion(-0.031954158, 0, 0, 0.99948937)
-bones/6/rotation = Quaternion(0, 0, 0, 1)
-bones/8/rotation = Quaternion(0.63647515, 0.34211957, -0.58474845, 0.36867723)
-bones/9/rotation = Quaternion(-0.13558137, 0.0031498712, -0.023011483, 0.99049395)
-bones/10/rotation = Quaternion(0.08015897, -0.0017046393, -0.02119248, 0.9965553)
-bones/12/rotation = Quaternion(0.6106629, -0.35540956, 0.61361045, 0.35250136)
-bones/13/rotation = Quaternion(-0.13673612, -0.0014877741, 0.010777776, 0.9905478)
-bones/14/rotation = Quaternion(0.076543145, -0.0015540165, -0.020238733, 0.9968596)
-bones/16/rotation = Quaternion(0.005095175, 0.043442596, 0.9922417, -0.11637528)
-bones/17/rotation = Quaternion(-0.1331675, 0.008907174, -0.06614081, 0.98884404)
-bones/18/rotation = Quaternion(0.591465, 0.40825, -0.47959954, 0.50347334)
-bones/19/rotation = Quaternion(0.011196917, 0.0021384356, 0.18758161, 0.9821829)
-bones/21/rotation = Quaternion(-0.009671277, 0.08329245, 0.9898281, 0.114931196)
-bones/22/rotation = Quaternion(-0.1705374, -0.0110236835, 0.06355731, 0.9832375)
-bones/23/rotation = Quaternion(0.5416383, -0.45711747, 0.523145, 0.47327676)
-bones/24/rotation = Quaternion(-0.0036148748, 0.00031781188, -0.08757942, 0.996151)
+[node name="Skeleton3D" parent="Monster/blob_monster/Sketchfab_model/3f6d8c832002440e97bb2e8e289744c0_fbx/Object_2/RootNode/Object_4" parent_id_path=PackedInt32Array(890782185, 276664944) index="0" unique_id=1399094135]
+bones/1/position = Vector3(0.064883254, 4.046144, -0.054856054)
+bones/1/rotation = Quaternion(-0.039595947, -0.36707717, -0.013808333, 0.9292448)
+bones/2/rotation = Quaternion(0.079327, 0.040697843, -0.010038013, 0.995967)
+bones/3/rotation = Quaternion(0.09472686, 0.07919135, -0.02211081, 0.9921022)
+bones/4/rotation = Quaternion(0.09473613, 0.07916095, -0.02209659, 0.992104)
+bones/5/rotation = Quaternion(-0.05135776, -0.010557517, 0.0020017722, 0.9986226)
+bones/6/rotation = Quaternion(-0.07143217, 0.177507, -0.001845624, 0.981522)
+bones/8/rotation = Quaternion(0.6434223, 0.34193966, -0.5901602, 0.34755725)
+bones/9/rotation = Quaternion(0.322658, -0.099430576, 0.08675859, 0.9372718)
+bones/10/rotation = Quaternion(-0.047032993, 0.06309242, 0.41584018, 0.9060266)
+bones/12/rotation = Quaternion(0.666258, -0.3246608, 0.5735449, 0.34891528)
+bones/13/rotation = Quaternion(0.32347918, 0.104374975, 0.12542759, 0.9320596)
+bones/14/rotation = Quaternion(0.035600953, 0.0006411897, -0.36886922, 0.92879915)
+bones/16/rotation = Quaternion(0.08865595, 0.27097058, 0.9491605, -0.13345173)
+bones/17/rotation = Quaternion(-0.4097519, 0.12487158, -0.08849331, 0.89926606)
+bones/18/rotation = Quaternion(0.6000092, 0.4245726, -0.46041796, 0.49773735)
+bones/19/rotation = Quaternion(0.008160355, 0.023701092, 0.15979882, 0.9868313)
+bones/21/rotation = Quaternion(-0.1275419, 0.055923592, 0.97336847, 0.18209778)
+bones/22/rotation = Quaternion(-0.414247, 0.061897304, 0.033118002, 0.9074533)
+bones/23/rotation = Quaternion(0.65869623, -0.49737152, 0.47006482, 0.3126978)
+bones/24/rotation = Quaternion(0.002852048, -0.014987647, -0.08997669, 0.995827)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Monster" unique_id=1897117262]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1532463, 0)

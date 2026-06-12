@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://8d7udijdjuke"]
+
+[ext_resource type="PackedScene" uid="uid://cf1xovwedxcyp" path="res://ui/screens/minigames/rune minigame/assets/models/water_rune.glb" id="1_n7th6"]
+
+[node name="Sketchfab_Scene" unique_id=1979040935 instance=ExtResource("1_n7th6")]
