@@ -3,8 +3,13 @@ extends Node3D
 @export var spawn_exit_door_points : Node3D
 @export var spawn_minigame_items_points : Node3D
 
-const amount_pickaxes = 3
-const amount_fishingrods = 3
+
+const amount_exits = 2
+# items can not be lost when they got collected
+# for three pickaxe-minigames, we would still just need one pickaxe
+# however for balancing reasons there are more items of each type
+const amount_pickaxes = 2
+const amount_fishingrods = 2
 const amount_runes = 6
 
 var exit_door_scene = preload("res://network/testEnvironment/ExitDoor.tscn")
@@ -15,23 +20,20 @@ var rune_scene = preload("res://network/testEnvironment/rune.tscn")
 #var rune3_scene = preload("")
 
 func _ready() -> void:
-	spawn_two_exit_doors()
+	spawn_exit_doors()
 	spawn_minigame_items()
 
-func spawn_two_exit_doors() -> void:
+func spawn_exit_doors() -> void:
 	# get_children() gives back a const array => to remove a value from the array we need the second variable
 	var spawn_exit_door_points_dynamic = spawn_exit_door_points.get_children()
 	var used_index
-	# spawn first door
-	used_index = randi() % spawn_exit_door_points_dynamic.size()
-	_spawn_exit(spawn_exit_door_points_dynamic[used_index])
 	
-	# spawn second door at a different point than the first one
-	spawn_exit_door_points_dynamic.remove_at(used_index)
-	used_index = randi() % spawn_exit_door_points_dynamic.size()
-	_spawn_exit(spawn_exit_door_points_dynamic[used_index])
+	for doors in amount_exits:
+		used_index = randi() % spawn_exit_door_points_dynamic.size()
+		spawn_exit(spawn_exit_door_points_dynamic[used_index])
+		spawn_exit_door_points_dynamic.remove_at(used_index)
 
-func _spawn_exit(doorPosition: Marker3D) -> void:
+func spawn_exit(doorPosition: Marker3D) -> void:
 	var exit_door_scene_instance = exit_door_scene.instantiate()
 	self.add_child(exit_door_scene_instance)
 	exit_door_scene_instance.global_position = doorPosition.global_position
