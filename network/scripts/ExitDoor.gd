@@ -6,11 +6,6 @@ var all_players: Array
 
 func _ready() -> void:
 	area.body_entered.connect(_on_body_entered)
-	
-	pass # Replace with function body.
-
-func _process(delta: float) -> void:
-	pass
 
 func _on_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player") && check_if_exit_should_open():

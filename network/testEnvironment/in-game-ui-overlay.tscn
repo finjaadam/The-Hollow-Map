@@ -14,10 +14,10 @@ offset_bottom = 51.0
 metadata/_edit_use_anchors_ = true
 
 [node name="LiveLabel" type="Label" parent="." unique_id=1633225081]
-offset_left = 2.0
-offset_top = 69.0
-offset_right = 42.0
-offset_bottom = 120.0
+offset_left = 3.0
+offset_top = 120.0
+offset_right = 43.0
+offset_bottom = 171.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Role" type="Label" parent="." unique_id=739166447]
@@ -36,7 +36,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="1" type="TextureRect" parent="bw_keys" unique_id=442320560]
+[node name="0" type="TextureRect" parent="bw_keys" unique_id=442320560]
 layout_mode = 0
 offset_left = 52.55849
 offset_top = 14.0
@@ -46,7 +46,7 @@ rotation = 0.21816616
 texture = ExtResource("2_1kjc5")
 expand_mode = 1
 
-[node name="2" type="TextureRect" parent="bw_keys" unique_id=827474918]
+[node name="1" type="TextureRect" parent="bw_keys" unique_id=827474918]
 layout_mode = 0
 offset_left = 100.55849
 offset_top = 14.0
@@ -56,7 +56,7 @@ rotation = 0.21816616
 texture = ExtResource("2_1kjc5")
 expand_mode = 1
 
-[node name="3" type="TextureRect" parent="bw_keys" unique_id=115949497]
+[node name="2" type="TextureRect" parent="bw_keys" unique_id=115949497]
 layout_mode = 0
 offset_left = 149.55849
 offset_top = 14.0
@@ -72,7 +72,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="1" type="TextureRect" parent="colored_keys" unique_id=558961848]
+[node name="0" type="TextureRect" parent="colored_keys" unique_id=558961848]
 layout_mode = 0
 offset_left = 52.55849
 offset_top = 14.0
@@ -82,7 +82,7 @@ rotation = 0.21816616
 texture = ExtResource("2_8dvuu")
 expand_mode = 1
 
-[node name="2" type="TextureRect" parent="colored_keys" unique_id=831722301]
+[node name="1" type="TextureRect" parent="colored_keys" unique_id=831722301]
 layout_mode = 0
 offset_left = 100.55849
 offset_top = 14.0
@@ -92,7 +92,7 @@ rotation = 0.21816616
 texture = ExtResource("2_8dvuu")
 expand_mode = 1
 
-[node name="3" type="TextureRect" parent="colored_keys" unique_id=1344676969]
+[node name="2" type="TextureRect" parent="colored_keys" unique_id=1344676969]
 layout_mode = 0
 offset_left = 149.55849
 offset_top = 14.0

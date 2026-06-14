@@ -9,27 +9,47 @@ extends CanvasLayer
 @onready var colored_keys = $colored_keys
 
 func _ready() -> void:
-	bw_keys.visible = !is_monster
-	colored_keys.visible = !is_monster
-	
-	live_label.visible = !is_monster
-	
-	for key in colored_keys.get_children():
-		key.visible = false
-	
-	if is_monster: return
-	
-	key_label.text = "Schlüssel: %d" % GameManager.team_keys
 	GameManager.keys_changed.connect(_on_keys_changed)
+	
+	_set_key_visibility_on_ready()
+	
+	if is_monster: 
+		return
 	
 	live_label.text = "Teamleben: %d" % GameManager.team_lives
 	GameManager.lives_changed.connect(_on_lives_changed)
 
-func _on_keys_changed(amount: int) -> void:
+func _set_key_visibility_on_ready() -> void:
+	bw_keys.visible = !is_monster
+	colored_keys.visible = !is_monster
 	
+	if is_monster: 
+		return
+	
+	var limit = GameManager.get_player_count()
+
+	for i in range(colored_keys.get_child_count() - 1, limit - 1, -1):
+		var child = colored_keys.get_child(i)
+		colored_keys.remove_child(child)
+		child.queue_free()
+	
+	limit = GameManager.get_player_count()
+
+	for i in range(bw_keys.get_child_count() - 1, limit - 1, -1):
+		var child = (bw_keys.get_child(i))
+		bw_keys.remove_child(child)
+		child.queue_free()
+	
+	# at the beginning no keys are collected
+	for key in colored_keys.get_children():
+		key.visible = false
+	
+	
+	
+
+func _on_keys_changed(amount: int) -> void:
 	if amount == 0: 
 		return
-	print(colored_keys.get_child(amount).visible)
 	colored_keys.get_child(amount - 1).visible = true
 
 func _on_lives_changed(amount: int) -> void:
