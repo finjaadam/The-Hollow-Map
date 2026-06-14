@@ -25,10 +25,6 @@ func _ready() -> void:
 func _on_lobby_button_pressed() -> void:
 	# Reset game state but keep connection
 	GameManager.clear()
-	
-	# Reset ready states for all players
-	NetworkManager.ready_states.clear()
-	
 	# Go back to lobby - will trigger scene_loading_finished
 	SceneLoader.goto_scene("res://ui/screens/menu/lobby/lobby.tscn")
 

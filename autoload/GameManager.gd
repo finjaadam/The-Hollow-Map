@@ -148,7 +148,7 @@ func end_game(playerVictory: bool) -> void:
 		
 	if not multiplayer.is_server():
 		return
-	
+	NetworkManager.set_lobby_not_ready()
 	stop_life_drain()
 
 # --- Life Drain ---
