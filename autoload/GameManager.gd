@@ -51,6 +51,9 @@ func _ready() -> void:
 	life_drain_timer.wait_time = 5.0
 	life_drain_timer.timeout.connect(_on_life_drain_timeout)
 	add_child(life_drain_timer)
+	
+	# Enable input processing for debug functions
+	process_mode = PROCESS_MODE_ALWAYS
 
 ## Reset EVERYTHING [br]
 ## E.g. on leave
@@ -166,6 +169,44 @@ func _broadcast_monster_won() -> void:
 func get_my_role() -> String:
 	var my_id = multiplayer.get_unique_id()
 	return player_roles.get(my_id, "player")
+
+# --- Debug Functions ---
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("debug_players_won"):
+		_debug_players_won()
+	elif event.is_action_pressed("debug_monster_won"):
+		_debug_monster_won()
+
+# Debug function to manually trigger players won (F7)
+func _debug_players_won() -> void:
+	if not multiplayer.is_server():
+		return
+	
+	# Prevent duplicate game end triggers
+	if game_has_ended:
+		return
+	game_has_ended = true
+	
+	stop_life_drain()
+	_broadcast_players_won.rpc()
+	players_won.emit()
+	print("DEBUG: Players won triggered via F7")
+
+# Debug function to manually trigger monster won (F8)
+func _debug_monster_won() -> void:
+	if not multiplayer.is_server():
+		return
+	
+	# Prevent duplicate game end triggers
+	if game_has_ended:
+		return
+	game_has_ended = true
+	
+	stop_life_drain()
+	_broadcast_monster_won.rpc()
+	monster_won.emit()
+	print("DEBUG: Monster won triggered via F8")
 
 # --- Life Drain ---
 
