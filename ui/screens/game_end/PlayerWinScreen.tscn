@@ -46,6 +46,13 @@ offset_right = 654.0
 offset_bottom = 150.0
 text = "Die Spieler sind entkommen!"
 
+[node name="IndividualLabel" type="Label" parent="." unique_id=2084091540]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 221.0
+offset_right = 654.0
+offset_bottom = 272.0
+
 [node name="MainMenuButton" type="Button" parent="." unique_id=1805358162]
 layout_mode = 1
 anchors_preset = -1

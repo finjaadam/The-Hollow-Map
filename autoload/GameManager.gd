@@ -120,6 +120,11 @@ func collect_key() -> void:
 		team_keys += 1
 		_push_state_to_all()
 
+# Get the current player's role
+func get_my_role() -> String:
+	var my_id = multiplayer.get_unique_id()
+	return player_roles.get(my_id, "player")
+
 @rpc("any_peer", "call_local", "reliable")
 func remove_lives(amount: int) -> void:
 	if not multiplayer.is_server():
@@ -127,81 +132,24 @@ func remove_lives(amount: int) -> void:
 	team_lives -= amount
 	_push_state_to_all()
 	if team_lives <= 0:
-		monster_wins()
+		end_game.rpc(false)
 
-# --- Game End ---
-
-func players_win() -> void:
-	if not multiplayer.is_server():
-		return
-	
+@rpc("any_peer", "call_local", "reliable")
+func end_game(playerVictory: bool) -> void:
 	# Prevent duplicate game end triggers
 	if game_has_ended:
 		return
 	game_has_ended = true
 	
-	stop_life_drain()
-	_broadcast_players_won.rpc()
-	players_won.emit()
-
-func monster_wins() -> void:
+	if playerVictory:
+		players_won.emit()
+	else:
+		monster_won.emit()
+		
 	if not multiplayer.is_server():
 		return
 	
-	# Prevent duplicate game end triggers
-	if game_has_ended:
-		return
-	game_has_ended = true
-	
 	stop_life_drain()
-	_broadcast_monster_won.rpc()
-	monster_won.emit()
-
-@rpc("authority", "call_local", "reliable")
-func _broadcast_players_won() -> void:
-	players_won.emit()
-
-@rpc("authority", "call_local", "reliable")
-func _broadcast_monster_won() -> void:
-	monster_won.emit()
-
-# --- Debug Functions ---
-
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("debug_players_won"):
-		_debug_players_won()
-	elif event.is_action_pressed("debug_monster_won"):
-		_debug_monster_won()
-
-# Debug function to manually trigger players won (F7)
-func _debug_players_won() -> void:
-	if not multiplayer.is_server():
-		return
-	
-	# Prevent duplicate game end triggers
-	if game_has_ended:
-		return
-	game_has_ended = true
-	
-	stop_life_drain()
-	_broadcast_players_won.rpc()
-	players_won.emit()
-	print("DEBUG: Players won triggered via F7")
-
-# Debug function to manually trigger monster won (F8)
-func _debug_monster_won() -> void:
-	if not multiplayer.is_server():
-		return
-	
-	# Prevent duplicate game end triggers
-	if game_has_ended:
-		return
-	game_has_ended = true
-	
-	stop_life_drain()
-	_broadcast_monster_won.rpc()
-	monster_won.emit()
-	print("DEBUG: Monster won triggered via F8")
 
 # --- Life Drain ---
 

@@ -16,6 +16,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_vdmkd")
+monster_won = true
 
 [node name="Background" type="TextureRect" parent="." unique_id=997015541]
 layout_mode = 1
@@ -45,6 +46,13 @@ offset_top = 112.0
 offset_right = 675.0
 offset_bottom = 163.0
 text = "Das Monster hat gewonnen!"
+
+[node name="IndividualLabel" type="Label" parent="." unique_id=717003091]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 221.0
+offset_right = 654.0
+offset_bottom = 272.0
 
 [node name="MainMenuButton" type="Button" parent="." unique_id=825812564]
 layout_mode = 1
