@@ -132,8 +132,7 @@ func remove_lives(amount: int) -> void:
 
 @rpc("any_peer", "call_local", "reliable")
 func add_spawn(position: Vector3, type: spawn_type) -> void:
-	print("Spawned: ", type)
-	spawn_added.emit(position)
+	spawn_added.emit(position, type)
 
 # --- Life Drain ---
 

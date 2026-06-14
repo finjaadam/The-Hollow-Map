@@ -1,4 +1,4 @@
-class_name LiftableItem
+class_name CollectableItem
 extends Node3D
 
 @onready var area: Area3D = $Area3D

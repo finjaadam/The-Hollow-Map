@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://jkgmdgtn5ei" path="res://network/testEnvironment/wall.tscn" id="3_8rd3g"]
 [ext_resource type="Script" uid="uid://ca5umlvtvh4el" path="res://network/scripts/Map.gd" id="4_5nbxc"]
 [ext_resource type="PackedScene" uid="uid://c8liybxhqrhwr" path="res://network/testEnvironment/map.tscn" id="4_uw1st"]
-[ext_resource type="PackedScene" uid="uid://ce04ve3l1ymb6" path="res://network/liftableItems/key.tscn" id="5_1vqu7"]
+[ext_resource type="PackedScene" uid="uid://ce04ve3l1ymb6" path="res://network/collectableItems/key.tscn" id="5_1vqu7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_f3sb7"]
 size = Vector3(60, 2, 60)

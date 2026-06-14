@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bfxdon8iq7sva"]
 
-[ext_resource type="Script" uid="uid://b6peqq5px787d" path="res://network/liftableItems/Pickaxe.gd" id="1_c7o5k"]
+[ext_resource type="Script" uid="uid://b6peqq5px787d" path="res://network/collectableItems/Pickaxe.gd" id="1_c7o5k"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_6q82k"]
 
