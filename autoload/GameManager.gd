@@ -7,11 +7,14 @@ var life_drain_timer: Timer
 var player_roles: Dictionary = {}
 var team_lives: int = 0
 var team_keys: int = 0
+var game_has_ended: bool = false
 # ...add more game state here over time
 
 signal state_updated
 signal keys_changed
 signal lives_changed
+signal players_won
+signal monster_won
 
 # --- Sync System ---
 
@@ -55,6 +58,7 @@ func clear() -> void:
 	player_roles.clear()
 	team_lives = 0
 	team_keys = 0
+	game_has_ended = false
 	stop_life_drain()
 	state_updated.emit()
 	keys_changed.emit(team_keys)
@@ -120,7 +124,48 @@ func remove_lives(amount: int) -> void:
 	team_lives -= amount
 	_push_state_to_all()
 	if team_lives <= 0:
-		print("Monster hat gewonnen")
+		monster_wins()
+
+# --- Game End ---
+
+func players_win() -> void:
+	if not multiplayer.is_server():
+		return
+	
+	# Prevent duplicate game end triggers
+	if game_has_ended:
+		return
+	game_has_ended = true
+	
+	stop_life_drain()
+	_broadcast_players_won.rpc()
+	players_won.emit()
+
+func monster_wins() -> void:
+	if not multiplayer.is_server():
+		return
+	
+	# Prevent duplicate game end triggers
+	if game_has_ended:
+		return
+	game_has_ended = true
+	
+	stop_life_drain()
+	_broadcast_monster_won.rpc()
+	monster_won.emit()
+
+@rpc("authority", "call_local", "reliable")
+func _broadcast_players_won() -> void:
+	players_won.emit()
+
+@rpc("authority", "call_local", "reliable")
+func _broadcast_monster_won() -> void:
+	monster_won.emit()
+
+# Helper to get current player's role
+func get_my_role() -> String:
+	var my_id = multiplayer.get_unique_id()
+	return player_roles.get(my_id, "player")
 
 # --- Life Drain ---
 

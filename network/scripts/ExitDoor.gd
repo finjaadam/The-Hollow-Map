@@ -32,3 +32,4 @@ func check_if_exit_should_open() -> bool:
 func open_exit() -> void:
 	print("exit geöffnet")
 	# load game-end scene
+	GameManager.players_win()
