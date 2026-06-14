@@ -10,6 +10,7 @@ extends CanvasLayer
 
 func _ready() -> void:
 	GameManager.keys_changed.connect(_on_keys_changed)
+	GameManager.state_updated.connect(_set_key_visibility_on_ready)
 	
 	_set_key_visibility_on_ready()
 	
@@ -43,9 +44,6 @@ func _set_key_visibility_on_ready() -> void:
 	# at the beginning no keys are collected
 	for key in colored_keys.get_children():
 		key.visible = false
-	
-	
-	
 
 func _on_keys_changed(amount: int) -> void:
 	if amount == 0: 
