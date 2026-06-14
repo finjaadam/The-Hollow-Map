@@ -12,7 +12,14 @@ var team_keys: int = 0
 signal state_updated
 signal keys_changed
 signal lives_changed
-signal door_added
+signal spawn_added
+
+enum spawn_type {
+	DOOR,
+	PICKAXE,
+	FISHINGROD,
+	RUNE
+}
 
 # --- Sync System ---
 
@@ -124,9 +131,9 @@ func remove_lives(amount: int) -> void:
 		print("Monster hat gewonnen")
 
 @rpc("any_peer", "call_local", "reliable")
-func add_exit_door(doorPosition: Vector3) -> void:
-	print("Add exit door yippieh")
-	door_added.emit(doorPosition)
+func add_spawn(position: Vector3, type: spawn_type) -> void:
+	print("Spawned: ", type)
+	spawn_added.emit(position)
 
 # --- Life Drain ---
 

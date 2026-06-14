@@ -18,13 +18,23 @@ var fishingrod_scene = preload("res://network/liftableItems/fishingrod.tscn")
 var rune_scene = preload("res://network/liftableItems/rune.tscn")
 
 func _ready() -> void:
-	GameManager.door_added.connect(spawn_exit)
+	GameManager.spawn_added.connect(_on_spawn_added)
 	
 	if not multiplayer.is_server(): 
 		return
 	
 	spawn_exit_doors()
 	spawn_minigame_items()
+func _on_spawn_added(position: Vector3, type: GameManager.spawn_type) -> void:
+	match type:
+		GameManager.spawn_type.DOOR:
+			spawn_exit(position)
+		GameManager.spawn_type.PICKAXE:
+			spawn_pickaxe(position)
+		GameManager.spawn_type.FISHINGROD:
+			spawn_fishingrod(position)
+		GameManager.spawn_type.RUNE:
+			spawn_rune(position)
 
 func spawn_exit_doors() -> void:
 	# get_children() gives back a const array => to remove a value from the array we need the second variable
@@ -33,8 +43,7 @@ func spawn_exit_doors() -> void:
 	
 	for doors in amount_exits:
 		used_index = randi() % spawn_exit_door_points_dynamic.size()
-		#spawn_exit(spawn_exit_door_points_dynamic[used_index])
-		GameManager.add_exit_door.rpc(spawn_exit_door_points_dynamic[used_index].global_position)
+		GameManager.add_spawn.rpc(spawn_exit_door_points_dynamic[used_index].global_position, GameManager.spawn_type.DOOR)
 		spawn_exit_door_points_dynamic.remove_at(used_index)
 
 func spawn_exit(doorPosition: Vector3) -> void:
@@ -51,33 +60,33 @@ func spawn_minigame_items() -> void:
 	# spawn pickaxes -------------------------------------------------------------------------------
 	for pickaxes in amount_pickaxes:
 		used_index = randi() % spawn_minigame_items_points_dynamic.size()
-		spawn_pickaxe(spawn_minigame_items_points_dynamic[used_index])
+		GameManager.add_spawn.rpc(spawn_minigame_items_points_dynamic[used_index].global_position, GameManager.spawn_type.PICKAXE)
 		spawn_minigame_items_points_dynamic.remove_at(used_index)
 
 	# spawn fishing rods -------------------------------------------------------------------------------
 	for fishingrods in amount_fishingrods:
 		used_index = randi() % spawn_minigame_items_points_dynamic.size()
-		spawn_fishingrod(spawn_minigame_items_points_dynamic[used_index])
+		GameManager.add_spawn.rpc(spawn_minigame_items_points_dynamic[used_index].global_position, GameManager.spawn_type.FISHINGROD)
 		spawn_minigame_items_points_dynamic.remove_at(used_index)
 	
 	# spawn runes rods -------------------------------------------------------------------------------
 	for runes in amount_runes:
 		used_index = randi() % spawn_minigame_items_points_dynamic.size()
-		spawn_rune(spawn_minigame_items_points_dynamic[used_index])
+		GameManager.add_spawn.rpc(spawn_minigame_items_points_dynamic[used_index].global_position, GameManager.spawn_type.RUNE)
 		spawn_minigame_items_points_dynamic.remove_at(used_index)
 
 
-func spawn_pickaxe(position: Marker3D) -> void:
+func spawn_pickaxe(position: Vector3) -> void:
 	var pickaxe_scene_instance = pickaxe_scene.instantiate()
 	self.add_child(pickaxe_scene_instance)
-	pickaxe_scene_instance.global_position = position.global_position
+	pickaxe_scene_instance.global_position = position
 
-func spawn_fishingrod(position: Marker3D) -> void:
+func spawn_fishingrod(position: Vector3) -> void:
 	var fishingrod_scene_instance = fishingrod_scene.instantiate()
 	self.add_child(fishingrod_scene_instance)
-	fishingrod_scene_instance.global_position = position.global_position
+	fishingrod_scene_instance.global_position = position
 
-func spawn_rune(position: Marker3D) -> void:
+func spawn_rune(position: Vector3) -> void:
 	var rune_scene_instance = rune_scene.instantiate()
 	self.add_child(rune_scene_instance)
-	rune_scene_instance.global_position = position.global_position
+	rune_scene_instance.global_position = position
