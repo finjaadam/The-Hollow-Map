@@ -34,13 +34,13 @@ func spawn_exit_doors() -> void:
 	for doors in amount_exits:
 		used_index = randi() % spawn_exit_door_points_dynamic.size()
 		#spawn_exit(spawn_exit_door_points_dynamic[used_index])
-		GameManager.add_exit_door.rpc(spawn_exit_door_points_dynamic[used_index])
+		GameManager.add_exit_door.rpc(spawn_exit_door_points_dynamic[used_index].global_position)
 		spawn_exit_door_points_dynamic.remove_at(used_index)
 
-func spawn_exit(doorPosition: Marker3D) -> void:
+func spawn_exit(doorPosition: Vector3) -> void:
 	var exit_door_scene_instance = exit_door_scene.instantiate()
 	self.add_child(exit_door_scene_instance)
-	exit_door_scene_instance.global_position = doorPosition.global_position
+	exit_door_scene_instance.global_position = doorPosition
 	
 
 func spawn_minigame_items() -> void:
