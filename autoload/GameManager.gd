@@ -12,6 +12,14 @@ var team_keys: int = 0
 signal state_updated
 signal keys_changed
 signal lives_changed
+signal spawn_added
+
+enum spawn_type {
+	DOOR,
+	PICKAXE,
+	FISHINGROD,
+	RUNE
+}
 
 # --- Sync System ---
 
@@ -39,7 +47,7 @@ func _push_state_to_all() -> void:
 @rpc("authority", "call_local", "reliable")
 func _receive_state(state: Dictionary) -> void:
 	_apply_state(state)
-	print("CURRENT GAME STATE FOR EVERYONE: ", state)
+	#print("CURRENT GAME STATE FOR EVERYONE: ", state)
 
 # --- Game Logic ---
 
@@ -121,6 +129,10 @@ func remove_lives(amount: int) -> void:
 	_push_state_to_all()
 	if team_lives <= 0:
 		print("Monster hat gewonnen")
+
+@rpc("any_peer", "call_local", "reliable")
+func add_spawn(position: Vector3, type: spawn_type) -> void:
+	spawn_added.emit(position, type)
 
 # --- Life Drain ---
 
