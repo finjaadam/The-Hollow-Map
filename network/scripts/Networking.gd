@@ -52,10 +52,6 @@ func _ready():
 	Steam.lobby_match_list.connect(_on_lobby_match_list)
 	Steam.join_requested.connect(_on_lobby_join_requested)
 	Steam.persona_state_change.connect(_on_persona_change)
-	
-	# Connect to GameManager game end signals
-	GameManager.players_won.connect(_on_players_won)
-	GameManager.monster_won.connect(_on_monster_won)
 
 func _spawn_player(data: Dictionary) -> Node:
 	var instance: Node
@@ -339,25 +335,3 @@ func _debug_respawn_peer(peer_id: int, new_role: String) -> void:
 	
 	_remove_player(peer_id)
 	spawner.spawn({"id": peer_id, "position": respawn_pos, "role": new_role})
-
-# --- Game End Handlers ---
-
-func _on_players_won():
-	# Players won, so monster lost
-	var my_role = GameManager.get_my_role()
-	var target_scene = "res://ui/screens/game_end/"
-	if my_role == "monster":
-		target_scene += "MonsterLoseScreen.tscn"
-	else:
-		target_scene += "PlayerWinScreen.tscn"
-	SceneLoader.goto_scene(target_scene)
-
-func _on_monster_won():
-	# Monster won, so players lost
-	var my_role = GameManager.get_my_role()
-	var target_scene = "res://ui/screens/game_end/"
-	if my_role == "monster":
-		target_scene += "MonsterWinScreen.tscn"
-	else:
-		target_scene += "PlayerLoseScreen.tscn"
-	SceneLoader.goto_scene(target_scene)

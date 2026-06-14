@@ -165,11 +165,6 @@ func _broadcast_players_won() -> void:
 func _broadcast_monster_won() -> void:
 	monster_won.emit()
 
-# Helper to get current player's role
-func get_my_role() -> String:
-	var my_id = multiplayer.get_unique_id()
-	return player_roles.get(my_id, "player")
-
 # --- Debug Functions ---
 
 func _input(event: InputEvent) -> void:

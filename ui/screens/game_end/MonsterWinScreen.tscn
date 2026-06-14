@@ -1,16 +1,68 @@
-[gd_scene format=3 uid="uid://new_monster_win"]
+[gd_scene format=3 uid="uid://b8dku31nroqar"]
 
-[node name="MonsterWinScreen" type="Control"]
-script = ExtResource("res://ui/screens/game_end/MonsterWinScreen.gd")
+[ext_resource type="Script" uid="uid://dwyhj5y8bmmro" path="res://ui/screens/game_end/WinScreen.gd" id="1_vdmkd"]
+[ext_resource type="Texture2D" uid="uid://d0lu66dah1ayb" path="res://ui/background.png" id="2_shmcw"]
+[ext_resource type="Shader" uid="uid://0vjgtsswuwij" path="res://shader/blur.gdshader" id="3_58o5m"]
 
-[node name="Label" type="Label" parent="."]
-text = "MONSTER WINS!"
-layout_mode = 2
-anchors_preset = 8
-position = Vector2(0, -100)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pr0ht"]
+shader = ExtResource("3_58o5m")
+shader_parameter/blur = 2.0
 
-[node name="ReturnButton" type="Button" parent="."]
-text = "Return to Lobby"
-layout_mode = 2
-anchors_preset = 8
-position = Vector2(0, 50)
+[node name="MonsterWinScreen" type="Control" unique_id=1728966789]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vdmkd")
+
+[node name="Background" type="TextureRect" parent="." unique_id=997015541]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_shmcw")
+expand_mode = 2
+
+[node name="BlurRect" type="TextureRect" parent="." unique_id=1578518431]
+material = SubResource("ShaderMaterial_pr0ht")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_shmcw")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="." unique_id=913647425]
+layout_mode = 0
+offset_left = 75.0
+offset_top = 112.0
+offset_right = 675.0
+offset_bottom = 163.0
+text = "Das Monster hat gewonnen!"
+
+[node name="MainMenuButton" type="Button" parent="." unique_id=825812564]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.039930556
+anchor_top = 0.8796296
+anchor_right = 0.21163194
+anchor_bottom = 0.9506173
+text = "Hauptmenu"
+
+[node name="LobbyButton" type="Button" parent="." unique_id=380650117]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.7838542
+anchor_top = 0.8796296
+anchor_right = 0.9557292
+anchor_bottom = 0.9506173
+text = "zur Lobby"
+
+[connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="LobbyButton" to="." method="_on_lobby_button_pressed"]
