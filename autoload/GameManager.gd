@@ -47,7 +47,7 @@ func _push_state_to_all() -> void:
 @rpc("authority", "call_local", "reliable")
 func _receive_state(state: Dictionary) -> void:
 	_apply_state(state)
-	print("CURRENT GAME STATE FOR EVERYONE: ", state)
+	#print("CURRENT GAME STATE FOR EVERYONE: ", state)
 
 # --- Game Logic ---
 
