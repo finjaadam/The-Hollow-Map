@@ -2,6 +2,8 @@ extends Control
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	# Connect to SceneLoader signal to know when lobby has loaded
+	SceneLoader.scene_loading_finished.connect(_on_lobby_loaded)
 
 func _on_lobby_button_pressed() -> void:
 	# Reset game state but keep connection
@@ -10,11 +12,17 @@ func _on_lobby_button_pressed() -> void:
 	# Reset ready states for all players
 	NetworkManager.ready_states.clear()
 	
-	# Go back to lobby
+	# Go back to lobby - will trigger scene_loading_finished
 	SceneLoader.goto_scene("res://ui/screens/menu/lobby/lobby.tscn")
-	NetworkManager.lobby_updated.emit()
-	NetworkManager.lobby_name_updated.emit()
 
+func _on_lobby_loaded(scene_path: String) -> void:
+	# Only emit signals if lobby scene was loaded
+	if scene_path == "res://ui/screens/menu/lobby/lobby.tscn":
+		NetworkManager.lobby_updated.emit()
+		NetworkManager.lobby_name_updated.emit()
+		# Disconnect signal to prevent memory leaks
+		SceneLoader.scene_loading_finished.disconnect(_on_lobby_loaded)
+		queue_free()
 
 func _on_main_menu_button_pressed() -> void:
 	GameManager.clear()
