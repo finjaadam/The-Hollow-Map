@@ -13,11 +13,9 @@ const amount_fishingrods = 2
 const amount_runes = 6
 
 var exit_door_scene = preload("res://network/testEnvironment/ExitDoor.tscn")
-var pickaxe_scene = preload("res://network/testEnvironment/pickaxe.tscn")
-var fishingrod_scene = preload("res://network/testEnvironment/fishingrod.tscn")
-var rune_scene = preload("res://network/testEnvironment/rune.tscn")
-#var rune2_scene = preload("")
-#var rune3_scene = preload("")
+var pickaxe_scene = preload("res://network/liftableItems/pickaxe.tscn")
+var fishingrod_scene = preload("res://network/liftableItems/fishingrod.tscn")
+var rune_scene = preload("res://network/liftableItems/rune.tscn")
 
 func _ready() -> void:
 	spawn_exit_doors()
@@ -41,7 +39,6 @@ func spawn_exit(doorPosition: Marker3D) -> void:
 func spawn_minigame_items() -> void:
 	# get_children() gives back a const array => to remove a value from the array we need the second variable
 	var spawn_minigame_items_points_dynamic = spawn_minigame_items_points.get_children()
-	
 	var used_index
 	
 	# spawn pickaxes -------------------------------------------------------------------------------
@@ -57,7 +54,7 @@ func spawn_minigame_items() -> void:
 		spawn_minigame_items_points_dynamic.remove_at(used_index)
 	
 	# spawn runes rods -------------------------------------------------------------------------------
-	for runes in amount_fishingrods:
+	for runes in amount_runes:
 		used_index = randi() % spawn_minigame_items_points_dynamic.size()
 		spawn_rune(spawn_minigame_items_points_dynamic[used_index])
 		spawn_minigame_items_points_dynamic.remove_at(used_index)

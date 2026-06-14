@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://jkgmdgtn5ei" path="res://network/testEnvironment/wall.tscn" id="3_8rd3g"]
 [ext_resource type="Script" uid="uid://ca5umlvtvh4el" path="res://network/scripts/Map.gd" id="4_5nbxc"]
 [ext_resource type="PackedScene" uid="uid://c8liybxhqrhwr" path="res://network/testEnvironment/map.tscn" id="4_uw1st"]
+[ext_resource type="PackedScene" uid="uid://ce04ve3l1ymb6" path="res://network/liftableItems/key.tscn" id="5_1vqu7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_f3sb7"]
 size = Vector3(60, 2, 60)
@@ -130,6 +131,9 @@ transform = Transform3D(0.9993873, -0.0134671815, -0.032304674, 0.012004331, 0.9
 
 [node name="22" type="Marker3D" parent="Map/MinigameItemsSpawnPoints" unique_id=2102607305]
 transform = Transform3D(0.9993873, -0.0134671815, -0.032304674, 0.012004331, 0.9989123, -0.045057468, 0.032876328, 0.04464207, 0.99846196, 55.595043, 0.57117045, -0.040166855)
+
+[node name="Node3D" parent="Map" unique_id=928898335 instance=ExtResource("5_1vqu7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.205864, 0, 27.39933)
 
 [node name="TestMap" type="StaticBody3D" parent="." unique_id=146694575]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -120)

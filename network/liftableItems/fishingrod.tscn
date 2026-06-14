@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://bfxdon8iq7sva"]
 
+[ext_resource type="Script" uid="uid://b6peqq5px787d" path="res://network/liftableItems/Pickaxe.gd" id="1_c7o5k"]
+
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_6q82k"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cipdg"]
@@ -12,6 +14,7 @@ material = SubResource("StandardMaterial3D_cipdg")
 height = 49.101
 
 [node name="Pickaxe" type="Node3D" unique_id=1963687755]
+script = ExtResource("1_c7o5k")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=244515064]
 transform = Transform3D(2.345, 0, 0, 0, 2.345, 0, 0, 0, 2.345, 0, 0, 0)
