@@ -12,6 +12,7 @@ var team_keys: int = 0
 signal state_updated
 signal keys_changed
 signal lives_changed
+signal door_added(Marker3D)
 
 # --- Sync System ---
 
@@ -121,6 +122,10 @@ func remove_lives(amount: int) -> void:
 	_push_state_to_all()
 	if team_lives <= 0:
 		print("Monster hat gewonnen")
+
+@rpc("any_peer", "call_local", "reliable")
+func add_exit_door(doorPosition: Marker3D) -> void:
+	door_added.emit(doorPosition)
 
 # --- Life Drain ---
 
