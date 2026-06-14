@@ -28,6 +28,12 @@ func _on_lobby_button_pressed() -> void:
 	# Go back to lobby - will trigger scene_loading_finished
 	SceneLoader.goto_scene("res://ui/screens/menu/lobby/lobby.tscn")
 
+func _on_main_menu_button_pressed() -> void:
+	GameManager.clear()
+	NetworkManager.leave_lobby()
+	SceneLoader.goto_scene("res://network/testEnvironment/menu.tscn")
+	
+
 func _on_lobby_loaded(scene_path: String) -> void:
 	# Only emit signals if lobby scene was loaded
 	if scene_path == "res://ui/screens/menu/lobby/lobby.tscn":
@@ -36,8 +42,3 @@ func _on_lobby_loaded(scene_path: String) -> void:
 		# Disconnect signal to prevent memory leaks
 		SceneLoader.scene_loading_finished.disconnect(_on_lobby_loaded)
 		queue_free()
-
-func _on_main_menu_button_pressed() -> void:
-	GameManager.clear()
-	NetworkManager.leave_lobby()
-	SceneLoader.goto_scene("res://network/testEnvironment/menu.tscn")

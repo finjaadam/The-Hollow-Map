@@ -285,14 +285,11 @@ func set_player_ready(is_ready: bool) -> void:
 
 	if multiplayer.is_server():
 		_check_all_ready()
-
+		
+@rpc("any_peer", "call_local", "reliable")
 func set_lobby_not_ready():
-	if not multiplayer.is_server():
-		return
-
 	for player in ready_states:
 		ready_states[player] = false
-	lobby_updated.emit()
 
 func _check_all_ready():
 	if ready_states.is_empty():
