@@ -1,0 +1,11 @@
+Model Information:
+* title:	Key
+* source:	https://sketchfab.com/3d-models/key-99ee9ff58fd14cb19309da81d0b098c9
+* author:	Frybrix (https://sketchfab.com/Frybrix)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Key" (https://sketchfab.com/3d-models/key-99ee9ff58fd14cb19309da81d0b098c9) by Frybrix (https://sketchfab.com/Frybrix) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
