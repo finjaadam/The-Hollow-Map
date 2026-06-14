@@ -30,8 +30,7 @@ func _set_key_visibility() -> void:
 	var limit = GameManager.team_keys
 
 	for key in colored_keys.get_children():
-		key.visible = key < limit
-		print("color visibility: ", key.visible)
+		key.visible = int(key.name) < limit
 
 	limit = GameManager.get_player_count()
 	

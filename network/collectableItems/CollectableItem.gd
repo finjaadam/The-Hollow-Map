@@ -7,6 +7,8 @@ func _ready() -> void:
 	area.body_entered.connect(_on_body_entered)
 
 func _on_body_entered(body) -> void:
+	if not multiplayer.is_server(): 
+		return
 	if body.is_in_group("player"):
 		_collect_item()
 		queue_free()
