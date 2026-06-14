@@ -29,10 +29,11 @@ shadow_enabled = true
 _spawnable_scenes = PackedStringArray("uid://cu5gtk0ybh744", "uid://deefor15sgl47")
 spawn_path = NodePath("..")
 
-[node name="Map" parent="." unique_id=1910157186 node_paths=PackedStringArray("spawn_exit_door_points") instance=ExtResource("4_uw1st")]
+[node name="Map" parent="." unique_id=1910157186 node_paths=PackedStringArray("spawn_exit_door_points", "spawn_minigame_items_points") instance=ExtResource("4_uw1st")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.4840088)
 script = ExtResource("4_5nbxc")
 spawn_exit_door_points = NodePath("ExitsSpawnPoints")
+spawn_minigame_items_points = NodePath("MinigameItemsSpawnPoints")
 
 [node name="PlayerSpawnPoints" type="Node3D" parent="Map" unique_id=902470412]
 
