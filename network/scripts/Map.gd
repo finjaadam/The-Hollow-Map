@@ -8,9 +8,9 @@ const amount_fishingrods = 3
 const amount_runes = 6
 
 var exit_door_scene = preload("res://network/testEnvironment/ExitDoor.tscn")
-#var pickaxe_scene = preload("")
-#var fishingrod_scene = preload("")
-#var rune1_scene = preload("")
+var pickaxe_scene = preload("res://network/testEnvironment/pickaxe.tscn")
+var fishingrod_scene = preload("res://network/testEnvironment/fishingrod.tscn")
+var rune_scene = preload("res://network/testEnvironment/rune.tscn")
 #var rune2_scene = preload("")
 #var rune3_scene = preload("")
 
@@ -62,8 +62,16 @@ func spawn_minigame_items() -> void:
 
 
 func spawn_pickaxe(position: Marker3D) -> void:
-	pass
-func spawn_rune(position: Marker3D) -> void:
-	pass
+	var pickaxe_scene_instance = pickaxe_scene.instantiate()
+	self.add_child(pickaxe_scene_instance)
+	pickaxe_scene_instance.global_position = position.global_position
+
 func spawn_fishingrod(position: Marker3D) -> void:
-	pass
+	var fishingrod_scene_instance = fishingrod_scene.instantiate()
+	self.add_child(fishingrod_scene_instance)
+	fishingrod_scene_instance.global_position = position.global_position
+
+func spawn_rune(position: Marker3D) -> void:
+	var rune_scene_instance = rune_scene.instantiate()
+	self.add_child(rune_scene_instance)
+	rune_scene_instance.global_position = position.global_position
