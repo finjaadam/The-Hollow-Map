@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://cn3vfxuwcpc5s"]
+
+[ext_resource type="PackedScene" uid="uid://b6v2bqxedy05e" path="res://assets/rock/scene.gltf" id="1_v08e4"]
+
+[node name="Sketchfab_Scene" unique_id=292935021 instance=ExtResource("1_v08e4")]
