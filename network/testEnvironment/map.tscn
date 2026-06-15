@@ -16,7 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://62l58j2attqx" path="res://assets/water_fountain/fountain-old.tscn" id="11_fountain"]
 [ext_resource type="PackedScene" uid="uid://dud2rq3uvwwr2" path="res://assets/blob_monster/blob_monster.tscn" id="11_xqtg2"]
 [ext_resource type="PackedScene" uid="uid://cxvofcy8m8ejs" path="res://assets/stone_group_1/stone_group_1.tscn" id="14_22shp"]
-[ext_resource type="PackedScene" uid="uid://x8etfc0ig6dq" path="res://assets/szikla__rock/szikla__rock.tscn" id="15_0x40j"]
 [ext_resource type="PackedScene" uid="uid://bk277se02bsh7" path="res://assets/rock_big/rock_big.tscn" id="16_1wree"]
 [ext_resource type="PackedScene" uid="uid://cn3vfxuwcpc5s" path="res://assets/rock/rock.tscn" id="17_1nqb3"]
 
@@ -79,6 +78,10 @@ size = Vector3(51.705, 20, 33.24)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g0rns"]
 size = Vector3(13.46, 20, 15.390918)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u131e"]
+radius = 0.72265625
+height = 1.8901367
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0an4t"]
 radius = 0.90478516
@@ -1234,23 +1237,220 @@ debug_color = Color(0.5921569, 0.5372549, 0.27450982, 0.88235295)
 [node name="campfire" parent="modular-cave-final/RegionSand2" unique_id=276771360 instance=ExtResource("9_pe7kj")]
 transform = Transform3D(0.28, 0, 0, 0, 0.28, 0, 0, 0, 0.28, -0.115608215, -0.8370087, 0.3844223)
 
-[node name="stone_group_1_01" parent="modular-cave-final/RegionSand2" unique_id=1650407836 instance=ExtResource("14_22shp")]
+[node name="rock_deco_floor" type="Node3D" parent="modular-cave-final/RegionSand2" unique_id=1949327492]
+
+[node name="stone_group_1_01" parent="modular-cave-final/RegionSand2/rock_deco_floor" unique_id=1650407836 instance=ExtResource("14_22shp")]
 transform = Transform3D(0.05042993, 0.08370402, 0.1451739, -0.027466753, 0.15368356, -0.079069234, -0.16531003, 0, 0.057424735, -3.6881535, 0.22166252, -0.5470619)
 
-[node name="szlika_rock_01" parent="modular-cave-final/RegionSand2" unique_id=1415205255 instance=ExtResource("15_0x40j")]
-transform = Transform3D(0.73587257, 0, 0.67712003, 0, 1, 0, -0.67712003, 0, 0.73587257, -2.582617, -0.36465228, -3.2075558)
+[node name="stone_group_1_02" parent="modular-cave-final/RegionSand2/rock_deco_floor" unique_id=1037600177 instance=ExtResource("14_22shp")]
+transform = Transform3D(0.1705817, 0.011231119, -0.037426542, -0.006727282, 0.1735539, 0.021419339, 0.038491927, -0.019439831, 0.16960385, -0.7708905, -0.11534071, 5.7527847)
 
-[node name="rock_big_01" parent="modular-cave-final/RegionSand2" unique_id=1596173443 instance=ExtResource("16_1wree")]
-transform = Transform3D(-0.76663876, -0.6415387, -0.02632762, 0, 0.041003726, -0.999159, 0.6420787, -0.765994, -0.031435046, 2.7387834, -0.028648257, -3.6517372)
+[node name="stone_group_1_03" parent="modular-cave-final/RegionSand2/rock_deco_floor" unique_id=389893387 instance=ExtResource("14_22shp")]
+transform = Transform3D(-0.021034975, -0.085689716, 0.15112846, 0.043290146, 0.14484513, 0.08815246, -0.16825126, 0.0479809, 0.003786886, 1.9464474, -0.9794049, -1.5806541)
 
-[node name="rock_big_02" parent="modular-cave-final/RegionSand2" unique_id=2108189035 instance=ExtResource("16_1wree")]
-transform = Transform3D(0.92827165, 0.3715896, 0.015249386, 0, 0.041003723, -0.99915886, -0.37190247, 0.92749107, 0.038062602, 3.740057, -0.37944376, -2.0318089)
-
-[node name="rock_big_03" parent="modular-cave-final/RegionSand2" unique_id=1429556096 instance=ExtResource("16_1wree")]
-transform = Transform3D(0.9282718, 0.3715896, 0.015249399, -0.27884364, 0.7225427, -0.6325965, -0.24608468, 0.5829694, 0.77433145, 4.1073694, 0.14455485, -0.71945953)
-
-[node name="rock_01" parent="modular-cave-final/RegionSand2" unique_id=292935021 instance=ExtResource("17_1nqb3")]
+[node name="rock_01" parent="modular-cave-final/RegionSand2/rock_deco_floor" unique_id=292935021 instance=ExtResource("17_1nqb3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0863757, 0.7572113, 2.5855427)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="modular-cave-final/RegionSand2/rock_deco_floor/rock_01" unique_id=693283003]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05493164, -0.12501144)
+shape = SubResource("CapsuleShape3D_u131e")
+
+[node name="rock_big" type="Node3D" parent="modular-cave-final/RegionSand2/rock_deco_floor" unique_id=94035707]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4396358, -0.26881397, -1.869484)
+
+[node name="rock_big_01" parent="modular-cave-final/RegionSand2/rock_deco_floor/rock_big" unique_id=1596173443 instance=ExtResource("16_1wree")]
+transform = Transform3D(-0.76663876, -0.6415387, -0.02632762, 0, 0.041003726, -0.999159, 0.6420787, -0.765994, -0.031435046, -0.7008524, 0.24016571, -1.7822533)
+
+[node name="rock_big_02" parent="modular-cave-final/RegionSand2/rock_deco_floor/rock_big" unique_id=2108189035 instance=ExtResource("16_1wree")]
+transform = Transform3D(0.92827165, 0.3715896, 0.015249386, 0, 0.041003723, -0.99915886, -0.37190247, 0.92749107, 0.038062602, 0.30042124, -0.1106298, -0.1623249)
+
+[node name="rock_big_03" parent="modular-cave-final/RegionSand2/rock_deco_floor/rock_big" unique_id=1429556096 instance=ExtResource("16_1wree")]
+transform = Transform3D(0.9282718, 0.3715896, 0.015249399, -0.27884364, 0.7225427, -0.6325965, -0.24608468, 0.5829694, 0.77433145, 0.66773367, 0.41336882, 1.1500244)
+
+[node name="rock_big2" type="Node3D" parent="modular-cave-final/RegionSand2/rock_deco_floor" unique_id=325766560]
+transform = Transform3D(-0.33495826, 0, -0.94223297, 0, 1, 0, 0.94223297, 0, -0.33495826, -0.27509332, -0.7918469, -4.305956)
+
+[node name="rock_big_01" parent="modular-cave-final/RegionSand2/rock_deco_floor/rock_big2" unique_id=1460370005 instance=ExtResource("16_1wree")]
+transform = Transform3D(-0.76663876, -0.6415387, -0.02632762, 0, 0.041003726, -0.999159, 0.6420787, -0.765994, -0.031435046, -0.7008524, 0.24016571, -1.7822533)
+
+[node name="rock_big_02" parent="modular-cave-final/RegionSand2/rock_deco_floor/rock_big2" unique_id=158142485 instance=ExtResource("16_1wree")]
+transform = Transform3D(0.92827165, 0.3715896, 0.015249386, 0, 0.041003723, -0.99915886, -0.37190247, 0.92749107, 0.038062602, 0.30042124, -0.1106298, -0.1623249)
+
+[node name="rock_big_03" parent="modular-cave-final/RegionSand2/rock_deco_floor/rock_big2" unique_id=651721793 instance=ExtResource("16_1wree")]
+transform = Transform3D(0.9282718, 0.3715896, 0.015249399, -0.27884364, 0.7225427, -0.6325965, -0.24608468, 0.5829694, 0.77433145, 0.66773367, 0.41336882, 1.1500244)
+
+[node name="rock_big9" type="Node3D" parent="modular-cave-final/RegionSand2/rock_deco_floor" unique_id=628891031]
+transform = Transform3D(-0.33495826, 0, -0.94223297, 0, 1, 0, 0.94223297, 0, -0.33495826, 0.15219831, -0.539569, -5.510515)
+
+[node name="rock_big_01" parent="modular-cave-final/RegionSand2/rock_deco_floor/rock_big9" unique_id=537947541 instance=ExtResource("16_1wree")]
+transform = Transform3D(-0.90801173, -0.41859266, -0.017178312, -3.1295477e-10, 0.04100373, -0.99915904, 0.41894495, -0.907248, -0.03723186, 0.7889118, -0.14501405, 0.27983952)
+
+[node name="rock_big_02" parent="modular-cave-final/RegionSand2/rock_deco_floor/rock_big9" unique_id=543704215 instance=ExtResource("16_1wree")]
+transform = Transform3D(0.92827165, 0.3715896, 0.015249386, 0, 0.041003723, -0.99915886, -0.37190247, 0.92749107, 0.038062602, 0.30042124, -0.1106298, -0.1623249)
+
+[node name="rock_big_03" parent="modular-cave-final/RegionSand2/rock_deco_floor/rock_big9" unique_id=1952436084 instance=ExtResource("16_1wree")]
+transform = Transform3D(0.9435154, 0.3279469, 0.047213495, -0.26169914, 0.8250237, -0.5008491, -0.20320421, 0.4602033, 0.8642461, 0.47346497, 0.41336882, 1.3282413)
+
+[node name="rock_big10" type="Node3D" parent="modular-cave-final/RegionSand2/rock_deco_floor" unique_id=1529793944]
+transform = Transform3D(0.24509132, -0.14407986, 0.9587342, 0.03568506, 0.9895661, 0.13959077, -0.96884304, 0, 0.24767554, 0.6018958, -0.342811, -5.7163773)
+
+[node name="rock_big_01" parent="modular-cave-final/RegionSand2/rock_deco_floor/rock_big10" unique_id=1450294295 instance=ExtResource("16_1wree")]
+transform = Transform3D(-0.90801173, -0.41859266, -0.017178312, -3.1295477e-10, 0.04100373, -0.99915904, 0.41894495, -0.907248, -0.03723186, 0.7889118, -0.14501405, 0.27983952)
+
+[node name="rock_big_02" parent="modular-cave-final/RegionSand2/rock_deco_floor/rock_big10" unique_id=404268447 instance=ExtResource("16_1wree")]
+transform = Transform3D(0.92827165, 0.3715896, 0.015249386, 0, 0.041003723, -0.99915886, -0.37190247, 0.92749107, 0.038062602, 0.30042124, -0.1106298, -0.1623249)
+
+[node name="rock_big_03" parent="modular-cave-final/RegionSand2/rock_deco_floor/rock_big10" unique_id=1583064996 instance=ExtResource("16_1wree")]
+transform = Transform3D(0.9435154, 0.3279469, 0.047213495, -0.26169914, 0.8250237, -0.5008491, -0.20320421, 0.4602033, 0.8642461, 0.47346497, 0.41336882, 1.3282413)
+
+[node name="rock_big3" type="Node3D" parent="modular-cave-final/RegionSand2/rock_deco_floor" unique_id=1506921242]
+transform = Transform3D(-0.9539015, 0.028267898, 0.2987857, -0.05805568, -0.9941301, -0.09129437, 0.29445106, -0.10443202, 0.9499434, 3.996902, 0.08477652, 2.2088642)
+
+[node name="rock_big_01" parent="modular-cave-final/RegionSand2/rock_deco_floor/rock_big3" unique_id=554781878 instance=ExtResource("16_1wree")]
+transform = Transform3D(-0.76663876, -0.6415387, -0.02632762, 0, 0.041003726, -0.999159, 0.6420787, -0.765994, -0.031435046, -0.7008524, 0.24016571, -1.7822533)
+
+[node name="rock_big_02" parent="modular-cave-final/RegionSand2/rock_deco_floor/rock_big3" unique_id=492693422 instance=ExtResource("16_1wree")]
+transform = Transform3D(0.92827165, 0.3715896, 0.015249386, 0, 0.041003723, -0.99915886, -0.37190247, 0.92749107, 0.038062602, 0.30042124, -0.1106298, -0.1623249)
+
+[node name="rock_big_03" parent="modular-cave-final/RegionSand2/rock_deco_floor/rock_big3" unique_id=1185166750 instance=ExtResource("16_1wree")]
+transform = Transform3D(0.9282718, 0.3715896, 0.015249399, -0.27884364, 0.7225427, -0.6325965, -0.24608468, 0.5829694, 0.77433145, 0.66773367, 0.41336882, 1.1500244)
+
+[node name="rock_big4" type="Node3D" parent="modular-cave-final/RegionSand2/rock_deco_floor" unique_id=1143371226]
+transform = Transform3D(-0.13925466, -0.7073065, -0.6930553, 0.9539304, 0.092008024, -0.28557208, 0.26575363, -0.7008935, 0.6619087, 2.1167774, 0.08477652, 6.124325)
+
+[node name="rock_big_01" parent="modular-cave-final/RegionSand2/rock_deco_floor/rock_big4" unique_id=521114211 instance=ExtResource("16_1wree")]
+transform = Transform3D(-0.76663876, -0.6415387, -0.02632762, 0, 0.041003726, -0.999159, 0.6420787, -0.765994, -0.031435046, -0.7008524, 0.24016571, -1.7822533)
+
+[node name="rock_big_02" parent="modular-cave-final/RegionSand2/rock_deco_floor/rock_big4" unique_id=572983998 instance=ExtResource("16_1wree")]
+transform = Transform3D(0.92827165, 0.3715896, 0.015249386, 0, 0.041003723, -0.99915886, -0.37190247, 0.92749107, 0.038062602, 0.30042124, -0.1106298, -0.1623249)
+
+[node name="rock_big_03" parent="modular-cave-final/RegionSand2/rock_deco_floor/rock_big4" unique_id=1249648858 instance=ExtResource("16_1wree")]
+transform = Transform3D(0.92827165, 0.3715896, 0.0152493715, -0.2788436, 0.72254264, -0.63259643, -0.24608468, 0.5829693, 0.77433133, 0.8557396, -0.17234612, 1.5893288)
+
+[node name="rock_big5" type="Node3D" parent="modular-cave-final/RegionSand2/rock_deco_floor" unique_id=459674295]
+transform = Transform3D(-0.9539015, 0.028267898, 0.2987857, -0.05805568, -0.9941301, -0.09129437, 0.29445106, -0.10443202, 0.9499434, -4.161763, 0.24959624, 3.3056717)
+
+[node name="rock_big_01" parent="modular-cave-final/RegionSand2/rock_deco_floor/rock_big5" unique_id=1758357814 instance=ExtResource("16_1wree")]
+transform = Transform3D(-0.76663876, -0.6415387, -0.02632762, 0, 0.041003726, -0.999159, 0.6420787, -0.765994, -0.031435046, -0.7008524, 0.24016571, -1.7822533)
+
+[node name="rock_big_02" parent="modular-cave-final/RegionSand2/rock_deco_floor/rock_big5" unique_id=1213816099 instance=ExtResource("16_1wree")]
+transform = Transform3D(0.92827165, 0.3715896, 0.015249386, 0, 0.041003723, -0.99915886, -0.37190247, 0.92749107, 0.038062602, 0.30042124, -0.1106298, -0.1623249)
+
+[node name="rock_big_03" parent="modular-cave-final/RegionSand2/rock_deco_floor/rock_big5" unique_id=1392686263 instance=ExtResource("16_1wree")]
+transform = Transform3D(0.9282718, 0.3715896, 0.015249399, -0.27884364, 0.7225427, -0.6325965, -0.24608468, 0.5829694, 0.77433145, 0.66773367, 0.41336882, 1.1500244)
+
+[node name="rock_big7" type="Node3D" parent="modular-cave-final/RegionSand2/rock_deco_floor" unique_id=962264449]
+transform = Transform3D(-0.1562489, -0.08127318, 0.9843683, -0.05805568, -0.9941301, -0.09129437, 0.98601013, -0.07141283, 0.15061325, -0.8531158, -0.06976664, 7.7190323)
+
+[node name="rock_big_01" parent="modular-cave-final/RegionSand2/rock_deco_floor/rock_big7" unique_id=1796435744 instance=ExtResource("16_1wree")]
+transform = Transform3D(-0.76663876, -0.6415387, -0.02632762, 0, 0.041003726, -0.999159, 0.6420787, -0.765994, -0.031435046, -0.7008524, 0.24016571, -1.7822533)
+
+[node name="rock_big_02" parent="modular-cave-final/RegionSand2/rock_deco_floor/rock_big7" unique_id=738460710 instance=ExtResource("16_1wree")]
+transform = Transform3D(0.92827165, 0.3715896, 0.015249386, 0, 0.041003723, -0.99915886, -0.37190247, 0.92749107, 0.038062602, 0.30042124, -0.1106298, -0.1623249)
+
+[node name="rock_big_03" parent="modular-cave-final/RegionSand2/rock_deco_floor/rock_big7" unique_id=745428026 instance=ExtResource("16_1wree")]
+transform = Transform3D(0.9282718, 0.3715896, 0.015249399, -0.27884364, 0.7225427, -0.6325965, -0.24608468, 0.5829694, 0.77433145, 0.66773367, 0.41336882, 1.1500244)
+
+[node name="rock_big8" type="Node3D" parent="modular-cave-final/RegionSand2/rock_deco_floor" unique_id=1519364666]
+transform = Transform3D(-0.8920723, 0.010608265, 0.45176822, -0.05805568, -0.99413013, -0.09129437, 0.4481479, -0.1076689, 0.8874519, -3.0908656, -0.06976664, 5.039921)
+
+[node name="rock_big_01" parent="modular-cave-final/RegionSand2/rock_deco_floor/rock_big8" unique_id=118766468 instance=ExtResource("16_1wree")]
+transform = Transform3D(-0.76663876, -0.6415387, -0.02632762, 0, 0.041003726, -0.999159, 0.6420787, -0.765994, -0.031435046, -0.7008524, 0.24016571, -1.7822533)
+
+[node name="rock_big_02" parent="modular-cave-final/RegionSand2/rock_deco_floor/rock_big8" unique_id=530694268 instance=ExtResource("16_1wree")]
+transform = Transform3D(0.92827165, 0.3715896, 0.015249386, 0, 0.041003723, -0.99915886, -0.37190247, 0.92749107, 0.038062602, 0.30042124, -0.1106298, -0.1623249)
+
+[node name="rock_big_03" parent="modular-cave-final/RegionSand2/rock_deco_floor/rock_big8" unique_id=1359528393 instance=ExtResource("16_1wree")]
+transform = Transform3D(0.9282718, 0.3715896, 0.015249399, -0.27884364, 0.7225427, -0.6325965, -0.24608468, 0.5829694, 0.77433145, 0.66773367, 0.41336882, 1.1500244)
+
+[node name="rock_big6" type="Node3D" parent="modular-cave-final/RegionSand2/rock_deco_floor" unique_id=173886873]
+transform = Transform3D(-0.70012695, 0.116108224, 0.704515, -0.031310055, 0.9807486, -0.19274826, -0.7133316, -0.15700659, -0.6830131, -2.9850206, -0.26266944, -1.6191158)
+
+[node name="rock_big_01" parent="modular-cave-final/RegionSand2/rock_deco_floor/rock_big6" unique_id=1285530488 instance=ExtResource("16_1wree")]
+transform = Transform3D(-0.76663876, -0.6415387, -0.02632762, 0, 0.041003726, -0.999159, 0.6420787, -0.765994, -0.031435046, -0.7008524, 0.24016571, -1.7822533)
+
+[node name="rock_big_02" parent="modular-cave-final/RegionSand2/rock_deco_floor/rock_big6" unique_id=409238534 instance=ExtResource("16_1wree")]
+transform = Transform3D(0.92827165, 0.3715896, 0.015249386, 0, 0.041003723, -0.99915886, -0.37190247, 0.92749107, 0.038062602, 0.30042124, -0.1106298, -0.1623249)
+
+[node name="rock_big_03" parent="modular-cave-final/RegionSand2/rock_deco_floor/rock_big6" unique_id=1778987452 instance=ExtResource("16_1wree")]
+transform = Transform3D(0.9282718, 0.3715896, 0.015249399, -0.27884364, 0.7225427, -0.6325965, -0.24608468, 0.5829694, 0.77433145, 0.66773367, 0.41336882, 1.1500244)
+
+[node name="rock_deco_ceiling" type="Node3D" parent="modular-cave-final/RegionSand2" unique_id=706707087]
+
+[node name="rock_big_ceiling" type="Node3D" parent="modular-cave-final/RegionSand2/rock_deco_ceiling" unique_id=783564135]
+transform = Transform3D(-0.24104151, -0.22989696, -0.94289255, 0.056939855, -0.97321504, 0.22273408, -0.96884316, 2.1469573e-09, 0.24767555, 1.135849, 3.7755337, -6.3061447)
+
+[node name="rock_big_01" parent="modular-cave-final/RegionSand2/rock_deco_ceiling/rock_big_ceiling" unique_id=1320847237 instance=ExtResource("16_1wree")]
+transform = Transform3D(-0.90801173, -0.41859266, -0.017178312, -3.1295477e-10, 0.04100373, -0.99915904, 0.41894495, -0.907248, -0.03723186, 0.7889118, -0.14501405, 0.27983952)
+
+[node name="rock_big_02" parent="modular-cave-final/RegionSand2/rock_deco_ceiling/rock_big_ceiling" unique_id=1031248453 instance=ExtResource("16_1wree")]
+transform = Transform3D(0.92827165, 0.3715896, 0.015249386, 0, 0.041003723, -0.99915886, -0.37190247, 0.92749107, 0.038062602, 0.30042124, -0.1106298, -0.1623249)
+
+[node name="rock_big_03" parent="modular-cave-final/RegionSand2/rock_deco_ceiling/rock_big_ceiling" unique_id=1231898417 instance=ExtResource("16_1wree")]
+transform = Transform3D(0.9435154, 0.3279469, 0.047213495, -0.26169914, 0.8250237, -0.5008491, -0.20320421, 0.4602033, 0.8642461, 0.47346497, 0.41336882, 1.3282413)
+
+[node name="rock_big_ceiling2" type="Node3D" parent="modular-cave-final/RegionSand2/rock_deco_ceiling" unique_id=135216240]
+transform = Transform3D(-0.22475073, -0.42018086, -0.87916726, 0.104068495, -0.9074404, 0.40708923, -0.9688431, 5.7724656e-09, 0.24767554, 1.5765138, 5.7816896, 7.348423)
+
+[node name="rock_big_01" parent="modular-cave-final/RegionSand2/rock_deco_ceiling/rock_big_ceiling2" unique_id=1226093454 instance=ExtResource("16_1wree")]
+transform = Transform3D(-0.90801173, -0.41859266, -0.017178312, -3.1295477e-10, 0.04100373, -0.99915904, 0.41894495, -0.907248, -0.03723186, 0.7889118, -0.14501405, 0.27983952)
+
+[node name="rock_big_02" parent="modular-cave-final/RegionSand2/rock_deco_ceiling/rock_big_ceiling2" unique_id=1619027713 instance=ExtResource("16_1wree")]
+transform = Transform3D(0.92827165, 0.3715896, 0.015249386, 0, 0.041003723, -0.99915886, -0.37190247, 0.92749107, 0.038062602, 0.30042124, -0.1106298, -0.1623249)
+
+[node name="rock_big_03" parent="modular-cave-final/RegionSand2/rock_deco_ceiling/rock_big_ceiling2" unique_id=1609302229 instance=ExtResource("16_1wree")]
+transform = Transform3D(0.9435154, 0.3279469, 0.047213495, -0.26169914, 0.8250237, -0.5008491, -0.20320421, 0.4602033, 0.8642461, 0.47346497, 0.41336882, 1.3282413)
+
+[node name="rock_big_ceiling3" type="Node3D" parent="modular-cave-final/RegionSand2/rock_deco_ceiling" unique_id=782532700]
+transform = Transform3D(0.13327192, -0.7658077, 0.6291084, -0.09338415, -0.6416499, -0.7612913, 0.9866702, 0.042709958, -0.15702826, 1.5765138, 3.4864187, -5.5995426)
+
+[node name="rock_big_01" parent="modular-cave-final/RegionSand2/rock_deco_ceiling/rock_big_ceiling3" unique_id=1045259457 instance=ExtResource("16_1wree")]
+transform = Transform3D(-0.90801173, -0.41859266, -0.017178312, -3.1295477e-10, 0.04100373, -0.99915904, 0.41894495, -0.907248, -0.03723186, 0.7889118, -0.14501405, 0.27983952)
+
+[node name="rock_big_02" parent="modular-cave-final/RegionSand2/rock_deco_ceiling/rock_big_ceiling3" unique_id=991449499 instance=ExtResource("16_1wree")]
+transform = Transform3D(0.92827165, 0.3715896, 0.015249386, 0, 0.041003723, -0.99915886, -0.37190247, 0.92749107, 0.038062602, 0.30042124, -0.1106298, -0.1623249)
+
+[node name="rock_big_03" parent="modular-cave-final/RegionSand2/rock_deco_ceiling/rock_big_ceiling3" unique_id=1104800692 instance=ExtResource("16_1wree")]
+transform = Transform3D(0.9435154, 0.3279469, 0.047213495, -0.26169914, 0.8250237, -0.5008491, -0.20320421, 0.4602033, 0.8642461, 0.47346497, 0.41336882, 1.3282413)
+
+[node name="rock_big_ceiling4" type="Node3D" parent="modular-cave-final/RegionSand2/rock_deco_ceiling" unique_id=183776289]
+transform = Transform3D(0.13327192, -0.7658077, 0.6291084, -0.09338415, -0.6416499, -0.7612913, 0.9866702, 0.042709958, -0.15702826, 4.5280895, 3.4864187, 2.289011)
+
+[node name="rock_big_01" parent="modular-cave-final/RegionSand2/rock_deco_ceiling/rock_big_ceiling4" unique_id=1376768301 instance=ExtResource("16_1wree")]
+transform = Transform3D(-0.90801173, -0.41859266, -0.017178312, -3.1295477e-10, 0.04100373, -0.99915904, 0.41894495, -0.907248, -0.03723186, 0.7889118, -0.14501405, 0.27983952)
+
+[node name="rock_big_02" parent="modular-cave-final/RegionSand2/rock_deco_ceiling/rock_big_ceiling4" unique_id=768725375 instance=ExtResource("16_1wree")]
+transform = Transform3D(0.92827165, 0.3715896, 0.015249386, 0, 0.041003723, -0.99915886, -0.37190247, 0.92749107, 0.038062602, 0.30042124, -0.1106298, -0.1623249)
+
+[node name="rock_big_03" parent="modular-cave-final/RegionSand2/rock_deco_ceiling/rock_big_ceiling4" unique_id=1973533155 instance=ExtResource("16_1wree")]
+transform = Transform3D(0.9435154, 0.3279469, 0.047213495, -0.26169914, 0.8250237, -0.5008491, -0.20320421, 0.4602033, 0.8642461, 0.47346497, 0.41336882, 1.3282413)
+
+[node name="rock_big_ceiling5" type="Node3D" parent="modular-cave-final/RegionSand2/rock_deco_ceiling" unique_id=89859596]
+transform = Transform3D(0.08240983, -0.88921344, -0.45000896, 0.12442675, -0.43883175, 0.88991296, -0.9888006, -0.12933059, 0.07447795, 4.240597, 5.416042, 2.289011)
+
+[node name="rock_big_01" parent="modular-cave-final/RegionSand2/rock_deco_ceiling/rock_big_ceiling5" unique_id=1596592053 instance=ExtResource("16_1wree")]
+transform = Transform3D(-0.90801173, -0.41859266, -0.017178312, -3.1295477e-10, 0.04100373, -0.99915904, 0.41894495, -0.907248, -0.03723186, 0.7889118, -0.14501405, 0.27983952)
+
+[node name="rock_big_02" parent="modular-cave-final/RegionSand2/rock_deco_ceiling/rock_big_ceiling5" unique_id=1368651057 instance=ExtResource("16_1wree")]
+transform = Transform3D(0.92827165, 0.3715896, 0.015249386, 0, 0.041003723, -0.99915886, -0.37190247, 0.92749107, 0.038062602, 0.30042124, -0.1106298, -0.1623249)
+
+[node name="rock_big_03" parent="modular-cave-final/RegionSand2/rock_deco_ceiling/rock_big_ceiling5" unique_id=778364488 instance=ExtResource("16_1wree")]
+transform = Transform3D(0.9435154, 0.3279469, 0.047213495, -0.26169914, 0.8250237, -0.5008491, -0.20320421, 0.4602033, 0.8642461, 0.47346497, 0.41336882, 1.3282413)
+
+[node name="rock_big_ceiling6" type="Node3D" parent="modular-cave-final/RegionSand2/rock_deco_ceiling" unique_id=1802445945]
+transform = Transform3D(0.25904182, 0.59603244, -0.7600282, 0.05853464, -0.79512894, -0.6036088, -0.9640908, 0.11187214, -0.2408602, -3.8418097, 3.4267154, 6.355957)
+
+[node name="rock_big_01" parent="modular-cave-final/RegionSand2/rock_deco_ceiling/rock_big_ceiling6" unique_id=174233781 instance=ExtResource("16_1wree")]
+transform = Transform3D(-0.90801173, -0.41859266, -0.017178312, -3.1295477e-10, 0.04100373, -0.99915904, 0.41894495, -0.907248, -0.03723186, 0.7889118, -0.14501405, 0.27983952)
+
+[node name="rock_big_02" parent="modular-cave-final/RegionSand2/rock_deco_ceiling/rock_big_ceiling6" unique_id=542130646 instance=ExtResource("16_1wree")]
+transform = Transform3D(0.92827165, 0.3715896, 0.015249386, 0, 0.041003723, -0.99915886, -0.37190247, 0.92749107, 0.038062602, 0.30042124, -0.1106298, -0.1623249)
+
+[node name="rock_big_03" parent="modular-cave-final/RegionSand2/rock_deco_ceiling/rock_big_ceiling6" unique_id=1527402266 instance=ExtResource("16_1wree")]
+transform = Transform3D(0.9435154, 0.3279469, 0.047213495, -0.26169914, 0.8250237, -0.5008491, -0.20320421, 0.4602033, 0.8642461, 0.47346497, 0.41336882, 1.3282413)
+
+[node name="stone_group_1_03" parent="modular-cave-final/RegionSand2/rock_deco_ceiling" unique_id=2132338880 instance=ExtResource("14_22shp")]
+transform = Transform3D(0.1477323, -0.05519985, 0.07584949, 0.01109809, -0.13021845, -0.116382934, 0.093150385, 0.10305891, -0.106427796, 0.62679815, 4.7550173, -6.2050495)
 
 [node name="RegionSand3" type="Area3D" parent="modular-cave-final" unique_id=139102457]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.045105, 0, 72.51401)
@@ -1271,27 +1471,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2663164, 0, -5.00718)
 transform = Transform3D(1.605, 0, 0, 0, 1.605, 0, 0, 0, 1.605, 0, 0.06785911, 0)
 
 [node name="Skeleton3D" parent="Monster/blob_monster/Sketchfab_model/3f6d8c832002440e97bb2e8e289744c0_fbx/Object_2/RootNode/Object_4" parent_id_path=PackedInt32Array(890782185, 1535069810) index="0" unique_id=94807764]
-bones/1/position = Vector3(0.06443216, 4.042947, -0.06114056)
-bones/1/rotation = Quaternion(-0.039398465, -0.3671458, -0.013668537, 0.9292282)
-bones/2/rotation = Quaternion(0.07992396, 0.040749595, -0.010367672, 0.99591374)
-bones/3/rotation = Quaternion(0.095898286, 0.07923096, -0.022354443, 0.991981)
-bones/4/rotation = Quaternion(0.09580801, 0.07925024, -0.022376651, 0.9919877)
-bones/5/rotation = Quaternion(-0.055395834, -0.010313272, 0.0020993093, 0.99840903)
-bones/6/rotation = Quaternion(-0.070721455, 0.17840408, -0.0040746434, 0.98140407)
-bones/8/rotation = Quaternion(0.6461159, 0.33825922, -0.59023535, 0.34603095)
-bones/9/rotation = Quaternion(0.32051757, -0.100692615, 0.087055475, 0.9378438)
-bones/10/rotation = Quaternion(-0.047748532, 0.062025223, 0.41415069, 0.90683633)
-bones/12/rotation = Quaternion(0.6696607, -0.3205613, 0.5729795, 0.34711617)
-bones/13/rotation = Quaternion(0.3186952, 0.10746717, 0.12568764, 0.9333204)
-bones/14/rotation = Quaternion(0.033605985, 0.003590768, -0.3672721, 0.9294993)
-bones/16/rotation = Quaternion(0.08834655, 0.2723244, 0.94876367, -0.13372344)
-bones/17/rotation = Quaternion(-0.41041666, 0.12435316, -0.08815841, 0.8990677)
-bones/18/rotation = Quaternion(0.60017645, 0.42450428, -0.4605131, 0.4975059)
-bones/19/rotation = Quaternion(0.00820656, 0.023705289, 0.15983137, 0.9868255)
-bones/21/rotation = Quaternion(-0.12726739, 0.05860724, 0.9733031, 0.18179503)
-bones/22/rotation = Quaternion(-0.417086, 0.06157446, 0.032591015, 0.906193)
-bones/23/rotation = Quaternion(0.6591556, -0.49809793, 0.46914586, 0.311953)
-bones/24/rotation = Quaternion(0.0029140238, -0.0150199095, -0.09001138, 0.9958232)
+bones/1/position = Vector3(0.06553219, 4.047904, -0.051080555)
+bones/1/rotation = Quaternion(-0.03972985, -0.36706004, -0.0138668, 0.92924494)
+bones/2/rotation = Quaternion(0.078913696, 0.04066346, -0.009817238, 0.9960034)
+bones/3/rotation = Quaternion(0.09385147, 0.07919909, -0.021939466, 0.9921886)
+bones/4/rotation = Quaternion(0.09383244, 0.07922069, -0.021946961, 0.9921885)
+bones/5/rotation = Quaternion(-0.050063383, -0.01055616, 0.001960313, 0.9986884)
+bones/6/rotation = Quaternion(-0.071619466, 0.17753853, -0.0012334562, 0.9815036)
+bones/8/rotation = Quaternion(0.6414054, 0.34463617, -0.5901135, 0.34869927)
+bones/9/rotation = Quaternion(0.32387757, -0.09882886, 0.08600593, 0.9369842)
+bones/10/rotation = Quaternion(-0.046475675, 0.06373533, 0.4162588, 0.90581816)
+bones/12/rotation = Quaternion(0.66385555, -0.3275687, 0.5738152, 0.3503293)
+bones/13/rotation = Quaternion(0.32568696, 0.10244392, 0.124869436, 0.93157977)
+bones/14/rotation = Quaternion(0.03731535, -0.0017855151, -0.36910662, 0.92863595)
+bones/16/rotation = Quaternion(0.088705316, 0.27007648, 0.9494394, -0.13324746)
+bones/17/rotation = Quaternion(-0.4089989, 0.12472509, -0.08847163, 0.8996313)
+bones/18/rotation = Quaternion(0.5999187, 0.42461276, -0.46036068, 0.49786505)
+bones/19/rotation = Quaternion(0.008127918, 0.023698144, 0.15977593, 0.9868353)
+bones/21/rotation = Quaternion(-0.12766251, 0.054848015, 0.9733521, 0.18242748)
+bones/22/rotation = Quaternion(-0.4127986, 0.061588787, 0.03330634, 0.9081272)
+bones/23/rotation = Quaternion(0.65852237, -0.49701, 0.47052675, 0.31294394)
+bones/24/rotation = Quaternion(0.0028085425, -0.014965, -0.08995234, 0.9958297)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Monster" unique_id=1897117262]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1532463, 0)
