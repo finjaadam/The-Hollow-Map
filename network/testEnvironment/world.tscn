@@ -1,21 +1,10 @@
 [gd_scene format=3 uid="uid://f7of5cgi0hou"]
 
-[ext_resource type="PackedScene" uid="uid://bdbdpfsquvmcr" path="res://network/testEnvironment/networkManager.tscn" id="1_8rd3g"]
-[ext_resource type="PackedScene" uid="uid://cu5gtk0ybh744" path="res://network/testEnvironment/player.tscn" id="2_fj7yv"]
+[ext_resource type="Script" uid="uid://brjdpp3vab0uk" path="res://network/testEnvironment/World.gd" id="1_5nbxc"]
+[ext_resource type="Environment" uid="uid://bixn4bbcuffnd" path="res://environments/debug_env.tres" id="3_5nbxc"]
 [ext_resource type="PackedScene" uid="uid://jkgmdgtn5ei" path="res://network/testEnvironment/wall.tscn" id="3_8rd3g"]
+[ext_resource type="Script" uid="uid://ca5umlvtvh4el" path="res://network/scripts/Map.gd" id="4_5nbxc"]
 [ext_resource type="PackedScene" uid="uid://c8liybxhqrhwr" path="res://network/testEnvironment/map.tscn" id="4_uw1st"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8i81k"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-
-[sub_resource type="Sky" id="Sky_8rd3g"]
-sky_material = SubResource("ProceduralSkyMaterial_8i81k")
-
-[sub_resource type="Environment" id="Environment_uw1st"]
-background_mode = 2
-sky = SubResource("Sky_8rd3g")
-tonemap_mode = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_f3sb7"]
 size = Vector3(60, 2, 60)
@@ -27,38 +16,51 @@ size = Vector3(60, 2, 60)
 albedo_color = Color(0.39837635, 0.39837638, 0.39837635, 1)
 
 [node name="World" type="Node3D" unique_id=740440789]
+script = ExtResource("1_5nbxc")
 
-[node name="NetworkManager" parent="." unique_id=2061567717 node_paths=PackedStringArray("spawn_points") instance=ExtResource("1_8rd3g")]
-player_scene = ExtResource("2_fj7yv")
-spawn_points = NodePath("../Map/PlayerSpawnPoints")
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=658407793]
+environment = ExtResource("3_5nbxc")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=233421186]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1209570367]
-environment = SubResource("Environment_uw1st")
-
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=1617664168]
-_spawnable_scenes = PackedStringArray("uid://cu5gtk0ybh744")
+_spawnable_scenes = PackedStringArray("uid://cu5gtk0ybh744", "uid://deefor15sgl47")
 spawn_path = NodePath("..")
 
-[node name="Map" parent="." unique_id=1910157186 instance=ExtResource("4_uw1st")]
+[node name="Map" parent="." unique_id=1910157186 node_paths=PackedStringArray("spawn_exit_door_points") instance=ExtResource("4_uw1st")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.4840088)
+script = ExtResource("4_5nbxc")
+spawn_exit_door_points = NodePath("ExitsSpawnPoints")
 
 [node name="PlayerSpawnPoints" type="Node3D" parent="Map" unique_id=902470412]
 
 [node name="1" type="Marker3D" parent="Map/PlayerSpawnPoints" unique_id=356586588]
-transform = Transform3D(-0.41478854, 0, 0.9099178, 0, 1, 0, -0.9099178, 0, -0.41478854, -33.615265, 1.034462, 41.029694)
+transform = Transform3D(-0.41478854, 0, 0.9099178, 0, 1, 0, -0.9099178, 0, -0.41478854, -33.615265, 3.6327908, 41.029694)
 
 [node name="2" type="Marker3D" parent="Map/PlayerSpawnPoints" unique_id=1094700891]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.02018, 1.3962688, -8.714355)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.02018, 3.4064312, -8.714355)
 
 [node name="3" type="Marker3D" parent="Map/PlayerSpawnPoints" unique_id=220206964]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.974022, 2.010975, -43.272728)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.974022, 2.3833568, -43.272728)
 
 [node name="4" type="Marker3D" parent="Map/PlayerSpawnPoints" unique_id=670691903]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -69.42361, -1.5130281, -2.6034832)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -69.42361, -1.063669, -2.6034832)
+
+[node name="ExitsSpawnPoints" type="Node3D" parent="Map" unique_id=1588001583]
+
+[node name="1" type="Marker3D" parent="Map/ExitsSpawnPoints" unique_id=527565717]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.704548, 1.2373495, 33.84215)
+
+[node name="2" type="Marker3D" parent="Map/ExitsSpawnPoints" unique_id=1536906986]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.567677, 1.2373495, -6.792183)
+
+[node name="3" type="Marker3D" parent="Map/ExitsSpawnPoints" unique_id=1743314264]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.954456, 1.2373495, -6.305378)
+
+[node name="4" type="Marker3D" parent="Map/ExitsSpawnPoints" unique_id=200345702]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.635197, 1.2373495, 0.9520836)
 
 [node name="TestMap" type="StaticBody3D" parent="." unique_id=146694575]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -120)

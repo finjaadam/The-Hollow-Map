@@ -12,8 +12,11 @@ extends Control
 @onready var sfx_label = $CenterContainer/VBoxContainer/AudioContent/HBoxContainer3/Label3
 @onready var chat_label = $CenterContainer/VBoxContainer/AudioContent/HBoxContainer4/Label4
 
+@export var is_Pause_Menu: bool
+
 func _ready():
-	add_to_group("main_menu")
+	SceneLoader.paused.connect(_on_pause)
+	if not is_Pause_Menu: add_to_group("main_menu")
 	_load_audio_settings()
 	_setup_navigation()
 	master_slider.grab_focus()
@@ -37,7 +40,13 @@ func _load_audio_settings():
 func _on_back_button_pressed() -> void:
 	Settings.apply_audio_settings()
 	Settings.save_settings()
-	SceneLoader.goto_scene("res://ui/screens/menu/OptionsMenu.tscn", false)
+	if is_Pause_Menu:
+		if ResourceLoader.exists("res://ui/screens/menu/pause/PauseMenu.tscn"):
+			var back_destination: Node = load("res://ui/screens/menu/pause/PauseMenu.tscn").instantiate()
+			get_tree().root.add_child(back_destination)
+			queue_free()
+	else:
+		SceneLoader.goto_scene("res://ui/screens/menu/OptionsMenu.tscn", false)
 
 
 func _on_h_slider_master_value_changed(value: float) -> void:
@@ -67,3 +76,8 @@ func _on_h_slider_chat_value_changed(value: float) -> void:
 func _on_reset_pressed() -> void:
 	Settings.reset_audio()
 	_load_audio_settings()
+	
+func _on_pause(is_paused: bool):
+	if is_Pause_Menu:
+		SceneLoader.is_paused = true
+		_on_back_button_pressed()

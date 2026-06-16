@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://dr37m50hieaai"]
 
-[ext_resource type="Theme" path="res://ui/theme.tres" id="1"]
+[ext_resource type="Theme" uid="uid://cbksa12r5e4vq" path="res://ui/theme.tres" id="1"]
 [ext_resource type="Script" uid="uid://p2216we18bik" path="res://ui/screens/menu/VideoMenu.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://d0lu66dah1ayb" path="res://ui/background.png" id="3_e2a05"]
 
 [node name="VideoMenu" type="Control" unique_id=105999390]
 layout_mode = 3
@@ -12,6 +13,16 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1")
 script = ExtResource("2")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=677599869]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_e2a05")
+expand_mode = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=1651977262]
 layout_mode = 1
@@ -35,7 +46,7 @@ horizontal_alignment = 1
 layout_mode = 2
 alignment = 1
 
-[node name="FullscreenLabel" type="Label" parent="CenterContainer/VBoxContainer/FullscreenRow" unique_id=865706687]
+[node name="FullscreenLabel" type="RichTextLabel" parent="CenterContainer/VBoxContainer/FullscreenRow" unique_id=2134892126]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Vollbild:"
@@ -47,10 +58,10 @@ layout_mode = 2
 layout_mode = 2
 alignment = 1
 
-[node name="ResolutionLabel" type="Label" parent="CenterContainer/VBoxContainer/ResolutionRow" unique_id=409634372]
+[node name="ResolutionLabel" type="RichTextLabel" parent="CenterContainer/VBoxContainer/ResolutionRow" unique_id=700944266]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Auflösung:"
+text = "Aufloesung:"
 
 [node name="OptionButton" type="OptionButton" parent="CenterContainer/VBoxContainer/ResolutionRow" unique_id=373614003]
 layout_mode = 2
@@ -71,7 +82,7 @@ popup/item_4/id = 4
 layout_mode = 2
 alignment = 1
 
-[node name="VsyncLabel" type="Label" parent="CenterContainer/VBoxContainer/VsyncRow" unique_id=1052693128]
+[node name="VsyncLabel" type="RichTextLabel" parent="CenterContainer/VBoxContainer/VsyncRow" unique_id=1024364546]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "VSync:"
@@ -83,7 +94,7 @@ layout_mode = 2
 layout_mode = 2
 alignment = 1
 
-[node name="LoadingLabel" type="Label" parent="CenterContainer/VBoxContainer/LoadingRow" unique_id=1061605332]
+[node name="LoadingLabel" type="RichTextLabel" parent="CenterContainer/VBoxContainer/LoadingRow" unique_id=644446327]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Lade-Bildschirm anzeigen:"
@@ -98,7 +109,7 @@ layout_mode = 2
 [node name="BackButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=994467874]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
-text = "Zurück"
+text = "Zurueck"
 
 [connection signal="toggled" from="CenterContainer/VBoxContainer/FullscreenRow/FullscreenCheck" to="." method="_on_fullscreen_check_toggled"]
 [connection signal="item_selected" from="CenterContainer/VBoxContainer/ResolutionRow/OptionButton" to="." method="_on_option_button_item_selected"]

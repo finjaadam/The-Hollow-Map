@@ -1,0 +1,61 @@
+extends Control
+
+@onready var player_list = $PlayerEntries
+@onready var start_button = $StartButton
+@onready var ready_button = $ReadyCheckbox
+@onready var lobby_name = $LobbyName
+@onready var player_entry = preload("res://ui/screens/menu/lobby/playerEntry.tscn")
+
+var readyString: Dictionary = {"Ready": "Bereit", "NotReady": "Nicht Bereit"}
+
+func _ready():
+	# Connect to NetworkManager signals
+	NetworkManager.lobby_is_ready.connect(_on_lobby_ready)
+	NetworkManager.lobby_is_not_ready.connect(_on_lobby_not_ready)
+	NetworkManager.game_starting.connect(_on_game_starting)
+	NetworkManager.lobby_updated.connect(_update_ui)
+	NetworkManager.lobby_name_updated.connect(_update_lobby_name)
+
+func _update_lobby_name():
+	lobby_name.editable = true if NetworkManager.is_host else false
+	start_button.disabled = true
+	lobby_name.text = NetworkManager.get_lobby_name()
+
+func _update_ui():
+	for child in player_list.get_children():
+		child.queue_free()
+	for member in NetworkManager.lobby_members:
+		var id = member["steam_id"]
+		var player_ready = NetworkManager.ready_states.get(id, false)
+		var player_entry_instance = player_entry.instantiate()
+		player_entry_instance.get_node("PlayerName").text = member["steam_name"]
+		player_entry_instance.get_node("Status").text = readyString.Ready if player_ready else readyString.NotReady
+		player_list.add_child(player_entry_instance)
+
+func _on_start_button_pressed():
+	NetworkManager.start_game.rpc()
+
+func _on_game_starting():
+	var world = preload("res://network/testEnvironment/world.tscn")
+	var instance = world.instantiate()
+	SceneLoader.goto_preloaded_scene(instance, "res://network/testEnvironment/world.tscn")
+
+func _on_ready_checkbox_toggled(toggled_on: bool) -> void:
+	NetworkManager.set_player_ready.rpc(toggled_on)
+
+func _on_lobby_ready():
+	start_button.disabled = false
+
+func _on_lobby_not_ready():
+	start_button.disabled = true
+
+func _on_back_button_pressed() -> void:
+	NetworkManager.leave_lobby()
+	SceneLoader.goto_scene("res://network/testEnvironment/menu.tscn")
+
+func _on_lobby_name_text_submitted(new_text: String) -> void:
+	NetworkManager.set_lobby_name.rpc(new_text)
+
+func _on_lobby_name_editing_toggled(toggled_on: bool) -> void:
+	if not toggled_on:
+		NetworkManager.set_lobby_name.rpc(lobby_name.text)

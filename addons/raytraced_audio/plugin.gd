@@ -65,8 +65,20 @@ func _setup_audio_buses() -> void:
 	var panner: AudioEffectPanner = AudioEffectPanner.new()
 	panner.resource_name = "pan"
 	AudioServer.add_bus_effect(i, panner)
-
-	# There's a bug in Godot that makes it so the ambient bus doesnt show properly in the editor
+	
+	# SFX
+	i = AudioServer.bus_count
+	AudioServer.add_bus()
+	AudioServer.set_bus_name(i, "SFX")
+	AudioServer.set_bus_send(i, ProjectSettings.get_setting("raytraced_audio/reverb_bus", &"RaytracedReverb"))
+	
+	# Chat
+	i = AudioServer.bus_count
+	AudioServer.add_bus()
+	AudioServer.set_bus_name(i, "Chat")
+	AudioServer.set_bus_send(i, ProjectSettings.get_setting("raytraced_audio/reverb_bus", &"RaytracedReverb"))
+	
+	# There's a bug in Godot that makes it so the last bus doesnt show properly in the editor
 	# This is "fixable" by adding a temporary bus afterwards and deleting it immediately because ofc.
 	# fuck you (respectfully)
 	i = AudioServer.bus_count
@@ -79,5 +91,11 @@ func _clean_up_audio_buses() -> void:
 	if i != -1:
 		AudioServer.remove_bus(i)
 	i = AudioServer.get_bus_index(ProjectSettings.get_setting("raytraced_audio/ambient_bus", &"RaytracedAmbient"))
+	if i != -1:
+		AudioServer.remove_bus(i)
+	i = AudioServer.get_bus_index("SFX")
+	if i != -1:
+		AudioServer.remove_bus(i)
+	i = AudioServer.get_bus_index("Chat")
 	if i != -1:
 		AudioServer.remove_bus(i)

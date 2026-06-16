@@ -25,11 +25,15 @@ driver/mix_rate=48000
 [autoload]
 
 SaveData="*uid://d3gbt7it2l7q4"
-SceneLoader="*uid://bljise81d4hka"
 Settings="*uid://dm2ypjtuaq36q"
 AreaSoundManager="*res://autoload/AreaSoundManager.gd"
-SteamCheck="*uid://bx41bdyvrt3du"
 MenuSoundManager="*res://autoload/MenuSoundManager.gd"
+Debug="*uid://xnvvoqv42hb6"
+TeamProperties="*res://autoload/TeamProperties.gd"
+BusManager="*uid://b1sk838qwcaqq"
+SteamCheck="*uid://bx41bdyvrt3du"
+NetworkManager="*uid://okj6fphk5uo1"
+SceneLoader="*uid://bljise81d4hka"
 
 [display]
 
@@ -39,6 +43,10 @@ mouse_cursor/custom_image_hotspot=Vector2(10, 8)
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godotsteam/plugin.cfg", "res://addons/raytraced_audio/plugin.cfg", "res://addons/snappy/plugin.cfg")
+
+[gui]
+
+theme/custom="uid://cbksa12r5e4vq"
 
 [input]
 
@@ -82,9 +90,14 @@ DEBUG_TELEPORT={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194341,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
-MAP_TELEPORT={
+DEBUG_MAP_TELEPORT={
 "deadzone": 0.2,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194342,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+DEBUG_TOGGLE_ROLE={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194343,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
 
@@ -100,8 +113,6 @@ ambient_bus=&"RaytracedAmbient"
 [rendering]
 
 rendering_device/driver.windows="d3d12"
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"
 
 [steam]
 

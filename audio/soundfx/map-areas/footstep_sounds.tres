@@ -18,15 +18,16 @@
 [ext_resource type="AudioStream" uid="uid://cbth4ob12s4tn" path="res://audio/soundfx/map-areas/wood/Footstep on woodland 1.mp3" id="16_n76dd"]
 [ext_resource type="AudioStream" uid="uid://byuhu4v38iw60" path="res://audio/soundfx/map-areas/wood/Footstep on woodland 2.mp3" id="17_7iosf"]
 [ext_resource type="AudioStream" uid="uid://cugivnivoxa48" path="res://audio/soundfx/map-areas/wood/Footstep on woodland 3.mp3" id="18_28ub0"]
-[ext_resource type="AudioStream" uid="uid://73xak8evgie" path="res://audio/soundfx/map-areas/wood/Footstep on woodland 4.mp3" id="19_f4wb0"]
-[ext_resource type="Script" uid="uid://d03op35bom06" path="res://audio/AudioLibrary.gd" id="20_p7bjk"]
+[ext_resource type="AudioStream" uid="uid://cbnyshb2pjuw5" path="res://audio/soundfx/map-areas/wood/Footstep on breaking wood 1.mp3" id="19_k4m9n"]
+[ext_resource type="AudioStream" uid="uid://8ojhh7bprf8t" path="res://audio/soundfx/map-areas/wood/Footstep on breaking wood 2.mp3" id="20_l5p0o"]
+[ext_resource type="Script" uid="uid://d03op35bom06" path="res://audio/AudioLibrary.gd" id="21_p7bjk"]
 
 [resource]
-script = ExtResource("20_p7bjk")
+script = ExtResource("21_p7bjk")
 footstep_surfaces = {
 "gravel": Array[AudioStream]([ExtResource("1_p7bjk"), ExtResource("2_k7mhg"), ExtResource("3_dshfs")]),
 "sand": Array[AudioStream]([ExtResource("4_3eyib"), ExtResource("5_v0krn"), ExtResource("6_xpitr"), ExtResource("7_4h0ip")]),
 "stone": Array[AudioStream]([ExtResource("8_4qcul"), ExtResource("9_1dwtu"), ExtResource("10_yb6nh"), ExtResource("11_0mls8")]),
 "water": Array[AudioStream]([ExtResource("12_ejc6j"), ExtResource("13_3ln30"), ExtResource("14_rdfm0"), ExtResource("15_8e2pb")]),
-"wood": Array[AudioStream]([ExtResource("16_n76dd"), ExtResource("17_7iosf"), ExtResource("18_28ub0"), ExtResource("19_f4wb0")])
+"wood": Array[AudioStream]([ExtResource("16_n76dd"), ExtResource("17_7iosf"), ExtResource("18_28ub0"), ExtResource("19_k4m9n"), ExtResource("20_l5p0o")])
 }
