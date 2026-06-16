@@ -1,14 +1,17 @@
 [gd_scene format=3 uid="uid://c8liybxhqrhwr"]
 
 [ext_resource type="PackedScene" uid="uid://b2yxpytggb8ro" path="res://map/modular-cave-final.glb" id="1_wb7j6"]
-[ext_resource type="Script" uid="uid://c15wkn1ddol15" path="res://network/scripts/areaSounds/MapArea.gd" id="2_ieofv"]
+[ext_resource type="Script" uid="uid://c15wkn1ddol15" path="res://Network/scripts/areaSounds/MapArea.gd" id="2_ieofv"]
+[ext_resource type="AudioStream" uid="uid://1chc6cbhimgh" path="res://audio/music/ambient/WaterDrops.mp3" id="3_r6vd7"]
 [ext_resource type="PackedScene" uid="uid://dnk8iwck0vfdf" path="res://assets/wasser.tscn" id="3_xqtg2"]
 [ext_resource type="PackedScene" uid="uid://drhm8uhvkuffw" path="res://assets/fountain_3d_model_free-edited/fountain-small.tscn" id="4_e062h"]
 [ext_resource type="PackedScene" uid="uid://defweiiwbw4mq" path="res://assets/stick01.tscn" id="5_pe7kj"]
 [ext_resource type="PackedScene" uid="uid://btee5hd22blia" path="res://assets/stick02.tscn" id="6_cns11"]
 [ext_resource type="PackedScene" uid="uid://dgxfwymoqv4kr" path="res://assets/fountain_3d_model_free-edited/fountain-without-wall.tscn" id="6_hmamp"]
 [ext_resource type="PackedScene" uid="uid://dlwaiouyjgvki" path="res://assets/stick03.tscn" id="7_dsb58"]
+[ext_resource type="AudioStream" uid="uid://6rsenxiglxlu" path="res://audio/music/ambient/WoodCreak.mp3" id="8_clsdl"]
 [ext_resource type="PackedScene" uid="uid://c6pb4jl5gv7js" path="res://assets/stick04.tscn" id="8_noxxg"]
+[ext_resource type="AudioStream" uid="uid://mohqcnawoont" path="res://audio/music/ambient/Wind.mp3" id="9_g8gtg"]
 [ext_resource type="PackedScene" uid="uid://bglyqt7xe8ubo" path="res://assets/stick05.tscn" id="9_p25gm"]
 [ext_resource type="PackedScene" uid="uid://nd8n5cvv6shg" path="res://assets/camp_fire/campfire.tscn" id="9_pe7kj"]
 [ext_resource type="PackedScene" uid="uid://dg50fnoof8bji" path="res://assets/jukebox/jukebox.tscn" id="10_cns11"]
@@ -119,6 +122,8 @@ debug_fill = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.6832733, 2.81, 0.90505886)
 script = ExtResource("2_ieofv")
 surface_type = 2
+ambient_streams = Array[AudioStream]([ExtResource("3_r6vd7")])
+ambient_pitch_scale = 0.75
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="modular-cave-final/RegionWater/Puddle3" unique_id=1400977402]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.98141, -0.13259768, 1.5340161)
@@ -165,6 +170,8 @@ debug_fill = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.7269726, 2.81, 3.7094235)
 script = ExtResource("2_ieofv")
 surface_type = 2
+ambient_streams = Array[AudioStream]([ExtResource("3_r6vd7")])
+ambient_pitch_scale = 0.75
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="modular-cave-final/RegionWater2/Puddle3" unique_id=462047277]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10621452, -2.3553002, 0.05934143)
@@ -191,6 +198,8 @@ debug_fill = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8253632, 2.81, 1.2728729)
 script = ExtResource("2_ieofv")
 surface_type = 2
+ambient_streams = Array[AudioStream]([ExtResource("3_r6vd7")])
+ambient_pitch_scale = 0.75
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="modular-cave-final/RegionWater3/Puddle1" unique_id=756247878]
 transform = Transform3D(0.121869326, 0.99254614, 0, 0.017322265, -0.0021269063, -0.9998477, -0.992395, 0.121850766, -0.017452352, 0.060958862, -2.684215, 0.013979912)
@@ -207,6 +216,8 @@ debug_fill = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.099556, 2.81, -2.1211605)
 script = ExtResource("2_ieofv")
 surface_type = 2
+ambient_streams = Array[AudioStream]([ExtResource("3_r6vd7")])
+ambient_pitch_scale = 0.75
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="modular-cave-final/RegionWater3/Puddle4" unique_id=50235313]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2916031, -0.08223057, 0.17850208)
@@ -243,6 +254,10 @@ debug_color = Color(1, 1, 1, 0.6431373)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.149, 0, 120.067)
 script = ExtResource("2_ieofv")
 surface_type = 3
+ambient_streams = Array[AudioStream]([ExtResource("8_clsdl"), ExtResource("9_g8gtg")])
+ambient_volume_db = -22.0
+ambient_unit_size = 20.0
+ambient_max_distance = 35.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="modular-cave-final/RegionWood" unique_id=1023882891]
 shape = SubResource("BoxShape3D_wood")
@@ -585,6 +600,10 @@ transform = Transform3D(-0.8535508, 0, -0.5210096, -1.4901161e-08, 0.99999994, 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.139, 0, 51.827)
 script = ExtResource("2_ieofv")
 surface_type = 3
+ambient_streams = Array[AudioStream]([ExtResource("8_clsdl"), ExtResource("9_g8gtg")])
+ambient_volume_db = -22.0
+ambient_unit_size = 25.0
+ambient_max_distance = 40.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="modular-cave-final/RegionWood2" unique_id=646101133]
 shape = SubResource("BoxShape3D_ieofv")
@@ -822,6 +841,10 @@ transform = Transform3D(-0.8268293, -0.16507432, -0.5376838, -0.31237873, 0.9297
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.295, 0, 111.918)
 script = ExtResource("2_ieofv")
 surface_type = 3
+ambient_streams = Array[AudioStream]([ExtResource("8_clsdl"), ExtResource("9_g8gtg")])
+ambient_volume_db = -22.0
+ambient_unit_size = 20.0
+ambient_max_distance = 35.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="modular-cave-final/RegionWood3" unique_id=1217790655]
 shape = SubResource("BoxShape3D_c7dxg")
@@ -981,6 +1004,10 @@ transform = Transform3D(-0.85262835, 0.046469357, -0.5204485, 0.06960226, 0.9972
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 115.02, 0, 112.016)
 script = ExtResource("2_ieofv")
 surface_type = 3
+ambient_streams = Array[AudioStream]([ExtResource("8_clsdl"), ExtResource("9_g8gtg")])
+ambient_volume_db = -22.0
+ambient_unit_size = 20.0
+ambient_max_distance = 35.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="modular-cave-final/RegionWood4" unique_id=465571639]
 shape = SubResource("BoxShape3D_c7dxg")
@@ -1104,6 +1131,10 @@ transform = Transform3D(-0.7236104, 0.5368331, -0.43381825, 0.44618842, 0.843372
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 102.08, 0, 117.046)
 script = ExtResource("2_ieofv")
 surface_type = 3
+ambient_streams = Array[AudioStream]([ExtResource("8_clsdl"), ExtResource("9_g8gtg")])
+ambient_volume_db = -22.0
+ambient_unit_size = 15.0
+ambient_max_distance = 30.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="modular-cave-final/RegionWood5" unique_id=130354581]
 shape = SubResource("BoxShape3D_oyyej")
