@@ -18,6 +18,8 @@ var target_velocity = Vector3.ZERO
 enum Role {PLAYER, MONSTER}
 var ownRole: Role
 
+var is_fishing := false
+
 func _ready() -> void:
 	_on_ready()
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -30,6 +32,7 @@ func _ready() -> void:
 		camera3d.current = false
 		canvas.visible = false
 	SceneLoader.paused.connect(_on_pause)
+	
 
 # Overwrite in Subclass
 func _on_ready():
@@ -44,7 +47,7 @@ func _input(event):
 	# Only process input for the local player
 	if not is_multiplayer_authority():
 		return
-	if SceneLoader.is_paused:
+	if SceneLoader.is_paused or is_fishing:
 		return
 	
 	if OS.is_debug_build():
@@ -67,7 +70,7 @@ func _physics_process(delta):
 		return
 	if not is_multiplayer_authority():
 		return
-	if SceneLoader.is_paused:
+	if SceneLoader.is_paused or is_fishing:
 		return
 
 	var direction = Vector3.ZERO
@@ -129,3 +132,12 @@ func _debug_toggle_role() -> void:
 	
 	# Tell the host/spawner to swap the scene for this peer
 	NetworkManager._debug_respawn_peer.rpc_id(1, my_id, new_role)
+	
+func set_fishing_mode(fishing: bool) -> void:
+		is_fishing = fishing
+		if is_fishing:
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		else:
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+			DisplayServer.window_move_to_foreground()
+			Input.flush_buffered_events()
