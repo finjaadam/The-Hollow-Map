@@ -26,7 +26,7 @@ func enter_zone():
 
 func exit_zone():
 	var tween := create_tween()
-	tween.tween_property(_default_player, "volume_db", -25.0, 3.0).set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property(_default_player, "volume_db", -20.0, 3.0).set_ease(Tween.EASE_IN_OUT)
 
 
 static func surface_name(surface: SurfaceType) -> String:
