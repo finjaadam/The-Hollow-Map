@@ -7,11 +7,14 @@ var life_drain_timer: Timer
 var player_roles: Dictionary = {}
 var team_lives: int = 0
 var team_keys: int = 0
+var game_has_ended: bool = false
 # ...add more game state here over time
 
 signal state_updated
 signal keys_changed
 signal lives_changed
+signal players_won
+signal monster_won
 signal spawn_added
 
 enum spawn_type {
@@ -56,6 +59,9 @@ func _ready() -> void:
 	life_drain_timer.wait_time = 5.0
 	life_drain_timer.timeout.connect(_on_life_drain_timeout)
 	add_child(life_drain_timer)
+	
+	# Enable input processing for debug functions
+	process_mode = PROCESS_MODE_ALWAYS
 
 ## Reset EVERYTHING [br]
 ## E.g. on leave
@@ -63,6 +69,7 @@ func clear() -> void:
 	player_roles.clear()
 	team_lives = 0
 	team_keys = 0
+	game_has_ended = false
 	stop_life_drain()
 	state_updated.emit()
 	keys_changed.emit(team_keys)
@@ -121,6 +128,11 @@ func collect_key() -> void:
 		team_keys += 1
 		_push_state_to_all()
 
+# Get the current player's role
+func get_my_role() -> String:
+	var my_id = multiplayer.get_unique_id()
+	return player_roles.get(my_id, "player")
+
 @rpc("any_peer", "call_local", "reliable")
 func remove_lives(amount: int) -> void:
 	if not multiplayer.is_server():
@@ -128,7 +140,26 @@ func remove_lives(amount: int) -> void:
 	team_lives -= amount
 	_push_state_to_all()
 	if team_lives <= 0:
-		print("Monster hat gewonnen")
+		end_game.rpc(false)
+
+@rpc("any_peer", "call_local", "reliable")
+func end_game(playerVictory: bool) -> void:
+	# Prevent duplicate game end triggers
+	if game_has_ended:
+		return
+	game_has_ended = true
+	
+	if playerVictory:
+		players_won.emit()
+	else:
+		monster_won.emit()
+		
+	if not multiplayer.is_server():
+		return
+	
+	NetworkManager.set_lobby_not_ready.rpc()
+	Steam.setLobbyJoinable(NetworkManager.lobby_id, true)
+	stop_life_drain()
 
 @rpc("any_peer", "call_local", "reliable")
 func add_spawn(position: Vector3, type: spawn_type) -> void:
