@@ -33,6 +33,9 @@ func _ready() -> void:
 		canvas.visible = false
 	SceneLoader.paused.connect(_on_pause)
 	
+	# Connect to GameManager game end signals
+	GameManager.players_won.connect(_on_players_won)
+	GameManager.monster_won.connect(_on_monster_won)
 
 # Overwrite in Subclass
 func _on_ready():
@@ -133,6 +136,14 @@ func _debug_toggle_role() -> void:
 	
 	# Tell the host/spawner to swap the scene for this peer
 	NetworkManager._debug_respawn_peer.rpc_id(1, my_id, new_role)
+
+# --- Game End Handlers ---
+
+func _on_players_won():
+	SceneLoader.goto_scene("res://ui/screens/game_end/PlayerWinScreen.tscn")
+
+func _on_monster_won():
+	SceneLoader.goto_scene("res://ui/screens/game_end/MonsterWinScreen.tscn")
 	
 func set_fishing_mode(fishing: bool) -> void:
 		is_fishing = fishing
