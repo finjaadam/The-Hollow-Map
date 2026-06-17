@@ -20,14 +20,22 @@
 [ext_resource type="PackedScene" uid="uid://bk277se02bsh7" path="res://assets/rock_big/rock_big.tscn" id="16_1wree"]
 [ext_resource type="Texture2D" uid="uid://dkax1eh4tdvil" path="res://assets/szikla__rock/textures/material_metallicRoughness.png" id="16_nijqk"]
 [ext_resource type="PackedScene" uid="uid://cn3vfxuwcpc5s" path="res://assets/rock/rock.tscn" id="17_1nqb3"]
+[ext_resource type="PackedScene" uid="uid://d48kugcbjqy5" path="res://assets/mangrove_mushroom_scene/mangroove_mushroom.tscn" id="17_6r8sr"]
 [ext_resource type="Texture2D" uid="uid://ce7twl5w8gqhi" path="res://assets/szikla__rock/textures/material_normal.png" id="17_mu3u4"]
 [ext_resource type="Texture2D" uid="uid://cjquk3ihlildv" path="res://assets/rock/textures/08___Default_baseColor.jpeg" id="17_xp7ei"]
+[ext_resource type="PackedScene" uid="uid://cidu6gihbou66" path="res://assets/mangrove_mushroom_scene/mumi.tscn" id="18_iq7gk"]
 [ext_resource type="Texture2D" uid="uid://7f3aggar8xim" path="res://assets/rock/textures/08___Default_metallicRoughness.png" id="18_owalp"]
+[ext_resource type="PackedScene" uid="uid://t36dgm0awrvi" path="res://assets/lowpoly_roots/low_poly_root_1.tscn" id="19_66cpi"]
 [ext_resource type="Texture2D" uid="uid://c4f03c3s373ok" path="res://assets/rock/textures/08___Default_normal.jpeg" id="19_nijqk"]
+[ext_resource type="PackedScene" uid="uid://b6eyxpvvtlgc3" path="res://assets/lowpoly_roots/low_poly_root_2.tscn" id="20_0igq4"]
 [ext_resource type="Texture2D" uid="uid://w5np02nueatm" path="res://assets/rock_big/textures/Default_baseColor.jpeg" id="21_mu3u4"]
+[ext_resource type="PackedScene" uid="uid://bki537a8jmpmx" path="res://assets/lowpoly_roots/low_poly_root_3.tscn" id="21_qmkra"]
 [ext_resource type="Texture2D" uid="uid://dmfmdhsx0201s" path="res://assets/rock_big/textures/Default_metallicRoughness.png" id="22_3bk5d"]
+[ext_resource type="PackedScene" uid="uid://bldmvkf2iubcl" path="res://assets/mangrove_tree_roots/mangrove_tree_roots.tscn" id="22_6brjw"]
 [ext_resource type="Texture2D" uid="uid://d1s3buqoc5xgw" path="res://assets/rock_big/textures/Default_normal.jpeg" id="23_0qgye"]
+[ext_resource type="PackedScene" uid="uid://bh7k07rmmm31j" path="res://assets/mangrove_mushroom_scene/little_mushrooms.tscn" id="23_3p88g"]
 [ext_resource type="Texture2D" uid="uid://d1r70wnlttjkh" path="res://assets/stone_group_1/textures/Material_baseColor.png" id="24_33d6v"]
+[ext_resource type="PackedScene" uid="uid://dbj788m6exolm" path="res://assets/mangrove_mushroom_scene/hanging_flowers.tscn" id="24_tkvdk"]
 [ext_resource type="Texture2D" uid="uid://cj61ah2037ab" path="res://assets/stone_group_1/textures/Material_metallicRoughness.png" id="25_g2sa0"]
 [ext_resource type="Texture2D" uid="uid://doyk563k4bhod" path="res://assets/stone_group_1/textures/Material_normal.png" id="26_v3lh7"]
 
@@ -1427,6 +1435,161 @@ transform = Transform3D(0.9211854, 0, 0.38912395, 0, 1, 0, -0.38912395, 0, 0.921
 [node name="Node3D18" parent="modular-cave-final/RegionWood5/Stick-Group-02" unique_id=802498416 instance=ExtResource("10_lw7er")]
 transform = Transform3D(-0.8535508, 0, -0.5210096, 0, 1, 0, 0.5210096, 0, -0.8535508, -0.3458767, -0.0015020221, -1.5136185)
 
+[node name="mangroove_mushroom-group_1" type="Node3D" parent="modular-cave-final/RegionWood5" unique_id=731415863]
+
+[node name="mangroove_mushroom" parent="modular-cave-final/RegionWood5/mangroove_mushroom-group_1" unique_id=1676906625 instance=ExtResource("17_6r8sr")]
+transform = Transform3D(0.019999992, -2.3283064e-10, -2.7939677e-09, -4.656613e-10, 0.020000001, 1.1641532e-10, -1.8626451e-09, 2.3283064e-10, 0.02, 1.4541016, -0.08095074, 4.2217484)
+
+[node name="mumi" parent="modular-cave-final/RegionWood5/mangroove_mushroom-group_1/mangroove_mushroom" unique_id=1031195703 instance=ExtResource("18_iq7gk")]
+transform = Transform3D(-0.097816885, 8.73115e-09, 0.74359417, 2.0508089e-09, 0.74999994, 1.7882519e-08, -0.7435939, -8.731147e-09, -0.097816676, -14.136353, 42.71039, 2.8188477)
+
+[node name="mangroove_mushroom2" parent="modular-cave-final/RegionWood5/mangroove_mushroom-group_1" unique_id=1745452038 instance=ExtResource("17_6r8sr")]
+transform = Transform3D(-0.013591553, 1.2150217e-10, 0.03762007, -9.313229e-10, 0.04, -4.6566126e-10, -0.03762007, -1.0341374e-09, -0.013591553, 0.16291809, -0.08095074, 4.2217484)
+
+[node name="mangroove_mushroom3" parent="modular-cave-final/RegionWood5/mangroove_mushroom-group_1" unique_id=2108792233 instance=ExtResource("17_6r8sr")]
+transform = Transform3D(-0.0005841751, -1.2981793e-10, -0.009982922, -2.3283067e-10, 0.009999999, -1.1641534e-10, 0.009982922, 2.2563239e-10, -0.0005841751, 0.6467514, -0.08095074, 3.99971)
+
+[node name="mangroove_mushroom4" parent="modular-cave-final/RegionWood5/mangroove_mushroom-group_1" unique_id=1708339071 instance=ExtResource("17_6r8sr")]
+transform = Transform3D(-0.00058417476, -2.2351741e-10, -0.009982922, 0.0022055837, 0.009752884, -0.00012906527, 0.009736229, -0.0022093568, -0.0005697388, 0.9030571, 0.20930672, 4.7289925)
+
+[node name="mangroove_mushroom5" parent="modular-cave-final/RegionWood5" unique_id=47427978 instance=ExtResource("17_6r8sr")]
+transform = Transform3D(8.815101e-05, 0.0028594423, -0.009582057, 0.0022799317, 0.009324286, 0.0028034938, 0.009736228, -0.0022093563, -0.0005697387, -1.070446, 0.021637917, 2.1203232)
+
+[node name="mangroove_mushroom6" parent="modular-cave-final/RegionWood5" unique_id=1431504688 instance=ExtResource("17_6r8sr")]
+transform = Transform3D(0.023589222, -0.0035139185, -0.007496729, 0.005699829, 0.023310715, 0.0070087337, 0.00600504, -0.008322425, 0.022796415, -0.9511452, 0.021637917, 0.66308784)
+
+[node name="lowpoly_root-group_1" type="Node3D" parent="modular-cave-final/RegionWood5" unique_id=637443490]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.080288, 0, -3.643427)
+
+[node name="lowpoly_root_1" parent="modular-cave-final/RegionWood5/lowpoly_root-group_1" unique_id=1550699528 instance=ExtResource("19_66cpi")]
+transform = Transform3D(0.030926622, 0.0009081548, -0.08982046, 0.0027884562, -0.09495906, -6.15454e-11, -0.089781776, -0.0026364261, -0.030939952, 0.09755325, 0.091692924, 0.16790009)
+
+[node name="lowpoly_root_2" parent="modular-cave-final/RegionWood5/lowpoly_root-group_1" unique_id=1742340203 instance=ExtResource("20_0igq4")]
+transform = Transform3D(0.057647042, -0.015759286, -0.0053351484, -0.001120332, 0.015519349, -0.057947345, 0.016600113, 0.0557745, 0.014616481, -0.081703186, 1.526022, 0.39167213)
+
+[node name="lowpoly_root_3" parent="modular-cave-final/RegionWood5/lowpoly_root-group_1" unique_id=1405826646 instance=ExtResource("21_qmkra")]
+transform = Transform3D(0.07, 0, 0, 0, -0.015453588, -0.06827288, 0, 0.06827288, -0.015453588, -0.3165779, 0.7067251, 0.40254974)
+
+[node name="lowpoly_root-group_2" type="Node3D" parent="modular-cave-final/RegionWood5" unique_id=45495051]
+transform = Transform3D(-0.6570464, 0, -0.7538502, 0.09273307, 0.9924051, -0.08082498, 0.74812484, -0.123012595, -0.65205616, -2.2667007, 0, -6.4707756)
+
+[node name="lowpoly_root_1" parent="modular-cave-final/RegionWood5/lowpoly_root-group_2" unique_id=919126503 instance=ExtResource("19_66cpi")]
+transform = Transform3D(0.041926637, 0.025549239, -0.08132892, -0.011137245, -0.08821454, -0.033453792, -0.08451697, 0.024298798, -0.03593671, 1.1241627, 0.15728283, 1.1295509)
+
+[node name="lowpoly_root_2" parent="modular-cave-final/RegionWood5/lowpoly_root-group_2" unique_id=367773541 instance=ExtResource("20_0igq4")]
+transform = Transform3D(0.057647042, -0.015759286, -0.0053351484, -0.001120332, 0.015519349, -0.057947345, 0.016600113, 0.0557745, 0.014616481, -0.081703186, 1.526022, 0.39167213)
+
+[node name="lowpoly_root_3" parent="modular-cave-final/RegionWood5/lowpoly_root-group_2" unique_id=2049491299 instance=ExtResource("21_qmkra")]
+transform = Transform3D(0.055647515, 0.00076984614, 0.042458937, 0.035581697, 0.03735736, -0.04731141, -0.023179673, 0.059193194, 0.029306449, -0.115198135, 2.8618107, 0.22703934)
+
+[node name="mangroove-tree-roots" parent="modular-cave-final/RegionWood5" unique_id=211312730 instance=ExtResource("22_6brjw")]
+transform = Transform3D(-1.887105, 2.095314, -5.8176208, 0.042923294, 6.086806, 2.1783428, 6.183302, 0.59722364, -1.7906237, 0.92536163, -0.118024826, -2.5218601)
+
+[node name="mangroove-tree-roots2" parent="modular-cave-final/RegionWood5" unique_id=1896726951 instance=ExtResource("22_6brjw")]
+transform = Transform3D(-6.441068, -0.14644566, 0.53612256, 0.042923238, 6.086806, 2.1783426, -0.5541036, 2.1738377, -6.063301, 0.79283524, 0.0999918, 4.2208595)
+
+[node name="mangroove-tree-roots3" parent="modular-cave-final/RegionWood5" unique_id=1878768483 instance=ExtResource("22_6brjw")]
+transform = Transform3D(-4.0231566, -1.6800281, 4.7736726, 0.042923238, 6.086806, 2.1783426, -5.0604944, 1.3872716, -3.7766523, -0.48714066, 0.0999918, 3.2417316)
+
+[node name="little-mushrooms" type="Node3D" parent="modular-cave-final/RegionWood5" unique_id=1839149864]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1298256, 0, -0.5419178)
+
+[node name="little_mushrooms_01" parent="modular-cave-final/RegionWood5/little-mushrooms" unique_id=840035599 instance=ExtResource("23_3p88g")]
+transform = Transform3D(0.045962237, -0.018437224, -0.03387535, 0.021053482, 0.05614954, -0.001994852, 0.032314427, -0.010358435, 0.049482115, 1.4937172, 0.2511177, -0.24785614)
+
+[node name="little_mushrooms_02" parent="modular-cave-final/RegionWood5/little-mushrooms" unique_id=529235270 instance=ExtResource("23_3p88g")]
+transform = Transform3D(0.057377953, -0.014819848, -0.0093883, 0.014853619, 0.058124214, -0.0009716272, 0.009334798, -0.0013950014, 0.05925297, 1.4680595, 0.098997116, 0.23742676)
+
+[node name="little_mushrooms_03" parent="modular-cave-final/RegionWood5/little-mushrooms" unique_id=1111949568 instance=ExtResource("23_3p88g")]
+transform = Transform3D(0.059200592, -0.002669651, -0.0093893865, 0.0028547216, 0.05992433, 0.0009610743, 0.009334798, -0.0013950014, 0.05925297, 1.5477867, -0.32452965, 1.4563789)
+
+[node name="little-mushrooms3" type="Node3D" parent="modular-cave-final/RegionWood5" unique_id=138315803]
+transform = Transform3D(-0.014031947, 0, -0.99990153, 0, 1, 0, 0.99990153, 0, -0.014031947, 0.7955017, -0.071826935, 3.7368069)
+
+[node name="little_mushrooms_01" parent="modular-cave-final/RegionWood5/little-mushrooms3" unique_id=1173938004 instance=ExtResource("23_3p88g")]
+transform = Transform3D(0.045962237, -0.018437224, -0.03387535, 0.021053482, 0.05614954, -0.001994852, 0.032314427, -0.010358435, 0.049482115, 1.4937172, 0.2511177, -0.24785614)
+
+[node name="little_mushrooms_02" parent="modular-cave-final/RegionWood5/little-mushrooms3" unique_id=1362043197 instance=ExtResource("23_3p88g")]
+transform = Transform3D(0.057377953, -0.014819848, -0.0093883, 0.014853619, 0.058124214, -0.0009716272, 0.009334798, -0.0013950014, 0.05925297, 1.4680595, 0.098997116, 0.23742676)
+
+[node name="little_mushrooms_03" parent="modular-cave-final/RegionWood5/little-mushrooms3" unique_id=1372162035 instance=ExtResource("23_3p88g")]
+transform = Transform3D(0.059200592, -0.002669651, -0.0093893865, 0.0028547216, 0.05992433, 0.0009610743, 0.009334798, -0.0013950014, 0.05925297, 1.5477867, -0.32452965, 1.4563789)
+
+[node name="little-mushrooms4" type="Node3D" parent="modular-cave-final/RegionWood5" unique_id=1526508121]
+transform = Transform3D(0.0031763385, 6.938894e-18, 0.999995, -0.4154216, 0.90962803, 0.0013195262, -0.9096235, -0.41542363, 0.0028892865, 0.5479393, 0.14997673, 4.64476)
+
+[node name="little_mushrooms_01" parent="modular-cave-final/RegionWood5/little-mushrooms4" unique_id=632028007 instance=ExtResource("23_3p88g")]
+transform = Transform3D(0.045962237, -0.018437224, -0.03387535, 0.021053482, 0.05614954, -0.001994852, 0.032314427, -0.010358435, 0.049482115, 1.4937172, 0.2511177, -0.24785614)
+
+[node name="little_mushrooms_02" parent="modular-cave-final/RegionWood5/little-mushrooms4" unique_id=1231105535 instance=ExtResource("23_3p88g")]
+transform = Transform3D(0.057377953, -0.014819848, -0.0093883, 0.014853619, 0.058124214, -0.0009716272, 0.009334798, -0.0013950014, 0.05925297, 1.4680595, 0.098997116, 0.23742676)
+
+[node name="little_mushrooms_03" parent="modular-cave-final/RegionWood5/little-mushrooms4" unique_id=1888800489 instance=ExtResource("23_3p88g")]
+transform = Transform3D(0.059200592, -0.002669651, -0.0093893865, 0.0028547216, 0.05992433, 0.0009610743, 0.009334798, -0.0013950014, 0.05925297, 1.5477867, -0.32452965, 1.4563789)
+
+[node name="little-mushrooms5" type="Node3D" parent="modular-cave-final/RegionWood5" unique_id=2094786397]
+transform = Transform3D(0.44458386, 0.026360102, 0.89534926, 0.0022193305, 0.9995315, -0.030529361, -0.8957346, 0.015559968, 0.44431707, 1.499733, 0.14997673, -6.951687)
+
+[node name="little_mushrooms_01" parent="modular-cave-final/RegionWood5/little-mushrooms5" unique_id=21239211 instance=ExtResource("23_3p88g")]
+transform = Transform3D(0.012572018, -0.008132844, -0.058101624, 0.0021511195, 0.059444614, -0.007855365, 0.058628593, -0.00043708482, 0.012747234, 1.2091694, -0.24398708, 0.73002625)
+
+[node name="little_mushrooms_02" parent="modular-cave-final/RegionWood5/little-mushrooms5" unique_id=1068258294 instance=ExtResource("23_3p88g")]
+transform = Transform3D(-0.023717556, -0.0062010107, 0.05476334, -0.0025818364, 0.059678502, 0.005639402, -0.055052772, -0.00012728665, -0.023857336, -0.8981304, -0.4284525, -0.76309204)
+
+[node name="little_mushrooms_03" parent="modular-cave-final/RegionWood5/little-mushrooms5" unique_id=190428093 instance=ExtResource("23_3p88g")]
+transform = Transform3D(0.059200592, -0.002669651, -0.0093893865, 0.0028547216, 0.05992433, 0.0009610743, 0.009334798, -0.0013950014, 0.05925297, 1.5477867, -0.32452965, 1.4563789)
+
+[node name="little-mushrooms6" type="Node3D" parent="modular-cave-final/RegionWood5" unique_id=2097141456]
+transform = Transform3D(-0.86952055, 0.017007167, 0.493604, 0.0022193303, 0.9995316, -0.030529365, -0.4938919, -0.025450416, -0.86915076, -1.7263107, 0.03191662, -6.6192055)
+
+[node name="little_mushrooms_01" parent="modular-cave-final/RegionWood5/little-mushrooms6" unique_id=179862598 instance=ExtResource("23_3p88g")]
+transform = Transform3D(0.012572018, -0.008132844, -0.058101624, 0.0021511195, 0.059444614, -0.007855365, 0.058628593, -0.00043708482, 0.012747234, 1.2091694, -0.24398708, 0.73002625)
+
+[node name="little_mushrooms_02" parent="modular-cave-final/RegionWood5/little-mushrooms6" unique_id=1925081467 instance=ExtResource("23_3p88g")]
+transform = Transform3D(-0.023717556, -0.0062010107, 0.05476334, -0.0025818364, 0.059678502, 0.005639402, -0.055052772, -0.00012728665, -0.023857336, -0.8981304, -0.4284525, -0.76309204)
+
+[node name="little_mushrooms_03" parent="modular-cave-final/RegionWood5/little-mushrooms6" unique_id=1562235248 instance=ExtResource("23_3p88g")]
+transform = Transform3D(0.059200592, -0.002669651, -0.0093893865, 0.0028547216, 0.05992433, 0.0009610743, 0.009334798, -0.0013950014, 0.05925297, 1.5477867, -0.32452965, 1.4563789)
+
+[node name="little-mushrooms7" type="Node3D" parent="modular-cave-final/RegionWood5" unique_id=189572084]
+transform = Transform3D(-0.37896723, -0.027411558, -0.925004, 0.0022193315, 0.99953187, -0.030529372, 0.92540747, -0.01362255, -0.37872896, -1.8013611, 0.03191662, -3.2250938)
+
+[node name="little_mushrooms_01" parent="modular-cave-final/RegionWood5/little-mushrooms7" unique_id=1451985870 instance=ExtResource("23_3p88g")]
+transform = Transform3D(0.012572018, -0.008132844, -0.058101624, 0.0021511195, 0.059444614, -0.007855365, 0.058628593, -0.00043708482, 0.012747234, 1.2091694, -0.24398708, 0.73002625)
+
+[node name="little_mushrooms_02" parent="modular-cave-final/RegionWood5/little-mushrooms7" unique_id=335583034 instance=ExtResource("23_3p88g")]
+transform = Transform3D(-0.023717556, -0.0062010107, 0.05476334, -0.0025818364, 0.059678502, 0.005639402, -0.055052772, -0.00012728665, -0.023857336, -0.8981304, -0.4284525, -0.76309204)
+
+[node name="little_mushrooms_03" parent="modular-cave-final/RegionWood5/little-mushrooms7" unique_id=915729093 instance=ExtResource("23_3p88g")]
+transform = Transform3D(0.059200592, -0.002669651, -0.0093893865, 0.0028547216, 0.05992433, 0.0009610743, 0.009334798, -0.0013950014, 0.05925297, 1.5477867, -0.32452965, 1.4563789)
+
+[node name="little-mushrooms8" type="Node3D" parent="modular-cave-final/RegionWood5" unique_id=1948371924]
+transform = Transform3D(0.36431062, -0.029239537, -0.9308187, 0.002219331, 0.9995321, -0.030529378, 0.93127495, 0.009056337, 0.36420465, -7.074732, 0.20644093, -3.9560833)
+
+[node name="little_mushrooms_01" parent="modular-cave-final/RegionWood5/little-mushrooms8" unique_id=250849919 instance=ExtResource("23_3p88g")]
+transform = Transform3D(0.023240115, -0.0077336123, -0.05477304, 0.0020251304, 0.059489828, -0.007540328, 0.055279203, 0.0010719383, 0.023303553, 1.4506149, -0.26336288, 0.1131382)
+
+[node name="little_mushrooms_02" parent="modular-cave-final/RegionWood5/little-mushrooms8" unique_id=537903695 instance=ExtResource("23_3p88g")]
+transform = Transform3D(-0.023717556, -0.0062010107, 0.054763347, -0.002581837, 0.059678506, 0.005639403, -0.055052772, -0.00012728642, -0.02385734, -0.6401825, -0.42594242, -0.6622124)
+
+[node name="little_mushrooms_03" parent="modular-cave-final/RegionWood5/little-mushrooms8" unique_id=592944501 instance=ExtResource("23_3p88g")]
+transform = Transform3D(0.059200592, -0.002669651, -0.0093893865, 0.0028547216, 0.05992433, 0.0009610743, 0.009334798, -0.0013950014, 0.05925297, 1.5477867, -0.32452965, 1.4563789)
+
+[node name="Node3D" parent="modular-cave-final/RegionWood5/little-mushrooms8" unique_id=1702352709 instance=ExtResource("24_tkvdk")]
+transform = Transform3D(0.04189571, 0.00025522665, 0.10709661, -0.0033625448, 0.11494612, 0.001041479, -0.10704413, -0.0035108747, 0.04188354, 3.8198242, -0.34266567, -6.292282)
+
+[node name="little-mushrooms2" type="Node3D" parent="modular-cave-final/RegionWood5" unique_id=19519904]
+transform = Transform3D(-0.9966588, 0, -0.081677556, 0, 1, 0, 0.081677556, 0, -0.9966588, -0.7434349, 0.16321754, 0.0879364)
+
+[node name="little_mushrooms_01" parent="modular-cave-final/RegionWood5/little-mushrooms2" unique_id=674070472 instance=ExtResource("23_3p88g")]
+transform = Transform3D(0.04754405, -0.009240571, -0.035414293, 0.006438243, 0.059262455, -0.006819815, 0.036029294, 0.0016039351, 0.047951188, 1.4507694, -0.2302618, -0.5027447)
+
+[node name="little_mushrooms_02" parent="modular-cave-final/RegionWood5/little-mushrooms2" unique_id=1684038704 instance=ExtResource("23_3p88g")]
+transform = Transform3D(0.047636095, -0.013478095, -0.033898976, 0.010450997, 0.05845979, -0.008557254, 0.034951065, 0.0008892722, 0.048760958, 1.7671108, -0.20748425, 0.84176064)
+
+[node name="little_mushrooms_03" parent="modular-cave-final/RegionWood5/little-mushrooms2" unique_id=1418997820 instance=ExtResource("23_3p88g")]
+transform = Transform3D(0.05412675, -0.0021647562, -0.025799343, 0.0028547212, 0.05992433, 0.0009610745, 0.025732148, -0.002094492, 0.054161504, 1.6752644, -0.43177223, 1.7931023)
+
 [node name="RegionSand" type="Area3D" parent="modular-cave-final" unique_id=841867836]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98.739, 0, 57.703)
 script = ExtResource("2_ieofv")
@@ -2451,27 +2614,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2663164, 0, -5.00718)
 transform = Transform3D(1.605, 0, 0, 0, 1.605, 0, 0, 0, 1.605, 0, 0.06785911, 0)
 
 [node name="Skeleton3D" parent="Monster/blob_monster/Sketchfab_model/3f6d8c832002440e97bb2e8e289744c0_fbx/Object_2/RootNode/Object_4" parent_id_path=PackedInt32Array(890782185, 1535069810) index="0" unique_id=94807764]
-bones/1/position = Vector3(0.06350166, 4.0367117, -0.066386715)
-bones/1/rotation = Quaternion(-0.039170202, -0.36745727, -0.013220475, 0.92912114)
-bones/2/rotation = Quaternion(0.080446586, 0.04080048, -0.010683545, 0.99586624)
-bones/3/rotation = Quaternion(0.09694492, 0.079277255, -0.022603512, 0.9918699)
-bones/4/rotation = Quaternion(0.09684447, 0.07933649, -0.022647463, 0.991874)
-bones/5/rotation = Quaternion(-0.05802086, -0.01048511, 0.002423298, 0.99825746)
-bones/6/rotation = Quaternion(-0.06773603, 0.17810696, -0.0058221687, 0.98165977)
-bones/8/rotation = Quaternion(0.6487628, 0.33482665, -0.589836, 0.34509617)
-bones/9/rotation = Quaternion(0.31807595, -0.10242927, 0.08658411, 0.9385303)
-bones/10/rotation = Quaternion(-0.048647176, 0.060762748, 0.41174302, 0.9079698)
-bones/12/rotation = Quaternion(0.6728118, -0.31681243, 0.57221115, 0.34572926)
-bones/13/rotation = Quaternion(0.3140101, 0.11130106, 0.1258925, 0.9344308)
-bones/14/rotation = Quaternion(0.0306989, 0.008455101, -0.3658675, 0.93012214)
-bones/16/rotation = Quaternion(0.08808752, 0.27424926, 0.9482006, -0.13395424)
-bones/17/rotation = Quaternion(-0.41214806, 0.124379255, -0.088365145, 0.8982514)
-bones/18/rotation = Quaternion(0.6005497, 0.42437693, -0.46068048, 0.49700892)
-bones/19/rotation = Quaternion(0.008251245, 0.023709351, 0.15986288, 0.98682004)
-bones/21/rotation = Quaternion(-0.12718707, 0.061127566, 0.97314686, 0.18185784)
-bones/22/rotation = Quaternion(-0.42104444, 0.061429933, 0.031958096, 0.904393)
-bones/23/rotation = Quaternion(0.6599341, -0.49895445, 0.46802628, 0.3106168)
-bones/24/rotation = Quaternion(0.002973958, -0.015051109, -0.09004493, 0.9958195)
+bones/1/position = Vector3(0.067258134, 4.049923, -0.053548127)
+bones/1/rotation = Quaternion(-0.040322073, -0.36698428, -0.014125389, 0.9292455)
+bones/2/rotation = Quaternion(0.0783537, 0.040636357, -0.009675802, 0.99605006)
+bones/3/rotation = Quaternion(0.092712425, 0.07911943, -0.021515561, 0.99231124)
+bones/4/rotation = Quaternion(0.092659555, 0.07906655, -0.021502445, 0.9923208)
+bones/5/rotation = Quaternion(-0.04691462, -0.010614443, 0.0019026245, 0.99884075)
+bones/6/rotation = Quaternion(-0.05326073, 0.17700407, -0.0030121948, 0.9827634)
+bones/8/rotation = Quaternion(0.6347515, 0.352913, -0.59076744, 0.351478)
+bones/9/rotation = Quaternion(0.32712084, -0.09800745, 0.086400434, 0.9359068)
+bones/10/rotation = Quaternion(-0.046299353, 0.06429678, 0.4172498, 0.90533143)
+bones/12/rotation = Quaternion(0.6571906, -0.3352866, 0.57500803, 0.353623)
+bones/13/rotation = Quaternion(0.3275381, 0.10086386, 0.12454236, 0.9311469)
+bones/14/rotation = Quaternion(0.03945074, -0.004017898, -0.3689247, 0.92861307)
+bones/16/rotation = Quaternion(0.08835566, 0.26922783, 0.94976866, -0.13285075)
+bones/17/rotation = Quaternion(-0.4078237, 0.12448138, -0.087853976, 0.9002589)
+bones/18/rotation = Quaternion(0.5995825, 0.42474058, -0.4601662, 0.4983406)
+bones/19/rotation = Quaternion(0.007843151, 0.023688478, 0.15980083, 0.9868339)
+bones/21/rotation = Quaternion(-0.12753269, 0.054243293, 0.9734332, 0.18226634)
+bones/22/rotation = Quaternion(-0.41218206, 0.06196699, 0.033114254, 0.9083885)
+bones/23/rotation = Quaternion(0.65825623, -0.49675953, 0.47086567, 0.31339154)
+bones/24/rotation = Quaternion(0.0026161252, -0.014864828, -0.089844614, 0.99584144)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Monster" unique_id=1897117262]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1532463, 0)
