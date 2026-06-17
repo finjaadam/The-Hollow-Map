@@ -15,6 +15,14 @@ signal keys_changed
 signal lives_changed
 signal players_won
 signal monster_won
+signal spawn_added
+
+enum spawn_type {
+	DOOR,
+	PICKAXE,
+	FISHINGROD,
+	RUNE
+}
 
 # --- Sync System ---
 
@@ -42,7 +50,7 @@ func _push_state_to_all() -> void:
 @rpc("authority", "call_local", "reliable")
 func _receive_state(state: Dictionary) -> void:
 	_apply_state(state)
-	print("CURRENT GAME STATE FOR EVERYONE: ", state)
+	#print("CURRENT GAME STATE FOR EVERYONE: ", state)
 
 # --- Game Logic ---
 
@@ -152,6 +160,10 @@ func end_game(playerVictory: bool) -> void:
 	NetworkManager.set_lobby_not_ready.rpc()
 	Steam.setLobbyJoinable(NetworkManager.lobby_id, true)
 	stop_life_drain()
+
+@rpc("any_peer", "call_local", "reliable")
+func add_spawn(position: Vector3, type: spawn_type) -> void:
+	spawn_added.emit(position, type)
 
 # --- Life Drain ---
 

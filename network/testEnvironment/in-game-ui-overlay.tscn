@@ -1,20 +1,23 @@
 [gd_scene format=3 uid="uid://cssh4udxb71ra"]
 
 [ext_resource type="Script" uid="uid://c4g8g82sdhghf" path="res://network/scripts/in_game_ui_overlay.gd" id="1_keruy"]
+[ext_resource type="Texture2D" uid="uid://ok3w4koxe58o" path="res://network/collectableItems/key/Schluessel_sw_png.png" id="2_1kjc5"]
+[ext_resource type="Texture2D" uid="uid://bc1pb0fvgnxcd" path="res://network/collectableItems/key/Schluessel_png.png" id="2_8dvuu"]
 
 [node name="PlayerInGameOverlay" type="CanvasLayer" unique_id=349315403]
 script = ExtResource("1_keruy")
 
 [node name="KeyLabel" type="Label" parent="." unique_id=1719171892]
+visible = false
 offset_right = 40.0
 offset_bottom = 51.0
 metadata/_edit_use_anchors_ = true
 
 [node name="LiveLabel" type="Label" parent="." unique_id=1633225081]
-offset_left = 2.0
-offset_top = 69.0
-offset_right = 42.0
-offset_bottom = 120.0
+offset_left = 3.0
+offset_top = 120.0
+offset_right = 43.0
+offset_bottom = 171.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Role" type="Label" parent="." unique_id=739166447]
@@ -26,3 +29,75 @@ anchor_bottom = 0.097222224
 text = "Monster"
 horizontal_alignment = 2
 metadata/_edit_use_anchors_ = true
+
+[node name="bw_keys" type="Control" parent="." unique_id=1835428739]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="0" type="TextureRect" parent="bw_keys" unique_id=442320560]
+layout_mode = 0
+offset_left = 52.55849
+offset_top = 14.0
+offset_right = 79.55849
+offset_bottom = 76.643295
+rotation = 0.21816616
+texture = ExtResource("2_1kjc5")
+expand_mode = 1
+
+[node name="1" type="TextureRect" parent="bw_keys" unique_id=827474918]
+layout_mode = 0
+offset_left = 100.55849
+offset_top = 14.0
+offset_right = 127.55849
+offset_bottom = 76.643295
+rotation = 0.21816616
+texture = ExtResource("2_1kjc5")
+expand_mode = 1
+
+[node name="2" type="TextureRect" parent="bw_keys" unique_id=115949497]
+layout_mode = 0
+offset_left = 149.55849
+offset_top = 14.0
+offset_right = 176.55849
+offset_bottom = 76.643295
+rotation = 0.21816616
+texture = ExtResource("2_1kjc5")
+expand_mode = 1
+
+[node name="colored_keys" type="Control" parent="." unique_id=1007847894]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="0" type="TextureRect" parent="colored_keys" unique_id=558961848]
+layout_mode = 0
+offset_left = 52.55849
+offset_top = 14.0
+offset_right = 79.55849
+offset_bottom = 76.643295
+rotation = 0.21816616
+texture = ExtResource("2_8dvuu")
+expand_mode = 1
+
+[node name="1" type="TextureRect" parent="colored_keys" unique_id=831722301]
+layout_mode = 0
+offset_left = 100.55849
+offset_top = 14.0
+offset_right = 127.55849
+offset_bottom = 76.643295
+rotation = 0.21816616
+texture = ExtResource("2_8dvuu")
+expand_mode = 1
+
+[node name="2" type="TextureRect" parent="colored_keys" unique_id=1344676969]
+layout_mode = 0
+offset_left = 149.55849
+offset_top = 14.0
+offset_right = 176.55849
+offset_bottom = 76.643295
+rotation = 0.21816616
+texture = ExtResource("2_8dvuu")
+expand_mode = 1
