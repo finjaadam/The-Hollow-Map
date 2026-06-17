@@ -92,7 +92,8 @@ func _physics_process(delta):
 	velocity = target_velocity
 	move_and_slide()
 
-	footstep_controller.tick(is_on_floor(), direction != Vector3.ZERO, delta)
+	var is_actually_moving = Vector2(velocity.x, velocity.z).length() > 0.1
+	footstep_controller.tick(is_on_floor(), is_actually_moving, delta)
 
 func _unhandled_input(event):
 	if not is_multiplayer_authority():
