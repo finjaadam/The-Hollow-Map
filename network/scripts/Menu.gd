@@ -4,7 +4,7 @@ extends Node
 @onready var id_prompt = $CenterContainer/VBoxContainer/id_prompt
 @onready var back_button = $CenterContainer/VBoxContainer/BackButton
 
-const next_scene_path = "res://network/testEnvironment/world.tscn"
+const next_scene_path = "res://ui/screens/menu/lobby/lobby.tscn"
 var next_scene: PackedScene = preload(next_scene_path)
 var instance
 
@@ -30,11 +30,11 @@ func _setup_navigation():
 
 func host_and_go_to_next_scene():
 	SceneLoader.goto_preloaded_scene(instance, next_scene_path)
-	instance.get_node("NetworkManager").host_lobby()
+	NetworkManager.host_lobby()
 	
 func join_and_go_to_next_scene(lobby_id: int):
 	SceneLoader.goto_preloaded_scene(instance, next_scene_path)
-	instance.get_node("NetworkManager").join_lobby()
+	NetworkManager.join_lobby(lobby_id)
 
 func _on_host_button_pressed():
 	host_and_go_to_next_scene()
@@ -49,5 +49,5 @@ func _on_back_button_pressed():
 	SceneLoader.goto_scene("res://ui/screens/menu/MainMenu.tscn", false)
 
 func _on_list_server_button_pressed() -> void:
-	SceneLoader.goto_preloaded_scene(instance, next_scene_path)
-	instance.request_lobby_list()
+	SceneLoader.goto_scene("res://network/testEnvironment/menuServerList.tscn")
+	NetworkManager.request_lobby_list()

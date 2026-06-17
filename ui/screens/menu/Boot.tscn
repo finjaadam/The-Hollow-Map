@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dfuiqehqffisl"]
 
 [ext_resource type="Script" uid="uid://q7o3s2o6s2gd" path="res://ui/screens/menu/Boot.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://d0lu66dah1ayb" path="res://ui/background.png" id="2_vodh5"]
 
 [node name="Boot" type="Control" unique_id=312843681]
 layout_mode = 3
@@ -10,6 +11,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=5987041]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_vodh5")
+expand_mode = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=147538516]
 layout_mode = 1

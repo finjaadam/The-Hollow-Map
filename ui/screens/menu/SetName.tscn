@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c6rc6q45d4wu2"]
 
 [ext_resource type="Script" uid="uid://ccm5771wt1jdk" path="res://ui/screens/menu/SetName.gd" id="1_jmblp"]
+[ext_resource type="Texture2D" uid="uid://d0lu66dah1ayb" path="res://ui/background.png" id="2_4bmkt"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jmblp"]
 resource_local_to_scene = true
@@ -14,6 +15,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jmblp")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1469517144]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_4bmkt")
+expand_mode = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=1903862857]
 layout_mode = 1
@@ -58,7 +69,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Bestätigen"
+text = "Bestaetigen"
 
 [node name="Spacer3" type="Control" parent="CenterContainer/VBoxContainer" unique_id=150308751]
 custom_minimum_size = Vector2(0, 10)
@@ -69,7 +80,7 @@ visible = false
 custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Zurück"
+text = "Zurueck"
 
 [connection signal="text_change_rejected" from="CenterContainer/VBoxContainer/NameField" to="." method="_on_name_field_text_change_rejected"]
 [connection signal="text_changed" from="CenterContainer/VBoxContainer/NameField" to="." method="_on_name_field_text_changed"]

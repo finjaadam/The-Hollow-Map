@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://62l58j2attqx"]
+
+[ext_resource type="PackedScene" uid="uid://bpifk28wn1eia" path="res://assets/water_fountain/scene.gltf" id="1_hwqjr"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_hwqjr"]
+height = 13.424805
+radius = 11.19873
+
+[node name="Sketchfab_Scene" unique_id=1426328605 instance=ExtResource("1_hwqjr")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1" unique_id=221699050]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=494467287]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.6293945, 0)
+shape = SubResource("CylinderShape3D_hwqjr")

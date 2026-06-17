@@ -1,0 +1,128 @@
+[gd_scene format=3 uid="uid://d1yrysttmtds8"]
+
+[ext_resource type="Script" uid="uid://88x0a5wsauw5" path="res://ui/screens/menu/lobby/Lobby.gd" id="1_h6ygp"]
+[ext_resource type="Shader" uid="uid://0vjgtsswuwij" path="res://shader/blur.gdshader" id="2_8yamf"]
+[ext_resource type="Script" uid="uid://3o0k8w2ljkbq" path="res://ui/screens/menu/lobby/LobbyName.gd" id="2_h6ygp"]
+[ext_resource type="Texture2D" uid="uid://d0lu66dah1ayb" path="res://ui/background.png" id="2_lutj5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8yamf"]
+shader = ExtResource("2_8yamf")
+shader_parameter/blur = 2.0
+
+[node name="Lobby" type="Control" unique_id=1728966789]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h6ygp")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1751221577]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_lutj5")
+expand_mode = 2
+
+[node name="BlurRect" type="TextureRect" parent="." unique_id=1660769289]
+material = SubResource("ShaderMaterial_8yamf")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_lutj5")
+expand_mode = 2
+
+[node name="LobbyName" type="LineEdit" parent="." unique_id=1853593111]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.033854168
+anchor_top = 0.046296295
+anchor_right = 0.23003472
+anchor_bottom = 0.125
+placeholder_text = "Lobbyname"
+editable = false
+script = ExtResource("2_h6ygp")
+metadata/_edit_use_anchors_ = true
+
+[node name="Info" type="HBoxContainer" parent="." unique_id=116220741]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.035590276
+anchor_top = 0.2037037
+anchor_right = 0.4904514
+anchor_bottom = 0.25154322
+offset_bottom = -1.5258789e-05
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayersLabel" type="Label" parent="Info" unique_id=1128903111]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+text = "Spielende"
+
+[node name="ReadyLabel" type="Label" parent="Info" unique_id=1122481778]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Bereit?"
+
+[node name="HSeparator" type="HSeparator" parent="." unique_id=874237595]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.037326388
+anchor_top = 0.2654321
+anchor_right = 0.4904514
+anchor_bottom = 0.27314812
+offset_bottom = 1.5258789e-05
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayerEntries" type="VBoxContainer" parent="." unique_id=995214062]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.037326388
+anchor_top = 0.29938272
+anchor_right = 0.47569445
+anchor_bottom = 0.712963
+metadata/_edit_use_anchors_ = true
+
+[node name="BackButton" type="Button" parent="." unique_id=298467018]
+layout_mode = 0
+anchor_left = 0.039930556
+anchor_top = 0.8796296
+anchor_right = 0.21163194
+anchor_bottom = 0.9506173
+text = "Zurueck"
+metadata/_edit_use_anchors_ = true
+
+[node name="StartButton" type="Button" parent="." unique_id=345351270]
+layout_mode = 0
+anchor_left = 0.7838542
+anchor_top = 0.8796296
+anchor_right = 0.9557292
+anchor_bottom = 0.9506173
+disabled = true
+text = "Start"
+metadata/_edit_use_anchors_ = true
+
+[node name="ReadyCheckbox" type="CheckBox" parent="." unique_id=714088129]
+layout_mode = 0
+anchor_left = 0.44270834
+anchor_top = 0.8873457
+anchor_right = 0.5338542
+anchor_bottom = 0.9398148
+theme_override_font_sizes/font_size = 25
+text = "Bereit?"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="editing_toggled" from="LobbyName" to="." method="_on_lobby_name_editing_toggled"]
+[connection signal="focus_exited" from="LobbyName" to="." method="_on_lobby_name_focus_exited"]
+[connection signal="text_submitted" from="LobbyName" to="." method="_on_lobby_name_text_submitted"]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="toggled" from="ReadyCheckbox" to="." method="_on_ready_checkbox_toggled"]
