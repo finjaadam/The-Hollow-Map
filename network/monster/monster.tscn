@@ -52,3 +52,4 @@ script = ExtResource("4_yrgqy")
 replication_config = SubResource("SceneReplicationConfig_vfbk3")
 
 [node name="CanvasLayer" parent="." unique_id=349315403 instance=ExtResource("5_ir3iy")]
+is_monster = true
