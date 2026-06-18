@@ -1,0 +1,11 @@
+Model Information:
+* title:	Rock
+* source:	https://sketchfab.com/3d-models/rock-17c3ff6a8f3145d68fbf653ebf650ee9
+* author:	irs1182 (https://sketchfab.com/irs1182)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Rock" (https://sketchfab.com/3d-models/rock-17c3ff6a8f3145d68fbf653ebf650ee9) by irs1182 (https://sketchfab.com/irs1182) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

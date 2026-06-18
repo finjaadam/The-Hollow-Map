@@ -30,6 +30,10 @@ func _ready() -> void:
 		camera3d.current = false
 		canvas.visible = false
 	SceneLoader.paused.connect(_on_pause)
+	
+	# Connect to GameManager game end signals
+	GameManager.players_won.connect(_on_players_won)
+	GameManager.monster_won.connect(_on_monster_won)
 
 # Overwrite in Subclass
 func _on_ready():
@@ -92,7 +96,8 @@ func _physics_process(delta):
 	velocity = target_velocity
 	move_and_slide()
 
-	footstep_controller.tick(is_on_floor(), direction != Vector3.ZERO, delta)
+	var is_actually_moving = Vector2(velocity.x, velocity.z).length() > 0.1
+	footstep_controller.tick(is_on_floor(), is_actually_moving, delta)
 
 func _unhandled_input(event):
 	if not is_multiplayer_authority():
@@ -130,3 +135,11 @@ func _debug_toggle_role() -> void:
 	
 	# Tell the host/spawner to swap the scene for this peer
 	NetworkManager._debug_respawn_peer.rpc_id(1, my_id, new_role)
+
+# --- Game End Handlers ---
+
+func _on_players_won():
+	SceneLoader.goto_scene("res://ui/screens/game_end/PlayerWinScreen.tscn")
+
+func _on_monster_won():
+	SceneLoader.goto_scene("res://ui/screens/game_end/MonsterWinScreen.tscn")
