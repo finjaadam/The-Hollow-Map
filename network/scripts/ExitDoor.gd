@@ -25,5 +25,4 @@ func check_if_exit_should_open() -> bool:
 	return false
 
 func open_exit() -> void:
-	print("exit geöffnet")
-	# load game-end scene
+	GameManager.end_game.rpc(true)

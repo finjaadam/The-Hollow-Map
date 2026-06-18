@@ -1,0 +1,11 @@
+Model Information:
+* title:	Loose Sand | Tile Texture
+* source:	https://sketchfab.com/3d-models/loose-sand-tile-texture-201fa0a7659c42cc865cf2ada9427bf6
+* author:	CATholic (https://sketchfab.com/CATholic)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Loose Sand | Tile Texture" (https://sketchfab.com/3d-models/loose-sand-tile-texture-201fa0a7659c42cc865cf2ada9427bf6) by CATholic (https://sketchfab.com/CATholic) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

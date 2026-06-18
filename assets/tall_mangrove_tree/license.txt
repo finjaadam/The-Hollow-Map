@@ -1,0 +1,11 @@
+Model Information:
+* title:	Tall Mangrove Tree
+* source:	https://sketchfab.com/3d-models/tall-mangrove-tree-b722ee2895e84fd3b02a467cd1ba1cbe
+* author:	Matt Bodner (https://sketchfab.com/liphttam1)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Tall Mangrove Tree" (https://sketchfab.com/3d-models/tall-mangrove-tree-b722ee2895e84fd3b02a467cd1ba1cbe) by Matt Bodner (https://sketchfab.com/liphttam1) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://dtgcrcahgcceo"]
+
+[ext_resource type="PackedScene" uid="uid://c1y4cgspt11wj" path="res://assets/tall_mangrove_tree/scene.gltf" id="1_btyg7"]
+
+[node name="Sketchfab_Scene" unique_id=1853922223 instance=ExtResource("1_btyg7")]
