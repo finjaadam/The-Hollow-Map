@@ -1,0 +1,11 @@
+Model Information:
+* title:	Lowpoly roots
+* source:	https://sketchfab.com/3d-models/lowpoly-roots-4d29a6aac1b643d5a84fac1d8ed4ac81
+* author:	Valo Niskanen (https://sketchfab.com/Valo.Niskanen)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Lowpoly roots" (https://sketchfab.com/3d-models/lowpoly-roots-4d29a6aac1b643d5a84fac1d8ed4ac81) by Valo Niskanen (https://sketchfab.com/Valo.Niskanen) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

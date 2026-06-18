@@ -1,0 +1,11 @@
+Model Information:
+* title:	Szikla / rock
+* source:	https://sketchfab.com/3d-models/szikla-rock-e858432a616f4ae0bff36a3ff56a584c
+* author:	vidata (https://sketchfab.com/vidata)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Szikla / rock" (https://sketchfab.com/3d-models/szikla-rock-e858432a616f4ae0bff36a3ff56a584c) by vidata (https://sketchfab.com/vidata) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
