@@ -14,7 +14,7 @@ extends CharacterBody3D
 @export var camera3d: Camera3D
 @export var canvas: CanvasLayer
 
-@onready var animation_player: AnimationPlayer = $Pivot/Ch42_nonPBR/AnimationPlayer
+@onready var animation_player: AnimationPlayer = get_node("Pivot/Player_Model/AnimationPlayer")
 
 var target_velocity = Vector3.ZERO
 enum Role {PLAYER, MONSTER}
@@ -23,6 +23,12 @@ var ownRole: Role
 func _ready() -> void:
 	_on_ready()
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
+	if animation_player:
+		print("SPAWNER HAT GELADEN. Verfügbare Animationen sind: ", animation_player.get_animation_list())
+	else:
+		print("SPAWNER FEHLER: AnimationPlayer ist leer!")
+	
 	# Only create Camera + Environment for yourself
 	if is_multiplayer_authority():
 		camera3d.current = true
@@ -95,11 +101,14 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	# Animations-Steuerung
-	if direction != Vector3.ZERO:
-		if animation_player.current_animation != "Sneak_Walk/mixamo_com":
-			animation_player.play("Sneak_Walk_InPlace/mixamo.com")
+	if animation_player: 
+		if direction != Vector3.ZERO:
+			if animation_player.current_animation != "Sneak_Walk":
+				animation_player.play("Sneak_Walk")
+		else:
+			animation_player.stop()
 	else:
-		animation_player.stop()
+		push_warning("AnimationPlayer fehlt! Bitte im Inspektor zuweisen.")
 
 	footstep_controller.tick(is_on_floor(), direction != Vector3.ZERO, delta)
 
