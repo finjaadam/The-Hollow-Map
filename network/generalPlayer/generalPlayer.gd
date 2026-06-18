@@ -24,11 +24,6 @@ func _ready() -> void:
 	_on_ready()
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
-	if animation_player:
-		print("SPAWNER HAT GELADEN. Verfügbare Animationen sind: ", animation_player.get_animation_list())
-	else:
-		print("SPAWNER FEHLER: AnimationPlayer ist leer!")
-	
 	# Only create Camera + Environment for yourself
 	if is_multiplayer_authority():
 		camera3d.current = true
@@ -107,8 +102,6 @@ func _physics_process(delta):
 				animation_player.play("Sneak_Walk/mixamo_com")
 		else:
 			animation_player.stop()
-	else:
-		push_warning("AnimationPlayer fehlt! Bitte im Inspektor zuweisen.")
 
 	footstep_controller.tick(is_on_floor(), direction != Vector3.ZERO, delta)
 
