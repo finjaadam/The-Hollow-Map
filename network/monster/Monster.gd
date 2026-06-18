@@ -5,7 +5,3 @@ extends General_Player
 func _on_ready() -> void:
 	add_to_group("monster")
 	ownRole = Role.MONSTER
-	if is_multiplayer_authority():
-		$Model/BlobMonster.visible = false; # You don't see model lol
-	else:
-		$Model/BlobMonster.visible = true; # Everyone else can see the model
