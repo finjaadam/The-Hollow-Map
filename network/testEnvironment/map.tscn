@@ -1654,6 +1654,30 @@ transform = Transform3D(0.059200592, -0.002669651, -0.0093893865, 0.0028547216, 
 [node name="mangroove-tree-roots10" parent="modular-cave-final/RegionWood2" unique_id=1733879470 instance=ExtResource("22_6brjw")]
 transform = Transform3D(3.6129901, 16.894833, -1.9806544, -15.48428, 2.4281588, -7.533481, -7.042414, 3.3287745, 15.547854, 9.7883835, 3.3491592, 0.15237427)
 
+[node name="aaron-project" type="Node3D" parent="modular-cave-final/RegionWood2" unique_id=189842]
+transform = Transform3D(-0.36019647, 0.4420999, -0.8214658, 0.572928, -0.5901013, -0.56880033, -0.73621494, -0.6755207, -0.0407389, -8.746632, 7.0582275, 0.22424316)
+
+[node name="aaron_1" parent="modular-cave-final/RegionWood2/aaron-project" unique_id=1888289840 instance=ExtResource("31_rqpd4")]
+transform = Transform3D(1.2848709, -1.0940183, 0.5662413, 1.2318666, 1.1431432, -0.58662295, -0.0031001866, 0.81531966, 1.5822911, -0.07694721, 0.021339417, -0.00825119)
+
+[node name="aaron_7" parent="modular-cave-final/RegionWood2/aaron-project" unique_id=1833473792 instance=ExtResource("31_rqpd4")]
+transform = Transform3D(-2.0963728, -1.6633401, -1.905189, -2.4910543, 1.7857022, 1.1820074, 0.4371444, 2.1990433, -2.4009035, -0.07695389, 0.021335602, -0.00825119)
+
+[node name="aaron_5" parent="modular-cave-final/RegionWood2/aaron-project" unique_id=1121247183 instance=ExtResource("31_rqpd4")]
+transform = Transform3D(-2.6099176, -2.1209776, 0.8132553, -0.417948, 1.6659694, 3.0035758, -2.2327669, 2.1673954, -1.512862, -0.07695389, 0.021335602, -0.00825119)
+
+[node name="aaron_2" parent="modular-cave-final/RegionWood2/aaron-project" unique_id=1322978431 instance=ExtResource("32_oafj0")]
+transform = Transform3D(-1.8456128, -1.5049357, 0.9663236, -0.41099554, 1.7083195, 1.8755333, -1.7406021, 1.1923556, -1.4674783, 0.023384094, -0.07025528, -0.47899628)
+
+[node name="aaron_6" parent="modular-cave-final/RegionWood2/aaron-project" unique_id=2078486584 instance=ExtResource("32_oafj0")]
+transform = Transform3D(1.3792208, -1.1829015, 1.7962517, 1.9396569, 1.6060537, -0.43168265, -0.9292516, 1.5966723, 1.7649802, 0.023384094, -0.07025528, -0.47899628)
+
+[node name="aaron_3" parent="modular-cave-final/RegionWood2/aaron-project" unique_id=567021802 instance=ExtResource("33_uc420")]
+transform = Transform3D(-0.6058806, -1.0700655, 0.96803635, 0.7191849, 0.6862712, 1.2087312, -1.2509626, 0.9128075, 0.22605518, -0.32939148, -0.6588249, -0.22714043)
+
+[node name="aaron_4" parent="modular-cave-final/RegionWood2/aaron-project" unique_id=195900480 instance=ExtResource("34_hf1pw")]
+transform = Transform3D(2.1498396, -0.49423838, 2.373083, -0.9891841, 2.7169344, 1.4619803, -2.2129867, -1.6945784, 1.6518759, 1.4563293, 1.3093309, 0.5562992)
+
 [node name="RegionWood3" type="Area3D" parent="modular-cave-final" unique_id=169615218]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.295, 0, 111.918)
 script = ExtResource("2_ieofv")
@@ -2153,16 +2177,16 @@ transform = Transform3D(0.07, 0, 0, -9.313226e-10, -0.015453586, -0.06827289, 0,
 [node name="aaron-project" type="Node3D" parent="modular-cave-final/RegionWood5" unique_id=1397254435]
 transform = Transform3D(0.2832556, -0.36225834, 0.8879949, -0.61461717, 0.64221555, 0.4580447, -0.73621494, -0.6755207, -0.040738907, 6.502533, 0.17654705, -15.239632)
 
-[node name="aaron_1" parent="modular-cave-final/RegionWood5/aaron-project" unique_id=1888289840 instance=ExtResource("31_rqpd4")]
+[node name="aaron_1" parent="modular-cave-final/RegionWood5/aaron-project" unique_id=1010956166 instance=ExtResource("31_rqpd4")]
 transform = Transform3D(1.2848709, -1.0940183, 0.5662413, 1.2318666, 1.1431432, -0.58662295, -0.0031001866, 0.81531966, 1.5822911, -0.07694721, 0.021339417, -0.00825119)
 
-[node name="aaron_2" parent="modular-cave-final/RegionWood5/aaron-project" unique_id=1322978431 instance=ExtResource("32_oafj0")]
+[node name="aaron_2" parent="modular-cave-final/RegionWood5/aaron-project" unique_id=1013282077 instance=ExtResource("32_oafj0")]
 transform = Transform3D(-0.7747421, -0.61461735, 0.14839225, -0.38221762, 0.64221543, 0.6644311, -0.50367075, 0.45804495, -0.73246884, 0.023386002, -0.07025528, -0.47899628)
 
-[node name="aaron_3" parent="modular-cave-final/RegionWood5/aaron-project" unique_id=567021802 instance=ExtResource("33_uc420")]
+[node name="aaron_3" parent="modular-cave-final/RegionWood5/aaron-project" unique_id=405710281 instance=ExtResource("33_uc420")]
 transform = Transform3D(-0.5283269, 0.91792446, -1.1521764, 0.65536094, -0.9497774, -1.0571897, -1.3193171, -0.8393823, -0.06375645, -3.178011, 2.2751884, 2.6009674)
 
-[node name="aaron_4" parent="modular-cave-final/RegionWood5/aaron-project" unique_id=195900480 instance=ExtResource("34_hf1pw")]
+[node name="aaron_4" parent="modular-cave-final/RegionWood5/aaron-project" unique_id=335049230 instance=ExtResource("34_hf1pw")]
 transform = Transform3D(-0.6540612, -0.5632638, -0.5049134, 0.6398949, -0.056022942, -0.7664176, 0.40340817, -0.8243757, 0.39707243, -0.48635578, 3.3102684, 2.4850044)
 
 [node name="aaron-project2" type="Node3D" parent="modular-cave-final/RegionWood5" unique_id=1550649506]
@@ -3603,27 +3627,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2663164, 0, -5.00718)
 transform = Transform3D(1.605, 0, 0, 0, 1.605, 0, 0, 0, 1.605, 0, 0.06785911, 0)
 
 [node name="Skeleton3D" parent="Monster/blob_monster/Sketchfab_model/3f6d8c832002440e97bb2e8e289744c0_fbx/Object_2/RootNode/Object_4" parent_id_path=PackedInt32Array(890782185, 1535069810) index="0" unique_id=94807764]
-bones/1/position = Vector3(0.06398961, 4.0384154, -0.064654484)
-bones/1/rotation = Quaternion(-0.0392552, -0.3673413, -0.013387322, 0.9291611)
-bones/2/rotation = Quaternion(0.08025199, 0.040781535, -0.0105659235, 0.99588406)
-bones/3/rotation = Quaternion(0.096613094, 0.0792132, -0.022478987, 0.9919102)
-bones/4/rotation = Quaternion(0.096458524, 0.07930438, -0.022546621, 0.9919164)
-bones/5/rotation = Quaternion(-0.057167903, -0.010360263, 0.0022884456, 0.9983083)
-bones/6/rotation = Quaternion(-0.069257244, 0.1784464, -0.005306969, 0.9814949)
-bones/8/rotation = Quaternion(0.6479597, 0.3359009, -0.5899381, 0.34538674)
-bones/9/rotation = Quaternion(0.3187319, -0.10180235, 0.08685044, 0.9383514)
-bones/10/rotation = Quaternion(-0.048229072, 0.061160382, 0.4123301, 0.9076989)
-bones/12/rotation = Quaternion(0.6716271, -0.31825012, 0.57245517, 0.3463076)
-bones/13/rotation = Quaternion(0.3157486, 0.109829806, 0.1257871, 0.9340331)
-bones/14/rotation = Quaternion(0.031795494, 0.006647903, -0.3663595, 0.9299062)
-bones/16/rotation = Quaternion(0.08816518, 0.27366734, 0.94837564, -0.1338541)
-bones/17/rotation = Quaternion(-0.41162023, 0.12447559, -0.08834271, 0.89848226)
-bones/18/rotation = Quaternion(0.6004107, 0.42442432, -0.46061814, 0.49719396)
-bones/19/rotation = Quaternion(0.008234607, 0.023707842, 0.15985118, 0.9868221)
-bones/21/rotation = Quaternion(-0.12724698, 0.06030757, 0.97318226, 0.18190026)
-bones/22/rotation = Quaternion(-0.419922, 0.061446834, 0.03229293, 0.9049017)
-bones/23/rotation = Quaternion(0.65970075, -0.49869752, 0.46836707, 0.31101134)
-bones/24/rotation = Quaternion(0.0029516416, -0.015039493, -0.09003244, 0.995821)
+bones/1/position = Vector3(0.0625754, 4.0346427, -0.07041765)
+bones/1/rotation = Quaternion(-0.038999397, -0.3676902, -0.012885226, 0.9290409)
+bones/2/rotation = Quaternion(0.08083801, 0.040840525, -0.010924411, 0.99583024)
+bones/3/rotation = Quaternion(0.097619295, 0.079408646, -0.022853393, 0.9917875)
+bones/4/rotation = Quaternion(0.09761811, 0.0794035, -0.022851007, 0.99178815)
+bones/5/rotation = Quaternion(-0.060013775, -0.010691662, 0.002450975, 0.9981373)
+bones/6/rotation = Quaternion(-0.06509846, 0.17760597, -0.007082765, 0.98192066)
+bones/8/rotation = Quaternion(0.650167, 0.33292347, -0.58960927, 0.34468243)
+bones/9/rotation = Quaternion(0.3169185, -0.10354471, 0.085654765, 0.93888474)
+bones/10/rotation = Quaternion(-0.049419053, 0.060403198, 0.41074425, 0.9084043)
+bones/12/rotation = Quaternion(0.6750116, -0.3141632, 0.57167375, 0.3447463)
+bones/13/rotation = Quaternion(0.31083792, 0.1138132, 0.12600288, 0.93517363)
+bones/14/rotation = Quaternion(0.028553031, 0.011687351, -0.36547723, 0.93030894)
+bones/16/rotation = Quaternion(0.08795026, 0.27505568, 0.94793826, -0.1342466)
+bones/17/rotation = Quaternion(-0.41279048, 0.12387478, -0.08821189, 0.8980411)
+bones/18/rotation = Quaternion(0.60082585, 0.42426443, -0.46082512, 0.49663687)
+bones/19/rotation = Quaternion(0.008284678, 0.023712385, 0.15988645, 0.9868158)
+bones/21/rotation = Quaternion(-0.1268168, 0.06315154, 0.9731309, 0.18150981)
+bones/22/rotation = Quaternion(-0.42303324, 0.061151244, 0.031239709, 0.90350854)
+bones/23/rotation = Quaternion(0.66026825, -0.4993858, 0.46745813, 0.3100687)
+bones/24/rotation = Quaternion(0.0030188053, -0.015074453, -0.09007004, 0.9958168)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Monster" unique_id=1897117262]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1532463, 0)
