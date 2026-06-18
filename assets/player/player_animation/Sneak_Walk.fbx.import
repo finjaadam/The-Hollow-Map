@@ -41,9 +41,9 @@ _subresources={
 "animations": {
 "mixamo_com": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://assets/player/player_model.res",
-"save_to_file/keep_custom_tracks": false,
-"save_to_file/path": "uid://c85qljv6pbknx",
+"save_to_file/fallback_path": "res://assets/player/player_animation/sneak_walk.res",
+"save_to_file/keep_custom_tracks": true,
+"save_to_file/path": "uid://c8lxbbppeyt4j",
 "settings/loop_mode": 1,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,

@@ -14,7 +14,7 @@ extends CharacterBody3D
 @export var camera3d: Camera3D
 @export var canvas: CanvasLayer
 
-@onready var animation_player: AnimationPlayer = get_node("Pivot/Player_Model/AnimationPlayer")
+@export var animation_player: AnimationPlayer
 
 var target_velocity = Vector3.ZERO
 enum Role {PLAYER, MONSTER}
@@ -103,8 +103,8 @@ func _physics_process(delta):
 	# Animations-Steuerung
 	if animation_player: 
 		if direction != Vector3.ZERO:
-			if animation_player.current_animation != "Sneak_Walk":
-				animation_player.play("Sneak_Walk")
+			if animation_player.current_animation != "Sneak_Walk/mixamo_com":
+				animation_player.play("Sneak_Walk/mixamo_com")
 		else:
 			animation_player.stop()
 	else:
