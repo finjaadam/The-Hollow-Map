@@ -1,8 +1,8 @@
-[gd_resource type="Animation" format=3 uid="uid://ek6d6pboyxbu"]
+[gd_resource type="Animation" format=3 uid="uid://cb8ric2bolo46"]
 
 [resource]
 resource_name = "mixamo_com"
-length = 2.6666667
+length = 2.66667
 loop_mode = 1
 tracks/0/type = "position_3d"
 tracks/0/imported = true
@@ -386,4 +386,16 @@ tracks/53/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(0, 0.627, 0)]
+}
+tracks/54/type = "value"
+tracks/54/imported = false
+tracks/54/enabled = true
+tracks/54/path = NodePath("Sketchfab_model/3f6d8c832002440e97bb2e8e289744c0_fbx/Object_2/RootNode/Object_4/GeneralSkeleton:rotation")
+tracks/54/interp = 1
+tracks/54/loop_wrap = true
+tracks/54/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
 }
