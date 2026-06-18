@@ -14,6 +14,8 @@ extends CharacterBody3D
 @export var camera3d: Camera3D
 @export var canvas: CanvasLayer
 
+@onready var animation_player: AnimationPlayer = $Pivot/Ch42_nonPBR/AnimationPlayer
+
 var target_velocity = Vector3.ZERO
 enum Role {PLAYER, MONSTER}
 var ownRole: Role
@@ -91,6 +93,13 @@ func _physics_process(delta):
 	
 	velocity = target_velocity
 	move_and_slide()
+	
+	# Animations-Steuerung
+	if direction != Vector3.ZERO:
+		if animation_player.current_animation != "Sneak_Walk/mixamo_com":
+			animation_player.play("Sneak_Walk_InPlace/mixamo.com")
+	else:
+		animation_player.stop()
 
 	footstep_controller.tick(is_on_floor(), direction != Vector3.ZERO, delta)
 
