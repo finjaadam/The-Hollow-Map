@@ -15,6 +15,9 @@ func _ready() -> void:
 	interaktions_prompt.visible = false
 
 func _process(_delta: float) -> void:
+	if SceneLoader.is_paused:
+		return
+		
 	if spieler_in_reichweite and Input.is_action_just_pressed("interact"):
 		if lokaler_spieler and not lokaler_spieler.is_fishing:
 			starte_minigame()
@@ -31,17 +34,16 @@ func _on_body_exited(body: Node3D) -> void:
 		lokaler_spieler = null
 		interaktions_prompt.visible = false
 
+
 func starte_minigame() -> void:
 	interaktions_prompt.visible = false
 	
-	# 3D-Spieler einfrieren und Maus befreien
 	lokaler_spieler.set_fishing_mode(true)
 	
-	# Minispiel auf den Bildschirm bringen
 	var minigame = FISHING_MINIGAME.instantiate()
-	get_tree().root.add_child(minigame)
 	
-	# Auf das Ergebnis warten
+	get_tree().current_scene.add_child(minigame)
+	
 	minigame.fishing_finished.connect(_on_minigame_finished.bind(minigame))
 
 func _on_minigame_finished(success: bool, minigame_instance: Node) -> void:

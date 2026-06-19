@@ -10,6 +10,7 @@ signal fishing_finished(success: bool)
 @onready var reset_timer: Timer = $ResetTimer
 
 var game_active := true
+var war_pausiert := false
 
 func start_game() -> void:
 	game_active = true
@@ -28,8 +29,23 @@ func _ready() -> void:
 	schnur.clear_points()
 	schnur.add_point(Vector2.ZERO) # Punkt 0 (Start)
 	schnur.add_point(Vector2.ZERO) # Punkt 1 (Ende am Haken)
+	
+	SceneLoader.paused.connect(_on_pause_toggled)
 
 func _process(_delta: float) -> void:
+	if SceneLoader.is_paused:
+		war_pausiert = true
+		return
+		
+	if war_pausiert:
+		war_pausiert = false
+		
+		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+		var haken_bildschirm_pos = haken.get_global_transform_with_canvas().origin
+		get_viewport().warp_mouse(haken_bildschirm_pos)
+		
+		return
+
 	if game_active:
 		haken.position = get_local_mouse_position()
 		
@@ -69,3 +85,7 @@ func _on_area_2d_key_area_entered(_area: Area2D) -> void:
 
 func _on_reset_timer_timeout() -> void:
 	start_game()
+
+func _on_pause_toggled(is_paused: bool) -> void:
+	if not is_paused and game_active:
+		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)

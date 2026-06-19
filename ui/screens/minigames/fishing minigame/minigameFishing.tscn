@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cjti1olbwnv14" path="res://assets/mouse_icons/pngwing.com.png" id="4_1foeg"]
 
 [node name="minigameFishing" type="Control" unique_id=1310700600]
+process_mode = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
