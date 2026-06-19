@@ -22,7 +22,7 @@ properties/2/replication_mode = 1
 properties/3/path = NodePath(".:velocity")
 properties/3/spawn = true
 properties/3/replication_mode = 1
-properties/4/path = NodePath(".:network_rotation")
+properties/4/path = NodePath(".:network_rotation_y")
 properties/4/spawn = true
 properties/4/replication_mode = 1
 

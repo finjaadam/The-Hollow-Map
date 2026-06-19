@@ -25,12 +25,16 @@ var ownRole: Role
 # packet (which caused visible micro-jumps when packets arrive unevenly).
 var network_position: Vector3 = Vector3.ZERO
 @export var network_interpolation_speed: float = 20.0
-var network_rotation: Vector3 = Vector3.ZERO
+# Yaw only (body only ever rotates around Y) stored as a plain float so we
+# can interpolate with lerp_angle() - Vector3.lerp() on Euler angles takes
+# the long way around when crossing the +-180 deg wrap, causing a visible
+# full spin before snapping onto the correct heading.
+var network_rotation_y: float = 0.0
 
 func _ready() -> void:
 	_on_ready()
 	network_position = position
-	network_rotation = rotation
+	network_rotation_y = rotation.y
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 	# Only create Camera + Environment for yourself
@@ -77,7 +81,7 @@ func _input(event):
 		rotate_y(-event.relative.x * mouse_sensitivity)
 		camera3d.rotate_x(-event.relative.y * mouse_sensitivity)
 		camera3d.rotation.x = clamp(camera3d.rotation.x, deg_to_rad(-89), deg_to_rad(89))
-		network_rotation = rotation
+		network_rotation_y = rotation.y
 		
 func _physics_process(delta):
 	if not multiplayer.has_multiplayer_peer():
@@ -109,8 +113,6 @@ func _physics_process(delta):
 	velocity = target_velocity
 	move_and_slide()
 	
-	# Animations-Steuerung
-	# _handle_animations(direction)
 	network_position = position
 
 	var is_actually_moving = Vector2(velocity.x, velocity.z).length() > 0.1
@@ -122,7 +124,7 @@ func _process(delta: float) -> void:
 	if is_multiplayer_authority():
 		return
 	position = position.lerp(network_position, clamp(delta * network_interpolation_speed, 0.0, 1.0))
-	rotation = rotation.lerp(network_rotation, clamp(delta * network_interpolation_speed, 0.0, 1.0))
+	rotation.y = lerp_angle(rotation.y, network_rotation_y, clamp(delta * network_interpolation_speed, 0.0, 1.0))
 
 func _unhandled_input(event):
 	if not is_multiplayer_authority():
@@ -168,6 +170,3 @@ func _on_players_won():
 
 func _on_monster_won():
 	SceneLoader.goto_scene("res://ui/screens/game_end/MonsterWinScreen.tscn")
-
-#func _handle_animations(_direction: Vector3) -> void:
-	#pass
