@@ -6,7 +6,7 @@ extends Area3D
 @export var ambient_pitch_scale: float = 1.0
 @export var ambient_unit_size: float = 10.0
 @export var ambient_max_distance: float = 15.0
-@export var ambient_position_offset: Vector3 = Vector3(0, 7, 0)
+@export var ambient_position_offset: Vector3 = Vector3(0, 3, 0)
 
 func _ready():
 	add_to_group("footstep_region")
