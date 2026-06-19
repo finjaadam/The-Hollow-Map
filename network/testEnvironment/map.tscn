@@ -1,7 +1,8 @@
 [gd_scene format=4 uid="uid://c8liybxhqrhwr"]
 
 [ext_resource type="PackedScene" uid="uid://b4173e423se8o" path="res://map/modular-cave-final.glb" id="1_wb7j6"]
-[ext_resource type="Script" uid="uid://c15wkn1ddol15" path="res://network/scripts/areaSounds/MapArea.gd" id="2_ieofv"]
+[ext_resource type="Script" uid="uid://c15wkn1ddol15" path="res://Network/scripts/areaSounds/MapArea.gd" id="2_ieofv"]
+[ext_resource type="AudioStream" uid="uid://1chc6cbhimgh" path="res://audio/music/ambient/WaterDrops.mp3" id="3_r6vd7"]
 [ext_resource type="PackedScene" uid="uid://dnk8iwck0vfdf" path="res://assets/wasser.tscn" id="3_xqtg2"]
 [ext_resource type="PackedScene" uid="uid://drhm8uhvkuffw" path="res://assets/fountain_3d_model_free-edited/fountain-small.tscn" id="4_e062h"]
 [ext_resource type="PackedScene" uid="uid://defweiiwbw4mq" path="res://assets/stick01.tscn" id="5_pe7kj"]
@@ -10,7 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://dlwaiouyjgvki" path="res://assets/stick03.tscn" id="7_dsb58"]
 [ext_resource type="Texture2D" uid="uid://rvs0mgr55sqg" path="res://assets/mangrove_tree_roots/textures/lambert1_baseColor.png" id="7_tkvdk"]
 [ext_resource type="Texture2D" uid="uid://dhhqnj7m3x3sc" path="res://assets/mangrove_tree_roots/textures/lambert1_normal.png" id="8_3f2od"]
+[ext_resource type="AudioStream" uid="uid://6rsenxiglxlu" path="res://audio/music/ambient/WoodCreak.mp3" id="8_clsdl"]
+[ext_resource type="AudioStream" uid="uid://8f5xn4qunvcg" path="res://audio/music/ambient/Gravel.mp3" id="8_g8gtg"]
 [ext_resource type="PackedScene" uid="uid://c6pb4jl5gv7js" path="res://assets/stick04.tscn" id="8_noxxg"]
+[ext_resource type="AudioStream" uid="uid://mohqcnawoont" path="res://audio/music/ambient/Wind.mp3" id="9_g8gtg"]
 [ext_resource type="PackedScene" uid="uid://bglyqt7xe8ubo" path="res://assets/stick05.tscn" id="9_p25gm"]
 [ext_resource type="PackedScene" uid="uid://nd8n5cvv6shg" path="res://assets/camp_fire/campfire.tscn" id="9_pe7kj"]
 [ext_resource type="PackedScene" uid="uid://dg50fnoof8bji" path="res://assets/jukebox/jukebox.tscn" id="10_cns11"]
@@ -24,9 +28,11 @@
 [ext_resource type="PackedScene" uid="uid://cn3vfxuwcpc5s" path="res://assets/rock/rock.tscn" id="17_1nqb3"]
 [ext_resource type="PackedScene" uid="uid://d48kugcbjqy5" path="res://assets/mangrove_mushroom_scene/mangroove_mushroom.tscn" id="17_6r8sr"]
 [ext_resource type="Texture2D" uid="uid://ce7twl5w8gqhi" path="res://assets/szikla__rock/textures/material_normal.png" id="17_mu3u4"]
+[ext_resource type="AudioStream" uid="uid://jmracjweuvlv" path="res://audio/music/ambient/SandPouring.mp3" id="17_t56qw"]
 [ext_resource type="Texture2D" uid="uid://cjquk3ihlildv" path="res://assets/rock/textures/08___Default_baseColor.jpeg" id="17_xp7ei"]
 [ext_resource type="PackedScene" uid="uid://cidu6gihbou66" path="res://assets/mangrove_mushroom_scene/mumi.tscn" id="18_iq7gk"]
 [ext_resource type="Texture2D" uid="uid://7f3aggar8xim" path="res://assets/rock/textures/08___Default_metallicRoughness.png" id="18_owalp"]
+[ext_resource type="AudioStream" uid="uid://2d4es6a277o8" path="res://audio/music/ambient/SandScratching.mp3" id="18_rqib1"]
 [ext_resource type="PackedScene" uid="uid://t36dgm0awrvi" path="res://assets/lowpoly_roots/low_poly_root_1.tscn" id="19_66cpi"]
 [ext_resource type="Texture2D" uid="uid://c4f03c3s373ok" path="res://assets/rock/textures/08___Default_normal.jpeg" id="19_nijqk"]
 [ext_resource type="PackedScene" uid="uid://b6eyxpvvtlgc3" path="res://assets/lowpoly_roots/low_poly_root_2.tscn" id="20_0igq4"]
@@ -556,6 +562,10 @@ debug_fill = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.6832733, 2.81, 0.90505886)
 script = ExtResource("2_ieofv")
 surface_type = 2
+ambient_streams = Array[AudioStream]([ExtResource("3_r6vd7")])
+ambient_pitch_scale = 0.75
+ambient_unit_size = 12.0
+ambient_position_offset = Vector3(0, 3.01, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="modular-cave-final/RegionWater/Puddle3" unique_id=1400977402]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.98141, -0.13259768, 1.5340161)
@@ -602,6 +612,8 @@ debug_fill = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.7269726, 2.81, 3.7094235)
 script = ExtResource("2_ieofv")
 surface_type = 2
+ambient_streams = Array[AudioStream]([ExtResource("3_r6vd7")])
+ambient_pitch_scale = 0.75
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="modular-cave-final/RegionWater2/Puddle3" unique_id=462047277]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10621452, -2.3553002, 0.05934143)
@@ -628,6 +640,8 @@ debug_fill = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8253632, 2.81, 1.2728729)
 script = ExtResource("2_ieofv")
 surface_type = 2
+ambient_streams = Array[AudioStream]([ExtResource("3_r6vd7")])
+ambient_pitch_scale = 0.75
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="modular-cave-final/RegionWater3/Puddle1" unique_id=756247878]
 transform = Transform3D(0.121869326, 0.99254614, 0, 0.017322265, -0.0021269063, -0.9998477, -0.992395, 0.121850766, -0.017452352, 0.060958862, -2.684215, 0.013979912)
@@ -644,6 +658,8 @@ debug_fill = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.099556, 2.81, -2.1211605)
 script = ExtResource("2_ieofv")
 surface_type = 2
+ambient_streams = Array[AudioStream]([ExtResource("3_r6vd7")])
+ambient_pitch_scale = 0.75
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="modular-cave-final/RegionWater3/Puddle4" unique_id=50235313]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2916031, -0.08223057, 0.17850208)
@@ -661,6 +677,12 @@ transform = Transform3D(4.74, 0, 0, 0, 4.74, 0, 0, 0, 4.74, -1.9821854, -0.73128
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.869, 0, 85.116)
 script = ExtResource("2_ieofv")
 surface_type = 1
+ambient_streams = Array[AudioStream]([ExtResource("8_g8gtg")])
+ambient_volume_db = -30.0
+ambient_pitch_scale = 0.8
+ambient_unit_size = 80.0
+ambient_max_distance = 90.0
+ambient_position_offset = Vector3(4.065, 3.02, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="modular-cave-final/RegionGravel" unique_id=646101132]
 shape = SubResource("BoxShape3D_gravel")
@@ -670,6 +692,9 @@ debug_color = Color(1, 1, 1, 0.47843137)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.361, 0, 86.847)
 script = ExtResource("2_ieofv")
 surface_type = 1
+ambient_streams = Array[AudioStream]([ExtResource("8_g8gtg")])
+ambient_volume_db = -30.0
+ambient_pitch_scale = 0.8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="modular-cave-final/RegionGravel2" unique_id=1723451335]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2571716, 0, -0.7846985)
@@ -680,6 +705,10 @@ debug_color = Color(1, 1, 1, 0.6431373)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.149, 0, 120.067)
 script = ExtResource("2_ieofv")
 surface_type = 3
+ambient_streams = Array[AudioStream]([ExtResource("8_clsdl"), ExtResource("9_g8gtg")])
+ambient_volume_db = -30.0
+ambient_unit_size = 70.0
+ambient_max_distance = 80.0
 
 [node name="mangroove-tree-roots7" type="StaticBody3D" parent="modular-cave-final/RegionWood" unique_id=1464161914]
 transform = Transform3D(-17.84999, -0.48903555, 19.124485, -0.55958676, 26.158607, 0.14661148, -19.122551, -0.3089927, -17.856089, -3.9134254, -0.4695511, -3.7523918)
@@ -1163,6 +1192,11 @@ transform = Transform3D(-0.13365369, -0.013700972, -0.013190107, 0.01376684, -0.
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.139, 0, 51.827)
 script = ExtResource("2_ieofv")
 surface_type = 3
+ambient_streams = Array[AudioStream]([ExtResource("8_clsdl"), ExtResource("9_g8gtg")])
+ambient_volume_db = -22.0
+ambient_unit_size = 60.0
+ambient_max_distance = 70.0
+ambient_position_offset = Vector3(-10, 2, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="modular-cave-final/RegionWood2" unique_id=646101133]
 shape = SubResource("BoxShape3D_ieofv")
@@ -1682,6 +1716,10 @@ transform = Transform3D(2.1498396, -0.49423838, 2.373083, -0.9891841, 2.7169344,
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.295, 0, 111.918)
 script = ExtResource("2_ieofv")
 surface_type = 3
+ambient_streams = Array[AudioStream]([ExtResource("8_clsdl"), ExtResource("9_g8gtg")])
+ambient_volume_db = -30.0
+ambient_unit_size = 30.0
+ambient_max_distance = 40.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="modular-cave-final/RegionWood3" unique_id=1217790655]
 shape = SubResource("BoxShape3D_c7dxg")
@@ -1841,6 +1879,10 @@ transform = Transform3D(-0.85262835, 0.046469357, -0.5204485, 0.06960226, 0.9972
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 115.02, 0, 112.016)
 script = ExtResource("2_ieofv")
 surface_type = 3
+ambient_streams = Array[AudioStream]([ExtResource("8_clsdl"), ExtResource("9_g8gtg")])
+ambient_volume_db = -30.0
+ambient_unit_size = 30.0
+ambient_max_distance = 40.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="modular-cave-final/RegionWood4" unique_id=465571639]
 shape = SubResource("BoxShape3D_c7dxg")
@@ -1964,6 +2006,10 @@ transform = Transform3D(-0.7236104, 0.5368331, -0.43381825, 0.44618842, 0.843372
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 102.08, 0, 117.046)
 script = ExtResource("2_ieofv")
 surface_type = 3
+ambient_streams = Array[AudioStream]([ExtResource("8_clsdl"), ExtResource("9_g8gtg")])
+ambient_volume_db = -30.0
+ambient_unit_size = 30.0
+ambient_max_distance = 40.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="modular-cave-final/RegionWood5" unique_id=130354581]
 shape = SubResource("BoxShape3D_oyyej")
@@ -2607,6 +2653,10 @@ transform = Transform3D(0.05412675, -0.0021647562, -0.025799343, 0.0028547212, 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98.739, 0, 57.703)
 script = ExtResource("2_ieofv")
 surface_type = 4
+ambient_streams = Array[AudioStream]([ExtResource("17_t56qw"), ExtResource("18_rqib1")])
+ambient_unit_size = 50.0
+ambient_max_distance = 60.0
+ambient_position_offset = Vector3(-6, 3, -12)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="modular-cave-final/RegionSand" unique_id=646101135]
 shape = SubResource("BoxShape3D_sand")
@@ -3077,6 +3127,11 @@ shape = SubResource("CapsuleShape3D_3bk5d")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.988, 0, 116.42)
 script = ExtResource("2_ieofv")
 surface_type = 4
+ambient_streams = Array[AudioStream]([ExtResource("18_rqib1"), ExtResource("17_t56qw")])
+ambient_volume_db = -20.0
+ambient_unit_size = 20.0
+ambient_max_distance = 25.0
+ambient_position_offset = Vector3(0, 3, 1.55)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="modular-cave-final/RegionSand2" unique_id=894041166]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.0795403)
@@ -3316,6 +3371,11 @@ transform = Transform3D(0.1477323, -0.05519985, 0.07584949, 0.01109809, -0.13021
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.045105, 0, 72.51401)
 script = ExtResource("2_ieofv")
 surface_type = 4
+ambient_streams = Array[AudioStream]([ExtResource("17_t56qw"), ExtResource("18_rqib1")])
+ambient_volume_db = -30.0
+ambient_unit_size = 60.0
+ambient_max_distance = 70.0
+ambient_position_offset = Vector3(0, 3, -21.245)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="modular-cave-final/RegionSand3" unique_id=321221543]
 shape = SubResource("BoxShape3D_g0rns")
@@ -3626,28 +3686,28 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2663164, 0, -5.00718)
 [node name="blob_monster" parent="Monster" unique_id=890782185 instance=ExtResource("11_xqtg2")]
 transform = Transform3D(1.605, 0, 0, 0, 1.605, 0, 0, 0, 1.605, 0, 0.06785911, 0)
 
-[node name="Skeleton3D" parent="Monster/blob_monster/Sketchfab_model/3f6d8c832002440e97bb2e8e289744c0_fbx/Object_2/RootNode/Object_4" parent_id_path=PackedInt32Array(890782185, 833541334) index="0" unique_id=427919658]
-bones/1/position = Vector3(0.06429219, 4.0406256, -0.06296984)
-bones/1/rotation = Quaternion(-0.039328642, -0.36724114, -0.013531474, 0.9291955)
-bones/2/rotation = Quaternion(0.08008383, 0.040765155, -0.010464299, 0.9958993)
-bones/3/rotation = Quaternion(0.09627401, 0.07920024, -0.022400154, 0.9919461)
-bones/4/rotation = Quaternion(0.096125074, 0.07927664, -0.022459494, 0.9919531)
-bones/5/rotation = Quaternion(-0.056380525, -0.010298873, 0.0021563286, 0.998354)
-bones/6/rotation = Quaternion(-0.07025248, 0.178551, -0.004744068, 0.981408)
-bones/8/rotation = Quaternion(0.6470621, 0.33705142, -0.59009147, 0.34568623)
-bones/9/rotation = Quaternion(0.31951252, -0.10123836, 0.08699722, 0.93813336)
-bones/10/rotation = Quaternion(-0.047943365, 0.061569516, 0.41311738, 0.9073284)
-bones/12/rotation = Quaternion(0.6706134, -0.31944978, 0.5727147, 0.3467384)
-bones/13/rotation = Quaternion(0.3172493, 0.108558245, 0.12569556, 0.9336856)
-bones/14/rotation = Quaternion(0.032754697, 0.0050005326, -0.36683023, 0.92969763)
-bones/16/rotation = Quaternion(0.088249296, 0.27304262, 0.9485582, -0.13378042)
-bones/17/rotation = Quaternion(-0.4108702, 0.12434013, -0.088183776, 0.89885986)
-bones/18/rotation = Quaternion(0.60029066, 0.4244654, -0.46056435, 0.49735382)
-bones/19/rotation = Quaternion(0.008220228, 0.023706531, 0.15984102, 0.9868238)
-bones/21/rotation = Quaternion(-0.1272716, 0.05949189, 0.9732334, 0.18187736)
-bones/22/rotation = Quaternion(-0.41854918, 0.061486837, 0.03245914, 0.90552884)
-bones/23/rotation = Quaternion(0.65940607, -0.4983922, 0.4687683, 0.31152102)
-bones/24/rotation = Quaternion(0.0029323585, -0.015029455, -0.09002166, 0.99582213)
+[node name="Skeleton3D" parent="Monster/blob_monster/Sketchfab_model/3f6d8c832002440e97bb2e8e289744c0_fbx/Object_2/RootNode/Object_4" parent_id_path=PackedInt32Array(890782185, 547583420) index="0" unique_id=542760964]
+bones/1/position = Vector3(0.06570569, 4.0515633, -0.048251793)
+bones/1/rotation = Quaternion(-0.039844334, -0.36704543, -0.013916787, 0.9292451)
+bones/2/rotation = Quaternion(0.07866438, 0.040649183, -0.009718934, 0.99602467)
+bones/3/rotation = Quaternion(0.09307188, 0.07927983, -0.021828676, 0.992258)
+bones/4/rotation = Quaternion(0.0933805, 0.07921789, -0.021837767, 0.99223375)
+bones/5/rotation = Quaternion(-0.0491472, -0.010542659, 0.0020314744, 0.99873394)
+bones/6/rotation = Quaternion(-0.07176239, 0.1775998, -0.0007534189, 0.9814825)
+bones/8/rotation = Quaternion(0.6388096, 0.3477344, -0.5906428, 0.34949136)
+bones/9/rotation = Quaternion(0.32561678, -0.09845968, 0.08577532, 0.9364412)
+bones/10/rotation = Quaternion(-0.04638237, 0.063917674, 0.4172252, 0.90536535)
+bones/12/rotation = Quaternion(0.6619512, -0.3298017, 0.5741255, 0.35132796)
+bones/13/rotation = Quaternion(0.3268502, 0.10151027, 0.12514795, 0.9312372)
+bones/14/rotation = Quaternion(0.03866991, -0.0033184278, -0.36875597, 0.9287157)
+bones/16/rotation = Quaternion(0.08868053, 0.2696036, 0.94959754, -0.13309468)
+bones/17/rotation = Quaternion(-0.40841624, 0.12455804, -0.08833409, 0.89993256)
+bones/18/rotation = Quaternion(0.5998413, 0.42464706, -0.46031168, 0.4979743)
+bones/19/rotation = Quaternion(0.008100191, 0.023695624, 0.15975639, 0.9868389)
+bones/21/rotation = Quaternion(-0.12758653, 0.053803686, 0.9734493, 0.18227296)
+bones/22/rotation = Quaternion(-0.4105571, 0.061690763, 0.03329096, 0.90913635)
+bones/23/rotation = Quaternion(0.65825635, -0.49661303, 0.47102118, 0.31338975)
+bones/24/rotation = Quaternion(0.002771348, -0.0149456365, -0.08993152, 0.995832)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Monster" unique_id=1897117262]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1532463, 0)
