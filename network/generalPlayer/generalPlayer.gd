@@ -110,7 +110,7 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	# Animations-Steuerung
-	_handle_animations(direction)
+	# _handle_animations(direction)
 	network_position = position
 
 	var is_actually_moving = Vector2(velocity.x, velocity.z).length() > 0.1
@@ -169,5 +169,5 @@ func _on_players_won():
 func _on_monster_won():
 	SceneLoader.goto_scene("res://ui/screens/game_end/MonsterWinScreen.tscn")
 
-func _handle_animations(_direction: Vector3) -> void:
-	pass
+#func _handle_animations(_direction: Vector3) -> void:
+	#pass
