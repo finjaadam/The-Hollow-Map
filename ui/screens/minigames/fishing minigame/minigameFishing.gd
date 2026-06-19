@@ -89,3 +89,5 @@ func _on_reset_timer_timeout() -> void:
 func _on_pause_toggled(is_paused: bool) -> void:
 	if not is_paused and game_active:
 		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+		
+		

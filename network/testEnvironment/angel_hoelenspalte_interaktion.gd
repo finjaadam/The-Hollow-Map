@@ -58,8 +58,11 @@ func _on_minigame_finished(success: bool, minigame_instance: Node) -> void:
 		queue_free() 
 	else:
 		print("Fehltritt registriert, warte auf Minigame-Reset...")
+		_play_klippen_sound.rpc()
 		
-		if klippen_sound_player:
-			if klippen_sound_player.playing:
-				klippen_sound_player.stop()
-			klippen_sound_player.play()
+@rpc("any_peer", "call_local", "reliable")
+func _play_klippen_sound() -> void:
+	if klippen_sound_player:
+		if klippen_sound_player.playing:
+			klippen_sound_player.stop()
+		klippen_sound_player.play()
