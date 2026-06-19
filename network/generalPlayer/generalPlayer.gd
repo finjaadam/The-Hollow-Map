@@ -100,12 +100,7 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	# Animations-Steuerung
-	if animation_player: 
-		if direction != Vector3.ZERO:
-			if animation_player.current_animation != "Sneak_Walk/mixamo_com":
-				animation_player.play("Sneak_Walk/mixamo_com")
-		else:
-			animation_player.stop()
+	_handle_animations(direction)
 
 	footstep_controller.tick(is_on_floor(), direction != Vector3.ZERO, delta)
 
@@ -153,3 +148,6 @@ func _on_players_won():
 
 func _on_monster_won():
 	SceneLoader.goto_scene("res://ui/screens/game_end/MonsterWinScreen.tscn")
+
+func _handle_animations(_direction: Vector3) -> void:
+	pass
