@@ -18,7 +18,7 @@ var target_velocity = Vector3.ZERO
 enum Role {PLAYER, MONSTER}
 var ownRole: Role
 
-var is_fishing := false
+var is_movement_locked := false
 
 func _ready() -> void:
 	_on_ready()
@@ -50,7 +50,7 @@ func _input(event):
 	# Only process input for the local player
 	if not is_multiplayer_authority():
 		return
-	if SceneLoader.is_paused or is_fishing:
+	if SceneLoader.is_paused or is_movement_locked:
 		return
 	
 	if OS.is_debug_build():
@@ -73,7 +73,7 @@ func _physics_process(delta):
 		return
 	if not is_multiplayer_authority():
 		return
-	if SceneLoader.is_paused or is_fishing:
+	if SceneLoader.is_paused or is_movement_locked:
 		return
 
 	var direction = Vector3.ZERO
@@ -146,11 +146,3 @@ func _on_players_won():
 func _on_monster_won():
 	SceneLoader.goto_scene("res://ui/screens/game_end/MonsterWinScreen.tscn")
 	
-func set_fishing_mode(fishing: bool) -> void:
-		is_fishing = fishing
-		if is_fishing:
-			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		else:
-			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-			DisplayServer.window_move_to_foreground()
-			Input.flush_buffered_events()
