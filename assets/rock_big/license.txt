@@ -1,0 +1,11 @@
+Model Information:
+* title:	Rock_big
+* source:	https://sketchfab.com/3d-models/rock-big-f869bd3e6526494a957f831c522bd655
+* author:	irs1182 (https://sketchfab.com/irs1182)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Rock_big" (https://sketchfab.com/3d-models/rock-big-f869bd3e6526494a957f831c522bd655) by irs1182 (https://sketchfab.com/irs1182) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

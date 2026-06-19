@@ -1,0 +1,457 @@
+{
+  "accessors": [
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 5547,
+      "max": [
+        4.1026458740234375,
+        28.079925537109375,
+        8.011306762695313
+      ],
+      "min": [
+        -7.978096008300781,
+        -1.5614356994628906,
+        -4.655590057373047
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 66564,
+      "componentType": 5126,
+      "count": 5547,
+      "max": [
+        0.9999922513961792,
+        0.9999303817749023,
+        0.9998394846916199
+      ],
+      "min": [
+        -0.999981164932251,
+        -0.999812662601471,
+        -0.9996621608734131
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 5547,
+      "max": [
+        0.9999987483024597,
+        0.999981701374054,
+        0.999989926815033,
+        1.0
+      ],
+      "min": [
+        -0.9999496340751648,
+        -0.999995768070221,
+        -1.0,
+        -1.0
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 5547,
+      "max": [
+        0.9339606165885925,
+        0.9980081915855408
+      ],
+      "min": [
+        0.0018641884671524167,
+        0.001992030767723918
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 17268,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 133128,
+      "componentType": 5126,
+      "count": 744,
+      "max": [
+        3.80208683013916,
+        29.21003532409668,
+        5.004588603973389
+      ],
+      "min": [
+        -4.390730857849121,
+        20.38796615600586,
+        -4.885097503662109
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 142056,
+      "componentType": 5126,
+      "count": 744,
+      "max": [
+        0.9938294291496277,
+        0.9761272668838501,
+        0.9931701421737671
+      ],
+      "min": [
+        -0.9967402815818787,
+        -0.9933992624282837,
+        -0.9849997162818909
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "byteOffset": 88752,
+      "componentType": 5126,
+      "count": 744,
+      "max": [
+        0.9995871186256409,
+        0.9927070736885071,
+        0.999406635761261,
+        1.0
+      ],
+      "min": [
+        -0.9872301816940308,
+        -0.9931685328483582,
+        -0.988889217376709,
+        1.0
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 44376,
+      "componentType": 5126,
+      "count": 744,
+      "max": [
+        1.0,
+        1.0
+      ],
+      "min": [
+        0.0,
+        0.0
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 50328,
+      "componentType": 5126,
+      "count": 744,
+      "max": [
+        1.0,
+        1.0
+      ],
+      "min": [
+        0.0,
+        0.0
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 69072,
+      "componentType": 5125,
+      "count": 1116,
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "Matt Bodner (https://sketchfab.com/liphttam1)",
+      "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+      "source": "https://sketchfab.com/3d-models/tall-mangrove-tree-b722ee2895e84fd3b02a467cd1ba1cbe",
+      "title": "Tall Mangrove Tree"
+    },
+    "generator": "Sketchfab-14.62.0",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 73536,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 56280,
+      "byteOffset": 73536,
+      "byteStride": 8,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 150984,
+      "byteOffset": 129816,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 100656,
+      "byteOffset": 280800,
+      "byteStride": 16,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 381456,
+      "uri": "scene.bin"
+    }
+  ],
+  "extensionsUsed": [
+    "KHR_materials_specular"
+  ],
+  "images": [
+    {
+      "uri": "textures/CHA_ENV_TallMangrove_Bark_baseColor.png"
+    },
+    {
+      "uri": "textures/CHA_ENV_TallMangrove_Bark_metallicRoughness.png"
+    },
+    {
+      "uri": "textures/CHA_ENV_TallMangrove_Bark_normal.png"
+    },
+    {
+      "uri": "textures/CHA_ENV_TallMangrove_Leaves1_baseColor.png"
+    },
+    {
+      "uri": "textures/CHA_ENV_TallMangrove_Leaves1_emissive.png"
+    },
+    {
+      "uri": "textures/CHA_ENV_TallMangrove_Leaves1_normal.png"
+    },
+    {
+      "uri": "textures/CHA_ENV_TallMangrove_Leaves1_specularf0.png"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "name": "CHA_ENV_TallMangrove_Bark",
+      "normalTexture": {
+        "index": 2
+      },
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicRoughnessTexture": {
+          "index": 1
+        },
+        "roughnessFactor": 0.19073932926829268
+      }
+    },
+    {
+      "alphaMode": "BLEND",
+      "doubleSided": true,
+      "emissiveFactor": [
+        0.8708079268292684,
+        0.8708079268292684,
+        0.8708079268292684
+      ],
+      "emissiveTexture": {
+        "index": 4
+      },
+      "extensions": {
+        "KHR_materials_specular": {
+          "specularColorFactor": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "specularFactor": 1.0,
+          "specularTexture": {
+            "index": 6
+          }
+        }
+      },
+      "name": "CHA_ENV_TallMangrove_Leaves1",
+      "normalTexture": {
+        "index": 5
+      },
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          1.0,
+          1.0,
+          1.0,
+          0.9860899390243902
+        ],
+        "baseColorTexture": {
+          "index": 3
+        },
+        "metallicFactor": 0.11756859756097562
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "CHA_ENV_TallMangrove_CHA_ENV_TallMangrove_Bark_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 4,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "Leaves_CHA_ENV_TallMangrove_Leaves1_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 6,
+            "POSITION": 5,
+            "TANGENT": 7,
+            "TEXCOORD_0": 8,
+            "TEXCOORD_1": 9
+          },
+          "indices": 10,
+          "material": 1,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.220446049250313e-16,
+        -1.0,
+        0.0,
+        0.0,
+        1.0,
+        2.220446049250313e-16,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "Sketchfab_model"
+    },
+    {
+      "children": [
+        2
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        -1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "CHA_ENV_TallMangrove.fbx"
+    },
+    {
+      "children": [
+        3,
+        5
+      ],
+      "name": "RootNode"
+    },
+    {
+      "children": [
+        4
+      ],
+      "name": "CHA_ENV_TallMangrove"
+    },
+    {
+      "mesh": 0,
+      "name": "CHA_ENV_TallMangrove_CHA_ENV_TallMangrove_Bark_0"
+    },
+    {
+      "children": [
+        6
+      ],
+      "name": "Leaves"
+    },
+    {
+      "mesh": 1,
+      "name": "Leaves_CHA_ENV_TallMangrove_Leaves1_0"
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Sketchfab_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    },
+    {
+      "sampler": 0,
+      "source": 2
+    },
+    {
+      "sampler": 0,
+      "source": 3
+    },
+    {
+      "sampler": 0,
+      "source": 4
+    },
+    {
+      "sampler": 0,
+      "source": 5
+    },
+    {
+      "sampler": 0,
+      "source": 6
+    }
+  ]
+}
