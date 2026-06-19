@@ -13,7 +13,7 @@ const amount_fishingrods = 2
 const amount_runes = 6
 
 var exit_door_scene = preload("res://network/testEnvironment/ExitDoor.tscn")
-var pickaxe_scene = preload("res://network/collectableItems/pickAxe/pickaxe.tscn")
+var pickaxe_scene = preload("res://network/collectableItems/pickaxe/pickaxe.tscn")
 var fishingrod_scene = preload("res://network/collectableItems/fishingrod/fishingrod.tscn")
 var rune_scene = preload("res://network/collectableItems/rune/rune.tscn")
 

@@ -20,8 +20,17 @@ var target_velocity = Vector3.ZERO
 enum Role {PLAYER, MONSTER}
 var ownRole: Role
 
+# Replicated over the network instead of `position` directly, so remote
+# peers can smoothly interpolate towards it rather than snapping on every
+# packet (which caused visible micro-jumps when packets arrive unevenly).
+var network_position: Vector3 = Vector3.ZERO
+@export var network_interpolation_speed: float = 20.0
+var network_rotation: Vector3 = Vector3.ZERO
+
 func _ready() -> void:
 	_on_ready()
+	network_position = position
+	network_rotation = rotation
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 	# Only create Camera + Environment for yourself
@@ -68,7 +77,8 @@ func _input(event):
 		rotate_y(-event.relative.x * mouse_sensitivity)
 		camera3d.rotate_x(-event.relative.y * mouse_sensitivity)
 		camera3d.rotation.x = clamp(camera3d.rotation.x, deg_to_rad(-89), deg_to_rad(89))
-
+		network_rotation = rotation
+		
 func _physics_process(delta):
 	if not multiplayer.has_multiplayer_peer():
 		return
@@ -101,9 +111,18 @@ func _physics_process(delta):
 	
 	# Animations-Steuerung
 	_handle_animations(direction)
+	network_position = position
 
 	var is_actually_moving = Vector2(velocity.x, velocity.z).length() > 0.1
 	footstep_controller.tick(is_on_floor(), is_actually_moving, delta)
+
+func _process(delta: float) -> void:
+	if not multiplayer.has_multiplayer_peer():
+		return
+	if is_multiplayer_authority():
+		return
+	position = position.lerp(network_position, clamp(delta * network_interpolation_speed, 0.0, 1.0))
+	rotation = rotation.lerp(network_rotation, clamp(delta * network_interpolation_speed, 0.0, 1.0))
 
 func _unhandled_input(event):
 	if not is_multiplayer_authority():
