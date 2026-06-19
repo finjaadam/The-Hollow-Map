@@ -49,8 +49,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.012199789, -0.76869315)
 
 [node name="Pivot" type="Node3D" parent="." unique_id=648722982]
 
-[node name="Player_Model" parent="Pivot" unique_id=991988269 instance=ExtResource("5_d2j4b")]
+[node name="Player_Model" parent="Pivot" unique_id=991988269 node_paths=PackedStringArray("player") instance=ExtResource("5_d2j4b")]
 transform = Transform3D(-0.99998176, 0, -0.00603878, 0, 1, 0, 0.00603878, 0, -0.99998176, 0, 0, 0)
+player = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1785374638]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.54921484, -0.088317096)
