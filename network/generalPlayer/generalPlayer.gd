@@ -20,6 +20,8 @@ var target_velocity = Vector3.ZERO
 enum Role {PLAYER, MONSTER}
 var ownRole: Role
 
+var is_movement_locked := false
+
 # Replicated over the network instead of `position` directly, so remote
 # peers can smoothly interpolate towards it rather than snapping on every
 # packet (which caused visible micro-jumps when packets arrive unevenly).
@@ -64,7 +66,7 @@ func _input(event):
 	# Only process input for the local player
 	if not is_multiplayer_authority():
 		return
-	if SceneLoader.is_paused:
+	if SceneLoader.is_paused or is_movement_locked:
 		return
 	
 	if OS.is_debug_build():
@@ -88,7 +90,7 @@ func _physics_process(delta):
 		return
 	if not is_multiplayer_authority():
 		return
-	if SceneLoader.is_paused:
+	if SceneLoader.is_paused or is_movement_locked:
 		return
 
 	var direction = Vector3.ZERO
@@ -170,3 +172,4 @@ func _on_players_won():
 
 func _on_monster_won():
 	SceneLoader.goto_scene("res://ui/screens/game_end/MonsterWinScreen.tscn")
+	

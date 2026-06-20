@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://c8liybxhqrhwr"]
 
 [ext_resource type="PackedScene" uid="uid://b4173e423se8o" path="res://map/modular-cave-final.glb" id="1_wb7j6"]
-[ext_resource type="Script" uid="uid://c15wkn1ddol15" path="res://Network/scripts/areaSounds/MapArea.gd" id="2_ieofv"]
+[ext_resource type="Script" uid="uid://c15wkn1ddol15" path="res://network/scripts/areaSounds/MapArea.gd" id="2_ieofv"]
 [ext_resource type="AudioStream" uid="uid://1chc6cbhimgh" path="res://audio/music/ambient/WaterDrops.mp3" id="3_r6vd7"]
 [ext_resource type="PackedScene" uid="uid://dnk8iwck0vfdf" path="res://assets/wasser.tscn" id="3_xqtg2"]
 [ext_resource type="PackedScene" uid="uid://drhm8uhvkuffw" path="res://assets/fountain_3d_model_free-edited/fountain-small.tscn" id="4_e062h"]
@@ -22,13 +22,16 @@
 [ext_resource type="PackedScene" uid="uid://62l58j2attqx" path="res://assets/water_fountain/fountain-old.tscn" id="11_fountain"]
 [ext_resource type="PackedScene" uid="uid://dud2rq3uvwwr2" path="res://assets/blob_monster/blob_monster.tscn" id="11_xqtg2"]
 [ext_resource type="PackedScene" uid="uid://cxvofcy8m8ejs" path="res://assets/stone_group_1/stone_group_1.tscn" id="14_22shp"]
+[ext_resource type="Script" uid="uid://dew5ikh2m42fp" path="res://network/testEnvironment/angel_hoelenspalte_interaktion.gd" id="15_hmamp"]
 [ext_resource type="Texture2D" uid="uid://dnp65cdyabsl" path="res://assets/szikla__rock/textures/material_baseColor.png" id="15_owalp"]
 [ext_resource type="PackedScene" uid="uid://bk277se02bsh7" path="res://assets/rock_big/rock_big.tscn" id="16_1wree"]
 [ext_resource type="Texture2D" uid="uid://dkax1eh4tdvil" path="res://assets/szikla__rock/textures/material_metallicRoughness.png" id="16_nijqk"]
+[ext_resource type="AudioStream" uid="uid://creuqm3sysge6" path="res://audio/music/menu/ambient/cave_taps.mp3" id="16_ssx8d"]
 [ext_resource type="PackedScene" uid="uid://cn3vfxuwcpc5s" path="res://assets/rock/rock.tscn" id="17_1nqb3"]
 [ext_resource type="PackedScene" uid="uid://d48kugcbjqy5" path="res://assets/mangrove_mushroom_scene/mangroove_mushroom.tscn" id="17_6r8sr"]
 [ext_resource type="Texture2D" uid="uid://ce7twl5w8gqhi" path="res://assets/szikla__rock/textures/material_normal.png" id="17_mu3u4"]
 [ext_resource type="AudioStream" uid="uid://jmracjweuvlv" path="res://audio/music/ambient/SandPouring.mp3" id="17_t56qw"]
+[ext_resource type="PackedScene" uid="uid://dwg6y3rkmyerg" path="res://assets/minispiel_angeln/hoelenspalte/hoelenspalte.glb" id="17_u131e"]
 [ext_resource type="Texture2D" uid="uid://cjquk3ihlildv" path="res://assets/rock/textures/08___Default_baseColor.jpeg" id="17_xp7ei"]
 [ext_resource type="PackedScene" uid="uid://cidu6gihbou66" path="res://assets/mangrove_mushroom_scene/mumi.tscn" id="18_iq7gk"]
 [ext_resource type="Texture2D" uid="uid://7f3aggar8xim" path="res://assets/rock/textures/08___Default_metallicRoughness.png" id="18_owalp"]
@@ -517,6 +520,13 @@ shadow_mesh = SubResource("ArrayMesh_t30k3")
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b3l4a"]
 radius = 2.290039
 height = 5.658203
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xm1mq"]
+radius = 1.8447266
+height = 4.810547
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hmamp"]
+size = Vector3(3.1005516, 2.5546265, 4.40094)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0an4t"]
 radius = 0.90478516
@@ -3680,34 +3690,64 @@ transform = Transform3D(-0.64904046, -1.7654809, -0.1227063, -1.6597645, 0.65259
 [node name="jukebox" parent="modular-cave-final" unique_id=578076892 instance=ExtResource("10_cns11")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 78.521996, -0.22682153, 79.27753)
 
+[node name="Angel_Hoelenspalte" type="Node3D" parent="modular-cave-final" unique_id=978666373]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 143.00772, 0.22610044, 77.04176)
+script = ExtResource("15_hmamp")
+
+[node name="hoelenspalte" parent="modular-cave-final/Angel_Hoelenspalte" unique_id=980191391 instance=ExtResource("17_u131e")]
+transform = Transform3D(-0.52100515, 0, -0.12156763, 0, 0.535, 0, 0.12156763, 0, -0.52100515, -0.2732849, 1.472727, 1.7534857)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="modular-cave-final/Angel_Hoelenspalte/hoelenspalte" unique_id=1189201582]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="modular-cave-final/Angel_Hoelenspalte/hoelenspalte/StaticBody3D" unique_id=1377608958]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.41882324, -0.09350586, 0.15624428)
+shape = SubResource("CapsuleShape3D_xm1mq")
+
+[node name="Area3D" type="Area3D" parent="modular-cave-final/Angel_Hoelenspalte" unique_id=224053191]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2210617, 0.29441404, 1.0476551)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="modular-cave-final/Angel_Hoelenspalte/Area3D" unique_id=893155589]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0421982, 0.97013617, 1.1298084)
+shape = SubResource("BoxShape3D_hmamp")
+
+[node name="Interaktions_Buchstabe" type="Label3D" parent="modular-cave-final/Angel_Hoelenspalte" unique_id=253326286]
+unique_name_in_owner = true
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.0176926, 1.0241547, 1.802515)
+billboard = 1
+text = "E"
+
+[node name="AngelWand_Player" type="AudioStreamPlayer3D" parent="modular-cave-final/Angel_Hoelenspalte" unique_id=979714847]
+stream = ExtResource("16_ssx8d")
+bus = &"SFX"
+
 [node name="Monster" type="CharacterBody3D" parent="." unique_id=890408639]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2663164, 0, -5.00718)
 
 [node name="blob_monster" parent="Monster" unique_id=890782185 instance=ExtResource("11_xqtg2")]
 transform = Transform3D(1.605, 0, 0, 0, 1.605, 0, 0, 0, 1.605, 0, 0.06785911, 0)
 
-[node name="Skeleton3D" parent="Monster/blob_monster/Sketchfab_model/3f6d8c832002440e97bb2e8e289744c0_fbx/Object_2/RootNode/Object_4" parent_id_path=PackedInt32Array(890782185, 547583420) index="0" unique_id=542760964]
-bones/1/position = Vector3(0.06570569, 4.0515633, -0.048251793)
-bones/1/rotation = Quaternion(-0.039844334, -0.36704543, -0.013916787, 0.9292451)
-bones/2/rotation = Quaternion(0.07866438, 0.040649183, -0.009718934, 0.99602467)
-bones/3/rotation = Quaternion(0.09307188, 0.07927983, -0.021828676, 0.992258)
-bones/4/rotation = Quaternion(0.0933805, 0.07921789, -0.021837767, 0.99223375)
-bones/5/rotation = Quaternion(-0.0491472, -0.010542659, 0.0020314744, 0.99873394)
-bones/6/rotation = Quaternion(-0.07176239, 0.1775998, -0.0007534189, 0.9814825)
-bones/8/rotation = Quaternion(0.6388096, 0.3477344, -0.5906428, 0.34949136)
-bones/9/rotation = Quaternion(0.32561678, -0.09845968, 0.08577532, 0.9364412)
-bones/10/rotation = Quaternion(-0.04638237, 0.063917674, 0.4172252, 0.90536535)
-bones/12/rotation = Quaternion(0.6619512, -0.3298017, 0.5741255, 0.35132796)
-bones/13/rotation = Quaternion(0.3268502, 0.10151027, 0.12514795, 0.9312372)
-bones/14/rotation = Quaternion(0.03866991, -0.0033184278, -0.36875597, 0.9287157)
-bones/16/rotation = Quaternion(0.08868053, 0.2696036, 0.94959754, -0.13309468)
-bones/17/rotation = Quaternion(-0.40841624, 0.12455804, -0.08833409, 0.89993256)
-bones/18/rotation = Quaternion(0.5998413, 0.42464706, -0.46031168, 0.4979743)
-bones/19/rotation = Quaternion(0.008100191, 0.023695624, 0.15975639, 0.9868389)
-bones/21/rotation = Quaternion(-0.12758653, 0.053803686, 0.9734493, 0.18227296)
-bones/22/rotation = Quaternion(-0.4105571, 0.061690763, 0.03329096, 0.90913635)
-bones/23/rotation = Quaternion(0.65825635, -0.49661303, 0.47102118, 0.31338975)
-bones/24/rotation = Quaternion(0.002771348, -0.0149456365, -0.08993152, 0.995832)
+[node name="Skeleton3D" parent="Monster/blob_monster/Sketchfab_model/3f6d8c832002440e97bb2e8e289744c0_fbx/Object_2/RootNode/Object_4" parent_id_path=PackedInt32Array(890782185, 833541334) index="0" unique_id=427919658]
+bones/1/position = Vector3(0.065452725, 4.0472274, -0.051799472)
+bones/1/rotation = Quaternion(-0.039703194, -0.3670635, -0.013855159, 0.929245)
+bones/2/rotation = Quaternion(0.078985855, 0.040668834, -0.009852383, 0.99599713)
+bones/3/rotation = Quaternion(0.09404596, 0.07917593, -0.021964308, 0.99217147)
+bones/4/rotation = Quaternion(0.094014265, 0.079207286, -0.021976179, 0.9921717)
+bones/5/rotation = Quaternion(-0.0503097, -0.010557136, 0.0019652455, 0.99867594)
+bones/6/rotation = Quaternion(-0.07158617, 0.17752424, -0.001345263, 0.9815085)
+bones/8/rotation = Quaternion(0.6418989, 0.34401193, -0.59008, 0.3484644)
+bones/9/rotation = Quaternion(0.32357278, -0.0989325, 0.086200535, 0.93706065)
+bones/10/rotation = Quaternion(-0.046549458, 0.06364296, 0.41610634, 0.90589094)
+bones/12/rotation = Quaternion(0.6643174, -0.32701463, 0.5737603, 0.35006154)
+bones/13/rotation = Quaternion(0.32531336, 0.10277073, 0.12489068, 0.9316715)
+bones/14/rotation = Quaternion(0.036964186, -0.0013230578, -0.36911166, 0.92864877)
+bones/16/rotation = Quaternion(0.088697545, 0.27025545, 0.94938356, -0.13328823)
+bones/17/rotation = Quaternion(-0.40920192, 0.12484887, -0.08852354, 0.89951664)
+bones/18/rotation = Quaternion(0.5999368, 0.42460477, -0.46037203, 0.4978397)
+bones/19/rotation = Quaternion(0.00813438, 0.023698732, 0.15978047, 0.9868346)
+bones/21/rotation = Quaternion(-0.12765709, 0.05508296, 0.9733434, 0.18240695)
+bones/22/rotation = Quaternion(-0.41318217, 0.061633237, 0.033285275, 0.9079504)
+bones/23/rotation = Quaternion(0.65856844, -0.49709058, 0.47042513, 0.31287202)
+bones/24/rotation = Quaternion(0.0028172059, -0.014969508, -0.08995718, 0.99582916)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Monster" unique_id=1897117262]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1532463, 0)
