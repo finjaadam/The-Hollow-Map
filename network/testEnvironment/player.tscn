@@ -29,7 +29,7 @@ properties/4/path = NodePath("Camera3D:rotation")
 properties/4/spawn = true
 properties/4/replication_mode = 1
 
-[node name="Player" type="CharacterBody3D" unique_id=1104604618 node_paths=PackedStringArray("footstep_controller", "camera3d", "canvas", "animation_player")]
+[node name="Player" type="CharacterBody3D" unique_id=1104604618 node_paths=PackedStringArray("footstep_controller", "camera3d", "canvas", "flashlight", "animation_player")]
 script = ExtResource("1_4flbx")
 mouse_sensitivity = 0.001
 speed = 5
@@ -38,6 +38,7 @@ player_env = ExtResource("3_3nxfo")
 footstep_controller = NodePath("FootstepController")
 camera3d = NodePath("Camera3D")
 canvas = NodePath("CanvasLayer")
+flashlight = NodePath("Camera3D/Flashlight")
 animation_player = NodePath("Pivot/Player_Model/AnimationPlayer")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=464028339]
@@ -46,6 +47,15 @@ environment = ExtResource("2_6i2bt")
 
 [node name="AudioController" parent="Camera3D" unique_id=846649630 instance=ExtResource("2_rev65")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.012199789, -0.76869315)
+
+[node name="Flashlight" type="SpotLight3D" parent="Camera3D" unique_id=1190575549]
+transform = Transform3D(1, 0, 0, 0, 0.98477834, -0.173643, 0, 0.173643, 0.98477834, 0, -0.2, -0.5)
+visible = false
+light_color = Color(1, 0.9490196, 0.8, 1)
+light_energy = 5.0
+shadow_enabled = true
+spot_range = 15.0
+spot_angle = 60.0
 
 [node name="Pivot" type="Node3D" parent="." unique_id=648722982]
 
