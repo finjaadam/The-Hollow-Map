@@ -28,6 +28,9 @@ properties/3/replication_mode = 1
 properties/4/path = NodePath("Camera3D:rotation")
 properties/4/spawn = true
 properties/4/replication_mode = 1
+properties/5/path = NodePath("Camera3D/Flashlight:visible")
+properties/5/spawn = true
+properties/5/replication_mode = 1
 
 [node name="Player" type="CharacterBody3D" unique_id=1104604618 node_paths=PackedStringArray("footstep_controller", "camera3d", "canvas", "flashlight", "animation_player")]
 script = ExtResource("1_4flbx")
