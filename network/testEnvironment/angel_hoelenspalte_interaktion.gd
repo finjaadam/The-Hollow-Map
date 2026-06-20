@@ -24,9 +24,10 @@ func _process(_delta: float) -> void:
 
 func _on_body_entered(body: Node3D) -> void:
 	if body is General_Player and body.is_multiplayer_authority():
-		spieler_in_reichweite = true
-		lokaler_spieler = body
-		interaktions_prompt.visible = true
+		if body.ownRole == General_Player.Role.PLAYER:
+			spieler_in_reichweite = true
+			lokaler_spieler = body
+			interaktions_prompt.visible = true
 
 func _on_body_exited(body: Node3D) -> void:
 	if body == lokaler_spieler:
@@ -55,10 +56,16 @@ func _on_minigame_finished(success: bool, minigame_instance: Node) -> void:
 		if lokaler_spieler:
 			lokaler_spieler.set_fishing_mode(false)
 			
+		_entferne_spalte_fuer_alle.rpc()
+			
 		queue_free() 
 	else:
 		print("Fehltritt registriert, warte auf Minigame-Reset...")
 		_play_klippen_sound.rpc()
+		
+@rpc("any_peer", "call_local", "reliable")
+func _entferne_spalte_fuer_alle() -> void:
+	queue_free()
 		
 @rpc("any_peer", "call_local", "reliable")
 func _play_klippen_sound() -> void:
