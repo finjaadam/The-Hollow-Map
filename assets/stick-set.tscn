@@ -4,5 +4,5 @@
 
 [node name="Sketchfab_Scene" unique_id=977865749 instance=ExtResource("1_12cql")]
 
-[node name="Sketchfab_model" parent="." index="0" unique_id=870377479]
+[node name="Sketchfab_model" parent="." index="0" unique_id=1229480491]
 transform = Transform3D(-0.008879498, -7.762703e-10, -3.3931855e-17, 0, -3.8813516e-10, 0.008879498, -7.762703e-10, 0.008879498, 3.8813516e-10, 0, 0, 0)

@@ -1,0 +1,11 @@
+Model Information:
+* title:	Fishing Pole
+* source:	https://sketchfab.com/3d-models/fishing-pole-1bed1703ebb04b0caa96159d57244f36
+* author:	tickinggears (https://sketchfab.com/tickinggears)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Fishing Pole" (https://sketchfab.com/3d-models/fishing-pole-1bed1703ebb04b0caa96159d57244f36) by tickinggears (https://sketchfab.com/tickinggears) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
