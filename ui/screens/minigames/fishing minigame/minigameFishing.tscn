@@ -9,24 +9,33 @@
 [node name="minigameFishing" type="Control" unique_id=1310700600]
 process_mode = 1
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -320.0
+offset_right = 250.0
+offset_bottom = 320.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme = ExtResource("1_iyslx")
 script = ExtResource("2_mnwjs")
 
 [node name="Background" type="ColorRect" parent="." unique_id=329702329]
 custom_minimum_size = Vector2(500, 640)
-layout_mode = 0
-offset_left = 330.0
-offset_top = 10.0
-offset_right = 830.0
-offset_bottom = 650.0
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 1.009375
+offset_left = -2.0
+offset_right = 498.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 color = Color(1, 1, 1, 0.91764706)
+metadata/_edit_use_anchors_ = true
 
 [node name="Wand" type="ColorRect" parent="Background" unique_id=1085817834]
 layout_mode = 0
