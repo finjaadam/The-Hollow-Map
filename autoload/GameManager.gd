@@ -31,7 +31,7 @@ func _apply_state(state: Dictionary) -> void:
 	team_lives = state.get("team_lives", 0)
 	team_keys = state.get("team_keys",  0)
 	state_updated.emit()
-	keys_changed.emit(team_keys)
+	keys_changed.emit()
 	lives_changed.emit(team_lives)
 
 func _build_state() -> Dictionary:
@@ -72,7 +72,7 @@ func clear() -> void:
 	game_has_ended = false
 	stop_life_drain()
 	state_updated.emit()
-	keys_changed.emit(team_keys)
+	keys_changed.emit()
 	lives_changed.emit(team_lives)
 
 ## Start EVERYTHING [br]

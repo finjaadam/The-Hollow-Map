@@ -14,15 +14,31 @@ extends CharacterBody3D
 @export var camera3d: Camera3D
 @export var canvas: CanvasLayer
 
+@export var animation_player: AnimationPlayer
+
 var target_velocity = Vector3.ZERO
 enum Role {PLAYER, MONSTER}
 var ownRole: Role
 
 var is_movement_locked := false
 
+# Replicated over the network instead of `position` directly, so remote
+# peers can smoothly interpolate towards it rather than snapping on every
+# packet (which caused visible micro-jumps when packets arrive unevenly).
+var network_position: Vector3 = Vector3.ZERO
+@export var network_interpolation_speed: float = 20.0
+# Yaw only (body only ever rotates around Y) stored as a plain float so we
+# can interpolate with lerp_angle() - Vector3.lerp() on Euler angles takes
+# the long way around when crossing the +-180 deg wrap, causing a visible
+# full spin before snapping onto the correct heading.
+var network_rotation_y: float = 0.0
+
 func _ready() -> void:
 	_on_ready()
+	network_position = position
+	network_rotation_y = rotation.y
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
 	# Only create Camera + Environment for yourself
 	if is_multiplayer_authority():
 		camera3d.current = true
@@ -67,7 +83,8 @@ func _input(event):
 		rotate_y(-event.relative.x * mouse_sensitivity)
 		camera3d.rotate_x(-event.relative.y * mouse_sensitivity)
 		camera3d.rotation.x = clamp(camera3d.rotation.x, deg_to_rad(-89), deg_to_rad(89))
-
+		network_rotation_y = rotation.y
+		
 func _physics_process(delta):
 	if not multiplayer.has_multiplayer_peer():
 		return
@@ -97,9 +114,19 @@ func _physics_process(delta):
 	
 	velocity = target_velocity
 	move_and_slide()
+	
+	network_position = position
 
 	var is_actually_moving = Vector2(velocity.x, velocity.z).length() > 0.1
 	footstep_controller.tick(is_on_floor(), is_actually_moving, delta)
+
+func _process(delta: float) -> void:
+	if not multiplayer.has_multiplayer_peer():
+		return
+	if is_multiplayer_authority():
+		return
+	position = position.lerp(network_position, clamp(delta * network_interpolation_speed, 0.0, 1.0))
+	rotation.y = lerp_angle(rotation.y, network_rotation_y, clamp(delta * network_interpolation_speed, 0.0, 1.0))
 
 func _unhandled_input(event):
 	if not is_multiplayer_authority():
