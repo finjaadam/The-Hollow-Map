@@ -15,17 +15,20 @@ var rune_type: RuneType
 
 func _ready() -> void:
 	super()
-	apply_visual()
+	apply_runetype()
 
-func apply_visual() -> void:
+func apply_runetype() -> void:
 	match rune_type:
 		RuneType.COSMIC:
 			cosmic_scene.visible = true
+			add_to_group("rune-cosmic")
 		RuneType.NATURE:
 			nature_scene.visible = true
+			add_to_group("rune-nature")
 		RuneType.WATER:
 			water_scene.visible = true
+			add_to_group("rune-water")
 
 func _collect_item() -> void:
-	print("Rune aufgehoben:", rune_type)
+	super()
 	GameManager.collect_rune.rpc(rune_type)

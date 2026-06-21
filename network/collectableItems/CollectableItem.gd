@@ -12,7 +12,11 @@ func _on_body_entered(body) -> void:
 	if body.is_in_group("player"):
 		_collect_item()
 		queue_free()
+		
 
 func _collect_item() -> void:
-	# override with your item: GameManager.collect_<item>.rpc()
+	GameManager.despawn_minigame_items.rpc(self.get_groups()[0])
+	# override with your item: 
+		#super()
+		#GameManager.collect_<item>.rpc()
 	pass
