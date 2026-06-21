@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://q01m43qsxxhi" path="res://network/monster/abilities/MonsterAbilitySystem.gd" id="6_abilsys"]
 [ext_resource type="Resource" uid="uid://bri038mjnqped" path="res://network/monster/abilities/sprint/sprint_ability.tres" id="7_sprint"]
 [ext_resource type="Script" uid="uid://dc7jjc5aiaikj" path="res://network/monster/abilities/MonsterAbility.gd" id="8_aj4qo"]
-[ext_resource type="Resource" path="res://network/monster/abilities/sniff/sniff_ability.tres" id="9_sniff"]
+[ext_resource type="Resource" uid="uid://wmn7ok77ugvn" path="res://network/monster/abilities/sniff/sniff_ability.tres" id="9_sniff"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o6jvr"]
 
