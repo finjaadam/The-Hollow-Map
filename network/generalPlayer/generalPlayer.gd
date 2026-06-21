@@ -78,7 +78,9 @@ func _input(event):
 			camera3d.environment = player_env
 		if event.is_action_pressed("DEBUG_TOGGLE_ROLE"):
 			_debug_toggle_role()
-	
+
+	_on_input(event)
+
 	if event is InputEventMouseMotion:
 		rotate_y(-event.relative.x * mouse_sensitivity)
 		camera3d.rotate_x(-event.relative.y * mouse_sensitivity)
@@ -119,6 +121,8 @@ func _physics_process(delta):
 
 	var is_actually_moving = Vector2(velocity.x, velocity.z).length() > 0.1
 	footstep_controller.tick(is_on_floor(), is_actually_moving, delta)
+
+	_on_physics_process(delta)
 
 func _process(delta: float) -> void:
 	if not multiplayer.has_multiplayer_peer():
@@ -164,6 +168,13 @@ func _debug_toggle_role() -> void:
 	
 	# Tell the host/spawner to swap the scene for this peer
 	NetworkManager._debug_respawn_peer.rpc_id(1, my_id, new_role)
+
+
+func _on_input(event: InputEvent) -> void:
+	pass
+
+func _on_physics_process(_delta: float) -> void:
+	pass
 
 # --- Game End Handlers ---
 
