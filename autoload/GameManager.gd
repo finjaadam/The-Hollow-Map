@@ -141,6 +141,16 @@ func collect_rune(rune_type) -> void:
 	#todo
 	print("collect_rune()")
 
+@rpc("any_peer", "call_local", "reliable")
+func collect_fishingrod() -> void:
+	#todo
+	print("collect_fishingrod()")
+
+@rpc("any_peer", "call_local", "reliable")
+func collect_pickaxe() -> void:
+	#todo
+	print("collect_pickaxe()")
+
 # Get the current player's role
 func get_my_role() -> String:
 	var my_id = multiplayer.get_unique_id()
@@ -177,6 +187,10 @@ func end_game(playerVictory: bool) -> void:
 @rpc("any_peer", "call_local", "reliable")
 func add_spawn(position: Vector3, type: spawn_type, rune_type = null) -> void:
 	spawn_added.emit(position, type, rune_type)
+
+@rpc("any_peer", "call_local", "reliable")
+func despawn_minigame_items(groupname: String) -> void:
+	get_tree().call_group(groupname, "queue_free")
 
 # Dynamically spawned nodes (e.g. monster traps) get auto-renamed by
 # add_child() and can end up at different NodePaths on different peers,
