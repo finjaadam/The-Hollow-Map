@@ -1,0 +1,12 @@
+[gd_resource type="Resource" format=3]
+
+[ext_resource type="Script" path="res://network/monster/abilities/sniff/SniffAbility.gd" id="1_sniff"]
+[ext_resource type="ShaderMaterial" path="res://network/monster/abilities/sniff/xray_silhouette_material.tres" id="2_mat"]
+
+[resource]
+script = ExtResource("1_sniff")
+ability_name = "Sniff"
+cooldown = 30.0
+input_action = &"monster_sniff"
+duration = 3.0
+silhouette_material = ExtResource("2_mat")
