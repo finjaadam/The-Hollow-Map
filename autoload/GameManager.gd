@@ -62,7 +62,7 @@ func _receive_state(state: Dictionary) -> void:
 
 func _ready() -> void:
 	life_drain_timer = Timer.new()
-	life_drain_timer.wait_time = 5.0
+	life_drain_timer.wait_time = 10.0
 	life_drain_timer.timeout.connect(_on_life_drain_timeout)
 	add_child(life_drain_timer)
 	
@@ -136,6 +136,11 @@ func collect_key() -> void:
 		team_keys += 1
 		_push_state_to_all()
 
+@rpc("any_peer", "call_local", "reliable")
+func collect_rune(rune_type) -> void:
+	#todo
+	print("collect_rune()")
+
 # Get the current player's role
 func get_my_role() -> String:
 	var my_id = multiplayer.get_unique_id()
@@ -170,8 +175,8 @@ func end_game(playerVictory: bool) -> void:
 	stop_life_drain()
 
 @rpc("any_peer", "call_local", "reliable")
-func add_spawn(position: Vector3, type: spawn_type) -> void:
-	spawn_added.emit(position, type)
+func add_spawn(position: Vector3, type: spawn_type, rune_type = null) -> void:
+	spawn_added.emit(position, type, rune_type)
 
 # Dynamically spawned nodes (e.g. monster traps) get auto-renamed by
 # add_child() and can end up at different NodePaths on different peers,
