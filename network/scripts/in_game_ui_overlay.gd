@@ -8,6 +8,8 @@ extends CanvasLayer
 @onready var bw_keys = $bw_keys
 @onready var colored_keys = $colored_keys
 
+@onready var flashlight_icon = $FlashlightIcon
+
 func _ready() -> void:
 	GameManager.keys_changed.connect(_set_key_visibility)
 	GameManager.state_updated.connect(_set_key_visibility)
@@ -15,8 +17,9 @@ func _ready() -> void:
 	_set_key_visibility()
 	
 	live_bar.visible = !is_monster
+	flashlight_icon.visible = !is_monster
 	
-	if is_monster: 
+	if is_monster:
 		return
 	
 	live_bar.max_value = GameManager.max_team_lives
@@ -45,3 +48,12 @@ func _on_lives_changed(amount: int) -> void:
 	# max team lives can change because players can leave the game
 	live_bar.max_value = GameManager.max_team_lives
 	live_bar.value = GameManager.team_lives
+
+func set_flashlight_cooldown(remaining: float, total: float) -> void:
+	if is_monster:
+		return
+	if total <= 0:
+		return
+	var mat = flashlight_icon.material as ShaderMaterial
+	if mat:
+		mat.set_shader_parameter("fill_progress", 1.0 - remaining / total)
