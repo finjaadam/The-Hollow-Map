@@ -11,6 +11,8 @@ var flashlight_cooldown_remaining: float = 0.0
 const FLASHLIGHT_DURATION := 3.0
 const FLASHLIGHT_COOLDOWN := 30.0
 
+var _aura_flash_timer: float = 0.0
+
 # do NOT create a _ready() function since it will overwrite the _ready from
 # General_Player --> Use _on_ready() instead
 func _on_ready() -> void:
@@ -38,6 +40,28 @@ func _on_physics_process(delta: float) -> void:
 	if flashlight_on_cooldown:
 		flashlight_cooldown_remaining = max(0.0, flashlight_cooldown_remaining - delta)
 		canvas.set_flashlight_cooldown(flashlight_cooldown_remaining, FLASHLIGHT_COOLDOWN)
+
+	_process_damage_aura(delta)
+
+# Purely cosmetic: mirrors the monster's aura tick locally (using its own
+# exported radius/interval) so the screen flashes in sync with the real
+# server-side damage, without needing an RPC just for a visual effect.
+func _process_damage_aura(delta: float) -> void:
+	var monster := _get_nearby_monster()
+	if monster == null:
+		_aura_flash_timer = 0.0
+		return
+
+	_aura_flash_timer += delta
+	if _aura_flash_timer >= monster.aura_tick_interval:
+		_aura_flash_timer = 0.0
+		canvas.flash_damage()
+
+func _get_nearby_monster() -> Node:
+	for monster in get_tree().get_nodes_in_group("monster"):
+		if global_position.distance_to(monster.global_position) <= monster.aura_radius:
+			return monster
+	return null
 
 func _activate_flashlight() -> void:
 	flashlight_active = true

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://jp8vxktkmh3n" path="res://network/monster/Monster.gd" id="1_dlha7"]
 [ext_resource type="Environment" uid="uid://bixn4bbcuffnd" path="res://environments/debug_env.tres" id="2_fmeki"]
+[ext_resource type="Environment" uid="uid://cv5uoqolnda4m" path="res://environments/light_cone_env.tres" id="3_l315m"]
 [ext_resource type="PackedScene" uid="uid://hxag78bqilay" path="res://network/testEnvironment/audioController.tscn" id="3_mhf6n"]
 [ext_resource type="PackedScene" uid="uid://dud2rq3uvwwr2" path="res://assets/blob_monster/blob_monster.tscn" id="4_mhf6n"]
 [ext_resource type="Script" uid="uid://cokh7jryjgs7d" path="res://network/scripts/areaSounds/FootstepController.gd" id="4_yrgqy"]
@@ -10,7 +11,7 @@
 [ext_resource type="Resource" uid="uid://bri038mjnqped" path="res://network/monster/abilities/sprint/sprint_ability.tres" id="7_sprint"]
 [ext_resource type="Script" uid="uid://dc7jjc5aiaikj" path="res://network/monster/abilities/MonsterAbility.gd" id="8_aj4qo"]
 [ext_resource type="Resource" uid="uid://wmn7ok77ugvn" path="res://network/monster/abilities/sniff/sniff_ability.tres" id="9_sniff"]
-[ext_resource type="Resource" path="res://network/monster/abilities/trap/trap_ability.tres" id="10_trap"]
+[ext_resource type="Resource" uid="uid://d2awie364wuee" path="res://network/monster/abilities/trap/trap_ability.tres" id="10_trap"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o6jvr"]
 
@@ -33,10 +34,11 @@ properties/4/replication_mode = 1
 
 [node name="Monster" type="CharacterBody3D" unique_id=907472801 node_paths=PackedStringArray("footstep_controller", "camera3d", "canvas")]
 script = ExtResource("1_dlha7")
+aura_radius = 2.0
 mouse_sensitivity = 0.001
 speed = 5
 debug_env = ExtResource("2_fmeki")
-player_env = ExtResource("2_fmeki")
+player_env = ExtResource("3_l315m")
 footstep_controller = NodePath("FootstepController")
 camera3d = NodePath("Camera3D")
 canvas = NodePath("CanvasLayer")

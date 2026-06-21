@@ -6,11 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://bc1pb0fvgnxcd" path="res://network/collectableItems/key/Schluessel_png.png" id="2_8dvuu"]
 [ext_resource type="Shader" uid="uid://cnjw5fcj41taj" path="res://shader/flashlight_fill.gdshader" id="2_8h26f"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_v3qgt"]
-shader = ExtResource("2_8h26f")
-shader_parameter/fill_progress = 1.0
-shader_parameter/dim_alpha = 0.08
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1kjc5"]
 bg_color = Color(0.5019608, 0.5019608, 0.5019608, 1)
 
@@ -23,6 +18,11 @@ gradient = SubResource("Gradient_d5vei")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6sbhf"]
 texture = SubResource("GradientTexture1D_ggqym")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v3qgt"]
+shader = ExtResource("2_8h26f")
+shader_parameter/fill_progress = 1.0
+shader_parameter/dim_alpha = 0.08
 
 [node name="PlayerInGameOverlay" type="CanvasLayer" unique_id=349315403]
 script = ExtResource("1_keruy")
@@ -130,6 +130,7 @@ theme_override_styles/background = SubResource("StyleBoxFlat_1kjc5")
 theme_override_styles/fill = SubResource("StyleBoxTexture_6sbhf")
 value = 100.0
 show_percentage = false
+
 [node name="FlashlightIcon" type="TextureRect" parent="." unique_id=1683235165]
 material = SubResource("ShaderMaterial_v3qgt")
 anchors_preset = -1
@@ -181,3 +182,10 @@ metadata/_edit_use_anchors_ = true
 
 [node name="MessageTimer" type="Timer" parent="." unique_id=1931328654]
 one_shot = true
+
+[node name="DamageOverlay" type="ColorRect" parent="." unique_id=2077926108]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color(1, 0, 0, 0)

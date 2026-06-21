@@ -17,6 +17,10 @@ const ABILITY_SLOT_SCENE := preload("res://network/monster/abilities/ability_slo
 @onready var message_label: Label = $MessageLabel
 @onready var message_timer: Timer = $MessageTimer
 
+@onready var damage_overlay: ColorRect = $DamageOverlay
+
+var _damage_flash_tween: Tween
+
 var _countdown_intro: String = ""
 var _countdown_remaining: float = 0.0
 
@@ -118,3 +122,11 @@ func show_countdown(intro_text: String, duration: float) -> void:
 	_countdown_remaining = duration
 	message_label.text = "%s Noch %d Sekunden..." % [intro_text, ceil(duration)]
 	message_label.visible = true
+
+## Briefly tints the screen red, e.g. when the monster's damage aura ticks.
+func flash_damage(peak_alpha: float = 0.35, fade_duration: float = 0.4) -> void:
+	if _damage_flash_tween and _damage_flash_tween.is_running():
+		_damage_flash_tween.kill()
+	damage_overlay.color.a = peak_alpha
+	_damage_flash_tween = create_tween()
+	_damage_flash_tween.tween_property(damage_overlay, "color:a", 0.0, fade_duration)
