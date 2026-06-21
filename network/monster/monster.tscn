@@ -34,7 +34,7 @@ properties/4/replication_mode = 1
 
 [node name="Monster" type="CharacterBody3D" unique_id=907472801 node_paths=PackedStringArray("footstep_controller", "camera3d", "canvas")]
 script = ExtResource("1_dlha7")
-aura_radius = 1.0
+aura_radius = 2.0
 mouse_sensitivity = 0.001
 speed = 5
 debug_env = ExtResource("2_fmeki")
