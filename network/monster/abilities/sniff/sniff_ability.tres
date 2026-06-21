@@ -1,0 +1,13 @@
+[gd_resource type="Resource" format=3 uid="uid://wmn7ok77ugvn"]
+
+[ext_resource type="Script" uid="uid://lgbg7m0feuvm" path="res://network/monster/abilities/sniff/SniffAbility.gd" id="1_sniff"]
+[ext_resource type="Texture2D" uid="uid://ccjlgummqjj78" path="res://network/monster/abilities/sniff/sniff_icon.png" id="1_vh0uy"]
+[ext_resource type="Material" path="res://network/monster/abilities/sniff/xray_silhouette_material.tres" id="2_mat"]
+
+[resource]
+script = ExtResource("1_sniff")
+silhouette_material = ExtResource("2_mat")
+ability_name = "Sniff"
+icon = ExtResource("1_vh0uy")
+cooldown = 30.0
+input_action = &"monster_sniff"

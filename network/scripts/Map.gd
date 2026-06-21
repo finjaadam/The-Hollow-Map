@@ -16,15 +16,28 @@ var exit_door_scene = preload("res://network/testEnvironment/ExitDoor.tscn")
 var pickaxe_scene = preload("res://network/collectableItems/pickaxe/pickaxe.tscn")
 var fishingrod_scene = preload("res://network/collectableItems/fishingrod/fishingrod.tscn")
 var rune_scene = preload("res://network/collectableItems/rune/rune.tscn")
+var trap_scene = preload("res://network/monster/abilities/trap/monster_trap.tscn")
+var trap_sound_stream = preload("res://network/monster/abilities/trap/trap_sound.mp3")
 
 func _ready() -> void:
 	GameManager.spawn_added.connect(_on_spawn_added)
-	
-	if not multiplayer.is_server(): 
+	GameManager.trap_sound_requested.connect(_on_trap_sound_requested)
+
+	if not multiplayer.is_server():
 		return
-	
+
 	spawn_exit_doors()
 	spawn_minigame_items()
+
+func _on_trap_sound_requested(position: Vector3) -> void:
+	var audio := RaytracedAudioPlayer3D.new()
+	audio.stream = trap_sound_stream
+	audio.max_distance = 40.0
+	audio.enabled.connect(BusManager.route_to_SFX_bus.bind(audio))
+	add_child(audio)
+	audio.global_position = position
+	audio.finished.connect(audio.queue_free)
+	audio.play()
 func _on_spawn_added(position: Vector3, type: GameManager.spawn_type) -> void:
 	match type:
 		GameManager.spawn_type.DOOR:
@@ -35,6 +48,8 @@ func _on_spawn_added(position: Vector3, type: GameManager.spawn_type) -> void:
 			spawn_fishingrod(position)
 		GameManager.spawn_type.RUNE:
 			spawn_rune(position)
+		GameManager.spawn_type.TRAP:
+			spawn_trap(position)
 
 func spawn_exit_doors() -> void:
 	# get_children() gives back a const array => to remove a value from the array we need the second variable
@@ -90,3 +105,8 @@ func spawn_rune(position: Vector3) -> void:
 	var rune_scene_instance = rune_scene.instantiate()
 	self.add_child(rune_scene_instance)
 	rune_scene_instance.global_position = position
+
+func spawn_trap(position: Vector3) -> void:
+	var trap_scene_instance = trap_scene.instantiate()
+	self.add_child(trap_scene_instance)
+	trap_scene_instance.global_position = position

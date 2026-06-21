@@ -1,0 +1,11 @@
+[gd_resource type="Resource" format=3 uid="uid://bri038mjnqped"]
+
+[ext_resource type="Texture2D" uid="uid://l2kjbtg67mlm" path="res://network/monster/abilities/sprint/sprint_icon.png" id="1_3a554"]
+[ext_resource type="Script" uid="uid://b6iyh15faqjfd" path="res://network/monster/abilities/sprint/SprintAbility.gd" id="1_sprint"]
+
+[resource]
+script = ExtResource("1_sprint")
+ability_name = "Sprint"
+icon = ExtResource("1_3a554")
+cooldown = 60.0
+input_action = &"monster_sprint"

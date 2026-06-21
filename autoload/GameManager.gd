@@ -17,12 +17,15 @@ signal lives_changed
 signal players_won
 signal monster_won
 signal spawn_added
+signal trap_sound_requested
+signal trap_diffused
 
 enum spawn_type {
 	DOOR,
 	PICKAXE,
 	FISHINGROD,
-	RUNE
+	RUNE,
+	TRAP
 }
 
 # --- Sync System ---
@@ -169,6 +172,18 @@ func end_game(playerVictory: bool) -> void:
 @rpc("any_peer", "call_local", "reliable")
 func add_spawn(position: Vector3, type: spawn_type) -> void:
 	spawn_added.emit(position, type)
+
+# Dynamically spawned nodes (e.g. monster traps) get auto-renamed by
+# add_child() and can end up at different NodePaths on different peers,
+# so RPCs can't safely target them directly - route through this stable
+# autoload instead and let each peer match its own local instance by position.
+@rpc("any_peer", "call_local", "unreliable")
+func play_trap_sound(position: Vector3) -> void:
+	trap_sound_requested.emit(position)
+
+@rpc("any_peer", "call_local", "reliable")
+func notify_trap_diffused(position: Vector3) -> void:
+	trap_diffused.emit(position)
 
 # --- Life Drain ---
 
