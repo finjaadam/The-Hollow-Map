@@ -62,7 +62,7 @@ func _receive_state(state: Dictionary) -> void:
 
 func _ready() -> void:
 	life_drain_timer = Timer.new()
-	life_drain_timer.wait_time = 500.0
+	life_drain_timer.wait_time = 10.0
 	life_drain_timer.timeout.connect(_on_life_drain_timeout)
 	add_child(life_drain_timer)
 	
