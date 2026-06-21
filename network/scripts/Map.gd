@@ -19,13 +19,22 @@ var rune_scene = preload("res://network/collectableItems/rune/rune.tscn")
 var trap_scene = preload("res://network/monster/abilities/trap/monster_trap.tscn")
 var trap_sound_stream = preload("res://network/monster/abilities/trap/trap_sound.mp3")
 
+var rune_types_to_spawn = [
+		Rune.RuneType.COSMIC,
+		Rune.RuneType.COSMIC,
+		Rune.RuneType.WATER,
+		Rune.RuneType.WATER,
+		Rune.RuneType.NATURE,
+		Rune.RuneType.NATURE
+]
+
 func _ready() -> void:
 	GameManager.spawn_added.connect(_on_spawn_added)
 	GameManager.trap_sound_requested.connect(_on_trap_sound_requested)
 
 	if not multiplayer.is_server():
 		return
-
+	
 	spawn_exit_doors()
 	spawn_minigame_items()
 
@@ -38,7 +47,9 @@ func _on_trap_sound_requested(position: Vector3) -> void:
 	audio.global_position = position
 	audio.finished.connect(audio.queue_free)
 	audio.play()
-func _on_spawn_added(position: Vector3, type: GameManager.spawn_type) -> void:
+
+func _on_spawn_added(position: Vector3, type: GameManager.spawn_type, rune_type) -> void:
+	
 	match type:
 		GameManager.spawn_type.DOOR:
 			spawn_exit(position)
@@ -47,7 +58,7 @@ func _on_spawn_added(position: Vector3, type: GameManager.spawn_type) -> void:
 		GameManager.spawn_type.FISHINGROD:
 			spawn_fishingrod(position)
 		GameManager.spawn_type.RUNE:
-			spawn_rune(position)
+			spawn_rune(position, rune_type)
 		GameManager.spawn_type.TRAP:
 			spawn_trap(position)
 
@@ -78,16 +89,22 @@ func spawn_minigame_items() -> void:
 		GameManager.add_spawn.rpc(spawn_minigame_items_points_dynamic[used_index].global_position, GameManager.spawn_type.PICKAXE)
 		spawn_minigame_items_points_dynamic.remove_at(used_index)
 
-	# spawn fishing rods -------------------------------------------------------------------------------
+	# spawn fishing rods ---------------------------------------------------------------------------
 	for fishingrods in amount_fishingrods:
 		used_index = randi() % spawn_minigame_items_points_dynamic.size()
 		GameManager.add_spawn.rpc(spawn_minigame_items_points_dynamic[used_index].global_position, GameManager.spawn_type.FISHINGROD)
 		spawn_minigame_items_points_dynamic.remove_at(used_index)
 	
-	# spawn runes rods -------------------------------------------------------------------------------
-	for runes in amount_runes:
+	# spawn runes  ---------------------------------------------------------------------------------
+	rune_types_to_spawn.shuffle()
+	
+	for i in rune_types_to_spawn.size():
 		used_index = randi() % spawn_minigame_items_points_dynamic.size()
-		GameManager.add_spawn.rpc(spawn_minigame_items_points_dynamic[used_index].global_position, GameManager.spawn_type.RUNE)
+		
+		GameManager.add_spawn.rpc(
+			spawn_minigame_items_points_dynamic[used_index].global_position,
+			GameManager.spawn_type.RUNE,
+			rune_types_to_spawn[i])
 		spawn_minigame_items_points_dynamic.remove_at(used_index)
 
 
@@ -101,10 +118,11 @@ func spawn_fishingrod(position: Vector3) -> void:
 	self.add_child(fishingrod_scene_instance)
 	fishingrod_scene_instance.global_position = position
 
-func spawn_rune(position: Vector3) -> void:
+func spawn_rune(position: Vector3, rune_type) -> void:
 	var rune_scene_instance = rune_scene.instantiate()
-	self.add_child(rune_scene_instance)
+	rune_scene_instance.rune_type = rune_type
 	rune_scene_instance.global_position = position
+	self.add_child(rune_scene_instance)
 
 func spawn_trap(position: Vector3) -> void:
 	var trap_scene_instance = trap_scene.instantiate()
