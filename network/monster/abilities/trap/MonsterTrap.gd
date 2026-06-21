@@ -68,8 +68,10 @@ func _on_catch_body_entered(body: Node3D) -> void:
 ## replicated player position), so no RPC is needed here.
 func _spring_trap() -> void:
 	visible = false
-	catch_area.monitoring = false
-	diffuse_area.monitoring = false
+	# set_deferred(): toggling Area3D.monitoring isn't allowed while still
+	# inside its own body_entered signal callback.
+	catch_area.set_deferred("monitoring", false)
+	diffuse_area.set_deferred("monitoring", false)
 	_diffusing_player = null
 	diffuse_prompt.hide_prompt()
 

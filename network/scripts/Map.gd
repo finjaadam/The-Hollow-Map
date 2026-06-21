@@ -33,9 +33,9 @@ func _on_trap_sound_requested(position: Vector3) -> void:
 	var audio := RaytracedAudioPlayer3D.new()
 	audio.stream = trap_sound_stream
 	audio.max_distance = 40.0
-	audio.global_position = position
 	audio.enabled.connect(BusManager.route_to_SFX_bus.bind(audio))
 	add_child(audio)
+	audio.global_position = position
 	audio.finished.connect(audio.queue_free)
 	audio.play()
 func _on_spawn_added(position: Vector3, type: GameManager.spawn_type) -> void:
