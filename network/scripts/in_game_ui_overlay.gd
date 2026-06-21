@@ -14,6 +14,9 @@ const ABILITY_SLOT_SCENE := preload("res://network/monster/abilities/ability_slo
 @onready var flashlight_icon = $FlashlightIcon
 @onready var abilities_bar: HBoxContainer = $AbilitiesBar
 
+@onready var message_label: Label = $MessageLabel
+@onready var message_timer: Timer = $MessageTimer
+
 func _ready() -> void:
 	GameManager.keys_changed.connect(_set_key_visibility)
 	GameManager.state_updated.connect(_set_key_visibility)
@@ -21,6 +24,8 @@ func _ready() -> void:
 	_set_key_visibility()
 
 	abilities_bar.visible = is_monster
+	message_label.visible = false
+	message_timer.timeout.connect(_on_message_timer_timeout)
 
 	if is_monster:
 		flashlight_icon.visible = false
@@ -73,3 +78,13 @@ func set_flashlight_cooldown(remaining: float, total: float) -> void:
 	var mat = flashlight_icon.material as ShaderMaterial
 	if mat:
 		mat.set_shader_parameter("fill_progress", 1.0 - remaining / total)
+
+## Shows a transient text message, e.g. "Du kannst dich für 5 Sekunden nicht bewegen!"
+func show_message(text: String, duration: float) -> void:
+	message_label.text = text
+	message_label.visible = true
+	message_timer.start(duration)
+
+func _on_message_timer_timeout() -> void:
+	message_label.visible = false
+

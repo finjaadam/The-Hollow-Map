@@ -10,6 +10,7 @@
 [ext_resource type="Resource" uid="uid://bri038mjnqped" path="res://network/monster/abilities/sprint/sprint_ability.tres" id="7_sprint"]
 [ext_resource type="Script" uid="uid://dc7jjc5aiaikj" path="res://network/monster/abilities/MonsterAbility.gd" id="8_aj4qo"]
 [ext_resource type="Resource" uid="uid://wmn7ok77ugvn" path="res://network/monster/abilities/sniff/sniff_ability.tres" id="9_sniff"]
+[ext_resource type="Resource" path="res://network/monster/abilities/trap/trap_ability.tres" id="10_trap"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o6jvr"]
 
@@ -68,4 +69,4 @@ is_monster = true
 
 [node name="AbilitySystem" type="Node" parent="." unique_id=-1447416092]
 script = ExtResource("6_abilsys")
-abilities = Array[ExtResource("8_aj4qo")]([ExtResource("7_sprint"), ExtResource("9_sniff")])
+abilities = Array[ExtResource("8_aj4qo")]([ExtResource("7_sprint"), ExtResource("9_sniff"), ExtResource("10_trap")])

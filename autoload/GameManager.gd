@@ -21,7 +21,8 @@ enum spawn_type {
 	DOOR,
 	PICKAXE,
 	FISHINGROD,
-	RUNE
+	RUNE,
+	TRAP
 }
 
 # --- Sync System ---

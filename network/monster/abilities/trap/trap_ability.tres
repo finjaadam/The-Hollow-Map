@@ -1,0 +1,9 @@
+[gd_resource type="Resource" format=3]
+
+[ext_resource type="Script" path="res://network/monster/abilities/trap/TrapAbility.gd" id="1_trap"]
+
+[resource]
+script = ExtResource("1_trap")
+ability_name = "Trap"
+cooldown = 45.0
+input_action = &"monster_trap"
