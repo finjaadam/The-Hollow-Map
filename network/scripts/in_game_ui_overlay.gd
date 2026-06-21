@@ -3,7 +3,7 @@ extends CanvasLayer
 @export var is_monster: bool
 
 @onready var key_label = $KeyLabel
-@onready var live_label = $LiveLabel
+@onready var live_bar = $LiveBar
 
 @onready var bw_keys = $bw_keys
 @onready var colored_keys = $colored_keys
@@ -15,12 +15,16 @@ func _ready() -> void:
 	GameManager.state_updated.connect(_set_key_visibility)
 	
 	_set_key_visibility()
-
+	
+	live_bar.visible = !is_monster
+	flashlight_icon.visible = !is_monster
+	
 	if is_monster:
-		flashlight_icon.visible = false
 		return
 	
-	live_label.text = "Teamleben: %d" % GameManager.team_lives
+	live_bar.max_value = GameManager.max_team_lives
+	live_bar.value = GameManager.team_lives
+	
 	GameManager.lives_changed.connect(_on_lives_changed)
 
 func _set_key_visibility() -> void:
@@ -41,7 +45,9 @@ func _set_key_visibility() -> void:
 		bw_keys.get_child(key).visible = key < limit
 
 func _on_lives_changed(amount: int) -> void:
-	live_label.text = "Teamleben: %d" % amount
+	# max team lives can change because players can leave the game
+	live_bar.max_value = GameManager.max_team_lives
+	live_bar.value = GameManager.team_lives
 
 func set_flashlight_cooldown(remaining: float, total: float) -> void:
 	if is_monster:
