@@ -9,11 +9,12 @@ enum RuneType {
 
 var rune_type: RuneType
 
-@onready var cosmic_scene = $Area3D/CosmicScene
-@onready var nature_scene = $Area3D/NatureScene
-@onready var water_scene = $Area3D/WaterScene
+@onready var cosmic_scene = $Area3D/CollisionShape3D/CosmicScene
+@onready var nature_scene = $Area3D/CollisionShape3D/NatureScene
+@onready var water_scene = $Area3D/CollisionShape3D/WaterScene
 
 func _ready() -> void:
+	super()
 	apply_visual()
 
 func apply_visual() -> void:
