@@ -13,7 +13,6 @@ extends CharacterBody3D
 @export var footstep_controller: Node
 @export var camera3d: Camera3D
 @export var canvas: CanvasLayer
-@export var flashlight: SpotLight3D 
 
 @export var animation_player: AnimationPlayer
 
@@ -22,13 +21,6 @@ enum Role {PLAYER, MONSTER}
 var ownRole: Role
 
 var is_movement_locked := false
-
-var flashlight_active := false
-var flashlight_on_cooldown := false
-var flashlight_cooldown_remaining: float = 0.0
-
-const FLASHLIGHT_DURATION := 3.0
-const FLASHLIGHT_COOLDOWN := 30.0
 
 # Replicated over the network instead of `position` directly, so remote
 # peers can smoothly interpolate towards it rather than snapping on every
@@ -86,10 +78,8 @@ func _input(event):
 			camera3d.environment = player_env
 		if event.is_action_pressed("DEBUG_TOGGLE_ROLE"):
 			_debug_toggle_role()
-	
-	if event.is_action_pressed("FLASHLIGHT") and ownRole == Role.PLAYER and flashlight:
-		if not flashlight_active and not flashlight_on_cooldown:
-			_activate_flashlight()
+
+	_on_input(event)
 
 	if event is InputEventMouseMotion:
 		rotate_y(-event.relative.x * mouse_sensitivity)
@@ -132,9 +122,7 @@ func _physics_process(delta):
 	var is_actually_moving = Vector2(velocity.x, velocity.z).length() > 0.1
 	footstep_controller.tick(is_on_floor(), is_actually_moving, delta)
 
-	if flashlight_on_cooldown:
-		flashlight_cooldown_remaining = max(0.0, flashlight_cooldown_remaining - delta)
-		canvas.set_flashlight_cooldown(flashlight_cooldown_remaining, FLASHLIGHT_COOLDOWN)
+	_on_physics_process(delta)
 
 func _process(delta: float) -> void:
 	if not multiplayer.has_multiplayer_peer():
@@ -181,26 +169,12 @@ func _debug_toggle_role() -> void:
 	# Tell the host/spawner to swap the scene for this peer
 	NetworkManager._debug_respawn_peer.rpc_id(1, my_id, new_role)
 
-# --- Flashlight Ability ---
 
-func _activate_flashlight() -> void:
-	flashlight_active = true
-	flashlight.visible = true
-	var timer := get_tree().create_timer(FLASHLIGHT_DURATION)
-	timer.timeout.connect(_deactivate_flashlight)
+func _on_input(event: InputEvent) -> void:
+	pass
 
-func _deactivate_flashlight() -> void:
-	flashlight_active = false
-	flashlight.visible = false
-	flashlight_on_cooldown = true
-	flashlight_cooldown_remaining = FLASHLIGHT_COOLDOWN
-	canvas.set_flashlight_cooldown(FLASHLIGHT_COOLDOWN, FLASHLIGHT_COOLDOWN)
-	var timer := get_tree().create_timer(FLASHLIGHT_COOLDOWN)
-	timer.timeout.connect(_on_flashlight_cooldown_end)
-
-func _on_flashlight_cooldown_end() -> void:
-	flashlight_on_cooldown = false
-	canvas.set_flashlight_cooldown(0.0, FLASHLIGHT_COOLDOWN)
+func _on_physics_process(_delta: float) -> void:
+	pass
 
 # --- Game End Handlers ---
 

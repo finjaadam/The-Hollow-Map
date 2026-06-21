@@ -32,8 +32,9 @@ properties/5/path = NodePath("Camera3D/Flashlight:visible")
 properties/5/spawn = true
 properties/5/replication_mode = 1
 
-[node name="Player" type="CharacterBody3D" unique_id=1104604618 node_paths=PackedStringArray("footstep_controller", "camera3d", "canvas", "flashlight", "animation_player")]
+[node name="Player" type="CharacterBody3D" unique_id=1104604618 node_paths=PackedStringArray("flashlight", "footstep_controller", "camera3d", "canvas", "animation_player")]
 script = ExtResource("1_4flbx")
+flashlight = NodePath("Camera3D/Flashlight")
 mouse_sensitivity = 0.001
 speed = 5
 debug_env = ExtResource("2_6i2bt")
@@ -41,7 +42,6 @@ player_env = ExtResource("3_3nxfo")
 footstep_controller = NodePath("FootstepController")
 camera3d = NodePath("Camera3D")
 canvas = NodePath("CanvasLayer")
-flashlight = NodePath("Camera3D/Flashlight")
 animation_player = NodePath("Pivot/Player_Model/AnimationPlayer")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=464028339]
