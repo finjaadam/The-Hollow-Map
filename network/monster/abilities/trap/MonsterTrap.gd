@@ -6,7 +6,6 @@ extends Node3D
 @onready var catch_area: Area3D = $CatchArea
 @onready var diffuse_area: Area3D = $DiffuseArea
 @onready var diffuse_prompt: InteractionPrompt = $DiffusePrompt
-@onready var trap_sound: RaytracedAudioPlayer3D = $TrapSound
 
 var _diffusing_player: General_Player = null
 var _diffuse_progress: float = 0.0
@@ -16,7 +15,7 @@ func _ready() -> void:
 	catch_area.body_entered.connect(_on_catch_body_entered)
 	diffuse_area.body_entered.connect(_on_diffuse_body_entered)
 	diffuse_area.body_exited.connect(_on_diffuse_body_exited)
-	trap_sound.enabled.connect(BusManager.route_to_SFX_bus.bind(trap_sound))
+	GameManager.trap_diffused.connect(_on_trap_diffused)
 	_idle_prompt_text = diffuse_prompt.text
 
 func _process(delta: float) -> void:
@@ -32,7 +31,7 @@ func _process(delta: float) -> void:
 		if remaining <= 0.0:
 			_diffusing_player = null
 			diffuse_prompt.hide_prompt()
-			_remove_trap_for_all.rpc()
+			GameManager.notify_trap_diffused.rpc(global_position)
 			return
 		diffuse_prompt.text = "Entschärfe... %.1fs" % remaining
 		diffuse_prompt.show_prompt()
@@ -51,7 +50,7 @@ func _on_catch_body_entered(body: Node3D) -> void:
 	_spring_trap()
 
 	if body.is_multiplayer_authority():
-		_play_trap_sound.rpc()
+		GameManager.play_trap_sound.rpc(global_position)
 		var overlay := body.canvas as InGameUIOverlay
 		overlay.show_countdown("Du bist in eine Falle getreten!", catch_duration)
 
@@ -86,10 +85,10 @@ func _on_diffuse_body_exited(body: Node3D) -> void:
 		diffuse_prompt.text = _idle_prompt_text
 		diffuse_prompt.hide_prompt()
 
-@rpc("any_peer", "call_local", "reliable")
-func _remove_trap_for_all() -> void:
-	queue_free()
-
-@rpc("any_peer", "call_local", "unreliable")
-func _play_trap_sound() -> void:
-	trap_sound.play()
+## Each peer's trap independently checks whether this broadcast is about
+## itself (by position) rather than relying on a NodePath-targeted RPC,
+## since dynamically add_child()'d nodes can end up at different paths
+## on different peers.
+func _on_trap_diffused(position: Vector3) -> void:
+	if global_position.distance_to(position) < 0.5:
+		queue_free()

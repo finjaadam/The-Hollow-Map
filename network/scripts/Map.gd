@@ -17,15 +17,27 @@ var pickaxe_scene = preload("res://network/collectableItems/pickaxe/pickaxe.tscn
 var fishingrod_scene = preload("res://network/collectableItems/fishingrod/fishingrod.tscn")
 var rune_scene = preload("res://network/collectableItems/rune/rune.tscn")
 var trap_scene = preload("res://network/monster/abilities/trap/monster_trap.tscn")
+var trap_sound_stream = preload("res://network/monster/abilities/trap/trap_sound.mp3")
 
 func _ready() -> void:
 	GameManager.spawn_added.connect(_on_spawn_added)
-	
-	if not multiplayer.is_server(): 
+	GameManager.trap_sound_requested.connect(_on_trap_sound_requested)
+
+	if not multiplayer.is_server():
 		return
-	
+
 	spawn_exit_doors()
 	spawn_minigame_items()
+
+func _on_trap_sound_requested(position: Vector3) -> void:
+	var audio := RaytracedAudioPlayer3D.new()
+	audio.stream = trap_sound_stream
+	audio.max_distance = 40.0
+	audio.global_position = position
+	audio.enabled.connect(BusManager.route_to_SFX_bus.bind(audio))
+	add_child(audio)
+	audio.finished.connect(audio.queue_free)
+	audio.play()
 func _on_spawn_added(position: Vector3, type: GameManager.spawn_type) -> void:
 	match type:
 		GameManager.spawn_type.DOOR:
