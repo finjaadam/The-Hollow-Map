@@ -6,6 +6,7 @@ var life_drain_timer: Timer
 
 var player_roles: Dictionary = {}
 var team_lives: int = 0
+var max_team_lives: int = 0
 var team_keys: int = 0
 var game_has_ended: bool = false
 # ...add more game state here over time
@@ -32,6 +33,7 @@ enum spawn_type {
 func _apply_state(state: Dictionary) -> void:
 	player_roles = state.get("player_roles", {})
 	team_lives = state.get("team_lives", 0)
+	max_team_lives = state.get("max_team_lives", 0)
 	team_keys = state.get("team_keys",  0)
 	state_updated.emit()
 	keys_changed.emit()
@@ -41,6 +43,7 @@ func _build_state() -> Dictionary:
 	return {
 		"player_roles": player_roles,
 		"team_lives":   team_lives,
+		"max_team_lives": max_team_lives,
 		"team_keys":	team_keys
 	}
 
@@ -71,6 +74,7 @@ func _ready() -> void:
 func clear() -> void:
 	player_roles.clear()
 	team_lives = 0
+	max_team_lives = 0
 	team_keys = 0
 	game_has_ended = false
 	stop_life_drain()
@@ -110,7 +114,7 @@ func remove_peer(peer_id: int) -> void:
 		return
 	player_roles.erase(peer_id)
 	team_lives = team_lives - LIVES_PER_PLAYER
-	team_keys = team_keys + 1
+	max_team_lives = max_team_lives - LIVES_PER_PLAYER
 	_push_state_to_all()
 
 # --- Team Properties ---
@@ -121,6 +125,7 @@ func set_starting_team_properties() -> void:
 		return
 	team_keys = 0
 	team_lives = get_player_count() * LIVES_PER_PLAYER
+	max_team_lives = team_lives
 	_push_state_to_all()
 
 @rpc("any_peer", "call_local", "reliable")
