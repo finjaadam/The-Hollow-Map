@@ -4,21 +4,21 @@
 [ext_resource type="Texture2D" uid="uid://ok3w4koxe58o" path="res://network/collectableItems/key/Schluessel_sw_png.png" id="2_1kjc5"]
 [ext_resource type="Texture2D" uid="uid://bc1pb0fvgnxcd" path="res://network/collectableItems/key/Schluessel_png.png" id="2_8dvuu"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1kjc5"]
+bg_color = Color(0.5019608, 0.5019608, 0.5019608, 1)
+
+[sub_resource type="Gradient" id="Gradient_d5vei"]
+offsets = PackedFloat32Array(0, 0.4479889)
+colors = PackedColorArray(0.36, 0, 0, 1, 0.13439998, 0.36192012, 0.64, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ggqym"]
+gradient = SubResource("Gradient_d5vei")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6sbhf"]
+texture = SubResource("GradientTexture1D_ggqym")
+
 [node name="PlayerInGameOverlay" type="CanvasLayer" unique_id=349315403]
 script = ExtResource("1_keruy")
-
-[node name="KeyLabel" type="Label" parent="." unique_id=1719171892]
-visible = false
-offset_right = 40.0
-offset_bottom = 51.0
-metadata/_edit_use_anchors_ = true
-
-[node name="LiveLabel" type="Label" parent="." unique_id=1633225081]
-offset_left = 3.0
-offset_top = 120.0
-offset_right = 43.0
-offset_bottom = 171.0
-metadata/_edit_use_anchors_ = true
 
 [node name="Role" type="Label" parent="." unique_id=739166447]
 anchors_preset = -1
@@ -101,3 +101,13 @@ offset_bottom = 76.643295
 rotation = 0.21816616
 texture = ExtResource("2_8dvuu")
 expand_mode = 1
+
+[node name="LiveBar" type="ProgressBar" parent="." unique_id=321578315]
+offset_left = 213.0
+offset_top = 20.0
+offset_right = 534.0
+offset_bottom = 28.0
+theme_override_styles/background = SubResource("StyleBoxFlat_1kjc5")
+theme_override_styles/fill = SubResource("StyleBoxTexture_6sbhf")
+value = 100.0
+show_percentage = false
