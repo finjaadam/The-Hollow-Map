@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://cssh4udxb71ra"]
 
-[ext_resource type="Script" uid="uid://c4g8g82sdhghf" path="res://Network/scripts/in_game_ui_overlay.gd" id="1_keruy"]
-[ext_resource type="Texture2D" uid="uid://ok3w4koxe58o" path="res://Network/collectableItems/key/Schluessel_sw_png.png" id="2_1kjc5"]
+[ext_resource type="Script" uid="uid://c4g8g82sdhghf" path="res://network/scripts/in_game_ui_overlay.gd" id="1_keruy"]
+[ext_resource type="Texture2D" uid="uid://ok3w4koxe58o" path="res://network/collectableItems/key/Schluessel_sw_png.png" id="2_1kjc5"]
 [ext_resource type="Texture2D" uid="uid://bp7csj6c8a8x1" path="res://assets/flashlight/Flashlight.png" id="2_6a28s"]
-[ext_resource type="Texture2D" uid="uid://bc1pb0fvgnxcd" path="res://Network/collectableItems/key/Schluessel_png.png" id="2_8dvuu"]
+[ext_resource type="Texture2D" uid="uid://bc1pb0fvgnxcd" path="res://network/collectableItems/key/Schluessel_png.png" id="2_8dvuu"]
 [ext_resource type="Shader" uid="uid://cnjw5fcj41taj" path="res://shader/flashlight_fill.gdshader" id="2_8h26f"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_v3qgt"]
@@ -75,10 +75,10 @@ expand_mode = 1
 
 [node name="AbilitiesBar" type="HBoxContainer" parent="." unique_id=-1447416093]
 anchors_preset = -1
-anchor_left = 0.6614583
-anchor_top = 0.88271606
-anchor_right = 0.98182297
-anchor_bottom = 0.9691358
+anchor_left = 0.6623264
+anchor_top = 0.8595679
+anchor_right = 0.98269105
+anchor_bottom = 0.94598764
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 12
@@ -172,4 +172,3 @@ metadata/_edit_use_anchors_ = true
 
 [node name="MessageTimer" type="Timer" parent="." unique_id=1931328654]
 one_shot = true
-
