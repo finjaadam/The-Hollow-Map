@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://dud2rq3uvwwr2" path="res://assets/blob_monster/blob_monster.tscn" id="4_mhf6n"]
 [ext_resource type="Script" uid="uid://cokh7jryjgs7d" path="res://network/scripts/areaSounds/FootstepController.gd" id="4_yrgqy"]
 [ext_resource type="PackedScene" uid="uid://cssh4udxb71ra" path="res://network/testEnvironment/in-game-ui-overlay.tscn" id="5_ir3iy"]
+[ext_resource type="Script" uid="uid://q01m43qsxxhi" path="res://network/monster/abilities/MonsterAbilitySystem.gd" id="6_abilsys"]
+[ext_resource type="Resource" uid="uid://bri038mjnqped" path="res://network/monster/abilities/sprint/sprint_ability.tres" id="7_sprint"]
+[ext_resource type="Script" uid="uid://dc7jjc5aiaikj" path="res://network/monster/abilities/MonsterAbility.gd" id="8_aj4qo"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o6jvr"]
 
@@ -61,3 +64,7 @@ replication_config = SubResource("SceneReplicationConfig_vfbk3")
 
 [node name="CanvasLayer" parent="." unique_id=349315403 instance=ExtResource("5_ir3iy")]
 is_monster = true
+
+[node name="AbilitySystem" type="Node" parent="." unique_id=-1447416092]
+script = ExtResource("6_abilsys")
+abilities = Array[ExtResource("8_aj4qo")]([ExtResource("7_sprint")])
