@@ -75,7 +75,7 @@ expand_mode = 1
 
 [node name="AbilitiesBar" type="HBoxContainer" parent="." unique_id=-1447416093]
 anchors_preset = -1
-anchor_left = 0.80821097
+anchor_left = 0.6614583
 anchor_top = 0.88271606
 anchor_right = 0.98182297
 anchor_bottom = 0.9691358
@@ -156,19 +156,20 @@ text = "F"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MessageLabel" type="Label" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.75
-anchor_right = 0.5
-anchor_bottom = 0.75
+[node name="MessageLabel" type="Label" parent="." unique_id=529489797]
+anchors_preset = -1
+anchor_left = 0.22135417
+anchor_top = 0.41203704
+anchor_right = 0.7725694
+anchor_bottom = 0.5787037
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 28
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
 
-[node name="MessageTimer" type="Timer" parent="."]
+[node name="MessageTimer" type="Timer" parent="." unique_id=1931328654]
 one_shot = true
 

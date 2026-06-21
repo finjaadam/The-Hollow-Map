@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://d2lxm1reqojgo"]
 
 [ext_resource type="Script" uid="uid://b60wt1m35g101" path="res://network/monster/abilities/trap/MonsterTrap.gd" id="1_trap"]
+[ext_resource type="PackedScene" path="res://network/scripts/interaction_prompt.tscn" id="2_prompt"]
+[ext_resource type="AudioStream" path="res://network/monster/abilities/trap/trap_sound.mp3" id="3_sound"]
+[ext_resource type="Script" path="res://addons/raytraced_audio/raytraced_audio_player_3d.gd" id="4_rtaudio"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o2f80"]
 albedo_color = Color(0.90912414, 4.1633098e-06, 1.2513996e-06, 1)
@@ -31,3 +34,12 @@ shape = SubResource("CylinderShape3D_catch")
 [node name="DiffuseShape" type="CollisionShape3D" parent="DiffuseArea" unique_id=1499888825]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.71965957, 0)
 shape = SubResource("CylinderShape3D_diffuse")
+
+[node name="DiffusePrompt" parent="." unique_id=2094091420 instance=ExtResource("2_prompt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+text = "E drücken zum Entschärfen"
+
+[node name="TrapSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_sound")
+max_distance = 40.0
+script = ExtResource("4_rtaudio")

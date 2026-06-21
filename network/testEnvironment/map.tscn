@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://62l58j2attqx" path="res://assets/water_fountain/fountain-old.tscn" id="11_fountain"]
 [ext_resource type="PackedScene" uid="uid://cxvofcy8m8ejs" path="res://assets/stone_group_1/stone_group_1.tscn" id="14_22shp"]
 [ext_resource type="Script" uid="uid://dew5ikh2m42fp" path="res://network/testEnvironment/angel_hoelenspalte_interaktion.gd" id="15_hmamp"]
+[ext_resource type="Script" path="res://network/scripts/InteractionPrompt.gd" id="900_intprompt"]
 [ext_resource type="Texture2D" uid="uid://dnp65cdyabsl" path="res://assets/szikla__rock/textures/material_baseColor.png" id="15_owalp"]
 [ext_resource type="PackedScene" uid="uid://bk277se02bsh7" path="res://assets/rock_big/rock_big.tscn" id="16_1wree"]
 [ext_resource type="Texture2D" uid="uid://dkax1eh4tdvil" path="res://assets/szikla__rock/textures/material_metallicRoughness.png" id="16_nijqk"]
@@ -3697,7 +3698,8 @@ shape = SubResource("BoxShape3D_hmamp")
 unique_name_in_owner = true
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.0176926, 1.0241547, 1.802515)
 billboard = 1
-text = "E"
+text = "E drücken zum Angeln"
+script = ExtResource("900_intprompt")
 
 [node name="AngelWand_Player" type="AudioStreamPlayer3D" parent="modular-cave-final/Angel_Hoelenspalte" unique_id=979714847]
 stream = ExtResource("16_ssx8d")

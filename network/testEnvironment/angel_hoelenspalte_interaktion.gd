@@ -2,7 +2,7 @@ extends Node3D
 
 const FISHING_MINIGAME = preload("res://ui/screens/minigames/fishing minigame/minigameFishing.tscn")
 
-@onready var interaktions_prompt: Label3D = %Interaktions_Buchstabe
+@onready var interaktions_prompt: InteractionPrompt = %Interaktions_Buchstabe
 @onready var area_3d: Area3D = $Area3D 
 @onready var klippen_sound_player: AudioStreamPlayer3D = $AngelWand_Player
 
@@ -12,7 +12,7 @@ var lokaler_spieler: General_Player = null
 func _ready() -> void:
 	area_3d.body_entered.connect(_on_body_entered)
 	area_3d.body_exited.connect(_on_body_exited)
-	interaktions_prompt.visible = false
+	interaktions_prompt.hide_prompt()
 
 func _process(_delta: float) -> void:
 	if SceneLoader.is_paused:
@@ -27,17 +27,17 @@ func _on_body_entered(body: Node3D) -> void:
 		if body.ownRole == General_Player.Role.PLAYER:
 			spieler_in_reichweite = true
 			lokaler_spieler = body
-			interaktions_prompt.visible = true
+			interaktions_prompt.show_prompt()
 
 func _on_body_exited(body: Node3D) -> void:
 	if body == lokaler_spieler:
 		spieler_in_reichweite = false
 		lokaler_spieler = null
-		interaktions_prompt.visible = false
+		interaktions_prompt.hide_prompt()
 
 
 func starte_minigame() -> void:
-	interaktions_prompt.visible = false
+	interaktions_prompt.hide_prompt()
 	
 	lokaler_spieler.set_fishing_mode(true)
 	

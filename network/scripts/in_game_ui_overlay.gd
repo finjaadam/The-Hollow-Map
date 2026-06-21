@@ -17,6 +17,20 @@ const ABILITY_SLOT_SCENE := preload("res://network/monster/abilities/ability_slo
 @onready var message_label: Label = $MessageLabel
 @onready var message_timer: Timer = $MessageTimer
 
+var _countdown_intro: String = ""
+var _countdown_remaining: float = 0.0
+
+func _process(delta: float) -> void:
+	if _countdown_remaining <= 0.0:
+		return
+
+	_countdown_remaining = max(_countdown_remaining - delta, 0.0)
+	if _countdown_remaining <= 0.0:
+		message_label.visible = false
+		return
+
+	message_label.text = "%s Noch %d Sekunden..." % [_countdown_intro, ceil(_countdown_remaining)]
+
 func _ready() -> void:
 	GameManager.keys_changed.connect(_set_key_visibility)
 	GameManager.state_updated.connect(_set_key_visibility)
@@ -81,6 +95,7 @@ func set_flashlight_cooldown(remaining: float, total: float) -> void:
 
 ## Shows a transient text message, e.g. "Du kannst dich für 5 Sekunden nicht bewegen!"
 func show_message(text: String, duration: float) -> void:
+	_countdown_remaining = 0.0 # stop any running countdown from overriding this
 	message_label.text = text
 	message_label.visible = true
 	message_timer.start(duration)
@@ -88,3 +103,11 @@ func show_message(text: String, duration: float) -> void:
 func _on_message_timer_timeout() -> void:
 	message_label.visible = false
 
+## Shows `intro_text`, then keeps counting down the remaining seconds underneath
+## it until `duration` has elapsed, e.g. "Du bist in eine Falle getreten! Noch 5 Sekunden..."
+func show_countdown(intro_text: String, duration: float) -> void:
+	message_timer.stop() # the countdown drives visibility itself, not the timer
+	_countdown_intro = intro_text
+	_countdown_remaining = duration
+	message_label.text = "%s Noch %d Sekunden..." % [intro_text, ceil(duration)]
+	message_label.visible = true
