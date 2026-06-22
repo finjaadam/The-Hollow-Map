@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ds2iobtyo3v4r"]
 
-[ext_resource type="Theme" uid="uid://cbksa12r5e4vq" path="res://ui/theme.tres" id="1_iyslx"]
+[ext_resource type="Theme" path="res://ui/theme.tres" id="1_iyslx"]
 [ext_resource type="Script" uid="uid://be8jk35jqgltk" path="res://ui/screens/minigames/fishing minigame/minigameFishing.gd" id="2_mnwjs"]
 [ext_resource type="Texture2D" uid="uid://b8830f76foucb" path="res://assets/minispiel_angeln/key.png" id="3_5lp51"]
 [ext_resource type="Texture2D" uid="uid://dbpldpst4scd2" path="res://assets/minispiel_angeln/AngelBild.png" id="4_0insf"]
