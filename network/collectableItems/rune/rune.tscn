@@ -18,13 +18,14 @@ transform = Transform3D(2.345, 0, 0, 0, 2.345, 0, 0, 0, 2.345, 0, 0, 0)
 transform = Transform3D(3.425, 0, 0, 0, 3.425, 0, 0, 0, 3.425, 0, 0, 0)
 shape = SubResource("CylinderShape3D_c7eg7")
 
-[node name="CosmicScene" parent="Area3D/CollisionShape3D" unique_id=424608710 instance=ExtResource("2_lprm5")]
-transform = Transform3D(0.002919708, 0, 0, 0, 0.002919708, 0, 0, 0, 0.002919708, 0, 0, 0)
-
-[node name="NatureScene" parent="Area3D/CollisionShape3D" unique_id=2094131268 instance=ExtResource("3_r8jla")]
-transform = Transform3D(0.002919708, 0, 0, 0, 0.002919708, 0, 0, 0, 0.002919708, 0, 0, 0)
+[node name="WaterScene" parent="Area3D/CollisionShape3D" unique_id=1449961845 instance=ExtResource("4_r8jla")]
+transform = Transform3D(0.0029197077, 0, 0, 0, 0.0029197077, 0, 0, 0, 0.0029197077, 0, 0, 0)
 visible = false
 
-[node name="WaterScene" parent="Area3D/CollisionShape3D" unique_id=1449961845 instance=ExtResource("4_r8jla")]
-transform = Transform3D(0.002919708, 0, 0, 0, 0.002919708, 0, 0, 0, 0.002919708, 0, 0, 0)
+[node name="NatureScene" parent="Area3D/CollisionShape3D" unique_id=2094131268 instance=ExtResource("3_r8jla")]
+transform = Transform3D(0.0029197077, 0, 0, 0, 0.0029197077, 0, 0, 0, 0.0029197077, 0, 0, 0)
+visible = false
+
+[node name="CosmicScene" parent="Area3D/CollisionShape3D" unique_id=424608710 instance=ExtResource("2_lprm5")]
+transform = Transform3D(0.0029197077, 0, 0, 0, 0.0029197077, 0, 0, 0, 0.0029197077, 0, 0, 0)
 visible = false
