@@ -14,7 +14,7 @@ script = ExtResource("1_ut2eg")
 stream = SubResource("AudioStreamGenerator_qhl78")
 attenuation_model = 2
 volume_db = 25.0
-max_distance = 15.0
+max_distance = 30.0
 script = ExtResource("2_ijefr")
 metadata/_custom_type_script = "uid://dkb8ltjc6067n"
 

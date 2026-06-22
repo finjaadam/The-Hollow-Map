@@ -11,7 +11,7 @@ var is_joining : bool = false
 
 var lobby_id : int = 0
 var lobby_members: Array = []
-var lobby_members_max: int = 4
+var lobby_members_max: int = 5
 
 var steam_id: int = 0
 
