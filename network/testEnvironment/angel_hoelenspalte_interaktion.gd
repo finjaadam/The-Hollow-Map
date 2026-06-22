@@ -19,7 +19,7 @@ func _process(_delta: float) -> void:
 		return
 		
 	if spieler_in_reichweite and Input.is_action_just_pressed("interact"):
-		if lokaler_spieler and not lokaler_spieler.is_fishing:
+		if lokaler_spieler and not lokaler_spieler.is_fishing and GameManager.fishingrod_in_inventory:
 			starte_minigame()
 
 func _on_body_entered(body: Node3D) -> void:
