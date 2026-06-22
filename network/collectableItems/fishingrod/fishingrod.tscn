@@ -1,25 +1,20 @@
 [gd_scene format=3 uid="uid://bfxdon8iq7sva"]
 
-[ext_resource type="Script" uid="uid://t4d6tjrgnkw2" path="res://network/collectableItems/fishingrod/Fishingrod.gd" id="1_yy12s"]
+[ext_resource type="Script" uid="uid://t4d6tjrgnkw2" path="res://Network/collectableItems/fishingrod/Fishingrod.gd" id="1_yy12s"]
+[ext_resource type="PackedScene" uid="uid://cgf1rjk6gbhu0" path="res://assets/minispiel_angeln/fishing_pole/scene.gltf" id="2_i0lnb"]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_yy12s"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jl156"]
-albedo_color = Color(0, 0.12799987, 0.96, 1)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_17ngr"]
-material = SubResource("StandardMaterial3D_jl156")
-height = 0.309
+[sub_resource type="BoxShape3D" id="BoxShape3D_i0lnb"]
+size = Vector3(0.20793457, 0.03, 0.09726562)
 
 [node name="Fishingrod" type="Node3D" unique_id=1963687755]
 script = ExtResource("1_yy12s")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=2123302137]
-transform = Transform3D(2.345, 0, 0, 0, 2.345, 0, 0, 0, 2.345, 0, 0, 0)
+transform = Transform3D(2.345, 0, 0, 0, 2.345, 0, 0, 0, 2.345, 0, 0.09707713, 0.39336455)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=16013618]
-transform = Transform3D(3.425, 0, 0, 0, 3.425, 0, 0, 0, 3.425, 0, 0, 0)
-shape = SubResource("CylinderShape3D_yy12s")
+transform = Transform3D(3.425, 0, 0, 0, 3.425, 0, 0, 0, 3.425, -0.00087069167, 0.00553957, -0.11542093)
+shape = SubResource("BoxShape3D_i0lnb")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D/CollisionShape3D" unique_id=512661816]
-mesh = SubResource("CylinderMesh_17ngr")
+[node name="Sketchfab_Scene" parent="Area3D/CollisionShape3D" unique_id=1602433109 instance=ExtResource("2_i0lnb")]
+transform = Transform3D(0.009999995, 0, 0, 0, -4.3711373e-10, 0.009999995, 0, -0.009999995, -4.3711373e-10, 0, -0.0011846535, 0.0477811)
