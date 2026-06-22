@@ -57,8 +57,9 @@ visible = false
 light_color = Color(1, 0.9490196, 0.8, 1)
 light_energy = 5.0
 shadow_enabled = true
-spot_range = 15.0
-spot_angle = 60.0
+spot_range = 100.0
+spot_attenuation = 0.0
+spot_angle = 85.0
 
 [node name="Pivot" type="Node3D" parent="." unique_id=648722982]
 
