@@ -26,6 +26,8 @@ func _ready():
 	# Audio player for playing surface-specific footstep sounds
 	_audio = RaytracedAudioPlayer3D.new()
 	_audio.name = "FootstepAudio"
+	_audio.volume_db = -25.0 if is_multiplayer_authority() else 5.0
+	
 	add_child(_audio)
 	
 	# RaytracedAudioPlayer creates a CUSTOM BUS – EXPLICIT to this Player
