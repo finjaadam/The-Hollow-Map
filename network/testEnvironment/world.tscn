@@ -69,70 +69,70 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.635197, 1.2373495, 0.95208
 [node name="MinigameItemsSpawnPoints" type="Node3D" parent="Map" unique_id=2002126102]
 
 [node name="1" type="Marker3D" parent="Map/MinigameItemsSpawnPoints" unique_id=882341337]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.704548, -0.016789317, 3.3790245)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.705, 0, 3.379)
 
 [node name="2" type="Marker3D" parent="Map/MinigameItemsSpawnPoints" unique_id=1834788426]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.210148, -0.009746313, -7.21092)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.21, 0, -7.906)
 
 [node name="3" type="Marker3D" parent="Map/MinigameItemsSpawnPoints" unique_id=1693905207]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.319908, 0.4043694, -35.31317)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.32, 0, -35.313)
 
 [node name="4" type="Marker3D" parent="Map/MinigameItemsSpawnPoints" unique_id=1324172882]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.35436, -0.16993558, -24.329632)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.354, 0, -25.885)
 
 [node name="5" type="Marker3D" parent="Map/MinigameItemsSpawnPoints" unique_id=1231849560]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.34345, -0.00046527386, -24.329632)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.343, 0, -25.5)
 
 [node name="6" type="Marker3D" parent="Map/MinigameItemsSpawnPoints" unique_id=1672791584]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.73632, 0.41922688, -34.51522)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.736, 0.05, -30.42)
 
 [node name="7" type="Marker3D" parent="Map/MinigameItemsSpawnPoints" unique_id=111675392]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.284666, 0.27052873, -34.51522)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.285, 0, -34.515)
 
 [node name="8" type="Marker3D" parent="Map/MinigameItemsSpawnPoints" unique_id=765446666]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.296429, 0.20090967, -34.51522)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.296, -0.085, -34.515)
 
 [node name="9" type="Marker3D" parent="Map/MinigameItemsSpawnPoints" unique_id=2116740005]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.546705, 0.17715693, -32.613693)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.547, -0.3, -32.614)
 
 [node name="10" type="Marker3D" parent="Map/MinigameItemsSpawnPoints" unique_id=589658560]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.485764, 0.07378283, -33.7705)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.486, 0, -33.771)
 
 [node name="11" type="Marker3D" parent="Map/MinigameItemsSpawnPoints" unique_id=655093164]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.485764, 0.46758813, -18.079437)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.486, 0, -18.079)
 
 [node name="12" type="Marker3D" parent="Map/MinigameItemsSpawnPoints" unique_id=492566588]
-transform = Transform3D(0.9993873, -0.0134671815, -0.032304674, 0.012004331, 0.9989123, -0.045057468, 0.032876328, 0.04464207, 0.99846196, -52.104916, 0.40333176, -12.342633)
+transform = Transform3D(0.9993873, -0.0134671815, -0.032304674, 0.012004331, 0.9989123, -0.045057468, 0.032876328, 0.04464207, 0.99846196, -52.105, 0.05, -12.343)
 
 [node name="13" type="Marker3D" parent="Map/MinigameItemsSpawnPoints" unique_id=494189330]
-transform = Transform3D(0.9993873, -0.0134671815, -0.032304674, 0.012004331, 0.9989123, -0.045057468, 0.032876328, 0.04464207, 0.99846196, -57.367893, 1.2373495, -4.872033)
+transform = Transform3D(0.9993873, -0.0134671815, -0.032304674, 0.012004331, 0.9989123, -0.045057468, 0.032876328, 0.04464207, 0.99846196, -57.368, 0, -2.5)
 
 [node name="14" type="Marker3D" parent="Map/MinigameItemsSpawnPoints" unique_id=1044372040]
-transform = Transform3D(0.9993873, -0.0134671815, -0.032304674, 0.012004331, 0.9989123, -0.045057468, 0.032876328, 0.04464207, 0.99846196, -41.984688, 0.55306983, 6.090987)
+transform = Transform3D(0.9993873, -0.0134671815, -0.032304674, 0.012004331, 0.9989123, -0.045057468, 0.032876328, 0.04464207, 0.99846196, -41.985, -0.1, 6.091)
 
 [node name="15" type="Marker3D" parent="Map/MinigameItemsSpawnPoints" unique_id=1749946526]
-transform = Transform3D(0.9993873, -0.0134671815, -0.032304674, 0.012004331, 0.9989123, -0.045057468, 0.032876328, 0.04464207, 0.99846196, -33.213406, 0.3319558, 1.4909582)
+transform = Transform3D(0.9993873, -0.0134671815, -0.032304674, 0.012004331, 0.9989123, -0.045057468, 0.032876328, 0.04464207, 0.99846196, -33.213, 0, 1.491)
 
 [node name="16" type="Marker3D" parent="Map/MinigameItemsSpawnPoints" unique_id=377959281]
-transform = Transform3D(0.9993873, -0.0134671815, -0.032304674, 0.012004331, 0.9989123, -0.045057468, 0.032876328, 0.04464207, 0.99846196, -20.02413, 0.65582204, 15.867638)
+transform = Transform3D(0.9993873, -0.0134671815, -0.032304674, 0.012004331, 0.9989123, -0.045057468, 0.032876328, 0.04464207, 0.99846196, -20.024, -0.2, 15.868)
 
 [node name="17" type="Marker3D" parent="Map/MinigameItemsSpawnPoints" unique_id=147537707]
-transform = Transform3D(0.9993873, -0.0134671815, -0.032304674, 0.012004331, 0.9989123, -0.045057468, 0.032876328, 0.04464207, 0.99846196, 16.895868, 0.06561577, 16.40624)
+transform = Transform3D(0.9993873, -0.0134671815, -0.032304674, 0.012004331, 0.9989123, -0.045057468, 0.032876328, 0.04464207, 0.99846196, 18.896, -0.2, 15.406)
 
 [node name="18" type="Marker3D" parent="Map/MinigameItemsSpawnPoints" unique_id=1540512314]
-transform = Transform3D(0.9993873, -0.0134671815, -0.032304674, 0.012004331, 0.9989123, -0.045057468, 0.032876328, 0.04464207, 0.99846196, 6.2133884, 1.2373495, 22.257753)
+transform = Transform3D(0.9993873, -0.0134671815, -0.032304674, 0.012004331, 0.9989123, -0.045057468, 0.032876328, 0.04464207, 0.99846196, 5, 0, 20.258)
 
 [node name="19" type="Marker3D" parent="Map/MinigameItemsSpawnPoints" unique_id=1254875191]
-transform = Transform3D(0.9993873, -0.0134671815, -0.032304674, 0.012004331, 0.9989123, -0.045057468, 0.032876328, 0.04464207, 0.99846196, 29.098154, 0.4815538, 24.088358)
+transform = Transform3D(0.9993873, -0.0134671815, -0.032304674, 0.012004331, 0.9989123, -0.045057468, 0.032876328, 0.04464207, 0.99846196, 30.098, 0.15, 24.088)
 
 [node name="20" type="Marker3D" parent="Map/MinigameItemsSpawnPoints" unique_id=176156732]
-transform = Transform3D(0.9993873, -0.0134671815, -0.032304674, 0.012004331, 0.9989123, -0.045057468, 0.032876328, 0.04464207, 0.99846196, 46.47676, 0.45247632, 24.088358)
+transform = Transform3D(0.9993873, -0.0134671815, -0.032304674, 0.012004331, 0.9989123, -0.045057468, 0.032876328, 0.04464207, 0.99846196, 46.477, 0, 24.088)
 
 [node name="21" type="Marker3D" parent="Map/MinigameItemsSpawnPoints" unique_id=1667359082]
-transform = Transform3D(0.9993873, -0.0134671815, -0.032304674, 0.012004331, 0.9989123, -0.045057468, 0.032876328, 0.04464207, 0.99846196, 55.985218, 0.0597378, 16.598993)
+transform = Transform3D(0.9993873, -0.0134671815, -0.032304674, 0.012004331, 0.9989123, -0.045057468, 0.032876328, 0.04464207, 0.99846196, 53.985, 0.1, 14.599)
 
 [node name="22" type="Marker3D" parent="Map/MinigameItemsSpawnPoints" unique_id=2102607305]
-transform = Transform3D(0.9993873, -0.0134671815, -0.032304674, 0.012004331, 0.9989123, -0.045057468, 0.032876328, 0.04464207, 0.99846196, 55.595043, 0.57117045, -0.040166855)
+transform = Transform3D(0.9993873, -0.0134671815, -0.032304674, 0.012004331, 0.9989123, -0.045057468, 0.032876328, 0.04464207, 0.99846196, 56.023987, 0, -7.5075517)
 
 [node name="TestMap" type="StaticBody3D" parent="." unique_id=146694575]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -120)
