@@ -8,6 +8,13 @@ var player_roles: Dictionary = {}
 var team_lives: int = 0
 var max_team_lives: int = 0
 var team_keys: int = 0
+var fishingrod_in_inventory: bool = false
+var pickaxe_in_inventory: bool = false
+# todo: überlegen, ob hier vllt array einfach
+var rune_inventory: Array = []
+#var rune_cosmic_in_inventory: bool = false
+#var rune_nature_in_inventory: bool = false
+#var rune_water_in_inventory: bool = false
 var game_has_ended: bool = false
 # ...add more game state here over time
 
@@ -35,6 +42,9 @@ func _apply_state(state: Dictionary) -> void:
 	team_lives = state.get("team_lives", 0)
 	max_team_lives = state.get("max_team_lives", 0)
 	team_keys = state.get("team_keys",  0)
+	pickaxe_in_inventory = state.get("pickaxe_in_inventory", false)
+	fishingrod_in_inventory = state.get("fishingrod_in_inventory", false)
+	rune_inventory = state.get("rune_inventory", [])
 	state_updated.emit()
 	keys_changed.emit()
 	lives_changed.emit(team_lives)
@@ -44,7 +54,10 @@ func _build_state() -> Dictionary:
 		"player_roles": player_roles,
 		"team_lives":   team_lives,
 		"max_team_lives": max_team_lives,
-		"team_keys":	team_keys
+		"team_keys":	team_keys,
+		"pickaxe_in_inventory": pickaxe_in_inventory,
+		"fishingrod_in_inventory": fishingrod_in_inventory,
+		"rune_inventory": rune_inventory
 	}
 
 # Host calls this whenever state changes
@@ -138,18 +151,24 @@ func collect_key() -> void:
 
 @rpc("any_peer", "call_local", "reliable")
 func collect_rune(rune_type) -> void:
-	#todo
-	print("collect_rune()")
+	if not multiplayer.is_server():
+		return
+	rune_inventory.append(rune_type)
+	_push_state_to_all()
 
 @rpc("any_peer", "call_local", "reliable")
 func collect_fishingrod() -> void:
-	#todo
-	print("collect_fishingrod()")
+	if not multiplayer.is_server():
+		return
+	fishingrod_in_inventory = true
+	_push_state_to_all()
 
 @rpc("any_peer", "call_local", "reliable")
 func collect_pickaxe() -> void:
-	#todo
-	print("collect_pickaxe()")
+	if not multiplayer.is_server():
+		return
+	pickaxe_in_inventory = true
+	_push_state_to_all()
 
 # Get the current player's role
 func get_my_role() -> String:

@@ -5,11 +5,18 @@ const ABILITY_SLOT_SCENE := preload("res://network/monster/abilities/ability_slo
 
 @export var is_monster: bool
 
-@onready var key_label = $KeyLabel
 @onready var live_bar = $LiveBar
 
 @onready var bw_keys = $bw_keys
 @onready var colored_keys = $colored_keys
+
+@onready var minigame_items = $MinigameItems
+@onready var colored_pickaxe = $MinigameItems/Pickaxe/ColoredPickaxe
+@onready var colored_fishingrod = $MinigameItems/Fishingrod/ColoredFishingrod
+@onready var colored_rune_cosmic = $MinigameItems/Runes/ColoredCosmic
+@onready var colored_rune_nature = $MinigameItems/Runes/ColoredNature
+@onready var colored_rune_water = $MinigameItems/Runes/ColoredWater
+
 
 @onready var flashlight_icon = $FlashlightIcon
 @onready var abilities_bar: HBoxContainer = $AbilitiesBar
@@ -38,8 +45,10 @@ func _process(delta: float) -> void:
 func _ready() -> void:
 	GameManager.keys_changed.connect(_set_key_visibility)
 	GameManager.state_updated.connect(_set_key_visibility)
+	GameManager.state_updated.connect(_set_items_visibility)
 
 	_set_key_visibility()
+	_set_items_visibility()
 
 	abilities_bar.visible = is_monster
 	message_label.visible = false
@@ -89,6 +98,19 @@ func _set_key_visibility() -> void:
 	
 	for key in range(bw_keys.get_child_count()):
 		bw_keys.get_child(key).visible = key < limit
+
+func _set_items_visibility() -> void:
+	minigame_items.visible = !is_monster
+	
+	if is_monster: 
+		return
+	
+	colored_pickaxe.visible = GameManager.pickaxe_in_inventory
+	colored_fishingrod.visible = GameManager.fishingrod_in_inventory
+	colored_rune_cosmic.visible = GameManager.rune_inventory.has(Rune.RuneType.COSMIC)
+	colored_rune_nature.visible = GameManager.rune_inventory.has(Rune.RuneType.NATURE)
+	colored_rune_water.visible = GameManager.rune_inventory.has(Rune.RuneType.WATER)
+	print("krise")
 
 func _on_lives_changed(amount: int) -> void:
 	# max team lives can change because players can leave the game
