@@ -110,7 +110,6 @@ func _set_items_visibility() -> void:
 	colored_rune_cosmic.visible = GameManager.rune_inventory.has(Rune.RuneType.COSMIC)
 	colored_rune_nature.visible = GameManager.rune_inventory.has(Rune.RuneType.NATURE)
 	colored_rune_water.visible = GameManager.rune_inventory.has(Rune.RuneType.WATER)
-	print("krise")
 
 func _on_lives_changed(amount: int) -> void:
 	# max team lives can change because players can leave the game

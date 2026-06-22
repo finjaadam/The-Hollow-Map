@@ -78,7 +78,7 @@ func _on_area_2d_key_area_entered(_area: Area2D) -> void:
 		game_active = false
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) # Maus wieder zeigen
 		
-		status_label.text = "Erfolgreich! Schlüssel erhalten."
+		GameManager.collect_key()
 		
 		fishing_finished.emit(true) # Dem Hauptspiel sagen: "Gewonnen!"
 
