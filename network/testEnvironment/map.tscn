@@ -22,7 +22,6 @@
 [ext_resource type="PackedScene" uid="uid://62l58j2attqx" path="res://assets/water_fountain/fountain-old.tscn" id="11_fountain"]
 [ext_resource type="PackedScene" uid="uid://cxvofcy8m8ejs" path="res://assets/stone_group_1/stone_group_1.tscn" id="14_22shp"]
 [ext_resource type="Script" uid="uid://dew5ikh2m42fp" path="res://network/testEnvironment/angel_hoelenspalte_interaktion.gd" id="15_hmamp"]
-[ext_resource type="Script" path="res://network/scripts/InteractionPrompt.gd" id="900_intprompt"]
 [ext_resource type="Texture2D" uid="uid://dnp65cdyabsl" path="res://assets/szikla__rock/textures/material_baseColor.png" id="15_owalp"]
 [ext_resource type="PackedScene" uid="uid://bk277se02bsh7" path="res://assets/rock_big/rock_big.tscn" id="16_1wree"]
 [ext_resource type="Texture2D" uid="uid://dkax1eh4tdvil" path="res://assets/szikla__rock/textures/material_metallicRoughness.png" id="16_nijqk"]
@@ -62,6 +61,7 @@
 [ext_resource type="PackedScene" uid="uid://ctja20p5gd6c4" path="res://assets/aaron_project_-_roots/aaron_2.tscn" id="32_oafj0"]
 [ext_resource type="PackedScene" uid="uid://dke416ve2chsd" path="res://assets/aaron_project_-_roots/aaron_3.tscn" id="33_uc420"]
 [ext_resource type="PackedScene" uid="uid://dxlirpkmwk8i5" path="res://assets/aaron_project_-_roots/aaron_4.tscn" id="34_hf1pw"]
+[ext_resource type="Script" uid="uid://cdy1fboe1km04" path="res://network/scripts/InteractionPrompt.gd" id="900_intprompt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_water"]
 size = Vector3(29.735, 20.005, 13.305)
