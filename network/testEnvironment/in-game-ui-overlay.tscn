@@ -1,0 +1,355 @@
+[gd_scene format=3 uid="uid://cssh4udxb71ra"]
+
+[ext_resource type="Script" uid="uid://c4g8g82sdhghf" path="res://network/scripts/in_game_ui_overlay.gd" id="1_keruy"]
+[ext_resource type="Texture2D" uid="uid://ok3w4koxe58o" path="res://network/collectableItems/key/Schluessel_sw_png.png" id="2_1kjc5"]
+[ext_resource type="Texture2D" uid="uid://bp7csj6c8a8x1" path="res://assets/flashlight/Flashlight.png" id="2_6a28s"]
+[ext_resource type="Texture2D" uid="uid://bc1pb0fvgnxcd" path="res://network/collectableItems/key/Schluessel_png.png" id="2_8dvuu"]
+[ext_resource type="Shader" uid="uid://cnjw5fcj41taj" path="res://shader/flashlight_fill.gdshader" id="2_8h26f"]
+[ext_resource type="Texture2D" uid="uid://dpuol3ddhu5x5" path="res://network/collectableItems/fishingrod/fishingrod.png" id="6_y5wwg"]
+[ext_resource type="Texture2D" uid="uid://gqffaitd3hes" path="res://network/collectableItems/fishingrod/bw_fishingrod.png" id="7_u3s3e"]
+[ext_resource type="Texture2D" uid="uid://wud3ujq7upix" path="res://network/collectableItems/pickaxe/colored_pickaxe.png" id="8_qu25u"]
+[ext_resource type="Texture2D" uid="uid://dny2jltsgbwin" path="res://network/collectableItems/pickaxe/bw_pickaxe.png" id="9_euflo"]
+[ext_resource type="Texture2D" uid="uid://b2bpm7qqqwdfx" path="res://network/collectableItems/rune/assets_ui_overlay/bw_rune_water.png" id="10_k1o77"]
+[ext_resource type="Texture2D" uid="uid://b2il11e8e05ic" path="res://network/collectableItems/rune/assets_ui_overlay/colored_rune_water.png" id="11_y83k0"]
+[ext_resource type="Texture2D" uid="uid://d3hxwrrmaun8b" path="res://network/collectableItems/rune/assets_ui_overlay/bw_rune_nature.png" id="12_nutxf"]
+[ext_resource type="Texture2D" uid="uid://chwj87bgg3jyr" path="res://network/collectableItems/rune/assets_ui_overlay/colored_rune_nature.png" id="13_lm4j1"]
+[ext_resource type="Texture2D" uid="uid://dcd6eqbxtek76" path="res://network/collectableItems/rune/assets_ui_overlay/bw_rune_cosmic.png" id="14_57aq4"]
+[ext_resource type="Texture2D" uid="uid://c5i53fh4tf40a" path="res://network/collectableItems/rune/assets_ui_overlay/colored_rune_cosmic.png" id="15_pkyut"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1kjc5"]
+bg_color = Color(0.5019608, 0.5019608, 0.5019608, 1)
+
+[sub_resource type="Gradient" id="Gradient_d5vei"]
+offsets = PackedFloat32Array(0, 0.4479889)
+colors = PackedColorArray(0.36, 0, 0, 1, 0.13439998, 0.36192012, 0.64, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ggqym"]
+gradient = SubResource("Gradient_d5vei")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6sbhf"]
+texture = SubResource("GradientTexture1D_ggqym")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v3qgt"]
+shader = ExtResource("2_8h26f")
+shader_parameter/fill_progress = 1.0
+shader_parameter/dim_alpha = 0.08
+
+[node name="PlayerInGameOverlay" type="CanvasLayer" unique_id=349315403]
+script = ExtResource("1_keruy")
+
+[node name="Role" type="Label" parent="." unique_id=739166447]
+anchors_preset = -1
+anchor_left = 0.7647569
+anchor_top = 0.018518519
+anchor_right = 0.9904514
+anchor_bottom = 0.097222224
+offset_left = -23.0
+offset_top = 11.0
+offset_right = -23.0
+offset_bottom = 11.0
+text = "Monster"
+horizontal_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="AbilitiesBar" type="HBoxContainer" parent="." unique_id=-1447416093]
+anchors_preset = -1
+anchor_left = 0.6623264
+anchor_top = 0.8595679
+anchor_right = 0.98269105
+anchor_bottom = 0.94598764
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 12
+alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="bw_keys" type="Control" parent="." unique_id=1835428739]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 366.0
+offset_right = 406.0
+offset_bottom = 40.0
+
+[node name="0" type="TextureRect" parent="bw_keys" unique_id=442320560]
+modulate = Color(1, 1, 1, 0.39215687)
+layout_mode = 0
+offset_left = 52.55849
+offset_top = 14.0
+offset_right = 79.55849
+offset_bottom = 76.643295
+rotation = 0.21816616
+texture = ExtResource("2_1kjc5")
+expand_mode = 1
+
+[node name="1" type="TextureRect" parent="bw_keys" unique_id=827474918]
+modulate = Color(1, 1, 1, 0.39215687)
+layout_mode = 0
+offset_left = 100.55849
+offset_top = 14.0
+offset_right = 127.55849
+offset_bottom = 76.643295
+rotation = 0.21816616
+texture = ExtResource("2_1kjc5")
+expand_mode = 1
+
+[node name="2" type="TextureRect" parent="bw_keys" unique_id=115949497]
+modulate = Color(1, 1, 1, 0.39215687)
+layout_mode = 0
+offset_left = 149.55849
+offset_top = 14.0
+offset_right = 176.55849
+offset_bottom = 76.643295
+rotation = 0.21816616
+texture = ExtResource("2_1kjc5")
+expand_mode = 1
+
+[node name="3" type="TextureRect" parent="bw_keys" unique_id=2046697098]
+modulate = Color(1, 1, 1, 0.39215687)
+layout_mode = 0
+offset_left = 199.0
+offset_top = 14.000002
+offset_right = 226.0
+offset_bottom = 76.643295
+rotation = 0.21816616
+texture = ExtResource("2_1kjc5")
+expand_mode = 1
+
+[node name="colored_keys" type="Control" parent="." unique_id=1007847894]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 366.0
+offset_right = 406.0
+offset_bottom = 40.0
+
+[node name="0" type="TextureRect" parent="colored_keys" unique_id=558961848]
+layout_mode = 0
+offset_left = 52.55849
+offset_top = 14.0
+offset_right = 79.55849
+offset_bottom = 76.643295
+rotation = 0.21816616
+texture = ExtResource("2_8dvuu")
+expand_mode = 1
+
+[node name="1" type="TextureRect" parent="colored_keys" unique_id=831722301]
+layout_mode = 0
+offset_left = 100.55849
+offset_top = 14.0
+offset_right = 127.55849
+offset_bottom = 76.643295
+rotation = 0.21816616
+texture = ExtResource("2_8dvuu")
+expand_mode = 1
+
+[node name="2" type="TextureRect" parent="colored_keys" unique_id=1344676969]
+layout_mode = 0
+offset_left = 149.55849
+offset_top = 14.0
+offset_right = 176.55849
+offset_bottom = 76.643295
+rotation = 0.21816616
+texture = ExtResource("2_8dvuu")
+expand_mode = 1
+
+[node name="3" type="TextureRect" parent="colored_keys" unique_id=2006510192]
+layout_mode = 0
+offset_left = 199.00002
+offset_top = 14.0
+offset_right = 226.00002
+offset_bottom = 76.643295
+rotation = 0.21816616
+texture = ExtResource("2_8dvuu")
+expand_mode = 1
+
+[node name="LiveBar" type="ProgressBar" parent="." unique_id=321578315]
+offset_left = 42.0
+offset_top = 585.0
+offset_right = 363.0
+offset_bottom = 593.0
+theme_override_styles/background = SubResource("StyleBoxFlat_1kjc5")
+theme_override_styles/fill = SubResource("StyleBoxTexture_6sbhf")
+value = 100.0
+show_percentage = false
+
+[node name="FlashlightIcon" type="TextureRect" parent="." unique_id=1683235165]
+material = SubResource("ShaderMaterial_v3qgt")
+anchors_preset = -1
+anchor_left = 0.85
+anchor_top = 0.82900006
+anchor_right = 0.97
+anchor_bottom = 0.94600004
+offset_left = 10.799988
+offset_top = 11.807983
+offset_right = 0.00012207031
+offset_bottom = 15.552002
+texture = ExtResource("2_6a28s")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="FKey" type="Label" parent="FlashlightIcon" unique_id=2087881621]
+material = SubResource("ShaderMaterial_v3qgt")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.135
+anchor_top = 0.078
+anchor_right = 0.61800003
+anchor_bottom = 0.34600002
+offset_left = -2.2044258
+offset_top = -2.2057066
+offset_right = -0.03794861
+offset_bottom = 2.6722145
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.6)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 24
+text = "F"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MessageLabel" type="Label" parent="." unique_id=529489797]
+anchors_preset = -1
+anchor_left = 0.22135417
+anchor_top = 0.41203704
+anchor_right = 0.7725694
+anchor_bottom = 0.5787037
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 28
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="MessageTimer" type="Timer" parent="." unique_id=1931328654]
+one_shot = true
+
+[node name="DamageOverlay" type="ColorRect" parent="." unique_id=2077926108]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color(1, 0, 0, 0)
+
+[node name="MinigameItems" type="Control" parent="." unique_id=964175139]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Fishingrod" type="Control" parent="MinigameItems" unique_id=1198840836]
+anchors_preset = 0
+offset_left = -190.0
+offset_top = -8.0
+offset_right = -150.0
+offset_bottom = 32.0
+
+[node name="BwFishingrod" type="TextureRect" parent="MinigameItems/Fishingrod" unique_id=1435937744]
+modulate = Color(1, 1, 1, 0.19607843)
+layout_mode = 0
+offset_left = 198.0
+offset_top = 20.0
+offset_right = 328.45645
+offset_bottom = 78.0
+texture = ExtResource("7_u3s3e")
+expand_mode = 1
+
+[node name="ColoredFishingrod" type="TextureRect" parent="MinigameItems/Fishingrod" unique_id=670954412]
+layout_mode = 0
+offset_left = 198.0
+offset_top = 20.0
+offset_right = 328.45645
+offset_bottom = 78.0
+texture = ExtResource("6_y5wwg")
+expand_mode = 1
+
+[node name="Pickaxe" type="Control" parent="MinigameItems" unique_id=397088446]
+anchors_preset = 0
+offset_left = -101.0
+offset_top = -7.0
+offset_right = -74.0
+offset_bottom = 33.0
+
+[node name="BwPickaxe" type="TextureRect" parent="MinigameItems/Pickaxe" unique_id=2083724846]
+modulate = Color(1, 1, 1, 0.19607843)
+layout_mode = 0
+offset_left = 249.0
+offset_top = 20.0
+offset_right = 328.45645
+offset_bottom = 78.0
+texture = ExtResource("9_euflo")
+expand_mode = 1
+
+[node name="ColoredPickaxe" type="TextureRect" parent="MinigameItems/Pickaxe" unique_id=62758133]
+layout_mode = 0
+offset_left = 248.0
+offset_top = 20.0
+offset_right = 328.45645
+offset_bottom = 78.0
+texture = ExtResource("8_qu25u")
+expand_mode = 1
+
+[node name="Runes" type="Control" parent="MinigameItems" unique_id=1860722629]
+anchors_preset = 0
+offset_left = -190.0
+offset_top = -8.0
+offset_right = -150.0
+offset_bottom = 32.0
+
+[node name="BwWater" type="TextureRect" parent="MinigameItems/Runes" unique_id=166090624]
+modulate = Color(1, 1, 1, 0.19607843)
+layout_mode = 0
+offset_left = 430.0
+offset_top = 30.0
+offset_right = 472.3158
+offset_bottom = 67.0
+texture = ExtResource("10_k1o77")
+expand_mode = 1
+
+[node name="ColoredWater" type="TextureRect" parent="MinigameItems/Runes" unique_id=2079205786]
+layout_mode = 0
+offset_left = 430.0
+offset_top = 30.0
+offset_right = 447.35538
+offset_bottom = 45.531403
+scale = Vector2(2.42, 2.42)
+texture = ExtResource("11_y83k0")
+expand_mode = 1
+
+[node name="BwNature" type="TextureRect" parent="MinigameItems/Runes" unique_id=1440928813]
+modulate = Color(1, 1, 1, 0.19607843)
+layout_mode = 0
+offset_left = 478.0
+offset_top = 31.0
+offset_right = 519.0
+offset_bottom = 68.0
+texture = ExtResource("12_nutxf")
+expand_mode = 1
+
+[node name="ColoredNature" type="TextureRect" parent="MinigameItems/Runes" unique_id=1140770122]
+layout_mode = 0
+offset_left = 478.0
+offset_top = 31.0
+offset_right = 519.0
+offset_bottom = 68.0
+texture = ExtResource("13_lm4j1")
+expand_mode = 1
+
+[node name="BwCosmic" type="TextureRect" parent="MinigameItems/Runes" unique_id=103993157]
+modulate = Color(1, 1, 1, 0.19607843)
+layout_mode = 0
+offset_left = 525.0
+offset_top = 29.0
+offset_right = 569.0
+offset_bottom = 68.0
+texture = ExtResource("14_57aq4")
+expand_mode = 1
+
+[node name="ColoredCosmic" type="TextureRect" parent="MinigameItems/Runes" unique_id=1133599227]
+layout_mode = 0
+offset_left = 525.0
+offset_top = 29.0
+offset_right = 569.0
+offset_bottom = 68.0
+texture = ExtResource("15_pkyut")
+expand_mode = 1

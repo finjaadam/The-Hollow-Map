@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dnk8iwck0vfdf"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_p44ax"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2xj2f"]
+transparency = 1
+albedo_color = Color(0.30293068, 0.44367686, 0.7623296, 0.14509805)
+
+[node name="Wasser" type="Node3D" unique_id=754175342]
+
+[node name="Wasser" type="MeshInstance3D" parent="." unique_id=1010535913]
+mesh = SubResource("PlaneMesh_p44ax")
+surface_material_override/0 = SubResource("StandardMaterial3D_2xj2f")

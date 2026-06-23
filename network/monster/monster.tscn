@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://deefor15sgl47"]
+
+[ext_resource type="Script" uid="uid://jp8vxktkmh3n" path="res://network/monster/Monster.gd" id="1_dlha7"]
+[ext_resource type="Environment" uid="uid://bixn4bbcuffnd" path="res://environments/debug_env.tres" id="2_fmeki"]
+[ext_resource type="Environment" uid="uid://cv5uoqolnda4m" path="res://environments/light_cone_env.tres" id="3_l315m"]
+[ext_resource type="PackedScene" uid="uid://hxag78bqilay" path="res://network/testEnvironment/audioController.tscn" id="3_mhf6n"]
+[ext_resource type="PackedScene" uid="uid://dud2rq3uvwwr2" path="res://assets/blob_monster/blob_monster.tscn" id="4_mhf6n"]
+[ext_resource type="Script" uid="uid://cokh7jryjgs7d" path="res://network/scripts/areaSounds/FootstepController.gd" id="4_yrgqy"]
+[ext_resource type="PackedScene" uid="uid://cssh4udxb71ra" path="res://network/testEnvironment/in-game-ui-overlay.tscn" id="5_ir3iy"]
+[ext_resource type="Script" uid="uid://q01m43qsxxhi" path="res://network/monster/abilities/MonsterAbilitySystem.gd" id="6_abilsys"]
+[ext_resource type="Resource" uid="uid://bri038mjnqped" path="res://network/monster/abilities/sprint/sprint_ability.tres" id="7_sprint"]
+[ext_resource type="Script" uid="uid://dc7jjc5aiaikj" path="res://network/monster/abilities/MonsterAbility.gd" id="8_aj4qo"]
+[ext_resource type="Resource" uid="uid://wmn7ok77ugvn" path="res://network/monster/abilities/sniff/sniff_ability.tres" id="9_sniff"]
+[ext_resource type="Resource" uid="uid://d2awie364wuee" path="res://network/monster/abilities/trap/trap_ability.tres" id="10_trap"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o6jvr"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_vfbk3"]
+properties/0/path = NodePath(".:network_position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath("Camera3D:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath("Camera3D:position")
+properties/2/spawn = true
+properties/2/replication_mode = 1
+properties/3/path = NodePath(".:velocity")
+properties/3/spawn = true
+properties/3/replication_mode = 1
+properties/4/path = NodePath(".:network_rotation_y")
+properties/4/spawn = true
+properties/4/replication_mode = 1
+
+[node name="Monster" type="CharacterBody3D" unique_id=907472801 node_paths=PackedStringArray("footstep_controller", "camera3d", "canvas")]
+script = ExtResource("1_dlha7")
+aura_radius = 2.0
+mouse_sensitivity = 0.001
+speed = 4
+debug_env = ExtResource("2_fmeki")
+player_env = ExtResource("3_l315m")
+footstep_controller = NodePath("FootstepController")
+camera3d = NodePath("Camera3D")
+canvas = NodePath("CanvasLayer")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=632415741]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+environment = ExtResource("2_fmeki")
+
+[node name="AudioController" parent="Camera3D" unique_id=896399656 instance=ExtResource("3_mhf6n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.012199789, -0.76869315)
+
+[node name="Model" type="Node3D" parent="." unique_id=581671935]
+
+[node name="BlobMonster" parent="Model" unique_id=1569384285 node_paths=PackedStringArray("player") instance=ExtResource("4_mhf6n")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -1, 0)
+player = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=44229677]
+shape = SubResource("CapsuleShape3D_o6jvr")
+
+[node name="FootstepController" type="Node3D" parent="." unique_id=1812438175]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.47013602, -0.76869315)
+script = ExtResource("4_yrgqy")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1644290355]
+replication_config = SubResource("SceneReplicationConfig_vfbk3")
+
+[node name="CanvasLayer" parent="." unique_id=349315403 instance=ExtResource("5_ir3iy")]
+is_monster = true
+
+[node name="AbilitySystem" type="Node" parent="." unique_id=-1447416092]
+script = ExtResource("6_abilsys")
+abilities = Array[ExtResource("8_aj4qo")]([ExtResource("7_sprint"), ExtResource("9_sniff"), ExtResource("10_trap")])

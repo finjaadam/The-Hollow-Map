@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://dnoi26eutsbsy"]
+
+[ext_resource type="Theme" uid="uid://cbksa12r5e4vq" path="res://ui/theme.tres" id="1_k3emh"]
+[ext_resource type="Script" uid="uid://p2216we18bik" path="res://ui/screens/menu/VideoMenu.gd" id="2_8ce88"]
+
+[node name="VideoMenu" type="Control" unique_id=105999390]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_k3emh")
+script = ExtResource("2_8ce88")
+is_Pause_Menu = true
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1872474968]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 0.7)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1651977262]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=449617563]
+layout_mode = 2
+alignment = 1
+
+[node name="Title" type="Label" parent="CenterContainer/VBoxContainer" unique_id=843951220]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+text = "Video-Einstellungen"
+horizontal_alignment = 1
+
+[node name="FullscreenRow" type="HBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=1943283212]
+layout_mode = 2
+alignment = 1
+
+[node name="FullscreenLabel" type="RichTextLabel" parent="CenterContainer/VBoxContainer/FullscreenRow" unique_id=2134892126]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Vollbild:"
+
+[node name="FullscreenCheck" type="CheckBox" parent="CenterContainer/VBoxContainer/FullscreenRow" unique_id=1145572653]
+layout_mode = 2
+
+[node name="ResolutionRow" type="HBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=576459924]
+layout_mode = 2
+alignment = 1
+
+[node name="ResolutionLabel" type="RichTextLabel" parent="CenterContainer/VBoxContainer/ResolutionRow" unique_id=700944266]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Aufloesung:"
+
+[node name="OptionButton" type="OptionButton" parent="CenterContainer/VBoxContainer/ResolutionRow" unique_id=373614003]
+layout_mode = 2
+selected = 2
+item_count = 5
+popup/item_0/text = "960x540"
+popup/item_0/id = 0
+popup/item_1/text = "1280x720"
+popup/item_1/id = 1
+popup/item_2/text = "1920x1080"
+popup/item_2/id = 2
+popup/item_3/text = "2560x1440"
+popup/item_3/id = 3
+popup/item_4/text = "3840x2160"
+popup/item_4/id = 4
+
+[node name="VsyncRow" type="HBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=268458209]
+layout_mode = 2
+alignment = 1
+
+[node name="VsyncLabel" type="RichTextLabel" parent="CenterContainer/VBoxContainer/VsyncRow" unique_id=1024364546]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "VSync:"
+
+[node name="VsyncCheck" type="CheckBox" parent="CenterContainer/VBoxContainer/VsyncRow" unique_id=742166892]
+layout_mode = 2
+
+[node name="LoadingRow" type="HBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=1206444836]
+layout_mode = 2
+alignment = 1
+
+[node name="LoadingLabel" type="RichTextLabel" parent="CenterContainer/VBoxContainer/LoadingRow" unique_id=644446327]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Lade-Bildschirm anzeigen:"
+
+[node name="LoadingCheck" type="CheckBox" parent="CenterContainer/VBoxContainer/LoadingRow" unique_id=2097385002]
+layout_mode = 2
+
+[node name="Spacer2" type="Control" parent="CenterContainer/VBoxContainer" unique_id=1501991018]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=994467874]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+text = "Zurueck"
+
+[connection signal="toggled" from="CenterContainer/VBoxContainer/FullscreenRow/FullscreenCheck" to="." method="_on_fullscreen_check_toggled"]
+[connection signal="item_selected" from="CenterContainer/VBoxContainer/ResolutionRow/OptionButton" to="." method="_on_option_button_item_selected"]
+[connection signal="toggled" from="CenterContainer/VBoxContainer/VsyncRow/VsyncCheck" to="." method="_on_vsync_check_toggled"]
+[connection signal="toggled" from="CenterContainer/VBoxContainer/LoadingRow/LoadingCheck" to="." method="_on_loading_check_toggled"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://odv4drnaxu1l"]
 
 [ext_resource type="Script" uid="uid://byn55c81qq82l" path="res://network/scripts/MenuServerList.gd" id="1_gmyp7"]
+[ext_resource type="Texture2D" uid="uid://d0lu66dah1ayb" path="res://ui/background.png" id="2_hxyg4"]
 
 [node name="MenuServerList" type="Control" unique_id=1042278931]
 layout_mode = 3
@@ -10,6 +11,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_gmyp7")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=693073067]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_hxyg4")
+expand_mode = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=1734799859]
 layout_mode = 1
@@ -26,7 +37,7 @@ alignment = 1
 [node name="BackButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=247657173]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
-text = "Zurück"
+text = "Zurueck"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="CenterContainer/VBoxContainer" unique_id=238819728]
 custom_minimum_size = Vector2(500, 200)

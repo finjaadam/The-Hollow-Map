@@ -1,39 +1,81 @@
 [gd_scene format=3 uid="uid://cu5gtk0ybh744"]
 
 [ext_resource type="Script" uid="uid://boqjwglaui8xk" path="res://network/scripts/Player.gd" id="1_4flbx"]
+[ext_resource type="Environment" uid="uid://bixn4bbcuffnd" path="res://environments/debug_env.tres" id="2_6i2bt"]
 [ext_resource type="PackedScene" uid="uid://hxag78bqilay" path="res://network/testEnvironment/audioController.tscn" id="2_rev65"]
+[ext_resource type="Environment" uid="uid://cv5uoqolnda4m" path="res://environments/light_cone_env.tres" id="3_3nxfo"]
 [ext_resource type="Script" uid="uid://cokh7jryjgs7d" path="res://network/scripts/areaSounds/FootstepController.gd" id="3_q1thc"]
+[ext_resource type="PackedScene" uid="uid://cssh4udxb71ra" path="res://network/testEnvironment/in-game-ui-overlay.tscn" id="5_3nxfo"]
+[ext_resource type="PackedScene" uid="uid://cl362lpqquj6t" path="res://assets/player/Player_Model.res" id="5_d2j4b"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_4flbx"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sh265"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ruypr"]
+radius = 0.52783203
+height = 1.2332153
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_4flbx"]
-properties/0/path = NodePath(".:position")
+properties/0/path = NodePath(".:network_position")
 properties/0/spawn = true
 properties/0/replication_mode = 1
+properties/1/path = NodePath(".:network_rotation_y")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath(".:velocity")
+properties/2/spawn = true
+properties/2/replication_mode = 1
+properties/3/path = NodePath("Camera3D:position")
+properties/3/spawn = true
+properties/3/replication_mode = 1
+properties/4/path = NodePath("Camera3D:rotation")
+properties/4/spawn = true
+properties/4/replication_mode = 1
+properties/5/path = NodePath("Camera3D/Flashlight:visible")
+properties/5/spawn = true
+properties/5/replication_mode = 1
 
-[node name="Player" type="CharacterBody3D" unique_id=1104604618]
+[node name="Player" type="CharacterBody3D" unique_id=1104604618 node_paths=PackedStringArray("flashlight", "footstep_controller", "camera3d", "canvas", "animation_player")]
 script = ExtResource("1_4flbx")
+flashlight = NodePath("Camera3D/Flashlight")
 mouse_sensitivity = 0.001
 speed = 5
+debug_env = ExtResource("2_6i2bt")
+player_env = ExtResource("3_3nxfo")
+footstep_controller = NodePath("FootstepController")
+camera3d = NodePath("Camera3D")
+canvas = NodePath("CanvasLayer")
+animation_player = NodePath("Pivot/Player_Model/AnimationPlayer")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=464028339]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.93284035, -0.5475073)
+environment = ExtResource("2_6i2bt")
 
 [node name="AudioController" parent="Camera3D" unique_id=846649630 instance=ExtResource("2_rev65")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.012199789, -0.76869315)
 
+[node name="Flashlight" type="SpotLight3D" parent="Camera3D" unique_id=1190575549]
+transform = Transform3D(1, 0, 0, 0, 0.98477834, -0.173643, 0, 0.173643, 0.98477834, 0, -0.2, -0.5)
+visible = false
+light_color = Color(1, 0.9490196, 0.8, 1)
+light_energy = 5.0
+shadow_enabled = true
+spot_range = 100.0
+spot_attenuation = 0.0
+spot_angle = 85.0
+
 [node name="Pivot" type="Node3D" parent="." unique_id=648722982]
 
-[node name="Character" type="MeshInstance3D" parent="Pivot" unique_id=528235311]
-mesh = SubResource("CapsuleMesh_4flbx")
+[node name="Player_Model" parent="Pivot" unique_id=991988269 node_paths=PackedStringArray("player") instance=ExtResource("5_d2j4b")]
+transform = Transform3D(-0.99998176, 0, -0.00603878, 0, 1, 0, 0.00603878, 0, -0.99998176, 0, 0, 0)
+player = NodePath("../..")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1392500315]
-shape = SubResource("CapsuleShape3D_sh265")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1785374638]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.54921484, -0.088317096)
+shape = SubResource("CapsuleShape3D_ruypr")
 
 [node name="FootstepController" type="Node3D" parent="." unique_id=95066644]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.47013602, -0.76869315)
 script = ExtResource("3_q1thc")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1752202761]
 replication_config = SubResource("SceneReplicationConfig_4flbx")
+
+[node name="CanvasLayer" parent="." unique_id=349315403 instance=ExtResource("5_3nxfo")]

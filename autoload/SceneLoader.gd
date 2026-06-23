@@ -3,9 +3,11 @@ extends CanvasLayer
 signal scene_loading_started(scene_path: String)
 signal scene_loading_progress(progress: float)
 signal scene_loading_finished(scene_path: String)
+signal paused(bool)
 
 var current_scene: Node
 var loading_screen_scene: PackedScene
+var is_paused = false
 
 func _ready():
 	current_scene = get_tree().current_scene
@@ -95,3 +97,7 @@ func reload_current_scene():
 
 func get_current_scene() -> Node:
 	return current_scene
+	
+func toggle_pause():
+	is_paused = not is_paused
+	paused.emit(is_paused)

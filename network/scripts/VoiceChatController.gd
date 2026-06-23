@@ -1,0 +1,65 @@
+extends Node3D
+
+@onready var raytracedAudioPlayer: RaytracedAudioPlayer3D = $RaytracedAudioPlayer3D
+@onready var raytracedAudioListener: RaytracedAudioListener = $RaytracedAudioListener
+
+const SAMPLE_RATE: int = 48000
+var voice_playback: AudioStreamGeneratorPlayback = null
+var audio_in_range: bool = true
+
+func _ready() -> void:
+	if is_multiplayer_authority():
+		# We are the local player, add the listener
+		var listener = raytracedAudioListener
+		listener.is_enabled = true
+		listener.owner = get_parent()
+		listener.make_current()
+		Steam.setInGameVoiceSpeaking(480, true)
+		Steam.startVoiceRecording()
+	else:
+		# We are a remote player, set up audio playback
+		raytracedAudioPlayer.play()
+		raytracedAudioPlayer.enabled.connect(BusManager.route_to_Chat_bus.bind(raytracedAudioPlayer))
+		voice_playback = raytracedAudioPlayer.get_stream_playback()
+
+func _process(_delta: float) -> void:
+	if not multiplayer.has_multiplayer_peer():
+		return
+	if not is_multiplayer_authority():
+		return
+	if SceneLoader.is_paused:
+		return
+	
+	var voice_data: Dictionary = Steam.getVoice()
+	if voice_data['result'] == Steam.VoiceResult.VOICE_RESULT_OK and voice_data['written']:
+		send_voice.rpc(voice_data['buffer'])
+
+@rpc("any_peer", "call_remote", "unreliable")
+func send_voice(voice_data: PackedByteArray) -> void:
+	if voice_playback == null:
+		return
+	
+	var decompressed: Dictionary = Steam.decompressVoice(voice_data, SAMPLE_RATE)
+	if decompressed['result'] != Steam.VoiceResult.VOICE_RESULT_OK or decompressed['size'] == 0:
+		return
+	
+	var frames := PackedVector2Array()
+	# Decompressed Voice from Steam is 16-bit PCM --> 2 Bytes per Sample
+	# Godot needs Vector2 Array in order to work with Audio --> 1 Vector = 1 Audio Sample
+	# x-Value of Vector2 is left ear, y-Value of Vector2 is right ear
+	# 1000 Bytes Audio = 500 Samples = 500 Vectors that are need --> divide by 2
+	frames.resize(decompressed['size'] / 2)
+	
+	for i in range(0, decompressed['size'], 2):							# 2 Bytes at a time
+		var sample: int = decompressed['uncompressed'].decode_s16(i)	# Decode 2 bytes to signed 16-bit int
+		var amplitude: float = float(sample) / 32768.0					# 16 bit = 32768 Values, normalize to -1 and +1
+		frames[i / 2] = Vector2(amplitude, amplitude)					# Copy Value to left + right ear
+	
+	# Check how much new Data can be pushed to Playback to prevent overflow
+	var available: int = voice_playback.get_frames_available()
+
+	# Push all data you have without overflowing
+	if available >= frames.size():
+		voice_playback.push_buffer(frames)
+	elif available > 0:
+		voice_playback.push_buffer(frames.slice(0, available))
