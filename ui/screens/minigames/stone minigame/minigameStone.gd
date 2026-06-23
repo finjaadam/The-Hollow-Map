@@ -10,8 +10,8 @@ const RADIUS_MULTIPLIER := 20.0  # Power 1 = 40px Radius
 const MIN_RADIUS := 20.0  # Minimaler Radius (garantiert zumindest einen Stein)
 
 # Sprite-Pfade - ANPASSEN:
-var stone_sprite_path: String = "res://ui/screens/minigames/stone minigame/Stein_256x256.png"  # z.B. "res://assets/stone.png"
-var key_sprite_path: String = "res://ui/screens/minigames/stone minigame/key.png"    # z.B. "res://assets/key.png"
+var stone_sprite_path: String = "res://assets/minispiel_stein/Stein_256x256.png"  # z.B. "res://assets/stone.png"
+var key_sprite_path: String = "res://assets/lowpoly_sticks_-_free_download/key.png"    # z.B. "res://assets/key.png"
 
 var background_left: ColorRect
 var power_bar: Control
@@ -144,7 +144,7 @@ func _on_key_found() -> void:
 		key_sprite.texture = load(key_sprite_path)
 		key_sprite.position = key_stone_pos
 		key_sprite.centered = true
-		key_sprite.scale = Vector2(0.8, 0.8)
+		key_sprite.scale = Vector2(0.05, 0.05)
 		background_left.add_child(key_sprite)
 		# Animation: Springen lassen
 		var tween = create_tween()

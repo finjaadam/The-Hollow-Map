@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b07xyju840xhk"
-path.s3tc="res://.godot/imported/SurvivalTools_Roughness.png-b12f9eb77093363606c71e030b11c200.s3tc.ctex"
+uid="uid://stjglclx7dks"
+path.s3tc="res://.godot/imported/SurvivalTools_Metallic.png-4d38a2c8d6555ee996e8de9c8c6698d3.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://ui/screens/minigames/stone minigame/SurvivalTools_Roughness.png"
-dest_files=["res://.godot/imported/SurvivalTools_Roughness.png-b12f9eb77093363606c71e030b11c200.s3tc.ctex"]
+source_file="res://assets/minispiel_stein/SurvivalTools_Metallic.png"
+dest_files=["res://.godot/imported/SurvivalTools_Metallic.png-4d38a2c8d6555ee996e8de9c8c6698d3.s3tc.ctex"]
 
 [params]
 

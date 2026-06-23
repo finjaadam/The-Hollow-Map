@@ -580,6 +580,10 @@ height = 4.810547
 [sub_resource type="BoxShape3D" id="BoxShape3D_hmamp"]
 size = Vector3(3.1005516, 2.5546265, 4.40094)
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ux5q7"]
+radius = 0.99365234
+height = 2.7675781
+
 [node name="Node3D" type="Node3D" unique_id=1910157186]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.52080536, -9.5263, -1.745678)
 
@@ -4380,3 +4384,15 @@ script = ExtResource("900_intprompt")
 [node name="AngelWand_Player" type="AudioStreamPlayer3D" parent="modular-cave-final/Angel_Hoelenspalte" unique_id=979714847]
 stream = ExtResource("16_ssx8d")
 bus = &"SFX"
+
+[node name="Spitzhacke_Stein" type="Node3D" parent="modular-cave-final" unique_id=788464447]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.346863, 0, 122.86037)
+
+[node name="stein" parent="modular-cave-final/Spitzhacke_Stein" unique_id=875757391 instance=ExtResource("17_1nqb3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6809921, 0.4991932, -0.71694565)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="modular-cave-final/Spitzhacke_Stein/stein" unique_id=1580362981]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="modular-cave-final/Spitzhacke_Stein/stein/StaticBody3D" unique_id=1794846017]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.031425476, 0.25305176, -0.10741043)
+shape = SubResource("CapsuleShape3D_ux5q7")
