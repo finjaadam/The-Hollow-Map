@@ -1,0 +1,128 @@
+[gd_scene format=3 uid="uid://cub3g8h7pgcq7"]
+
+[ext_resource type="Texture2D" uid="uid://niac8myteve5" path="res://ui/screens/minigames/rune minigame/assets/runes/cosmic_rune.jpg" id="1_l6m8f"]
+[ext_resource type="Texture2D" uid="uid://d2gru5fqh5i7i" path="res://ui/screens/minigames/rune minigame/assets/runes/nature_rune.jpg" id="2_emms5"]
+[ext_resource type="Texture2D" uid="uid://dy1vw8gw65rnk" path="res://ui/screens/minigames/rune minigame/assets/runes/water_rune.jpg" id="3_ers23"]
+
+[node name="RuneMinigame" type="Control" unique_id=577709434]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1494188426]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 800.0
+grow_vertical = 2
+color = Color(0.19215687, 0.22352941, 0.23529412, 1)
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="ColorRect" unique_id=2059547460]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 22
+
+[node name="Container" type="Control" parent="ColorRect/VBoxContainer3" unique_id=1598124493]
+custom_minimum_size = Vector2(0, 56.435)
+layout_mode = 2
+
+[node name="Runen Spiel" type="Label" parent="ColorRect/VBoxContainer3" unique_id=1568455192]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Runen Minispiel"
+
+[node name="Container2" type="Control" parent="ColorRect/VBoxContainer3" unique_id=1844929860]
+custom_minimum_size = Vector2(0, 56.435)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/VBoxContainer3" unique_id=1228330203]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 175
+
+[node name="I" type="Label" parent="ColorRect/VBoxContainer3/HBoxContainer" unique_id=997586071]
+layout_mode = 2
+text = "I"
+
+[node name="II" type="Label" parent="ColorRect/VBoxContainer3/HBoxContainer" unique_id=1339788804]
+layout_mode = 2
+text = "II"
+
+[node name="III" type="Label" parent="ColorRect/VBoxContainer3/HBoxContainer" unique_id=898381397]
+layout_mode = 2
+text = "III"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ColorRect/VBoxContainer3" unique_id=550861410]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/separation = 110
+
+[node name="Slot1" type="ColorRect" parent="ColorRect/VBoxContainer3/HBoxContainer2" unique_id=2082805479]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+color = Color(0.3, 0.3, 0.3, 1)
+
+[node name="Slot2" type="ColorRect" parent="ColorRect/VBoxContainer3/HBoxContainer2" unique_id=1261148161]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+color = Color(0.3, 0.3, 0.3, 1)
+
+[node name="Slot3" type="ColorRect" parent="ColorRect/VBoxContainer3/HBoxContainer2" unique_id=91742077]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+color = Color(0.3, 0.3, 0.3, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1330681961]
+custom_minimum_size = Vector2(340, 0)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -339.0
+offset_right = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+color = Color(0.19215687, 0.22352941, 0.23529412, 1)
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ColorRect2" unique_id=1909286773]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -124.0
+offset_right = 40.0
+offset_bottom = 124.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 23
+
+[node name="Rune1" type="TextureRect" parent="ColorRect2/VBoxContainer2" unique_id=1431743547]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture = ExtResource("1_l6m8f")
+expand_mode = 3
+
+[node name="Rune2" type="TextureRect" parent="ColorRect2/VBoxContainer2" unique_id=1491491423]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture = ExtResource("2_emms5")
+expand_mode = 3
+
+[node name="Rune3" type="TextureRect" parent="ColorRect2/VBoxContainer2" unique_id=1790888325]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture = ExtResource("3_ers23")
+expand_mode = 3
