@@ -1,24 +1,19 @@
 [gd_scene format=3 uid="uid://cub3g8h7pgcq7"]
 
 [ext_resource type="Script" uid="uid://c66vlrh87bmvi" path="res://ui/screens/minigames/rune minigame/RuneMinigame.gd" id="1_script"]
-[ext_resource type="Texture2D" uid="uid://b8830f76foucb" path="res://network/collectableItems/rune/assets_ui_overlay/colored_rune_cosmic.png" id="1_cosmic"]
-[ext_resource type="Texture2D" uid="uid://999ed3df10bf23c3070d8fd63d239f97" path="res://network/collectableItems/rune/assets_ui_overlay/colored_rune_nature.png" id="2_nature"]
-[ext_resource type="Texture2D" uid="uid://1cb4b6b76d4baaae1fc" path="res://network/collectableItems/rune/assets_ui_overlay/colored_rune_water.png" id="3_water"]
+[ext_resource type="Texture2D" uid="uid://chwj87bgg3jyr" path="res://network/collectableItems/rune/assets_ui_overlay/colored_rune_nature.png" id="2_nature"]
+[ext_resource type="Texture2D" uid="uid://b2il11e8e05ic" path="res://network/collectableItems/rune/assets_ui_overlay/colored_rune_water.png" id="3_water"]
+[ext_resource type="Texture2D" uid="uid://c5i53fh4tf40a" path="res://network/collectableItems/rune/assets_ui_overlay/colored_rune_cosmic.png" id="5_ers23"]
 
 [node name="RuneMinigame" type="Control" unique_id=577709434]
 process_mode = 1
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -250.0
-offset_top = -280.0
-offset_right = 250.0
-offset_bottom = 280.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.7, 0.7)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
@@ -28,152 +23,129 @@ script = ExtResource("1_script")
 custom_minimum_size = Vector2(500, 560)
 layout_mode = 1
 anchors_preset = -1
-anchor_bottom = 1.009375
+anchor_left = 0.42212296
+anchor_right = 1.076375
+anchor_bottom = 1.0361551
 offset_left = -2.0
-offset_right = 498.0
+offset_top = 165.0
+offset_right = 0.015991211
 size_flags_horizontal = 4
 size_flags_vertical = 4
-color = Color(1, 1, 1, 0.91764706)
+color = Color(0.15, 0.15, 0.15, 0.95)
 metadata/_edit_use_anchors_ = true
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="./Background" unique_id=2059547460]
+[node name="MainHBox" type="HBoxContainer" parent="Background" unique_id=999999999]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 22
+theme_override_constants/separation = 20
+alignment = 1
 
-[node name="Container" type="Control" parent="./Background/VBoxContainer3" unique_id=1598124493]
-custom_minimum_size = Vector2(0, 56.435)
+[node name="VBoxContainer3" type="VBoxContainer" parent="Background/MainHBox" unique_id=2059547460]
 layout_mode = 2
+theme_override_constants/separation = 22
+alignment = 1
 
-[node name="Runen Spiel" type="Label" parent="./Background/VBoxContainer3" unique_id=1568455192]
+[node name="Runen Spiel" type="Label" parent="Background/MainHBox/VBoxContainer3" unique_id=1568455192]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Runen Minispiel"
 
-[node name="Container2" type="Control" parent="./Background/VBoxContainer3" unique_id=1844929860]
+[node name="Container2" type="Control" parent="Background/MainHBox/VBoxContainer3" unique_id=1844929860]
 custom_minimum_size = Vector2(0, 56.435)
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="./Background/VBoxContainer3" unique_id=1228330203]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/separation = 175
-
-[node name="I" type="Label" parent="./Background/VBoxContainer3/HBoxContainer" unique_id=997586071]
-layout_mode = 2
-text = "I"
-
-[node name="II" type="Label" parent="./Background/VBoxContainer3/HBoxContainer" unique_id=1339788804]
-layout_mode = 2
-text = "II"
-
-[node name="III" type="Label" parent="./Background/VBoxContainer3/HBoxContainer" unique_id=898381397]
-layout_mode = 2
-text = "III"
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="./Background/VBoxContainer3" unique_id=550861410]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Background/MainHBox/VBoxContainer3" unique_id=550861410]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 theme_override_constants/separation = 110
 
-[node name="Slot1" type="ColorRect" parent="./Background/VBoxContainer3/HBoxContainer2" unique_id=2082805479]
+[node name="Slot1" type="ColorRect" parent="Background/MainHBox/VBoxContainer3/HBoxContainer2" unique_id=2082805479]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-color = Color(0.3, 0.3, 0.3, 1)
+color = Color(0.25, 0.25, 0.25, 1)
 
-[node name="GhostRune1" type="TextureRect" parent="./Background/VBoxContainer3/HBoxContainer2/Slot1" unique_id=1111111111]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-custom_minimum_size = Vector2(64, 64)
-texture = ExtResource("1_cosmic")
-expand_mode = 1
+[node name="GhostRune1" type="TextureRect" parent="Background/MainHBox/VBoxContainer3/HBoxContainer2/Slot1" unique_id=1111111111]
 self_modulate = Color(1, 1, 1, 0.3)
-mouse_filter = 1
-
-[node name="Slot2" type="ColorRect" parent="./Background/VBoxContainer3/HBoxContainer2" unique_id=1261148161]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 2
-color = Color(0.3, 0.3, 0.3, 1)
-
-[node name="GhostRune2" type="TextureRect" parent="./Background/VBoxContainer3/HBoxContainer2/Slot2" unique_id=2222222222]
-anchors_preset = 15
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-custom_minimum_size = Vector2(64, 64)
+texture = ExtResource("5_ers23")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Slot2" type="ColorRect" parent="Background/MainHBox/VBoxContainer3/HBoxContainer2" unique_id=1261148161]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+color = Color(0.25, 0.25, 0.25, 1)
+
+[node name="GhostRune2" type="TextureRect" parent="Background/MainHBox/VBoxContainer3/HBoxContainer2/Slot2" unique_id=-2072745074]
+self_modulate = Color(1, 1, 1, 0.3)
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("2_nature")
 expand_mode = 1
-self_modulate = Color(1, 1, 1, 0.3)
-mouse_filter = 1
+stretch_mode = 6
 
-[node name="Slot3" type="ColorRect" parent="./Background/VBoxContainer3/HBoxContainer2" unique_id=91742077]
-custom_minimum_size = Vector2(80, 80)
+[node name="Slot3" type="ColorRect" parent="Background/MainHBox/VBoxContainer3/HBoxContainer2" unique_id=91742077]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-color = Color(0.3, 0.3, 0.3, 1)
+color = Color(0.25, 0.25, 0.25, 1)
 
-[node name="GhostRune3" type="TextureRect" parent="./Background/VBoxContainer3/HBoxContainer2/Slot3" unique_id=3333333333]
-anchors_preset = 15
+[node name="GhostRune3" type="TextureRect" parent="Background/MainHBox/VBoxContainer3/HBoxContainer2/Slot3" unique_id=-961633963]
+self_modulate = Color(1, 1, 1, 0.3)
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-custom_minimum_size = Vector2(64, 64)
 texture = ExtResource("3_water")
 expand_mode = 1
-self_modulate = Color(1, 1, 1, 0.3)
-mouse_filter = 1
+stretch_mode = 6
 
-[node name="ColorRect2" type="ColorRect" parent="./Background" unique_id=1330681961]
-custom_minimum_size = Vector2(0, 0)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(1, 1, 1, 0)
+[node name="Divider" type="ColorRect" parent="Background/MainHBox" unique_id=888888888]
+custom_minimum_size = Vector2(2, 200)
+layout_mode = 2
+color = Color(0.5, 0.5, 0.5, 1)
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="./Background/ColorRect2" unique_id=1909286773]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -40.0
-offset_top = -90.0
-offset_right = 40.0
-offset_bottom = 90.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="VBoxContainer2" type="VBoxContainer" parent="Background/MainHBox" unique_id=1909286773]
+layout_mode = 2
+size_flags_horizontal = 4
 theme_override_constants/separation = 23
+alignment = 1
 
-[node name="Rune1" type="TextureRect" parent="./Background/ColorRect2/VBoxContainer2" unique_id=1431743547]
+[node name="Rune1" type="TextureRect" parent="Background/MainHBox/VBoxContainer2" unique_id=1431743547]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("1_cosmic")
-expand_mode = 1
 mouse_filter = 2
+texture = ExtResource("5_ers23")
+expand_mode = 1
+stretch_mode = 6
 
-[node name="Rune2" type="TextureRect" parent="./Background/ColorRect2/VBoxContainer2" unique_id=1491491423]
+[node name="Rune2" type="TextureRect" parent="Background/MainHBox/VBoxContainer2" unique_id=1491491423]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("2_nature")
 expand_mode = 1
-mouse_filter = 2
+stretch_mode = 6
 
-[node name="Rune3" type="TextureRect" parent="./Background/ColorRect2/VBoxContainer2" unique_id=1790888325]
+[node name="Rune3" type="TextureRect" parent="Background/MainHBox/VBoxContainer2" unique_id=1790888325]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("3_water")
 expand_mode = 1
-mouse_filter = 2
+stretch_mode = 6

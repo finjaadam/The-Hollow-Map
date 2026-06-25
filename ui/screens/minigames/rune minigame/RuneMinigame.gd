@@ -16,18 +16,18 @@ const ERROR_SOUND = preload("res://network/monster/abilities/trap/trap_sound.mp3
 var error_sound_player: AudioStreamPlayer
 
 # Node references
-@onready var rune1 = $Background/ColorRect2/VBoxContainer2/Rune1
-@onready var rune2 = $Background/ColorRect2/VBoxContainer2/Rune2
-@onready var rune3 = $Background/ColorRect2/VBoxContainer2/Rune3
+@onready var rune1 = $Background/MainHBox/VBoxContainer2/Rune1
+@onready var rune2 = $Background/MainHBox/VBoxContainer2/Rune2
+@onready var rune3 = $Background/MainHBox/VBoxContainer2/Rune3
 
-@onready var slot1 = $Background/VBoxContainer3/HBoxContainer2/Slot1
-@onready var slot2 = $Background/VBoxContainer3/HBoxContainer2/Slot2
-@onready var slot3 = $Background/VBoxContainer3/HBoxContainer2/Slot3
+@onready var slot1 = $Background/MainHBox/VBoxContainer3/HBoxContainer2/Slot1
+@onready var slot2 = $Background/MainHBox/VBoxContainer3/HBoxContainer2/Slot2
+@onready var slot3 = $Background/MainHBox/VBoxContainer3/HBoxContainer2/Slot3
 
 # Ghost rune references (faint images in slots)
-@onready var ghost_rune1 = $Background/VBoxContainer3/HBoxContainer2/Slot1/GhostRune1
-@onready var ghost_rune2 = $Background/VBoxContainer3/HBoxContainer2/Slot2/GhostRune2
-@onready var ghost_rune3 = $Background/VBoxContainer3/HBoxContainer2/Slot3/GhostRune3
+@onready var ghost_rune1 = $Background/MainHBox/VBoxContainer3/HBoxContainer2/Slot1/GhostRune1
+@onready var ghost_rune2 = $Background/MainHBox/VBoxContainer3/HBoxContainer2/Slot2/GhostRune2
+@onready var ghost_rune3 = $Background/MainHBox/VBoxContainer3/HBoxContainer2/Slot3/GhostRune3
 
 # Array of ghost runes for easier management
 var ghost_runes = []
@@ -159,8 +159,8 @@ func reset_game() -> void:
 	for i in range(3):
 		var rune = runes[i]
 		# Make sure rune is in the right parent
-		if rune.get_parent() != $Background/ColorRect2/VBoxContainer2:
-			$Background/ColorRect2/VBoxContainer2.add_child(rune)
+		if rune.get_parent() != $Background/MainHBox/VBoxContainer2:
+			$Background/MainHBox/VBoxContainer2.add_child(rune)
 			
 		# Reset to original global position
 		rune.global_position = original_rune_positions[i]
@@ -287,7 +287,6 @@ func _on_drop_rune_on_slot(rune_idx: int, slot_idx: int) -> void:
 func _on_game_won() -> void:
 	print("Game won!")
 	game_active = false
-	game_won_signal.emit()
 	game_finished.emit(true)
 	# Give control back
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
