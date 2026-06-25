@@ -6,11 +6,6 @@ var all_players: Array
 
 func _ready() -> void:
 	area.body_entered.connect(_on_body_entered)
-	
-	pass # Replace with function body.
-
-func _process(delta: float) -> void:
-	pass
 
 func _on_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player") && check_if_exit_should_open():
@@ -24,11 +19,10 @@ func check_if_exit_should_open() -> bool:
 		if body.is_in_group("player"):
 			players_in_area.append(body)
 	
-	if players_in_area.size() == all_players.size() && TeamProperties.team_keys == all_players.size():
+	if players_in_area.size() == all_players.size() && GameManager.team_keys == all_players.size():
 		return true
 	
 	return false
 
 func open_exit() -> void:
-	print("exit geöffnet")
-	# load game-end scene
+	GameManager.end_game.rpc(true)

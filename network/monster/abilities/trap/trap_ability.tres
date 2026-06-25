@@ -1,0 +1,11 @@
+[gd_resource type="Resource" format=3 uid="uid://d2awie364wuee"]
+
+[ext_resource type="Texture2D" uid="uid://3gblkwv4vubu" path="res://network/monster/abilities/trap/trap_icon.png" id="1_mb60a"]
+[ext_resource type="Script" uid="uid://ulpa58lxtn5g" path="res://network/monster/abilities/trap/TrapAbility.gd" id="1_trap"]
+
+[resource]
+script = ExtResource("1_trap")
+ability_name = "Trap"
+icon = ExtResource("1_mb60a")
+cooldown = 45.0
+input_action = &"monster_trap"

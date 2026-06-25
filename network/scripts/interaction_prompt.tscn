@@ -1,0 +1,9 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://network/scripts/InteractionPrompt.gd" id="1_prompt"]
+
+[node name="InteractionPrompt" type="Label3D"]
+visible = false
+billboard = 1
+text = "E drücken"
+script = ExtResource("1_prompt")

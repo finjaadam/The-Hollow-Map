@@ -1,0 +1,11 @@
+Model Information:
+* title:	Aaron project - Roots
+* source:	https://sketchfab.com/3d-models/aaron-project-roots-3ca6aba2e3d9453cb0e7bb651331bdf3
+* author:	artikora (https://sketchfab.com/artikora978)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Aaron project - Roots" (https://sketchfab.com/3d-models/aaron-project-roots-3ca6aba2e3d9453cb0e7bb651331bdf3) by artikora (https://sketchfab.com/artikora978) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

@@ -1,28 +1,64 @@
 [gd_scene format=3 uid="uid://dud2rq3uvwwr2"]
 
 [ext_resource type="PackedScene" uid="uid://c1ollds0nk42y" path="res://assets/blob_monster/scene.gltf" id="1_3m714"]
+[ext_resource type="Script" uid="uid://ua6dgss1fnde" path="res://assets/blob_monster/blob_monster.gd" id="2_o0q54"]
+[ext_resource type="AnimationLibrary" uid="uid://d2mpbaxxr6ejs" path="res://assets/blob_monster/animation/animation_monster_library.res" id="2_sc4ou"]
 
-[node name="Sketchfab_Scene" unique_id=1569384285 instance=ExtResource("1_3m714")]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sc4ou"]
+animation = &"Idle"
 
-[node name="Skeleton3D" parent="Sketchfab_model/3f6d8c832002440e97bb2e8e289744c0_fbx/Object_2/RootNode/Object_4" parent_id_path=PackedInt32Array(953601971) index="0" unique_id=1220243144]
-bones/1/position = Vector3(0.062365457, 4.020623, -0.08904346)
-bones/1/rotation = Quaternion(-0.037328683, -0.3681686, -0.011379941, 0.9289397)
-bones/2/rotation = Quaternion(0.08241772, 0.04102401, -0.012000609, 0.9956808)
-bones/3/rotation = Quaternion(0.100634485, 0.07966681, -0.023688946, 0.9914458)
-bones/4/rotation = Quaternion(0.10063446, 0.07966681, -0.023688922, 0.9914458)
-bones/5/rotation = Quaternion(-0.0694707, -0.011023667, 0.0025339406, 0.9975199)
-bones/6/rotation = Quaternion(-0.054468956, 0.17692325, -0.012970553, 0.98263067)
-bones/8/rotation = Quaternion(0.65790987, 0.32253176, -0.5886173, 0.34155178)
-bones/9/rotation = Quaternion(0.30826467, -0.109030016, 0.08616293, 0.9410959)
-bones/10/rotation = Quaternion(-0.051811256, 0.0563075, 0.40184394, 0.9125056)
-bones/12/rotation = Quaternion(0.6833652, -0.3036669, 0.5701433, 0.34019852)
-bones/13/rotation = Quaternion(0.29637724, 0.12555021, 0.12472008, 0.9385322)
-bones/14/rotation = Quaternion(0.02013475, 0.027662093, -0.36174598, 0.9316487)
-bones/16/rotation = Quaternion(0.08750299, 0.2809369, 0.94612324, -0.1351612)
-bones/17/rotation = Quaternion(-0.416351, 0.12302859, -0.08858884, 0.8964753)
-bones/18/rotation = Quaternion(0.6015415, 0.42335278, -0.4617482, 0.4956903)
-bones/19/rotation = Quaternion(0.008469674, 0.0236964, 0.15999871, 0.98679644)
-bones/21/rotation = Quaternion(-0.1267717, 0.07231272, 0.97253776, 0.18130147)
-bones/22/rotation = Quaternion(-0.4331513, 0.05998443, 0.030314919, 0.898812)
-bones/23/rotation = Quaternion(0.6616952, -0.5019209, 0.4642732, 0.3077098)
-bones/24/rotation = Quaternion(0.0022043544, -0.01465047, -0.089614086, 0.99586636)
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_o0q54"]
+animation = &"Walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0sf8x"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_afykc"]
+advance_mode = 2
+advance_expression = "velocity"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dwjgu"]
+advance_mode = 2
+advance_expression = "!velocity"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_818c2"]
+states/Idle/node = SubResource("AnimationNodeAnimation_sc4ou")
+states/Idle/position = Vector2(370.1797, 66.83984)
+states/Start/position = Vector2(198.70313, 116.88672)
+states/Walk/node = SubResource("AnimationNodeAnimation_o0q54")
+states/Walk/position = Vector2(370.1797, 155.59766)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_0sf8x"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_afykc"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_dwjgu")]
+
+[node name="BlobMonster" unique_id=1569384285 instance=ExtResource("1_3m714")]
+script = ExtResource("2_o0q54")
+
+[node name="GeneralSkeleton" parent="Sketchfab_model/3f6d8c832002440e97bb2e8e289744c0_fbx/Object_2/RootNode/Object_4" parent_id_path=PackedInt32Array(1913935280) index="0" unique_id=957154635]
+transform = Transform3D(0.7071067, 0, 0.7071067, 0, 1, 0, -0.7071067, 0, 0.7071067, 0, 0, 0)
+bones/1/position = Vector3(0.017066894, 1.0938618, -0.018504534)
+bones/1/rotation = Quaternion(-0.039081194, -0.36757872, -0.013045768, 0.9290794)
+bones/2/rotation = Quaternion(0.048787713, 0.041144792, -0.009496812, 0.9979162)
+bones/3/rotation = Quaternion(0.097281136, 0.0805753, -0.017599137, 0.9918338)
+bones/4/rotation = Quaternion(0.09728105, 0.08057538, -0.017599147, 0.9918338)
+bones/5/rotation = Quaternion(-0.026955277, -0.010724575, 0.002208016, 0.9995767)
+bones/6/rotation = Quaternion(-0.06618133, 0.17776573, -0.006385078, 0.9818241)
+bones/8/rotation = Quaternion(0.5069199, 0.47926205, 0.51803213, -0.49495745)
+bones/9/rotation = Quaternion(0.023697797, 0.8844217, -0.45289218, 0.110115334)
+bones/10/rotation = Quaternion(0.25380126, -0.6876954, 0.3646216, 0.5742047)
+bones/12/rotation = Quaternion(0.47376192, -0.505489, -0.56411207, -0.44923073)
+bones/13/rotation = Quaternion(0.1812686, 0.88450617, -0.42438632, -0.06846025)
+bones/14/rotation = Quaternion(0.21781991, 0.7483855, -0.24481194, 0.57666355)
+bones/16/rotation = Quaternion(0.05637519, 0.24084374, 0.96871257, -0.020301348)
+bones/17/rotation = Quaternion(0.035186302, 0.95003074, -0.3032692, -0.06505003)
+bones/18/rotation = Quaternion(0.009226148, 0.68986344, -0.7238245, -0.009029947)
+bones/19/rotation = Quaternion(0.028072443, 0.99936855, 0.02036421, -0.007740404)
+bones/21/rotation = Quaternion(-0.12428023, -0.00670095, 0.9905275, 0.058007658)
+bones/22/rotation = Quaternion(0.02288145, 0.9620962, -0.24680173, -0.11373803)
+bones/23/rotation = Quaternion(0.06512906, 0.5541413, -0.8279341, -0.05666499)
+bones/24/rotation = Quaternion(0.0037081058, 0.99985677, 0.016128004, -0.0035593999)
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="1" unique_id=1102626330]
+tree_root = SubResource("AnimationNodeStateMachine_818c2")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="AnimationPlayer" parent="." index="2" unique_id=1180949176]
+libraries/ = ExtResource("2_sc4ou")

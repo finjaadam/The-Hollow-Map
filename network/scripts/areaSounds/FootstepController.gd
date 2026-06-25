@@ -26,6 +26,8 @@ func _ready():
 	# Audio player for playing surface-specific footstep sounds
 	_audio = RaytracedAudioPlayer3D.new()
 	_audio.name = "FootstepAudio"
+	_audio.volume_db = -25.0 if is_multiplayer_authority() else 5.0
+	
 	add_child(_audio)
 	
 	# RaytracedAudioPlayer creates a CUSTOM BUS – EXPLICIT to this Player
@@ -44,6 +46,7 @@ func _on_footstep_area_entered(area: Area3D):
 	if area.is_in_group("footstep_region"):
 		_overlapping_regions.append(area)
 		current_surface = area.surface_type
+		AreaSoundManager.enter_zone()
 
 func _on_footstep_area_exited(area: Area3D):
 	# Fall back to the last overlapping region, or default surface if none remain
@@ -52,6 +55,7 @@ func _on_footstep_area_exited(area: Area3D):
 		current_surface = _overlapping_regions[-1].surface_type
 	else:
 		current_surface = AreaSoundManager.SurfaceType.STONE
+		AreaSoundManager.exit_zone()
 
 func tick(on_floor: bool, is_moving: bool, delta: float):
 	# Plays footsteps at interval when walking on ground
