@@ -45,48 +45,48 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 22
 
-[node name="Container" type="Control" parent="ColorRect/VBoxContainer3" unique_id=1598124493]
+[node name="Container" type="Control" parent="./Background/VBoxContainer3" unique_id=1598124493]
 custom_minimum_size = Vector2(0, 56.435)
 layout_mode = 2
 
-[node name="Runen Spiel" type="Label" parent="ColorRect/VBoxContainer3" unique_id=1568455192]
+[node name="Runen Spiel" type="Label" parent="./Background/VBoxContainer3" unique_id=1568455192]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Runen Minispiel"
 
-[node name="Container2" type="Control" parent="ColorRect/VBoxContainer3" unique_id=1844929860]
+[node name="Container2" type="Control" parent="./Background/VBoxContainer3" unique_id=1844929860]
 custom_minimum_size = Vector2(0, 56.435)
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/VBoxContainer3" unique_id=1228330203]
+[node name="HBoxContainer" type="HBoxContainer" parent="./Background/VBoxContainer3" unique_id=1228330203]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 175
 
-[node name="I" type="Label" parent="ColorRect/VBoxContainer3/HBoxContainer" unique_id=997586071]
+[node name="I" type="Label" parent="./Background/VBoxContainer3/HBoxContainer" unique_id=997586071]
 layout_mode = 2
 text = "I"
 
-[node name="II" type="Label" parent="ColorRect/VBoxContainer3/HBoxContainer" unique_id=1339788804]
+[node name="II" type="Label" parent="./Background/VBoxContainer3/HBoxContainer" unique_id=1339788804]
 layout_mode = 2
 text = "II"
 
-[node name="III" type="Label" parent="ColorRect/VBoxContainer3/HBoxContainer" unique_id=898381397]
+[node name="III" type="Label" parent="./Background/VBoxContainer3/HBoxContainer" unique_id=898381397]
 layout_mode = 2
 text = "III"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="ColorRect/VBoxContainer3" unique_id=550861410]
+[node name="HBoxContainer2" type="HBoxContainer" parent="./Background/VBoxContainer3" unique_id=550861410]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 theme_override_constants/separation = 110
 
-[node name="Slot1" type="ColorRect" parent="ColorRect/VBoxContainer3/HBoxContainer2" unique_id=2082805479]
+[node name="Slot1" type="ColorRect" parent="./Background/VBoxContainer3/HBoxContainer2" unique_id=2082805479]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 color = Color(0.3, 0.3, 0.3, 1)
 
-[node name="GhostRune1" type="TextureRect" parent="ColorRect/VBoxContainer3/HBoxContainer2/Slot1" unique_id=1111111111]
+[node name="GhostRune1" type="TextureRect" parent="./Background/VBoxContainer3/HBoxContainer2/Slot1" unique_id=1111111111]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -98,12 +98,12 @@ expand_mode = 1
 self_modulate = Color(1, 1, 1, 0.3)
 mouse_filter = 1
 
-[node name="Slot2" type="ColorRect" parent="ColorRect/VBoxContainer3/HBoxContainer2" unique_id=1261148161]
+[node name="Slot2" type="ColorRect" parent="./Background/VBoxContainer3/HBoxContainer2" unique_id=1261148161]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 color = Color(0.3, 0.3, 0.3, 1)
 
-[node name="GhostRune2" type="TextureRect" parent="ColorRect/VBoxContainer3/HBoxContainer2/Slot2" unique_id=2222222222]
+[node name="GhostRune2" type="TextureRect" parent="./Background/VBoxContainer3/HBoxContainer2/Slot2" unique_id=2222222222]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -115,12 +115,12 @@ expand_mode = 1
 self_modulate = Color(1, 1, 1, 0.3)
 mouse_filter = 1
 
-[node name="Slot3" type="ColorRect" parent="ColorRect/VBoxContainer3/HBoxContainer2" unique_id=91742077]
+[node name="Slot3" type="ColorRect" parent="./Background/VBoxContainer3/HBoxContainer2" unique_id=91742077]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 color = Color(0.3, 0.3, 0.3, 1)
 
-[node name="GhostRune3" type="TextureRect" parent="ColorRect/VBoxContainer3/HBoxContainer2/Slot3" unique_id=3333333333]
+[node name="GhostRune3" type="TextureRect" parent="./Background/VBoxContainer3/HBoxContainer2/Slot3" unique_id=3333333333]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -157,21 +157,21 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 23
 
-[node name="Rune1" type="TextureRect" parent="ColorRect2/VBoxContainer2" unique_id=1431743547]
+[node name="Rune1" type="TextureRect" parent="./Background/ColorRect2/VBoxContainer2" unique_id=1431743547]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("1_cosmic")
 expand_mode = 1
 mouse_filter = 2
 
-[node name="Rune2" type="TextureRect" parent="ColorRect2/VBoxContainer2" unique_id=1491491423]
+[node name="Rune2" type="TextureRect" parent="./Background/ColorRect2/VBoxContainer2" unique_id=1491491423]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("2_nature")
 expand_mode = 1
 mouse_filter = 2
 
-[node name="Rune3" type="TextureRect" parent="ColorRect2/VBoxContainer2" unique_id=1790888325]
+[node name="Rune3" type="TextureRect" parent="./Background/ColorRect2/VBoxContainer2" unique_id=1790888325]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("3_water")
