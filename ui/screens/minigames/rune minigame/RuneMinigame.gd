@@ -43,6 +43,9 @@ signal game_won_signal
 
 
 func _ready() -> void:
+	# Enable input processing
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	
 	# Initialize arrays
 	runes = [rune1, rune2, rune3]
 	slots = [slot1, slot2, slot3]
@@ -208,6 +211,13 @@ func _process(delta: float) -> void:
 	# If we're dragging a rune, move it with the mouse
 	if dragged_rune != null:
 		dragged_rune.global_position = get_global_mouse_position() + drag_offset
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	# Close the minigame when ESC is pressed
+	if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
+		get_viewport().set_input_as_handled()
+		queue_free()
 
 
 # Public function to reset the game
