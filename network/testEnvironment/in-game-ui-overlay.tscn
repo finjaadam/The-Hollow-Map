@@ -162,10 +162,14 @@ texture = ExtResource("2_8dvuu")
 expand_mode = 1
 
 [node name="LiveBar" type="ProgressBar" parent="." unique_id=321578315]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
 offset_left = 42.0
-offset_top = 585.0
+offset_top = -63.0
 offset_right = 363.0
-offset_bottom = 593.0
+offset_bottom = -55.0
+grow_vertical = 0
 theme_override_styles/background = SubResource("StyleBoxFlat_1kjc5")
 theme_override_styles/fill = SubResource("StyleBoxTexture_6sbhf")
 value = 100.0
