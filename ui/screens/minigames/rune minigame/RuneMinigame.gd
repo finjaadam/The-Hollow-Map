@@ -63,6 +63,9 @@ func _ready() -> void:
 		slots[i].mouse_filter = Control.MOUSE_FILTER_STOP
 		slots[i].gui_input.connect(_on_slot_gui_input.bind(i))
 	
+	# Connect to SceneLoader pause signal to handle pause state
+	SceneLoader.paused.connect(_on_game_paused)
+	
 	# Generate random correct mapping
 	_generate_random_mapping()
 	
@@ -214,10 +217,27 @@ func _process(delta: float) -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	# Close the minigame when ESC is pressed
+	# Close the minigame when ESC is pressed (only if game is not paused)
 	if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
-		get_viewport().set_input_as_handled()
-		queue_free()
+		if not SceneLoader.is_paused:
+			get_viewport().set_input_as_handled()
+			queue_free()
+
+
+func _on_game_paused(is_paused: bool) -> void:
+	# When the game is paused, hide the minigame so pause menu can be shown
+	visible = not is_paused
+	# If paused, also block input to the minigame
+	if is_paused:
+		# Disable all rune dragging
+		for i in range(3):
+			runes[i].mouse_filter = Control.MOUSE_FILTER_IGNORE
+	else:
+		# Re-enable rune dragging if game is not won
+		if not game_won:
+			for i in range(3):
+				if not (i in placed_runes):
+					runes[i].mouse_filter = Control.MOUSE_FILTER_STOP
 
 
 # Public function to reset the game
