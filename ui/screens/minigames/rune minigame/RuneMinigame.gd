@@ -17,6 +17,14 @@ extends Control
 @onready var slot2 = $ColorRect/VBoxContainer3/HBoxContainer2/Slot2
 @onready var slot3 = $ColorRect/VBoxContainer3/HBoxContainer2/Slot3
 
+# Ghost rune references (faint images in slots)
+@onready var ghost_rune1 = $ColorRect/VBoxContainer3/HBoxContainer2/Slot1/GhostRune1
+@onready var ghost_rune2 = $ColorRect/VBoxContainer3/HBoxContainer2/Slot2/GhostRune2
+@onready var ghost_rune3 = $ColorRect/VBoxContainer3/HBoxContainer2/Slot3/GhostRune3
+
+# Array of ghost runes for easier management
+var ghost_runes = []
+
 # Game state
 var runes = []
 var slots = []
@@ -49,11 +57,10 @@ func _ready() -> void:
 	# Initialize arrays
 	runes = [rune1, rune2, rune3]
 	slots = [slot1, slot2, slot3]
+	ghost_runes = [ghost_rune1, ghost_rune2, ghost_rune3]
 	
-	# Store original positions
+	# Enable mouse input for runes
 	for i in range(3):
-		original_rune_positions.append(runes[i].global_position)
-		# Enable mouse input for runes
 		runes[i].mouse_filter = Control.MOUSE_FILTER_STOP
 		# Connect gui_input signal for each rune
 		runes[i].gui_input.connect(_on_rune_gui_input.bind(i))
@@ -63,11 +70,17 @@ func _ready() -> void:
 		slots[i].mouse_filter = Control.MOUSE_FILTER_STOP
 		slots[i].gui_input.connect(_on_slot_gui_input.bind(i))
 	
-	# Connect to SceneLoader pause signal to handle pause state
-	SceneLoader.paused.connect(_on_game_paused)
-	
 	# Generate random correct mapping
 	_generate_random_mapping()
+	
+	# Setup ghost runes based on correct mapping
+	_update_ghost_runes()
+	
+	# Wait for layout to complete, then store positions
+	await get_tree().process_frame
+	# Store original global positions after layout
+	for i in range(3):
+		original_rune_positions.append(runes[i].global_position)
 	
 	# Reset game state
 	reset_game()
@@ -87,6 +100,23 @@ func _generate_random_mapping() -> void:
 	print("Correct mapping: Rune 0 -> Slot ", correct_mapping[0], ", Rune 1 -> Slot ", correct_mapping[1], ", Rune 2 -> Slot ", correct_mapping[2])
 
 
+func _update_ghost_runes() -> void:
+	# Update ghost rune textures based on correct mapping
+	# Each ghost rune should show the texture of the rune that belongs in that slot
+	for slot_idx in range(3):
+		# Find which rune belongs in this slot
+		var rune_idx_for_slot = -1
+		for rune_idx in range(3):
+			if correct_mapping[rune_idx] == slot_idx:
+				rune_idx_for_slot = rune_idx
+				break
+			
+		if rune_idx_for_slot != -1:
+			# Set the ghost rune texture to match the rune that belongs here
+			ghost_runes[slot_idx].texture = runes[rune_idx_for_slot].texture
+			ghost_runes[slot_idx].visible = true
+
+
 func reset_game() -> void:
 	# Reset game state
 	game_won = false
@@ -99,9 +129,11 @@ func reset_game() -> void:
 		if rune.get_parent() != $ColorRect2/VBoxContainer2:
 			$ColorRect2/VBoxContainer2.add_child(rune)
 			
+		# Reset to original global position
 		rune.global_position = original_rune_positions[i]
 		rune.visible = true
 		rune.mouse_filter = Control.MOUSE_FILTER_STOP
+		rune.self_modulate = Color(1, 1, 1, 1)  # Restore full opacity
 		
 	# Clear slots
 	for i in range(3):
@@ -110,6 +142,13 @@ func reset_game() -> void:
 	# Generate new random mapping
 	correct_mapping.clear()
 	_generate_random_mapping()
+	
+	# Update ghost runes with new mapping
+	_update_ghost_runes()
+	
+	# Show ghost runes
+	for i in range(3):
+		ghost_runes[i].visible = true
 
 
 func _on_rune_gui_input(event: InputEvent, rune_idx: int) -> void:
@@ -121,6 +160,10 @@ func _on_rune_gui_input(event: InputEvent, rune_idx: int) -> void:
 			dragged_rune = rune
 			dragged_rune_index = rune_idx
 			drag_offset = rune.global_position - get_global_mouse_position()
+			
+			# Hide ghost runes on first grab
+			for i in range(3):
+				ghost_runes[i].visible = false
 			
 			# Bring rune to front (higher z-index) while dragging
 			rune.self_modulate.a = 0.8  # Make slightly transparent
@@ -217,27 +260,10 @@ func _process(delta: float) -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	# Close the minigame when ESC is pressed (only if game is not paused)
+	# Close the minigame when ESC is pressed
 	if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
-		if not SceneLoader.is_paused:
-			get_viewport().set_input_as_handled()
-			queue_free()
-
-
-func _on_game_paused(is_paused: bool) -> void:
-	# When the game is paused, hide the minigame so pause menu can be shown
-	visible = not is_paused
-	# If paused, also block input to the minigame
-	if is_paused:
-		# Disable all rune dragging
-		for i in range(3):
-			runes[i].mouse_filter = Control.MOUSE_FILTER_IGNORE
-	else:
-		# Re-enable rune dragging if game is not won
-		if not game_won:
-			for i in range(3):
-				if not (i in placed_runes):
-					runes[i].mouse_filter = Control.MOUSE_FILTER_STOP
+		get_viewport().set_input_as_handled()
+		queue_free()
 
 
 # Public function to reset the game

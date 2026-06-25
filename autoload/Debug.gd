@@ -4,8 +4,12 @@ extends Node
 var rune_minigame_scene = preload("res://ui/screens/minigames/rune minigame/runeMinigame.tscn")
 var rune_minigame_instance: Control = null
 
-# Store previous mouse mode to restore when closing
+# Store previous mouse mode and pause state to restore when closing
 var previous_mouse_mode: int = Input.MOUSE_MODE_VISIBLE
+var previous_pause_state: bool = false
+
+# Flag to track if we caused the pause
+var minigame_caused_pause: bool = false
 
 
 func _ready() -> void:
@@ -15,8 +19,8 @@ func _ready() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	# Open/close rune minigame when 'r' key is pressed
-	if event is InputEventKey:
-		if event.pressed and event.keycode == KEY_R:
+	if event is InputEventKey and event.pressed:
+		if event.keycode == KEY_R:
 			# Prevent the key from being handled by other nodes
 			get_viewport().set_input_as_handled()
 			
@@ -29,8 +33,15 @@ func _unhandled_input(event: InputEvent) -> void:
 func _open_rune_minigame() -> void:
 	print("Opening rune minigame...")
 	
-	# Store the current mouse mode so we can restore it later
+	# Store the current mouse mode and pause state
 	previous_mouse_mode = Input.mouse_mode
+	previous_pause_state = SceneLoader.is_paused
+	
+	# Pause the game so player can't move in background
+	# Set our flag to indicate we caused the pause
+	minigame_caused_pause = true
+	SceneLoader.is_paused = true
+	get_tree().paused = true
 	
 	# Set mouse to visible mode for the minigame
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -59,20 +70,27 @@ func _close_rune_minigame() -> void:
 	print("Closing rune minigame...")
 	if rune_minigame_instance != null:
 		# Ensure tree_exited signal is connected
-		if not rune_minigame_instance.is_connected("tree_exited", self, "_on_minigame_closed"):
+		if not rune_minigame_instance.is_connected("tree_exited", _on_minigame_closed):
 			rune_minigame_instance.connect("tree_exited", _on_minigame_closed)
 		rune_minigame_instance.queue_free()
 		print("Rune minigame closed")
 
 
 func _on_minigame_closed() -> void:
-	# Clear the reference and restore mouse mode when the minigame is freed
+	# Clear the reference and restore mouse mode and pause state when the minigame is freed
+	
 	# Restore the previous mouse mode
 	Input.mouse_mode = previous_mouse_mode
 	
+	# Unpause the game if we were the ones who paused it
+	if minigame_caused_pause:
+		SceneLoader.is_paused = previous_pause_state
+		get_tree().paused = previous_pause_state
+		minigame_caused_pause = false
+	
 	if rune_minigame_instance != null:
 		rune_minigame_instance = null
-		print("Rune minigame instance cleared, mouse mode restored")
+		print("Rune minigame instance cleared, mouse mode and pause state restored")
 
 
 func print_bus_order() -> void:
