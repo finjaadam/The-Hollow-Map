@@ -8,19 +8,26 @@ extends Control
 # - Wrong placement resets all runes
 # - All correct placements = win
 
-# Node references
-@onready var rune1 = $ColorRect2/VBoxContainer2/Rune1
-@onready var rune2 = $ColorRect2/VBoxContainer2/Rune2
-@onready var rune3 = $ColorRect2/VBoxContainer2/Rune3
+# Signal to inform the main game when the minigame is finished
+signal game_finished(success: bool)
 
-@onready var slot1 = $ColorRect/VBoxContainer3/HBoxContainer2/Slot1
-@onready var slot2 = $ColorRect/VBoxContainer3/HBoxContainer2/Slot2
-@onready var slot3 = $ColorRect/VBoxContainer3/HBoxContainer2/Slot3
+# Sound for mistakes
+const ERROR_SOUND = preload("res://network/monster/abilities/trap/trap_sound.mp3")
+var error_sound_player: AudioStreamPlayer
+
+# Node references
+@onready var rune1 = $Background/ColorRect2/VBoxContainer2/Rune1
+@onready var rune2 = $Background/ColorRect2/VBoxContainer2/Rune2
+@onready var rune3 = $Background/ColorRect2/VBoxContainer2/Rune3
+
+@onready var slot1 = $Background/VBoxContainer3/HBoxContainer2/Slot1
+@onready var slot2 = $Background/VBoxContainer3/HBoxContainer2/Slot2
+@onready var slot3 = $Background/VBoxContainer3/HBoxContainer2/Slot3
 
 # Ghost rune references (faint images in slots)
-@onready var ghost_rune1 = $ColorRect/VBoxContainer3/HBoxContainer2/Slot1/GhostRune1
-@onready var ghost_rune2 = $ColorRect/VBoxContainer3/HBoxContainer2/Slot2/GhostRune2
-@onready var ghost_rune3 = $ColorRect/VBoxContainer3/HBoxContainer2/Slot3/GhostRune3
+@onready var ghost_rune1 = $Background/VBoxContainer3/HBoxContainer2/Slot1/GhostRune1
+@onready var ghost_rune2 = $Background/VBoxContainer3/HBoxContainer2/Slot2/GhostRune2
+@onready var ghost_rune3 = $Background/VBoxContainer3/HBoxContainer2/Slot3/GhostRune3
 
 # Array of ghost runes for easier management
 var ghost_runes = []
@@ -28,6 +35,7 @@ var ghost_runes = []
 # Game state
 var runes = []
 var slots = []
+var game_active = false
 
 # Mapping: which rune (index) belongs in which slot (index)
 var correct_mapping = []
@@ -46,13 +54,19 @@ var original_rune_positions = []
 # Game state
 var game_won = false
 
-# Signal for when the game is won
-signal game_won_signal
+# Pause state tracking
+var was_paused = false
 
 
 func _ready() -> void:
 	# Enable input processing
 	process_mode = Node.PROCESS_MODE_ALWAYS
+	
+	# Setup error sound player
+	error_sound_player = AudioStreamPlayer.new()
+	error_sound_player.bus = "SFX"
+	error_sound_player.name = "ErrorSoundPlayer"
+	add_child(error_sound_player)
 	
 	# Initialize arrays
 	runes = [rune1, rune2, rune3]
@@ -70,6 +84,9 @@ func _ready() -> void:
 		slots[i].mouse_filter = Control.MOUSE_FILTER_STOP
 		slots[i].gui_input.connect(_on_slot_gui_input.bind(i))
 	
+	# Connect to SceneLoader pause signal
+	SceneLoader.paused.connect(_on_pause_toggled)
+	
 	# Generate random correct mapping
 	_generate_random_mapping()
 	
@@ -82,8 +99,19 @@ func _ready() -> void:
 	for i in range(3):
 		original_rune_positions.append(runes[i].global_position)
 	
+	# Start the game
+	start_game()
+
+
+func start_game() -> void:
+	game_active = true
+	game_won = false
+	
 	# Reset game state
 	reset_game()
+	
+	# Set mouse to visible for the minigame
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 
 func _generate_random_mapping() -> void:
@@ -98,6 +126,11 @@ func _generate_random_mapping() -> void:
 		correct_mapping.append(available_slots[rune_idx])
 	
 	print("Correct mapping: Rune 0 -> Slot ", correct_mapping[0], ", Rune 1 -> Slot ", correct_mapping[1], ", Rune 2 -> Slot ", correct_mapping[2])
+
+
+func _on_pause_toggled(is_paused: bool) -> void:
+	if not is_paused and game_active:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 
 func _update_ghost_runes() -> void:
@@ -126,8 +159,8 @@ func reset_game() -> void:
 	for i in range(3):
 		var rune = runes[i]
 		# Make sure rune is in the right parent
-		if rune.get_parent() != $ColorRect2/VBoxContainer2:
-			$ColorRect2/VBoxContainer2.add_child(rune)
+		if rune.get_parent() != $Background/ColorRect2/VBoxContainer2:
+			$Background/ColorRect2/VBoxContainer2.add_child(rune)
 			
 		# Reset to original global position
 		rune.global_position = original_rune_positions[i]
@@ -242,6 +275,9 @@ func _on_drop_rune_on_slot(rune_idx: int, slot_idx: int) -> void:
 	else:
 		# Wrong placement - reset all runes
 		print("Wrong! Rune ", rune_idx, " doesn't belong in slot ", slot_idx)
+		# Play error sound
+		error_sound_player.stream = ERROR_SOUND
+		error_sound_player.play()
 		reset_game()
 	
 	dragged_rune = null
@@ -250,7 +286,11 @@ func _on_drop_rune_on_slot(rune_idx: int, slot_idx: int) -> void:
 
 func _on_game_won() -> void:
 	print("Game won!")
+	game_active = false
 	game_won_signal.emit()
+	game_finished.emit(true)
+	# Give control back
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 
 func _process(delta: float) -> void:
@@ -263,7 +303,14 @@ func _unhandled_input(event: InputEvent) -> void:
 	# Close the minigame when ESC is pressed
 	if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
 		get_viewport().set_input_as_handled()
+		# Emit failure signal before closing
+		game_finished.emit(false)
 		queue_free()
+
+
+func _exit_tree() -> void:
+	# Clean up when the minigame is closed
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 
 # Public function to reset the game

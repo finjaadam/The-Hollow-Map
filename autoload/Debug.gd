@@ -43,9 +43,6 @@ func _open_rune_minigame() -> void:
 	SceneLoader.is_paused = true
 	get_tree().paused = true
 	
-	# Set mouse to visible mode for the minigame
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	
 	# Create a new instance of the rune minigame
 	rune_minigame_instance = rune_minigame_scene.instantiate() as Control
 	
@@ -59,9 +56,6 @@ func _open_rune_minigame() -> void:
 	else:
 		# If current scene is not a Control, add to root
 		get_tree().root.add_child(rune_minigame_instance)
-		# Make sure it covers the whole screen
-		rune_minigame_instance.anchor_right = 1.0
-		rune_minigame_instance.anchor_bottom = 1.0
 	
 	print("Rune minigame opened")
 

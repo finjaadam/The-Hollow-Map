@@ -1,30 +1,42 @@
 [gd_scene format=3 uid="uid://cub3g8h7pgcq7"]
 
-[ext_resource type="Script" uid="uid://c66vlrh87bmvi" path="res://ui/screens/minigames/rune minigame/RuneMinigame.gd" id="1_emms5"]
-[ext_resource type="Texture2D" uid="uid://niac8myteve5" path="res://ui/screens/minigames/rune minigame/assets/runes/cosmic_rune.jpg" id="1_l6m8f"]
-[ext_resource type="Texture2D" uid="uid://d2gru5fqh5i7i" path="res://ui/screens/minigames/rune minigame/assets/runes/nature_rune.jpg" id="2_emms5"]
-[ext_resource type="Texture2D" uid="uid://dy1vw8gw65rnk" path="res://ui/screens/minigames/rune minigame/assets/runes/water_rune.jpg" id="3_ers23"]
+[ext_resource type="Script" uid="uid://c66vlrh87bmvi" path="res://ui/screens/minigames/rune minigame/RuneMinigame.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://b8830f76foucb" path="res://network/collectableItems/rune/assets_ui_overlay/colored_rune_cosmic.png" id="1_cosmic"]
+[ext_resource type="Texture2D" uid="uid://999ed3df10bf23c3070d8fd63d239f97" path="res://network/collectableItems/rune/assets_ui_overlay/colored_rune_nature.png" id="2_nature"]
+[ext_resource type="Texture2D" uid="uid://1cb4b6b76d4baaae1fc" path="res://network/collectableItems/rune/assets_ui_overlay/colored_rune_water.png" id="3_water"]
 
 [node name="RuneMinigame" type="Control" unique_id=577709434]
+process_mode = 1
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -280.0
+offset_right = 250.0
+offset_bottom = 280.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 mouse_filter = 2
-script = ExtResource("1_emms5")
+script = ExtResource("1_script")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1494188426]
-custom_minimum_size = Vector2(800, 0)
+[node name="Background" type="ColorRect" parent="." unique_id=1494188426]
+custom_minimum_size = Vector2(500, 560)
 layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_right = 800.0
-grow_vertical = 2
-color = Color(0.19215687, 0.22352941, 0.23529412, 1)
+anchors_preset = -1
+anchor_bottom = 1.009375
+offset_left = -2.0
+offset_right = 498.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 1, 1, 0.91764706)
+metadata/_edit_use_anchors_ = true
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="ColorRect" unique_id=2059547460]
+[node name="VBoxContainer3" type="VBoxContainer" parent="./Background" unique_id=2059547460]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -80,14 +92,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-custom_minimum_size = Vector2(80, 80)
-texture = ExtResource("1_l6m8f")
+custom_minimum_size = Vector2(64, 64)
+texture = ExtResource("1_cosmic")
 expand_mode = 1
 self_modulate = Color(1, 1, 1, 0.3)
 mouse_filter = 1
 
 [node name="Slot2" type="ColorRect" parent="ColorRect/VBoxContainer3/HBoxContainer2" unique_id=1261148161]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 color = Color(0.3, 0.3, 0.3, 1)
 
@@ -97,14 +109,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-custom_minimum_size = Vector2(80, 80)
-texture = ExtResource("2_emms5")
+custom_minimum_size = Vector2(64, 64)
+texture = ExtResource("2_nature")
 expand_mode = 1
 self_modulate = Color(1, 1, 1, 0.3)
 mouse_filter = 1
 
 [node name="Slot3" type="ColorRect" parent="ColorRect/VBoxContainer3/HBoxContainer2" unique_id=91742077]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 color = Color(0.3, 0.3, 0.3, 1)
 
@@ -114,26 +126,23 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-custom_minimum_size = Vector2(80, 80)
-texture = ExtResource("3_ers23")
+custom_minimum_size = Vector2(64, 64)
+texture = ExtResource("3_water")
 expand_mode = 1
 self_modulate = Color(1, 1, 1, 0.3)
 mouse_filter = 1
 
-[node name="ColorRect2" type="ColorRect" parent="." unique_id=1330681961]
-custom_minimum_size = Vector2(340, 0)
+[node name="ColorRect2" type="ColorRect" parent="./Background" unique_id=1330681961]
+custom_minimum_size = Vector2(0, 0)
 layout_mode = 1
-anchors_preset = 11
-anchor_left = 1.0
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -339.0
-offset_right = 1.0
-grow_horizontal = 0
+grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.19215687, 0.22352941, 0.23529412, 1)
+color = Color(1, 1, 1, 0)
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="ColorRect2" unique_id=1909286773]
+[node name="VBoxContainer2" type="VBoxContainer" parent="./Background/ColorRect2" unique_id=1909286773]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -141,30 +150,30 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -40.0
-offset_top = -124.0
+offset_top = -90.0
 offset_right = 40.0
-offset_bottom = 124.0
+offset_bottom = 90.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 23
 
 [node name="Rune1" type="TextureRect" parent="ColorRect2/VBoxContainer2" unique_id=1431743547]
-custom_minimum_size = Vector2(80, 80)
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("1_l6m8f")
+texture = ExtResource("1_cosmic")
 expand_mode = 1
 mouse_filter = 2
 
 [node name="Rune2" type="TextureRect" parent="ColorRect2/VBoxContainer2" unique_id=1491491423]
-custom_minimum_size = Vector2(80, 80)
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("2_emms5")
+texture = ExtResource("2_nature")
 expand_mode = 1
 mouse_filter = 2
 
 [node name="Rune3" type="TextureRect" parent="ColorRect2/VBoxContainer2" unique_id=1790888325]
-custom_minimum_size = Vector2(80, 80)
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("3_ers23")
+texture = ExtResource("3_water")
 expand_mode = 1
 mouse_filter = 2
