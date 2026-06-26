@@ -20,11 +20,6 @@
 [ext_resource type="PackedScene" uid="uid://dg50fnoof8bji" path="res://assets/jukebox/jukebox.tscn" id="10_cns11"]
 [ext_resource type="PackedScene" uid="uid://c3gtgeyoud3ad" path="res://assets/stick06.tscn" id="10_lw7er"]
 [ext_resource type="PackedScene" uid="uid://62l58j2attqx" path="res://assets/water_fountain/fountain-old.tscn" id="11_fountain"]
-[ext_resource type="PackedScene" uid="uid://dud2rq3uvwwr2" path="res://assets/blob_monster/blob_monster.tscn" id="11_xqtg2"]
-[ext_resource type="PackedScene" uid="uid://comlq6qd2krfc" path="res://ui/screens/minigames/rune minigame/assets/models/cosmic_rune.glb" id="16_hmamp"]
-[ext_resource type="PackedScene" uid="uid://bu5tb67t43u4e" path="res://ui/screens/minigames/rune minigame/assets/models/nature_rune.tscn" id="16_u131e"]
-[ext_resource type="PackedScene" uid="uid://8d7udijdjuke" path="res://ui/screens/minigames/rune minigame/assets/models/water_rune.tscn" id="17_22shp"]
-[ext_resource type="PackedScene" uid="uid://d1mcndihyc22n" path="res://ui/screens/minigames/rune minigame/assets/models/statue.tscn" id="18_22shp"]
 [ext_resource type="PackedScene" uid="uid://cxvofcy8m8ejs" path="res://assets/stone_group_1/stone_group_1.tscn" id="14_22shp"]
 [ext_resource type="PackedScene" uid="uid://x8etfc0ig6dq" path="res://assets/szikla__rock/szikla__rock.tscn" id="14_ux5q7"]
 [ext_resource type="Script" uid="uid://dew5ikh2m42fp" path="res://network/testEnvironment/angel_hoelenspalte_interaktion.gd" id="15_hmamp"]
@@ -4362,28 +4357,6 @@ script = ExtResource("15_hmamp")
 [node name="hoelenspalte" parent="modular-cave-final/Angel_Hoelenspalte" unique_id=980191391 instance=ExtResource("17_u131e")]
 transform = Transform3D(-0.52100515, 0, -0.12156763, 0, 0.535, 0, 0.12156763, 0, -0.52100515, -0.2732849, 1.472727, 1.7534857)
 
-[node name="Skeleton3D" parent="Monster/blob_monster/Sketchfab_model/3f6d8c832002440e97bb2e8e289744c0_fbx/Object_2/RootNode/Object_4" parent_id_path=PackedInt32Array(890782185, 1479958548) index="0" unique_id=1566534317]
-bones/1/position = Vector3(0.06176777, 4.0250707, -0.08490908)
-bones/1/rotation = Quaternion(-0.03815015, -0.3676759, -0.011862614, 0.9290955)
-bones/2/rotation = Quaternion(0.081822135, 0.040985137, -0.011616991, 0.9957362)
-bones/3/rotation = Quaternion(0.09968559, 0.07960755, -0.023392487, 0.9915534)
-bones/4/rotation = Quaternion(0.099632256, 0.07965826, -0.023360783, 0.9915556)
-bones/5/rotation = Quaternion(-0.065917194, -0.010709903, 0.0019292709, 0.9977658)
-bones/6/rotation = Quaternion(-0.058630068, 0.1765951, -0.010709361, 0.98247755)
-bones/8/rotation = Quaternion(0.65535474, 0.32607365, -0.5888376, 0.34271944)
-bones/9/rotation = Quaternion(0.31066197, -0.10698359, 0.086336754, 0.94052625)
-bones/10/rotation = Quaternion(-0.051394187, 0.057447188, 0.40645888, 0.9104119)
-bones/12/rotation = Quaternion(0.6805102, -0.30732524, 0.57050467, 0.34202546)
-bones/13/rotation = Quaternion(0.30135894, 0.12107518, 0.12530743, 0.93745494)
-bones/14/rotation = Quaternion(0.022868369, 0.020926045, -0.36354855, 0.9310595)
-bones/16/rotation = Quaternion(0.08759598, 0.27877796, 0.9468, -0.1348324)
-bones/17/rotation = Quaternion(-0.41502094, 0.12338897, -0.08826793, 0.8970739)
-bones/18/rotation = Quaternion(0.6012769, 0.42366523, -0.46154037, 0.495938)
-bones/19/rotation = Quaternion(0.008384042, 0.023721417, 0.15995651, 0.98680335)
-bones/21/rotation = Quaternion(-0.12682801, 0.06919695, 0.9727276, 0.18145962)
-bones/22/rotation = Quaternion(-0.43014175, 0.060291443, 0.030891359, 0.900216)
-bones/23/rotation = Quaternion(0.6612377, -0.50131744, 0.4650652, 0.30847982)
-bones/24/rotation = Quaternion(0.0027038567, -0.014894856, -0.08986424, 0.995839)
 [node name="StaticBody3D" type="StaticBody3D" parent="modular-cave-final/Angel_Hoelenspalte/hoelenspalte" unique_id=1189201582]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="modular-cave-final/Angel_Hoelenspalte/hoelenspalte/StaticBody3D" unique_id=1377608958]

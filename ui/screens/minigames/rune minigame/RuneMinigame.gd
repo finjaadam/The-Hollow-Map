@@ -10,7 +10,7 @@ extends Control
 # - All correct placements = win
 
 # Signal to inform the main game when the minigame is finished
-signal game_finished(success: bool)
+signal runes_finished(success: bool)
 
 # Sound for mistakes
 const ERROR_SOUND = preload("res://network/monster/abilities/trap/trap_sound.mp3")
@@ -108,6 +108,7 @@ func _ready() -> void:
 		slots[i].gui_input.connect(_on_slot_gui_input.bind(i))
 	
 	# Connect to SceneLoader pause signal
+	SceneLoader.is_paused = true
 	SceneLoader.paused.connect(_on_pause_toggled)
 	
 	# Generate random correct mapping
@@ -314,6 +315,7 @@ func _on_drop_rune_on_slot(rune_idx: int, slot_idx: int) -> void:
 		error_sound_player.play()
 		statusLabel.text = "Falsch platziert! Das Monster hat dich gehört..."
 		resetTimer.start()
+		runes_finished.emit(false)
 	
 	dragged_rune = null
 	dragged_rune_index = -1
@@ -322,9 +324,11 @@ func _on_drop_rune_on_slot(rune_idx: int, slot_idx: int) -> void:
 func _on_game_won() -> void:
 	print("Game won!")
 	game_active = false
-	game_finished.emit(true)
+	runes_finished.emit(true)
+	GameManager.collect_key.rpc()
 	# Give control back
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	SceneLoader.is_paused = false
 	queue_free()
 
 
@@ -339,7 +343,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
 		get_viewport().set_input_as_handled()
 		# Emit failure signal before closing
-		game_finished.emit(false)
+		runes_finished.emit(false)
 		queue_free()
 
 
