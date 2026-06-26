@@ -228,7 +228,6 @@ metadata/_edit_use_anchors_ = true
 one_shot = true
 
 [node name="DamageOverlay" type="ColorRect" parent="." unique_id=2077926108]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
