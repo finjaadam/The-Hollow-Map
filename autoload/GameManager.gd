@@ -204,8 +204,8 @@ func end_game(playerVictory: bool) -> void:
 	stop_life_drain()
 
 @rpc("any_peer", "call_local", "reliable")
-func add_spawn(position: Vector3, type: spawn_type, rune_type = null) -> void:
-	spawn_added.emit(position, type, rune_type)
+func add_spawn(position: Vector3, type: spawn_type, rune_type = null, rotation = null) -> void:
+	spawn_added.emit(position, type, rune_type, rotation)
 
 @rpc("any_peer", "call_local", "reliable")
 func despawn_minigame_items(groupname: String) -> void:

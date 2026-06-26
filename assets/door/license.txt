@@ -1,0 +1,8 @@
+Model Information:
+* title:	Medieval Door
+* source:	https://sketchfab.com/3d-models/medieval-door-1a23bbb237d74d13a9619f666dd32d37
+* author:	fabri_iorio (https://sketchfab.com/fabri_iorio)
+
+Model License:
+* license type:	SKETCHFAB Standard (https://sketchfab.com/licenses)
+* requirements:	Under basic restrictions, use worldwide, on all types of media, commercially or not, and in all types of derivative works
