@@ -9,10 +9,14 @@
 transparency = 1
 cull_mode = 2
 albedo_color = Color(0.565, 1, 1, 0.4)
+grow_amount = -1.123
+proximity_fade_distance = 0.01
+distance_fade_mode = 1
+distance_fade_max_distance = 4.0
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_l151t"]
 material = SubResource("StandardMaterial3D_jmoqk")
-height = 49.101
+height = 0.243
 
 [node name="ExitDoor" type="Node3D" unique_id=2006881130]
 script = ExtResource("1_aw5go")
@@ -25,6 +29,7 @@ transform = Transform3D(3.425, 0, 0, 0, 3.425, 0, 0, 0, 3.425, 0, 0, 0)
 shape = SubResource("CylinderShape3D_aw5go")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D/CollisionShape3D" unique_id=896358510]
+transform = Transform3D(0.9999996, 0, 0, 0, 0.9999996, 0, 0, 0, 0.9999996, 0, -0.23297215, 0)
 mesh = SubResource("CylinderMesh_l151t")
 
 [node name="Sketchfab_Scene" parent="Area3D/CollisionShape3D" unique_id=820563941 instance=ExtResource("2_jmoqk")]
