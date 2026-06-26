@@ -25,6 +25,7 @@ const ABILITY_SLOT_SCENE := preload("res://network/monster/abilities/ability_slo
 @onready var message_timer: Timer = $MessageTimer
 
 @onready var damage_overlay: ColorRect = $DamageOverlay
+@onready var game_hint_overlay: Label = $GameHint
 
 var _damage_flash_tween: Tween
 
@@ -59,12 +60,22 @@ func _ready() -> void:
 	flashlight_icon.visible = !is_monster
 	
 	if is_monster:
+		show_game_hint("Finde alle Menschen und vernichte sie.")
 		return
+	
+	show_game_hint("Finde alle Schluessel.")
 	
 	live_bar.max_value = GameManager.max_team_lives
 	live_bar.value = GameManager.team_lives
 	
 	GameManager.lives_changed.connect(_on_lives_changed)
+	
+	
+
+func show_game_hint(game_hint: String) -> void:
+	game_hint_overlay.text = game_hint
+	await get_tree().create_timer(3.0).timeout
+	game_hint_overlay.text = ""
 
 ## Spawns an icon/cooldown slot for every ability on `system` and keeps
 ## them updated as cooldowns change.
