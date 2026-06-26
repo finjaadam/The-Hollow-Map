@@ -65,8 +65,10 @@ func _ready() -> void:
 		show_game_hint("Finde alle Menschen und vernichte sie.")
 		return
 	
-	show_game_hint("Findet genug Schluessel.")
-	
+	show_game_hint("Finde einen Schluessel.")
+	if GameManager.get_player_count() > 1:
+		show_game_hint("Findet genug Schluessel.")
+		
 	live_bar.max_value = GameManager.max_team_lives
 	live_bar.value = GameManager.team_lives
 	
@@ -83,7 +85,9 @@ func show_game_hint(game_hint: String) -> void:
 func _show_hint_for_exit() -> void:
 	# hint should only be displayed once
 	if GameManager.get_player_count() <= GameManager.team_keys && !show_exit_hint_was_displayed:
-		show_game_hint("Findet gemeinsam einen Ausgang.")
+		show_game_hint("Finde einen Ausgang.")
+		if GameManager.get_player_count() > 1:
+			show_game_hint("Findet gemeinsam einen Ausgang.")
 		show_exit_hint_was_displayed = true
 
 ## Spawns an icon/cooldown slot for every ability on `system` and keeps
