@@ -41,7 +41,7 @@ func _apply_state(state: Dictionary) -> void:
 	player_roles = state.get("player_roles", {})
 	team_lives = state.get("team_lives", 0)
 	max_team_lives = state.get("max_team_lives", 0)
-	team_keys = state.get("team_keys",  0)
+	team_keys = state.get("team_keys", 0)
 	pickaxe_in_inventory = state.get("pickaxe_in_inventory", false)
 	fishingrod_in_inventory = state.get("fishingrod_in_inventory", false)
 	rune_inventory = state.get("rune_inventory", [])

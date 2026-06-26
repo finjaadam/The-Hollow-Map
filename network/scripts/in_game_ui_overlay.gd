@@ -26,6 +26,7 @@ const ABILITY_SLOT_SCENE := preload("res://network/monster/abilities/ability_slo
 
 @onready var damage_overlay: ColorRect = $DamageOverlay
 @onready var game_hint_overlay: Label = $GameHint
+@onready var show_exit_hint_was_displayed: bool = false
 
 var _damage_flash_tween: Tween
 
@@ -45,6 +46,7 @@ func _process(delta: float) -> void:
 
 func _ready() -> void:
 	GameManager.keys_changed.connect(_set_key_visibility)
+	GameManager.keys_changed.connect(_show_hint_for_exit)
 	GameManager.state_updated.connect(_set_key_visibility)
 	GameManager.state_updated.connect(_set_items_visibility)
 
@@ -63,19 +65,26 @@ func _ready() -> void:
 		show_game_hint("Finde alle Menschen und vernichte sie.")
 		return
 	
-	show_game_hint("Finde alle Schluessel.")
+	show_game_hint("Findet genug Schluessel.")
 	
 	live_bar.max_value = GameManager.max_team_lives
 	live_bar.value = GameManager.team_lives
 	
 	GameManager.lives_changed.connect(_on_lives_changed)
 	
-	
 
 func show_game_hint(game_hint: String) -> void:
 	game_hint_overlay.text = game_hint
 	await get_tree().create_timer(3.0).timeout
 	game_hint_overlay.text = ""
+
+# not in _set_key_visibility because hint should only be displayed
+# if the key count updates, not the state in general
+func _show_hint_for_exit() -> void:
+	# hint should only be displayed once
+	if GameManager.get_player_count() <= GameManager.team_keys && !show_exit_hint_was_displayed:
+		show_game_hint("Findet gemeinsam einen Ausgang.")
+		show_exit_hint_was_displayed = true
 
 ## Spawns an icon/cooldown slot for every ability on `system` and keeps
 ## them updated as cooldowns change.
