@@ -1,24 +1,12 @@
 extends Node
 
-# Rune minigame scene
-var rune_minigame_scene = preload("res://ui/screens/minigames/rune minigame/runeMinigame.tscn")
-var rune_minigame_instance: Control = null
-
-# Store previous mouse mode and pause state to restore when closing
-var previous_mouse_mode: int = Input.MOUSE_MODE_VISIBLE
-var previous_pause_state: bool = false
-
-# Flag to track if we caused the pause
-var minigame_caused_pause: bool = false
-
-
 func _ready() -> void:
 	# Set process input to true so we can receive input events
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	# Open/close rune minigame when 'r' key is pressed
+	# Open rune minigame when 'r' key is pressed
 	if event is InputEventKey and event.pressed:
 		if event.keycode == KEY_R:
 			# Prevent the key from being handled by other nodes
@@ -29,10 +17,8 @@ func _unhandled_input(event: InputEvent) -> void:
 func _open_rune_minigame() -> void:
 	print("Opening rune minigame...")		
 	# Create a new instance of the rune minigame
-	rune_minigame_instance = rune_minigame_scene.instantiate() as Control
-	
+	var rune_minigame_instance = preload("res://ui/screens/minigames/rune minigame/runeMinigame.tscn").instantiate() as Control
 	get_tree().root.add_child(rune_minigame_instance)
-	
 	print("Rune minigame opened")	
 
 
