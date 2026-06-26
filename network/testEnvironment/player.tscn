@@ -7,6 +7,13 @@
 [ext_resource type="Script" uid="uid://cokh7jryjgs7d" path="res://network/scripts/areaSounds/FootstepController.gd" id="3_q1thc"]
 [ext_resource type="PackedScene" uid="uid://cssh4udxb71ra" path="res://network/testEnvironment/in-game-ui-overlay.tscn" id="5_3nxfo"]
 [ext_resource type="PackedScene" uid="uid://cl362lpqquj6t" path="res://assets/player/Player_Model.res" id="5_d2j4b"]
+[ext_resource type="Script" uid="uid://skskwbyyhpo5" path="res://Network/scripts/MonsterProximityController.gd" id="6_pa"]
+[ext_resource type="AudioStream" uid="uid://njlfqcgimyfb" path="res://audio/soundfx/monsterProximity/Jumpscare.mp3" id="8_a8civ"]
+[ext_resource type="AudioStream" uid="uid://jkicxpv6wnxu" path="res://audio/soundfx/monsterProximity/Heartbeat2.mp3" id="9_pacyc"]
+[ext_resource type="AudioStream" uid="uid://bq1fuhgdry6yy" path="res://audio/soundfx/monsterProximity/Jaws.mp3" id="10_e33lc"]
+[ext_resource type="AudioStream" uid="uid://dldvbwmsiww5q" path="res://audio/soundfx/monsterProximity/Roar2.mp3" id="11_pfprb"]
+[ext_resource type="AudioStream" uid="uid://c7a3kyjjg4v7s" path="res://audio/soundfx/monsterProximity/Roar3.mp3" id="12_nfagl"]
+[ext_resource type="AudioStream" uid="uid://byolbhrli8jwo" path="res://audio/soundfx/monsterProximity/Roar.mp3" id="13_jp13g"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ruypr"]
 radius = 0.52783203
@@ -74,6 +81,14 @@ shape = SubResource("CapsuleShape3D_ruypr")
 [node name="FootstepController" type="Node3D" parent="." unique_id=95066644]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.47013602, -0.76869315)
 script = ExtResource("3_q1thc")
+
+[node name="MonsterProximityController" type="Node3D" parent="." unique_id=328519584 node_paths=PackedStringArray("player")]
+script = ExtResource("6_pa")
+player = NodePath("..")
+jump_scare_stream = ExtResource("8_a8civ")
+heartbeat_stream = ExtResource("9_pacyc")
+chase_music_stream = ExtResource("10_e33lc")
+monster_roar_streams = Array[AudioStream]([ExtResource("11_pfprb"), ExtResource("12_nfagl"), ExtResource("13_jp13g")])
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1752202761]
 replication_config = SubResource("SceneReplicationConfig_4flbx")
