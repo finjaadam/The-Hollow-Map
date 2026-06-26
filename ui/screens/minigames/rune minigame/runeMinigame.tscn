@@ -334,45 +334,25 @@ size_flags_horizontal = 4
 theme_override_constants/separation = 23
 alignment = 1
 
-[node name="Rune1" type="Control" parent="Background/MainHBox/VBoxContainer2" unique_id=1018594359]
+[node name="Rune1" type="TextureRect" parent="Background/MainHBox/VBoxContainer2" unique_id=1431743547]
 custom_minimum_size = Vector2(64, 80)
 layout_mode = 2
-
-[node name="Rune1" type="TextureRect" parent="Background/MainHBox/VBoxContainer2/Rune1" unique_id=1431743547]
-custom_minimum_size = Vector2(64, 80)
-layout_mode = 0
-offset_right = 80.0
-offset_bottom = 80.0
 mouse_filter = 2
 texture = ExtResource("5_ers23")
 expand_mode = 1
 stretch_mode = 6
 
-[node name="Rune2" type="Control" parent="Background/MainHBox/VBoxContainer2" unique_id=506046324]
+[node name="Rune2" type="TextureRect" parent="Background/MainHBox/VBoxContainer2" unique_id=1491491423]
 custom_minimum_size = Vector2(64, 80)
 layout_mode = 2
-
-[node name="Rune2" type="TextureRect" parent="Background/MainHBox/VBoxContainer2/Rune2" unique_id=1491491423]
-custom_minimum_size = Vector2(64, 80)
-layout_mode = 0
-offset_left = -1.0
-offset_top = 1.0
-offset_right = 79.0
-offset_bottom = 81.0
 mouse_filter = 2
 texture = ExtResource("2_nature")
 expand_mode = 1
 stretch_mode = 6
 
-[node name="Rune3" type="Control" parent="Background/MainHBox/VBoxContainer2" unique_id=1071528296]
+[node name="Rune3" type="TextureRect" parent="Background/MainHBox/VBoxContainer2" unique_id=1790888325]
 custom_minimum_size = Vector2(64, 80)
 layout_mode = 2
-
-[node name="Rune3" type="TextureRect" parent="Background/MainHBox/VBoxContainer2/Rune3" unique_id=1790888325]
-custom_minimum_size = Vector2(64, 80)
-layout_mode = 0
-offset_right = 80.0
-offset_bottom = 80.0
 mouse_filter = 2
 texture = ExtResource("3_water")
 expand_mode = 1

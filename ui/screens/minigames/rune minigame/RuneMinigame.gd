@@ -17,9 +17,9 @@ const ERROR_SOUND = preload("res://network/monster/abilities/trap/trap_sound.mp3
 var error_sound_player: AudioStreamPlayer
 
 # Node references
-@onready var rune1 = $Background/MainHBox/VBoxContainer2/Rune1/Rune1
-@onready var rune2 = $Background/MainHBox/VBoxContainer2/Rune2/Rune2
-@onready var rune3 = $Background/MainHBox/VBoxContainer2/Rune3/Rune3
+@onready var rune1 = $Background/MainHBox/VBoxContainer2/Rune1
+@onready var rune2 = $Background/MainHBox/VBoxContainer2/Rune2
+@onready var rune3 = $Background/MainHBox/VBoxContainer2/Rune3
 
 @onready var slot1 = $Background/MainHBox/VBoxContainer3/SlotsGrid/Slot1
 @onready var slot2 = $Background/MainHBox/VBoxContainer3/SlotsGrid/Slot2
