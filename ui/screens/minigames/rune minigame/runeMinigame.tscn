@@ -58,6 +58,8 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
 columns = 3
 
 [node name="Slot1" type="Panel" parent="Background/MainHBox/VBoxContainer3/SlotsGrid" unique_id=2082805479]
@@ -258,15 +260,16 @@ stretch_mode = 6
 
 [node name="StatusLabel" type="Label" parent="Background" unique_id=1991588190]
 layout_mode = 0
-offset_left = 88.57147
-offset_top = 172.85715
-offset_right = 419.99988
-offset_bottom = 222.00003
+offset_left = -267.85715
+offset_top = 245.7143
+offset_right = 1026.4285
+offset_bottom = 334.85718
 theme_override_colors/font_color = Color(1, 0.09803922, 0, 1)
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 60
 horizontal_alignment = 1
 
 [node name="ResetTimer" type="Timer" parent="." unique_id=434557177]
+wait_time = 2.0
 one_shot = true
 
 [connection signal="timeout" from="ResetTimer" to="." method="_on_reset_timer_timeout"]

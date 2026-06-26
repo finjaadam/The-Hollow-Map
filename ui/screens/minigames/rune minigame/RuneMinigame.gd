@@ -325,6 +325,7 @@ func _on_game_won() -> void:
 	game_finished.emit(true)
 	# Give control back
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	queue_free()
 
 
 func _process(delta: float) -> void:
