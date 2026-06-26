@@ -16,6 +16,9 @@ signal game_finished(success: bool)
 const ERROR_SOUND = preload("res://network/monster/abilities/trap/trap_sound.mp3")
 var error_sound_player: AudioStreamPlayer
 
+@onready var statusLabel = $Background/StatusLabel
+@onready var resetTimer = $ResetTimer
+
 # Node references
 @onready var rune1 = $Background/MainHBox/VBoxContainer2/Rune1
 @onready var rune2 = $Background/MainHBox/VBoxContainer2/Rune2
@@ -309,7 +312,8 @@ func _on_drop_rune_on_slot(rune_idx: int, slot_idx: int) -> void:
 		# Play error sound
 		error_sound_player.stream = ERROR_SOUND
 		error_sound_player.play()
-		reset_game()
+		statusLabel.text = "Falsch platziert! Das Monster hat dich gehört..."
+		resetTimer.start()
 	
 	dragged_rune = null
 	dragged_rune_index = -1
@@ -345,4 +349,9 @@ func _exit_tree() -> void:
 
 # Public function to reset the game
 func reset() -> void:
+	reset_game()
+
+
+func _on_reset_timer_timeout() -> void:
+	statusLabel.text = ""
 	reset_game()

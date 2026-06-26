@@ -1,117 +1,10 @@
 [gd_scene format=3 uid="uid://cub3g8h7pgcq7"]
 
 [ext_resource type="Script" uid="uid://c66vlrh87bmvi" path="res://ui/screens/minigames/rune minigame/RuneMinigame.gd" id="1_script"]
+[ext_resource type="StyleBox" uid="uid://bchoiskjwl2vv" path="res://ui/round_ui_box.tres" id="2_ers23"]
 [ext_resource type="Texture2D" uid="uid://chwj87bgg3jyr" path="res://network/collectableItems/rune/assets_ui_overlay/colored_rune_nature.png" id="2_nature"]
 [ext_resource type="Texture2D" uid="uid://b2il11e8e05ic" path="res://network/collectableItems/rune/assets_ui_overlay/colored_rune_water.png" id="3_water"]
 [ext_resource type="Texture2D" uid="uid://c5i53fh4tf40a" path="res://network/collectableItems/rune/assets_ui_overlay/colored_rune_cosmic.png" id="5_ers23"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_emms5"]
-content_margin_left = 0.0
-content_margin_top = 0.0
-content_margin_right = 0.0
-content_margin_bottom = 0.0
-bg_color = Color(0.1, 0.1, 0.1, 0.6)
-corner_radius_top_left = 40
-corner_radius_top_right = 40
-corner_radius_bottom_right = 40
-corner_radius_bottom_left = 40
-corner_detail = 20
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ers23"]
-content_margin_left = 0.0
-content_margin_top = 0.0
-content_margin_right = 0.0
-content_margin_bottom = 0.0
-bg_color = Color(0.1, 0.1, 0.1, 0.6)
-corner_radius_top_left = 40
-corner_radius_top_right = 40
-corner_radius_bottom_right = 40
-corner_radius_bottom_left = 40
-corner_detail = 20
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ayyp"]
-content_margin_left = 0.0
-content_margin_top = 0.0
-content_margin_right = 0.0
-content_margin_bottom = 0.0
-bg_color = Color(0.1, 0.1, 0.1, 0.6)
-corner_radius_top_left = 40
-corner_radius_top_right = 40
-corner_radius_bottom_right = 40
-corner_radius_bottom_left = 40
-corner_detail = 20
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0bhyk"]
-content_margin_left = 0.0
-content_margin_top = 0.0
-content_margin_right = 0.0
-content_margin_bottom = 0.0
-bg_color = Color(0.1, 0.1, 0.1, 0.6)
-corner_radius_top_left = 40
-corner_radius_top_right = 40
-corner_radius_bottom_right = 40
-corner_radius_bottom_left = 40
-corner_detail = 20
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6jdpt"]
-content_margin_left = 0.0
-content_margin_top = 0.0
-content_margin_right = 0.0
-content_margin_bottom = 0.0
-bg_color = Color(0.1, 0.1, 0.1, 0.6)
-corner_radius_top_left = 40
-corner_radius_top_right = 40
-corner_radius_bottom_right = 40
-corner_radius_bottom_left = 40
-corner_detail = 20
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fjsxh"]
-content_margin_left = 0.0
-content_margin_top = 0.0
-content_margin_right = 0.0
-content_margin_bottom = 0.0
-bg_color = Color(0.1, 0.1, 0.1, 0.6)
-corner_radius_top_left = 40
-corner_radius_top_right = 40
-corner_radius_bottom_right = 40
-corner_radius_bottom_left = 40
-corner_detail = 20
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tkegx"]
-content_margin_left = 0.0
-content_margin_top = 0.0
-content_margin_right = 0.0
-content_margin_bottom = 0.0
-bg_color = Color(0.1, 0.1, 0.1, 0.6)
-corner_radius_top_left = 40
-corner_radius_top_right = 40
-corner_radius_bottom_right = 40
-corner_radius_bottom_left = 40
-corner_detail = 20
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mfliy"]
-content_margin_left = 0.0
-content_margin_top = 0.0
-content_margin_right = 0.0
-content_margin_bottom = 0.0
-bg_color = Color(0.1, 0.1, 0.1, 0.6)
-corner_radius_top_left = 40
-corner_radius_top_right = 40
-corner_radius_bottom_right = 40
-corner_radius_bottom_left = 40
-corner_detail = 20
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1o7w1"]
-content_margin_left = 0.0
-content_margin_top = 0.0
-content_margin_right = 0.0
-content_margin_bottom = 0.0
-bg_color = Color(0.1, 0.1, 0.1, 0.6)
-corner_radius_top_left = 40
-corner_radius_top_right = 40
-corner_radius_bottom_right = 40
-corner_radius_bottom_left = 40
-corner_detail = 20
 
 [node name="RuneMinigame" type="Control" unique_id=577709434]
 process_mode = 1
@@ -129,23 +22,21 @@ size_flags_vertical = 3
 mouse_filter = 2
 script = ExtResource("1_script")
 
-[node name="Background" type="ColorRect" parent="." unique_id=1494188426]
-custom_minimum_size = Vector2(500, 400)
+[node name="Background" type="Panel" parent="." unique_id=493119165]
+custom_minimum_size = Vector2(750, 600)
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.49999997
-anchor_top = 0.5
-anchor_right = 0.5000001
-anchor_bottom = 0.5
-offset_left = -250.00003
-offset_top = -200.0
-offset_right = 250.00003
-offset_bottom = 200.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -375.0
+offset_top = -300.0
+offset_right = 375.0
+offset_bottom = 300.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-color = Color(0.15, 0.15, 0.15, 0.95)
+theme_override_styles/panel = ExtResource("2_ers23")
 metadata/_edit_use_anchors_ = true
 
 [node name="MainHBox" type="HBoxContainer" parent="Background" unique_id=999999999]
@@ -155,7 +46,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 60
 alignment = 1
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="Background/MainHBox" unique_id=2059547460]
@@ -171,9 +62,9 @@ columns = 3
 
 [node name="Slot1" type="Panel" parent="Background/MainHBox/VBoxContainer3/SlotsGrid" unique_id=2082805479]
 self_modulate = Color(0.25, 0.25, 0.25, 1)
-custom_minimum_size = Vector2(80, 80)
+custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_emms5")
+theme_override_styles/panel = ExtResource("2_ers23")
 
 [node name="GhostRune1" type="TextureRect" parent="Background/MainHBox/VBoxContainer3/SlotsGrid/Slot1" unique_id=1111111111]
 self_modulate = Color(1, 1, 1, 0.3)
@@ -188,9 +79,9 @@ stretch_mode = 6
 
 [node name="Slot2" type="Panel" parent="Background/MainHBox/VBoxContainer3/SlotsGrid" unique_id=1261148161]
 self_modulate = Color(0.25, 0.25, 0.25, 1)
-custom_minimum_size = Vector2(80, 80)
+custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ers23")
+theme_override_styles/panel = ExtResource("2_ers23")
 
 [node name="GhostRune2" type="TextureRect" parent="Background/MainHBox/VBoxContainer3/SlotsGrid/Slot2" unique_id=-2072745074]
 self_modulate = Color(1, 1, 1, 0.3)
@@ -205,9 +96,9 @@ stretch_mode = 6
 
 [node name="Slot3" type="Panel" parent="Background/MainHBox/VBoxContainer3/SlotsGrid" unique_id=91742077]
 self_modulate = Color(0.25, 0.25, 0.25, 1)
-custom_minimum_size = Vector2(80, 80)
+custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_5ayyp")
+theme_override_styles/panel = ExtResource("2_ers23")
 
 [node name="GhostRune3" type="TextureRect" parent="Background/MainHBox/VBoxContainer3/SlotsGrid/Slot3" unique_id=-961633963]
 self_modulate = Color(1, 1, 1, 0.3)
@@ -222,9 +113,9 @@ stretch_mode = 6
 
 [node name="Slot4" type="Panel" parent="Background/MainHBox/VBoxContainer3/SlotsGrid" unique_id=91742078]
 self_modulate = Color(0.25, 0.25, 0.25, 1)
-custom_minimum_size = Vector2(80, 80)
+custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_0bhyk")
+theme_override_styles/panel = ExtResource("2_ers23")
 
 [node name="GhostRune4" type="TextureRect" parent="Background/MainHBox/VBoxContainer3/SlotsGrid/Slot4" unique_id=-961633964]
 self_modulate = Color(1, 1, 1, 0.3)
@@ -239,9 +130,9 @@ stretch_mode = 6
 
 [node name="Slot5" type="Panel" parent="Background/MainHBox/VBoxContainer3/SlotsGrid" unique_id=91742079]
 self_modulate = Color(0.25, 0.25, 0.25, 1)
-custom_minimum_size = Vector2(80, 80)
+custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_6jdpt")
+theme_override_styles/panel = ExtResource("2_ers23")
 
 [node name="GhostRune5" type="TextureRect" parent="Background/MainHBox/VBoxContainer3/SlotsGrid/Slot5" unique_id=-961633965]
 self_modulate = Color(1, 1, 1, 0.3)
@@ -256,9 +147,9 @@ stretch_mode = 6
 
 [node name="Slot6" type="Panel" parent="Background/MainHBox/VBoxContainer3/SlotsGrid" unique_id=91742080]
 self_modulate = Color(0.25, 0.25, 0.25, 1)
-custom_minimum_size = Vector2(80, 80)
+custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_fjsxh")
+theme_override_styles/panel = ExtResource("2_ers23")
 
 [node name="GhostRune6" type="TextureRect" parent="Background/MainHBox/VBoxContainer3/SlotsGrid/Slot6" unique_id=-961633966]
 self_modulate = Color(1, 1, 1, 0.3)
@@ -273,9 +164,9 @@ stretch_mode = 6
 
 [node name="Slot7" type="Panel" parent="Background/MainHBox/VBoxContainer3/SlotsGrid" unique_id=91742081]
 self_modulate = Color(0.25, 0.25, 0.25, 1)
-custom_minimum_size = Vector2(80, 80)
+custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_tkegx")
+theme_override_styles/panel = ExtResource("2_ers23")
 
 [node name="GhostRune7" type="TextureRect" parent="Background/MainHBox/VBoxContainer3/SlotsGrid/Slot7" unique_id=-961633967]
 self_modulate = Color(1, 1, 1, 0.3)
@@ -290,9 +181,9 @@ stretch_mode = 6
 
 [node name="Slot8" type="Panel" parent="Background/MainHBox/VBoxContainer3/SlotsGrid" unique_id=91742082]
 self_modulate = Color(0.25, 0.25, 0.25, 1)
-custom_minimum_size = Vector2(80, 80)
+custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_mfliy")
+theme_override_styles/panel = ExtResource("2_ers23")
 
 [node name="GhostRune8" type="TextureRect" parent="Background/MainHBox/VBoxContainer3/SlotsGrid/Slot8" unique_id=-961633968]
 self_modulate = Color(1, 1, 1, 0.3)
@@ -307,9 +198,9 @@ stretch_mode = 6
 
 [node name="Slot9" type="Panel" parent="Background/MainHBox/VBoxContainer3/SlotsGrid" unique_id=91742083]
 self_modulate = Color(0.25, 0.25, 0.25, 1)
-custom_minimum_size = Vector2(80, 80)
+custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_1o7w1")
+theme_override_styles/panel = ExtResource("2_ers23")
 
 [node name="GhostRune9" type="TextureRect" parent="Background/MainHBox/VBoxContainer3/SlotsGrid/Slot9" unique_id=-961633969]
 self_modulate = Color(1, 1, 1, 0.3)
@@ -322,9 +213,16 @@ grow_vertical = 2
 expand_mode = 1
 stretch_mode = 6
 
-[node name="Divider" type="ColorRect" parent="Background/MainHBox" unique_id=888888888]
-custom_minimum_size = Vector2(2, 200)
+[node name="Control" type="Control" parent="Background/MainHBox" unique_id=1785514709]
+custom_minimum_size = Vector2(2, 0)
 layout_mode = 2
+
+[node name="Divider" type="ColorRect" parent="Background/MainHBox/Control" unique_id=888888888]
+custom_minimum_size = Vector2(2, 200)
+layout_mode = 0
+offset_top = 75.0
+offset_right = 2.0
+offset_bottom = 525.0
 color = Color(0.5, 0.5, 0.5, 1)
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Background/MainHBox" unique_id=1909286773]
@@ -335,7 +233,7 @@ theme_override_constants/separation = 23
 alignment = 1
 
 [node name="Rune1" type="TextureRect" parent="Background/MainHBox/VBoxContainer2" unique_id=1431743547]
-custom_minimum_size = Vector2(64, 80)
+custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 mouse_filter = 2
 texture = ExtResource("5_ers23")
@@ -343,7 +241,7 @@ expand_mode = 1
 stretch_mode = 6
 
 [node name="Rune2" type="TextureRect" parent="Background/MainHBox/VBoxContainer2" unique_id=1491491423]
-custom_minimum_size = Vector2(64, 80)
+custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 mouse_filter = 2
 texture = ExtResource("2_nature")
@@ -351,9 +249,24 @@ expand_mode = 1
 stretch_mode = 6
 
 [node name="Rune3" type="TextureRect" parent="Background/MainHBox/VBoxContainer2" unique_id=1790888325]
-custom_minimum_size = Vector2(64, 80)
+custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 mouse_filter = 2
 texture = ExtResource("3_water")
 expand_mode = 1
 stretch_mode = 6
+
+[node name="StatusLabel" type="Label" parent="Background" unique_id=1991588190]
+layout_mode = 0
+offset_left = 88.57147
+offset_top = 172.85715
+offset_right = 419.99988
+offset_bottom = 222.00003
+theme_override_colors/font_color = Color(1, 0.09803922, 0, 1)
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+
+[node name="ResetTimer" type="Timer" parent="." unique_id=434557177]
+one_shot = true
+
+[connection signal="timeout" from="ResetTimer" to="." method="_on_reset_timer_timeout"]
