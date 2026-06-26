@@ -139,6 +139,9 @@ func set_starting_team_properties() -> void:
 	team_keys = 0
 	team_lives = get_player_count() * LIVES_PER_PLAYER
 	max_team_lives = team_lives
+	pickaxe_in_inventory = false
+	fishingrod_in_inventory = false
+	rune_inventory = []
 	_push_state_to_all()
 
 @rpc("any_peer", "call_local", "reliable")

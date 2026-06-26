@@ -83,6 +83,8 @@ func show_game_hint(game_hint: String) -> void:
 # not in _set_key_visibility because hint should only be displayed
 # if the key count updates, not the state in general
 func _show_hint_for_exit() -> void:
+	if is_monster:
+		return
 	# hint should only be displayed once
 	if GameManager.get_player_count() <= GameManager.team_keys && !show_exit_hint_was_displayed:
 		show_game_hint("Finde einen Ausgang.")
