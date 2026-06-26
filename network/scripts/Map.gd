@@ -48,11 +48,11 @@ func _on_trap_sound_requested(position: Vector3) -> void:
 	audio.finished.connect(audio.queue_free)
 	audio.play()
 
-func _on_spawn_added(position: Vector3, type: GameManager.spawn_type, rune_type) -> void:
+func _on_spawn_added(position: Vector3, type: GameManager.spawn_type, rune_type, rotation) -> void:
 	
 	match type:
 		GameManager.spawn_type.DOOR:
-			spawn_exit(position)
+			spawn_exit(position, rotation)
 		GameManager.spawn_type.PICKAXE:
 			spawn_pickaxe(position)
 		GameManager.spawn_type.FISHINGROD:
@@ -69,13 +69,19 @@ func spawn_exit_doors() -> void:
 	
 	for doors in amount_exits:
 		used_index = randi() % spawn_exit_door_points_dynamic.size()
-		GameManager.add_spawn.rpc(spawn_exit_door_points_dynamic[used_index].global_position, GameManager.spawn_type.DOOR)
+		GameManager.add_spawn.rpc(
+			spawn_exit_door_points_dynamic[used_index].global_position, 
+			GameManager.spawn_type.DOOR, 
+			null, 
+			spawn_exit_door_points_dynamic[used_index].rotation
+		)
 		spawn_exit_door_points_dynamic.remove_at(used_index)
 
-func spawn_exit(doorPosition: Vector3) -> void:
+func spawn_exit(doorPosition: Vector3, rotation) -> void:
 	var exit_door_scene_instance = exit_door_scene.instantiate()
 	self.add_child(exit_door_scene_instance)
 	exit_door_scene_instance.global_position = doorPosition
+	exit_door_scene_instance.rotation = rotation
 	
 
 func spawn_minigame_items() -> void:
