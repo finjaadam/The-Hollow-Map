@@ -9,7 +9,7 @@ var flashlight_active := false
 var flashlight_on_cooldown := false
 var flashlight_cooldown_remaining: float = 0.0
 
-const FLASHLIGHT_DURATION := 5000.0
+const FLASHLIGHT_DURATION := 5.0
 const FLASHLIGHT_COOLDOWN := 30.0
 
 var _aura_flash_timer: float = 0.0
