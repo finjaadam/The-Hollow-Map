@@ -3,11 +3,10 @@
 [ext_resource type="Script" uid="uid://boqjwglaui8xk" path="res://network/scripts/Player.gd" id="1_4flbx"]
 [ext_resource type="Environment" uid="uid://bixn4bbcuffnd" path="res://environments/debug_env.tres" id="2_6i2bt"]
 [ext_resource type="PackedScene" uid="uid://hxag78bqilay" path="res://network/testEnvironment/audioController.tscn" id="2_rev65"]
-[ext_resource type="Environment" uid="uid://cv5uoqolnda4m" path="res://environments/light_cone_env.tres" id="3_3nxfo"]
 [ext_resource type="Script" uid="uid://cokh7jryjgs7d" path="res://network/scripts/areaSounds/FootstepController.gd" id="3_q1thc"]
 [ext_resource type="PackedScene" uid="uid://cssh4udxb71ra" path="res://network/testEnvironment/in-game-ui-overlay.tscn" id="5_3nxfo"]
 [ext_resource type="PackedScene" uid="uid://cl362lpqquj6t" path="res://assets/player/Player_Model.res" id="5_d2j4b"]
-[ext_resource type="Script" uid="uid://skskwbyyhpo5" path="res://Network/scripts/MonsterProximityController.gd" id="6_pa"]
+[ext_resource type="Script" uid="uid://skskwbyyhpo5" path="res://network/scripts/MonsterProximityController.gd" id="6_pa"]
 [ext_resource type="AudioStream" uid="uid://njlfqcgimyfb" path="res://audio/soundfx/monsterProximity/Jumpscare.mp3" id="8_a8civ"]
 [ext_resource type="AudioStream" uid="uid://jkicxpv6wnxu" path="res://audio/soundfx/monsterProximity/Heartbeat2.mp3" id="9_pacyc"]
 [ext_resource type="AudioStream" uid="uid://bq1fuhgdry6yy" path="res://audio/soundfx/monsterProximity/Jaws.mp3" id="10_e33lc"]
@@ -45,7 +44,6 @@ flashlight = NodePath("Camera3D/Flashlight")
 mouse_sensitivity = 0.001
 speed = 5
 debug_env = ExtResource("2_6i2bt")
-player_env = ExtResource("3_3nxfo")
 footstep_controller = NodePath("FootstepController")
 camera3d = NodePath("Camera3D")
 canvas = NodePath("CanvasLayer")

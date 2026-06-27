@@ -2,7 +2,7 @@ extends Node3D
 
 const FISHING_MINIGAME = preload("res://ui/screens/minigames/fishing minigame/minigameFishing.tscn")
 
-@onready var interaktions_prompt: InteractionPrompt = %Interaktions_Buchstabe
+@onready var interaktions_prompt: InteractionPrompt = $Interaktions_Buchstabe
 @onready var area_3d: Area3D = $Area3D 
 @onready var klippen_sound_player: AudioStreamPlayer3D = $AngelWand_Player
 
@@ -21,7 +21,7 @@ func _process(_delta: float) -> void:
 	_update_prompt()
 	
 	if spieler_in_reichweite and Input.is_action_just_pressed("interact"):
-		if lokaler_spieler and not lokaler_spieler.is_fishing and GameManager.fishingrod_in_inventory:
+		if lokaler_spieler and not lokaler_spieler.is_minigaming and GameManager.fishingrod_in_inventory:
 			starte_minigame()
 
 func _on_body_entered(body: Node3D) -> void:
@@ -41,7 +41,7 @@ func _on_body_exited(body: Node3D) -> void:
 func starte_minigame() -> void:
 	interaktions_prompt.hide_prompt()
 	
-	lokaler_spieler.set_fishing_mode(true)
+	lokaler_spieler.set_minigaming_mode(true)
 	
 	var minigame = FISHING_MINIGAME.instantiate()
 	
@@ -56,7 +56,7 @@ func _on_minigame_finished(success: bool, minigame_instance: Node) -> void:
 		
 		print("Erfolg! Felsspalte gelöst.")
 		if lokaler_spieler:
-			lokaler_spieler.set_fishing_mode(false)
+			lokaler_spieler.set_minigaming_mode(false)
 			
 		_entferne_spalte_fuer_alle.rpc()
 			
