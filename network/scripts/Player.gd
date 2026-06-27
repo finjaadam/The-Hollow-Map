@@ -2,8 +2,7 @@ extends General_Player
 
 @export var flashlight: SpotLight3D
 
-var is_fishing := false
-var is_mining := false
+var is_minigaming := false
 
 var flashlight_active := false
 var flashlight_on_cooldown := false
@@ -20,24 +19,12 @@ func _on_ready() -> void:
 	add_to_group("player")
 	ownRole = Role.PLAYER
 
-func set_fishing_mode(fishing: bool) -> void:
-		is_fishing = fishing
+func set_minigaming_mode(minigaming: bool) -> void:
+		is_minigaming = minigaming
 		
-		is_movement_locked = fishing
+		is_movement_locked = minigaming
 		
-		if is_fishing:
-			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		else:
-			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-			DisplayServer.window_move_to_foreground()
-			Input.flush_buffered_events()
-
-func set_mining_mode(mining: bool) -> void:
-		is_mining = mining
-		
-		is_movement_locked = mining
-		
-		if is_mining:
+		if is_minigaming:
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		else:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED

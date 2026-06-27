@@ -1,6 +1,6 @@
 extends Node3D
 
-const FISHING_MINIGAME = preload("res://ui/screens/minigames/fishing minigame/minigameFishing.tscn")
+const RUNE_MINIGAME = preload("res://ui/screens/minigames/rune minigame/runeMinigame.tscn")
 
 @onready var interaktions_prompt: InteractionPrompt = $Interaktions_Buchstabe
 @onready var area_3d: Area3D = $Area3D 
@@ -21,7 +21,7 @@ func _process(_delta: float) -> void:
 	_update_prompt()
 	
 	if spieler_in_reichweite and Input.is_action_just_pressed("interact"):
-		if lokaler_spieler and not lokaler_spieler.is_minigaming and GameManager.fishingrod_in_inventory:
+		if lokaler_spieler and not lokaler_spieler.is_minigaming and GameManager.rune_inventory.size() == 3:
 			starte_minigame()
 
 func _on_body_entered(body: Node3D) -> void:
@@ -43,22 +43,22 @@ func starte_minigame() -> void:
 	
 	lokaler_spieler.set_minigaming_mode(true)
 	
-	var minigame = FISHING_MINIGAME.instantiate()
+	var minigame = RUNE_MINIGAME.instantiate()
 	
 	get_tree().current_scene.add_child(minigame)
 	
-	minigame.fishing_finished.connect(_on_minigame_finished.bind(minigame))
+	minigame.runes_finished.connect(_on_minigame_finished.bind(minigame))
 
 func _on_minigame_finished(success: bool, minigame_instance: Node) -> void:
 	if success:
 		minigame_instance.queue_free()
 		await get_tree().process_frame
 		
-		print("Erfolg! Felsspalte gelöst.")
+		print("Erfolg! Statue gelöst.")
 		if lokaler_spieler:
 			lokaler_spieler.set_minigaming_mode(false)
 			
-		_entferne_spalte_fuer_alle.rpc()
+		_entferne_statue_fuer_alle.rpc()
 			
 		queue_free() 
 	else:
@@ -66,7 +66,7 @@ func _on_minigame_finished(success: bool, minigame_instance: Node) -> void:
 		_play_klippen_sound.rpc()
 		
 @rpc("any_peer", "call_local", "reliable")
-func _entferne_spalte_fuer_alle() -> void:
+func _entferne_statue_fuer_alle() -> void:
 	queue_free()
 		
 @rpc("any_peer", "call_local", "reliable")
@@ -80,7 +80,7 @@ func _update_prompt() -> void:
 	if not spieler_in_reichweite:
 		return
 
-	if GameManager.fishingrod_in_inventory:
+	if GameManager.rune_inventory.size() == 3:
 		interaktions_prompt.show_prompt()
 	else:
-		interaktions_prompt.show_prompt(InteractionPrompt.PROMPT_FISHINGROD)
+		interaktions_prompt.show_prompt(InteractionPrompt.PROMPT_RUNE)
