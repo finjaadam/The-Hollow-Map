@@ -228,7 +228,6 @@ metadata/_edit_use_anchors_ = true
 one_shot = true
 
 [node name="DamageOverlay" type="ColorRect" parent="." unique_id=2077926108]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -357,3 +356,16 @@ offset_right = 569.0
 offset_bottom = 68.0
 texture = ExtResource("15_pkyut")
 expand_mode = 1
+
+[node name="GameHint" type="Label" parent="." unique_id=1069980657]
+anchors_preset = -1
+anchor_left = 0.476
+anchor_top = 0.46600002
+anchor_right = 0.476
+anchor_bottom = 0.46600002
+offset_left = -409.352
+offset_top = -26.968018
+offset_right = 414.648
+offset_bottom = 24.031982
+text = "Finde alle Menschen und vernichte sie."
+horizontal_alignment = 1
