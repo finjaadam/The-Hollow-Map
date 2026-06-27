@@ -1,28 +1,27 @@
 extends Control
 
+signal minigame_finished(success: bool)
+signal stone_hit
+
 var cursor = preload("res://assets/mouse_icons/pointer_b_shaded.png")
 var cursor_pickaxe = preload("res://assets/mouse_icons/tool_pickaxe.png")
 
 # Stone Grid Settings
-const GRID_SIZE := 11  # 11x11 Gitter (121 Steine)
-const STONE_SIZE := 40.0  # Pixel pro Stein
-const RADIUS_MULTIPLIER := 20.0  # Power 1 = 40px Radius
-const MIN_RADIUS := 20.0  # Minimaler Radius (garantiert zumindest einen Stein)
+const GRID_SIZE := 11  # 11x11 grid
+const STONE_SIZE := 40.0  # Pixel per stone
+const RADIUS_MULTIPLIER := 20.0  # Power 1 = 20px radius
+const MIN_RADIUS := 20.0  # minimal radius
 
-# Sprite-Pfade - ANPASSEN:
 var stone_sprite_path: String = "res://assets/minispiel_stein/Stein_256x256.png"  # z.B. "res://assets/stone.png"
 var key_sprite_path: String = "res://assets/lowpoly_sticks_-_free_download/key.png"    # z.B. "res://assets/key.png"
 
 var background_left: ColorRect
 var power_bar: Control
-var stones: Array[Dictionary] = []  # Speichert Stone-Daten
-var stone_visuals: Array[Node] = []  # Visuelle Darstellung der Steine
+var stones: Array[Dictionary] = []
+var stone_visuals: Array[Node] = []
 var key_stone_index: int = -1
+var _is_finished := false
 
-# Stone-Farben
-const STONE_COLOR = Color.GRAY
-const DESTROYED_STONE_COLOR = Color.DARK_GRAY
-const KEY_STONE_HIGHLIGHT = Color.YELLOW
 
 func _ready():
 	background_left = $"HFlowContainer/Background_(left)"
@@ -31,16 +30,15 @@ func _ready():
 	background_left.mouse_entered.connect(_on_color_rect_mouse_entered)
 	background_left.mouse_exited.connect(_on_color_rect_mouse_exited)
 	
-	# Signal verbinden
 	power_bar.power_selected.connect(_on_power_selected)
-	
-	# Steine initialisieren
+
+	# initialize grid and visuals
 	_create_stone_grid()
 	_create_stone_visuals()
 	_place_key_randomly()
 
 func _create_stone_grid() -> void:
-	# Berechne die Startposition für das Gitter (zentriert)
+	# calculate starting position to center the grid
 	var total_width = GRID_SIZE * STONE_SIZE
 	var total_height = GRID_SIZE * STONE_SIZE
 	var start_x = (background_left.size.x - total_width) / 2.0
@@ -60,7 +58,6 @@ func _create_stone_grid() -> void:
 			stones.append(stone_data)
 
 func _create_stone_visuals() -> void:
-	# Erstelle visuelles Container-Node
 	var stone_container = Node2D.new()
 	stone_container.name = "StoneContainer"
 	background_left.add_child(stone_container)
@@ -68,7 +65,6 @@ func _create_stone_visuals() -> void:
 	for i in range(stones.size()):
 		var stone_visual: Node
 		
-		# Verwende Sprite wenn Pfad gesetzt, sonst ColorRect
 		if stone_sprite_path != "":
 			var sprite = Sprite2D.new()
 			sprite.texture = load(stone_sprite_path)
@@ -76,14 +72,6 @@ func _create_stone_visuals() -> void:
 			sprite.centered = true
 			sprite.scale = Vector2(STONE_SIZE / sprite.texture.get_size().x, STONE_SIZE / sprite.texture.get_size().y)
 			stone_visual = sprite
-		else:
-			var stone_rect = ColorRect.new()
-			stone_rect.custom_minimum_size = Vector2(STONE_SIZE - 4, STONE_SIZE - 4)
-			stone_rect.color = STONE_COLOR
-			stone_rect.position = stones[i]["position"] - stone_rect.custom_minimum_size / 2.0
-			stone_rect.modulate = Color.WHITE
-			stone_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
-			stone_visual = stone_rect
 		
 		stone_container.add_child(stone_visual)
 		stone_visuals.append(stone_visual)
@@ -94,13 +82,15 @@ func _place_key_randomly() -> void:
 	print("Schlüssel versteckt unter Stein %d" % key_stone_index)
 
 func _on_power_selected(power: int, click_pos: Vector2) -> void:
+	if _is_finished:
+		return
+
 	if power <= 0:
 		return
 	
-	# Berechne Radius basierend auf Power
+	# calculate radius based on power
 	var radius = max(power * RADIUS_MULTIPLIER, MIN_RADIUS)
 	
-	# Zerstöre Steine im Radius
 	_destroy_stones_in_radius(click_pos, radius)
 
 func _destroy_stones_in_radius(center: Vector2, radius: float) -> void:
@@ -117,7 +107,7 @@ func _destroy_stones_in_radius(center: Vector2, radius: float) -> void:
 			stones[i]["is_destroyed"] = true
 			destroyed_indices.append(i)
 			
-			# Update visuell
+			# Update visually
 			if i < stone_visuals.size():
 				var tween = create_tween()
 				tween.tween_property(stone_visuals[i], "modulate", Color.TRANSPARENT, 0.3)
@@ -125,20 +115,26 @@ func _destroy_stones_in_radius(center: Vector2, radius: float) -> void:
 			
 			print("Stein %d zerstört!" % i)
 			
-			# Wenn der Schlüssel unter diesem Stein war
+			# Debug: key found
 			if stones[i]["has_key"]:
 				print("🔑 SCHLÜSSEL GEFUNDEN!")
 				_on_key_found()
 	
-	# Debug: Zeige zerstörte Steine
+	# Debug: show destroyed stones
 	var destroyed_count = stones.filter(func(s): return s["is_destroyed"]).size()
+	if destroyed_indices.size() > 0:
+		stone_hit.emit()
 	print("Insgesamt zerstört: %d / %d | Power: %d, Radius: %d" % [destroyed_count, stones.size(), destroyed_indices.size(), int(radius)])
 
 func _on_key_found() -> void:
-	# Zeige den Schlüssel unter dem zerstörten Stein
+	if _is_finished:
+		return
+	_is_finished = true
+
+	# show key under destroyed stone
 	var key_stone_pos = stones[key_stone_index]["position"]
 	
-	# Erstelle Schlüssel-Visual
+	# create key
 	if key_sprite_path != "":
 		var key_sprite = Sprite2D.new()
 		key_sprite.texture = load(key_sprite_path)
@@ -146,17 +142,14 @@ func _on_key_found() -> void:
 		key_sprite.centered = true
 		key_sprite.scale = Vector2(0.05, 0.05)
 		background_left.add_child(key_sprite)
-		# Animation: Springen lassen
+		# small animation
 		var tween = create_tween()
 		tween.tween_property(key_sprite, "position:y", key_stone_pos.y - 30, 0.5)
 		tween.tween_property(key_sprite, "position:y", key_stone_pos.y, 0.5)
-	else:
-		# Fallback: Gelbe Markierung wenn kein Sprite
-		var key_marker = ColorRect.new()
-		key_marker.custom_minimum_size = Vector2(40, 40)
-		key_marker.color = Color.YELLOW
-		key_marker.position = key_stone_pos - Vector2(20, 20)
-		background_left.add_child(key_marker)
+
+	# small delay, to play key animation
+	await get_tree().create_timer(2.0).timeout
+	minigame_finished.emit(true)
 
 func _on_color_rect_mouse_entered():
 	Input.set_custom_mouse_cursor(cursor_pickaxe, Input.CURSOR_ARROW, Vector2(10, 8))

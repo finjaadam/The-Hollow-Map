@@ -62,6 +62,7 @@
 [ext_resource type="PackedScene" uid="uid://ctja20p5gd6c4" path="res://assets/aaron_project_-_roots/aaron_2.tscn" id="32_oafj0"]
 [ext_resource type="PackedScene" uid="uid://dke416ve2chsd" path="res://assets/aaron_project_-_roots/aaron_3.tscn" id="33_uc420"]
 [ext_resource type="PackedScene" uid="uid://dxlirpkmwk8i5" path="res://assets/aaron_project_-_roots/aaron_4.tscn" id="34_hf1pw"]
+[ext_resource type="Script" uid="uid://binvla71xmrgj" path="res://network/testEnvironment/spitzhacke_stein_interaktion.gd" id="64_rqpd4"]
 [ext_resource type="Script" uid="uid://cdy1fboe1km04" path="res://network/scripts/InteractionPrompt.gd" id="900_intprompt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_water"]
@@ -4387,6 +4388,7 @@ bus = &"SFX"
 
 [node name="Spitzhacke_Stein" type="Node3D" parent="modular-cave-final" unique_id=788464447]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.346863, 0, 122.86037)
+script = ExtResource("64_rqpd4")
 
 [node name="stein" parent="modular-cave-final/Spitzhacke_Stein" unique_id=875757391 instance=ExtResource("17_1nqb3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6809921, 0.4991932, -0.71694565)
@@ -4396,3 +4398,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6809921, 0.4991932, -0.716
 [node name="CollisionShape3D" type="CollisionShape3D" parent="modular-cave-final/Spitzhacke_Stein/stein/StaticBody3D" unique_id=1794846017]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.031425476, 0.25305176, -0.10741043)
 shape = SubResource("CapsuleShape3D_ux5q7")
+
+[node name="Interaktions_Buchstabe" type="Label3D" parent="modular-cave-final/Spitzhacke_Stein" unique_id=1841719628]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.30334854, 1.5417228, -0.8599663)
+billboard = 1
+text = "E drücken zum hacken"
+script = ExtResource("900_intprompt")
+
+[node name="Area3D" type="Area3D" parent="modular-cave-final/Spitzhacke_Stein" unique_id=1115856612]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6618767, 0.29441452, -2.033455)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="modular-cave-final/Spitzhacke_Stein/Area3D" unique_id=786470957]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0421982, 0.97013617, 1.1298084)
+shape = SubResource("BoxShape3D_hmamp")
+
+[node name="Spitzhacke_Player" type="AudioStreamPlayer3D" parent="modular-cave-final/Spitzhacke_Stein" unique_id=204938471]
+stream = ExtResource("8_g8gtg")
+bus = &"SFX"
