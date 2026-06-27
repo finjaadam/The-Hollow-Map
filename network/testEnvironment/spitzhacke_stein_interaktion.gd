@@ -59,9 +59,6 @@ func _on_minigame_finished(success: bool, minigame_instance: Node) -> void:
 			lokaler_spieler.set_mining_mode(false)
 			
 		_entferne_stein_fuer_alle.rpc()
-	else:
-		print("Fehlversuch im Minigame.")
-		#_play_stein_sound.rpc()
 
 func _on_stone_hit() -> void:
 	_play_stein_sound.rpc()

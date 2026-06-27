@@ -63,6 +63,7 @@
 [ext_resource type="PackedScene" uid="uid://dke416ve2chsd" path="res://assets/aaron_project_-_roots/aaron_3.tscn" id="33_uc420"]
 [ext_resource type="PackedScene" uid="uid://dxlirpkmwk8i5" path="res://assets/aaron_project_-_roots/aaron_4.tscn" id="34_hf1pw"]
 [ext_resource type="Script" uid="uid://binvla71xmrgj" path="res://network/testEnvironment/spitzhacke_stein_interaktion.gd" id="64_rqpd4"]
+[ext_resource type="AudioStream" uid="uid://j3qd0vp0i51m" path="res://audio/soundfx/pickaxe_sound.mp3" id="65_oafj0"]
 [ext_resource type="Script" uid="uid://cdy1fboe1km04" path="res://network/scripts/InteractionPrompt.gd" id="900_intprompt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_water"]
@@ -4413,5 +4414,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0421982, 0.97013617, 1.129
 shape = SubResource("BoxShape3D_hmamp")
 
 [node name="Spitzhacke_Player" type="AudioStreamPlayer3D" parent="modular-cave-final/Spitzhacke_Stein" unique_id=204938471]
-stream = ExtResource("8_g8gtg")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49220657, 0, -1.1151047)
+stream = ExtResource("65_oafj0")
 bus = &"SFX"

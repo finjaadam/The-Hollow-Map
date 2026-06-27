@@ -149,6 +149,7 @@ func _on_key_found() -> void:
 
 	# small delay, to play key animation
 	await get_tree().create_timer(2.0).timeout
+	GameManager.collect_key.rpc()
 	minigame_finished.emit(true)
 
 func _on_color_rect_mouse_entered():
