@@ -62,6 +62,8 @@
 [ext_resource type="PackedScene" uid="uid://ctja20p5gd6c4" path="res://assets/aaron_project_-_roots/aaron_2.tscn" id="32_oafj0"]
 [ext_resource type="PackedScene" uid="uid://dke416ve2chsd" path="res://assets/aaron_project_-_roots/aaron_3.tscn" id="33_uc420"]
 [ext_resource type="PackedScene" uid="uid://dxlirpkmwk8i5" path="res://assets/aaron_project_-_roots/aaron_4.tscn" id="34_hf1pw"]
+[ext_resource type="Script" uid="uid://binvla71xmrgj" path="res://network/testEnvironment/spitzhacke_stein_interaktion.gd" id="64_rqpd4"]
+[ext_resource type="AudioStream" uid="uid://j3qd0vp0i51m" path="res://audio/soundfx/pickaxe_sound.mp3" id="65_oafj0"]
 [ext_resource type="Script" uid="uid://cdy1fboe1km04" path="res://network/scripts/InteractionPrompt.gd" id="900_intprompt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_water"]
@@ -579,6 +581,10 @@ height = 4.810547
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hmamp"]
 size = Vector3(3.1005516, 2.5546265, 4.40094)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ux5q7"]
+radius = 0.99365234
+height = 2.7675781
 
 [node name="Node3D" type="Node3D" unique_id=1910157186]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.52080536, -9.5263, -1.745678)
@@ -4379,4 +4385,96 @@ script = ExtResource("900_intprompt")
 
 [node name="AngelWand_Player" type="AudioStreamPlayer3D" parent="modular-cave-final/Angel_Hoelenspalte" unique_id=979714847]
 stream = ExtResource("16_ssx8d")
+bus = &"SFX"
+
+[node name="Angel_Hoelenspalte2" type="Node3D" parent="modular-cave-final" unique_id=1044774874]
+transform = Transform3D(0.5475632, 0, 0.83676434, 0, 1, 0, -0.83676434, 0, 0.5475632, 58.493, 0.226, 73.992)
+script = ExtResource("15_hmamp")
+
+[node name="hoelenspalte" parent="modular-cave-final/Angel_Hoelenspalte2" unique_id=1943593315 instance=ExtResource("17_u131e")]
+transform = Transform3D(-0.52100515, 0, -0.12156763, 0, 0.535, 0, 0.12156763, 0, -0.52100515, -0.2732849, 1.472727, 1.7534857)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="modular-cave-final/Angel_Hoelenspalte2/hoelenspalte" unique_id=1168661930]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="modular-cave-final/Angel_Hoelenspalte2/hoelenspalte/StaticBody3D" unique_id=1159858772]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.41882324, -0.09350586, 0.15624428)
+shape = SubResource("CapsuleShape3D_xm1mq")
+
+[node name="Area3D" type="Area3D" parent="modular-cave-final/Angel_Hoelenspalte2" unique_id=1991878807]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2210617, 0.29441404, 1.0476551)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="modular-cave-final/Angel_Hoelenspalte2/Area3D" unique_id=367004677]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0421982, 0.97013617, 1.1298084)
+shape = SubResource("BoxShape3D_hmamp")
+
+[node name="Interaktions_Buchstabe" type="Label3D" parent="modular-cave-final/Angel_Hoelenspalte2" unique_id=155785756]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.0176926, 1.0241547, 1.802515)
+billboard = 1
+text = "E drücken zum Angeln"
+script = ExtResource("900_intprompt")
+
+[node name="AngelWand_Player" type="AudioStreamPlayer3D" parent="modular-cave-final/Angel_Hoelenspalte2" unique_id=473096092]
+stream = ExtResource("16_ssx8d")
+bus = &"SFX"
+
+[node name="Spitzhacke_Stein" type="Node3D" parent="modular-cave-final" unique_id=788464447]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.346863, 0, 122.86037)
+script = ExtResource("64_rqpd4")
+
+[node name="stein" parent="modular-cave-final/Spitzhacke_Stein" unique_id=875757391 instance=ExtResource("17_1nqb3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6809921, 0.4991932, -0.71694565)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="modular-cave-final/Spitzhacke_Stein/stein" unique_id=1580362981]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="modular-cave-final/Spitzhacke_Stein/stein/StaticBody3D" unique_id=1794846017]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.031425476, 0.25305176, -0.10741043)
+shape = SubResource("CapsuleShape3D_ux5q7")
+
+[node name="Interaktions_Buchstabe" type="Label3D" parent="modular-cave-final/Spitzhacke_Stein" unique_id=1841719628]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.30334854, 1.5417228, -0.8599663)
+billboard = 1
+text = "E drücken zum hacken"
+script = ExtResource("900_intprompt")
+
+[node name="Area3D" type="Area3D" parent="modular-cave-final/Spitzhacke_Stein" unique_id=1115856612]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6618767, 0.29441452, -2.033455)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="modular-cave-final/Spitzhacke_Stein/Area3D" unique_id=786470957]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0421982, 0.97013617, 1.1298084)
+shape = SubResource("BoxShape3D_hmamp")
+
+[node name="Spitzhacke_Player" type="AudioStreamPlayer3D" parent="modular-cave-final/Spitzhacke_Stein" unique_id=204938471]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49220657, 0, -1.1151047)
+stream = ExtResource("65_oafj0")
+bus = &"SFX"
+
+[node name="Spitzhacke_Stein2" type="Node3D" parent="modular-cave-final" unique_id=1591003009]
+transform = Transform3D(-0.7217602, 0, 0.6921432, 0, 1, 0, -0.6921432, 0, -0.7217602, 71.16311, 0, 43.798985)
+script = ExtResource("64_rqpd4")
+
+[node name="stein" parent="modular-cave-final/Spitzhacke_Stein2" unique_id=1132112364 instance=ExtResource("17_1nqb3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6809921, 0.4991932, -0.71694565)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="modular-cave-final/Spitzhacke_Stein2/stein" unique_id=1809504275]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="modular-cave-final/Spitzhacke_Stein2/stein/StaticBody3D" unique_id=1965578148]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.031425476, 0.25305176, -0.10741043)
+shape = SubResource("CapsuleShape3D_ux5q7")
+
+[node name="Interaktions_Buchstabe" type="Label3D" parent="modular-cave-final/Spitzhacke_Stein2" unique_id=42704644]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.30334854, 1.5417228, -0.8599663)
+billboard = 1
+text = "E drücken zum hacken"
+script = ExtResource("900_intprompt")
+
+[node name="Area3D" type="Area3D" parent="modular-cave-final/Spitzhacke_Stein2" unique_id=809180034]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6618767, 0.29441452, -2.033455)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="modular-cave-final/Spitzhacke_Stein2/Area3D" unique_id=1385740465]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0421982, 0.97013617, 1.1298084)
+shape = SubResource("BoxShape3D_hmamp")
+
+[node name="Spitzhacke_Player" type="AudioStreamPlayer3D" parent="modular-cave-final/Spitzhacke_Stein2" unique_id=2106169415]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49220657, 0, -1.1151047)
+stream = ExtResource("65_oafj0")
 bus = &"SFX"

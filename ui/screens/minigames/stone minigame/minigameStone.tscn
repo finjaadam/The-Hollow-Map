@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://6avbosoj4scw"]
 
-[ext_resource type="Theme" uid="uid://ndcfyi0cq3bv" path="res://ui/theme.tres" id="1_v6kx1"]
+[ext_resource type="Theme" uid="uid://cbksa12r5e4vq" path="res://ui/theme.tres" id="1_v6kx1"]
 [ext_resource type="Script" uid="uid://cepprtj2gjfih" path="res://ui/screens/minigames/stone minigame/minigameStone.gd" id="2_teec2"]
-[ext_resource type="Texture2D" uid="uid://brrv7p7gycc2k" path="res://ui/screens/minigames/stone minigame/Progressbar.png" id="3_3xkqu"]
+[ext_resource type="Texture2D" uid="uid://brrv7p7gycc2k" path="res://assets/minispiel_stein/Progressbar.png" id="3_3xkqu"]
 [ext_resource type="Script" uid="uid://fknkhv3yld6i" path="res://ui/screens/minigames/stone minigame/power_bar.gd" id="3_rogvw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rogvw"]
@@ -88,14 +88,14 @@ custom_minimum_size = Vector2(500, 500)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-color = Color(0, 0, 0, 0.7019608)
+color = Color(0, 0, 0, 0.41568628)
 
 [node name="Background (right)" type="ColorRect" parent="HFlowContainer" unique_id=1374672772]
 custom_minimum_size = Vector2(200, 500)
 layout_mode = 2
 size_flags_horizontal = 4
 mouse_filter = 1
-color = Color(0, 0, 0, 0.7019608)
+color = Color(0, 0, 0, 0.41568628)
 
 [node name="PowerBar" type="Control" parent="HFlowContainer/Background (right)" unique_id=1714818075]
 layout_mode = 1

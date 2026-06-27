@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dthpeg0nlwe1u"]
+
+[ext_resource type="Texture2D" uid="uid://d0qaeiea0mle4" path="res://assets/minispiel_stein/SurvivalTools_Base_Color.png" id="1_55ket"]
+[ext_resource type="Texture2D" uid="uid://b8p47ssy86r63" path="res://assets/minispiel_stein/SurvivalTools_Mixed_AO.png" id="2_lsouy"]
+[ext_resource type="Texture2D" uid="uid://stjglclx7dks" path="res://assets/minispiel_stein/SurvivalTools_Metallic.png" id="3_2w7bf"]
+[ext_resource type="Texture2D" uid="uid://bnmuhefybf3eb" path="res://assets/minispiel_stein/SurvivalTools_Normal.png" id="4_kkq0y"]
+[ext_resource type="Texture2D" uid="uid://b07xyju840xhk" path="res://assets/minispiel_stein/SurvivalTools_Roughness.png" id="5_podn4"]
+
+[resource]
+albedo_texture = ExtResource("1_55ket")
+metallic = 1.0
+metallic_texture = ExtResource("3_2w7bf")
+roughness_texture = ExtResource("5_podn4")
+normal_enabled = true
+normal_texture = ExtResource("4_kkq0y")
+ao_enabled = true
+ao_texture = ExtResource("2_lsouy")

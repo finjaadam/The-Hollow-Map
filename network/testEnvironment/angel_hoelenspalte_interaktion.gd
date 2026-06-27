@@ -18,6 +18,8 @@ func _process(_delta: float) -> void:
 	if SceneLoader.is_paused:
 		return
 		
+	_update_prompt()
+	
 	if spieler_in_reichweite and Input.is_action_just_pressed("interact"):
 		if lokaler_spieler and not lokaler_spieler.is_fishing and GameManager.fishingrod_in_inventory:
 			starte_minigame()
@@ -27,7 +29,7 @@ func _on_body_entered(body: Node3D) -> void:
 		if body.ownRole == General_Player.Role.PLAYER:
 			spieler_in_reichweite = true
 			lokaler_spieler = body
-			interaktions_prompt.show_prompt()
+			_update_prompt()
 
 func _on_body_exited(body: Node3D) -> void:
 	if body == lokaler_spieler:
@@ -73,3 +75,12 @@ func _play_klippen_sound() -> void:
 		if klippen_sound_player.playing:
 			klippen_sound_player.stop()
 		klippen_sound_player.play()
+
+func _update_prompt() -> void:
+	if not spieler_in_reichweite:
+		return
+
+	if GameManager.fishingrod_in_inventory:
+		interaktions_prompt.show_prompt()
+	else:
+		interaktions_prompt.show_prompt(InteractionPrompt.PROMPT_FISHINGROD)

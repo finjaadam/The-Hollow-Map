@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bagnkpjcpbfmd"]
+
+[ext_resource type="PackedScene" uid="uid://dpqwprhpr8h5d" path="res://assets/door/scene.gltf" id="1_5ptc3"]
+
+[node name="Sketchfab_Scene" unique_id=820563941 instance=ExtResource("1_5ptc3")]
+
+[node name="puerta1_lambert1_0" parent="Sketchfab_model/90b195aeb7354e51ae39a18422cf3669_fbx/RootNode/marcopuerta/puerta1" parent_id_path=PackedInt32Array(1445876055) index="0" unique_id=1392196865]
+transform = Transform3D(0.86863136, 0, 0.4954586, 0, 1, 0, -0.4954586, 0, 0.86863136, 77.07254, 2.2680497e-15, -30.347342)

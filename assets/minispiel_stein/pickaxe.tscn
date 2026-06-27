@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cyk6k8et1q1ph"]
+
+[ext_resource type="PackedScene" uid="uid://ca2rmeuf2mp3g" path="res://assets/minispiel_stein/Pickaxe.fbx" id="1_mul5l"]
+[ext_resource type="Material" uid="uid://dthpeg0nlwe1u" path="res://assets/minispiel_stein/pickaxe.tres" id="2_v8mnq"]
+
+[node name="Pickaxe" unique_id=1786702411 instance=ExtResource("1_mul5l")]
+
+[node name="Pickaxe2" parent="Pickaxe" parent_id_path=PackedInt32Array(268640905) index="0" unique_id=1814688879]
+material_override = ExtResource("2_v8mnq")

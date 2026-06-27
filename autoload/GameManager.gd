@@ -41,7 +41,7 @@ func _apply_state(state: Dictionary) -> void:
 	player_roles = state.get("player_roles", {})
 	team_lives = state.get("team_lives", 0)
 	max_team_lives = state.get("max_team_lives", 0)
-	team_keys = state.get("team_keys",  0)
+	team_keys = state.get("team_keys", 0)
 	pickaxe_in_inventory = state.get("pickaxe_in_inventory", false)
 	fishingrod_in_inventory = state.get("fishingrod_in_inventory", false)
 	rune_inventory = state.get("rune_inventory", [])
@@ -139,6 +139,9 @@ func set_starting_team_properties() -> void:
 	team_keys = 0
 	team_lives = get_player_count() * LIVES_PER_PLAYER
 	max_team_lives = team_lives
+	pickaxe_in_inventory = false
+	fishingrod_in_inventory = false
+	rune_inventory = []
 	_push_state_to_all()
 
 @rpc("any_peer", "call_local", "reliable")
@@ -204,8 +207,8 @@ func end_game(playerVictory: bool) -> void:
 	stop_life_drain()
 
 @rpc("any_peer", "call_local", "reliable")
-func add_spawn(position: Vector3, type: spawn_type, rune_type = null) -> void:
-	spawn_added.emit(position, type, rune_type)
+func add_spawn(position: Vector3, type: spawn_type, rune_type = null, rotation = null) -> void:
+	spawn_added.emit(position, type, rune_type, rotation)
 
 @rpc("any_peer", "call_local", "reliable")
 func despawn_minigame_items(groupname: String) -> void:
