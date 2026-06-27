@@ -3,6 +3,7 @@ extends General_Player
 @export var flashlight: SpotLight3D
 
 var is_fishing := false
+var is_mining := false
 
 var flashlight_active := false
 var flashlight_on_cooldown := false
@@ -25,6 +26,18 @@ func set_fishing_mode(fishing: bool) -> void:
 		is_movement_locked = fishing
 		
 		if is_fishing:
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		else:
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+			DisplayServer.window_move_to_foreground()
+			Input.flush_buffered_events()
+
+func set_mining_mode(mining: bool) -> void:
+		is_mining = mining
+		
+		is_movement_locked = mining
+		
+		if is_mining:
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		else:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED

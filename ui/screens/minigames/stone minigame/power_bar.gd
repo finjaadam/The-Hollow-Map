@@ -1,6 +1,6 @@
 extends Control
 
-signal power_selected(power: int)
+signal power_selected(power: int, position: Vector2)
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var power_number: Label = %PowerNumber
@@ -35,11 +35,15 @@ func _on_background_left_gui_input(event: InputEvent) -> void:
 
 			if event.pressed:
 				charging = true
+				power = 1.0  # Starte direkt bei Power 1
+				animated_sprite_2d.frame = 1
+				power_number.text = "1"
 
 			else:
 				charging = false
 
-				power_selected.emit(int(power))
+				# Sende aktuelle Mausposition mit
+				power_selected.emit(int(power), event.position)
 
 				# Reset
 				power = 0
