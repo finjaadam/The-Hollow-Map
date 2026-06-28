@@ -33,7 +33,7 @@ func _process(delta: float) -> void:
 			diffuse_prompt.hide_prompt()
 			GameManager.notify_trap_diffused.rpc(global_position)
 			return
-		diffuse_prompt.text = "Entschärfe... %.1fs" % remaining
+		diffuse_prompt.text = "Aufheben... %.1fs" % remaining
 		diffuse_prompt.show_prompt()
 	else:
 		_diffuse_progress = 0.0

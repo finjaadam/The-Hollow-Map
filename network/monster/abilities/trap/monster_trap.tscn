@@ -35,4 +35,4 @@ shape = SubResource("CylinderShape3D_diffuse")
 
 [node name="DiffusePrompt" parent="." unique_id=2094091420 instance=ExtResource("2_prompt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-text = "E drücken zum Entschärfen"
+text = "E halten zum Aufheben"
