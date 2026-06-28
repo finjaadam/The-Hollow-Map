@@ -1,15 +1,10 @@
 [gd_scene format=3 uid="uid://bk1f73kyj5i12"]
 
-[ext_resource type="Script" uid="uid://b6peqq5px787d" path="res://network/collectableItems/pickaxe/Pickaxe.gd" id="1_7p3r2"]
+[ext_resource type="Script" uid="uid://b6peqq5px787d" path="res://Network/collectableItems/pickaxe/Pickaxe.gd" id="1_7p3r2"]
+[ext_resource type="PackedScene" uid="uid://cyk6k8et1q1ph" path="res://assets/minispiel_stein/pickaxe.tscn" id="2_wvqik"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_qu5q0"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xw0id"]
-albedo_color = Color(0.068833336, 0.07, 0, 1)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_rqh63"]
-material = SubResource("StandardMaterial3D_xw0id")
-height = 0.309
+radius = 0.086
 
 [node name="Pickaxe" type="Node3D" unique_id=1963687755]
 script = ExtResource("1_7p3r2")
@@ -18,8 +13,8 @@ script = ExtResource("1_7p3r2")
 transform = Transform3D(2.345, 0, 0, 0, 2.345, 0, 0, 0, 2.345, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=658167653]
-transform = Transform3D(3.425, 0, 0, 0, 3.425, 0, 0, 0, 3.425, 0, 0, 0)
+transform = Transform3D(3.425, 0, 0, 0, 3.425, 0, 0, 0, 3.425, 0.0014993427, 0, 0.009478066)
 shape = SubResource("CylinderShape3D_qu5q0")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D/CollisionShape3D" unique_id=1500139201]
-mesh = SubResource("CylinderMesh_rqh63")
+[node name="Pickaxe" parent="Area3D/CollisionShape3D" unique_id=1786702411 instance=ExtResource("2_wvqik")]
+transform = Transform3D(0.19499995, 0, 0, 0, -8.523718e-09, 0.19499995, 0, -0.19499995, -8.523718e-09, -0.0009004639, 0.00530506, 0.065644376)
