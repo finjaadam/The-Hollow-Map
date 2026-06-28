@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bn122bylkbcko" path="res://network/scripts/ExitDoor.gd" id="1_aw5go"]
 [ext_resource type="PackedScene" uid="uid://bagnkpjcpbfmd" path="res://assets/door/Exit_Door_closed.tscn" id="2_jmoqk"]
+[ext_resource type="AudioStream" uid="uid://wydxi5ibhdpy" path="res://audio/soundfx/door.mp3" id="3_3ve4r"]
+[ext_resource type="Script" uid="uid://dkb8ltjc6067n" path="res://addons/raytraced_audio/raytraced_audio_player_3d.gd" id="4_cgiah"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_aw5go"]
 
@@ -34,3 +36,13 @@ mesh = SubResource("CylinderMesh_l151t")
 
 [node name="Sketchfab_Scene" parent="Area3D/CollisionShape3D" unique_id=820563941 instance=ExtResource("2_jmoqk")]
 transform = Transform3D(0.099999994, 0, 0, 0, 0.099999994, 0, 0, 0, 0.099999994, 0, -0.27872857, 0)
+
+[node name="RaytracedAudioPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=594448347]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.31134033, 2.1206055, 0)
+stream = ExtResource("3_3ve4r")
+volume_db = -38.0
+unit_size = 70.0
+autoplay = true
+max_distance = 140.0
+script = ExtResource("4_cgiah")
+metadata/_custom_type_script = "uid://dkb8ltjc6067n"
