@@ -16,7 +16,7 @@ func _ready() -> void:
 		if role == "monster":
 			$IndividualLabel.text = "Du konntest sie nicht aufhalten!"
 		else:
-			$IndividualLabel.text = "Ihr seid gemeinsam geflüchtet!"
+			$IndividualLabel.text = "Ihr seid gemeinsam entkommen!"
 	
 	# Connect to SceneLoader signal to know when lobby has loaded
 	SceneLoader.scene_loading_finished.connect(_on_lobby_loaded)

@@ -65,7 +65,7 @@ func _on_area_2d_wand_area_entered(_area: Area2D) -> void:
 		game_active = false
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) # Maus wieder zeigen
 		
-		status_label.text = "Wand berührt! Das Monster hat dich gehört..."
+		status_label.text = "Wand getroffen! Das Monster wird aufmerksam..."
 		
 		fishing_finished.emit(false) # Dem Hauptspiel sagen: "Verloren!"
 		

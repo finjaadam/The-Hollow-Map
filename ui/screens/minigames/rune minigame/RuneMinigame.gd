@@ -313,7 +313,7 @@ func _on_drop_rune_on_slot(rune_idx: int, slot_idx: int) -> void:
 		# Play error sound
 		error_sound_player.stream = ERROR_SOUND
 		error_sound_player.play()
-		statusLabel.text = "Falsch platziert! Das Monster hat dich gehört..."
+		statusLabel.text = "Falsch platziert! Das Monster hat das mitbekommen..."
 		resetTimer.start()
 		runes_finished.emit(false)
 	
