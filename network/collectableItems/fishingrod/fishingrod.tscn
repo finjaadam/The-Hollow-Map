@@ -18,3 +18,19 @@ shape = SubResource("BoxShape3D_i0lnb")
 
 [node name="Sketchfab_Scene" parent="Area3D/CollisionShape3D" unique_id=1602433109 instance=ExtResource("2_i0lnb")]
 transform = Transform3D(0.009999995, 0, 0, 0, -4.3711373e-10, 0.009999995, 0, -0.009999995, -4.3711373e-10, 0, -0.0011846535, 0.0477811)
+
+[node name="GlowLight" type="OmniLight3D" parent="." unique_id=262545405]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.61289155, 0.020347923, 0.101915866)
+light_color = Color(0.57507384, 0.70425177, 1, 1)
+light_energy = 2.05
+light_indirect_energy = 0.0
+light_size = 0.145
+omni_range = 0.8
+
+[node name="GlowLight2" type="OmniLight3D" parent="." unique_id=1877578003]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45233917, 0.011969391, -0.20522794)
+light_color = Color(0.57507384, 0.70425177, 1, 1)
+light_energy = 1.075
+light_indirect_energy = 0.0
+light_size = 0.105
+omni_range = 0.8

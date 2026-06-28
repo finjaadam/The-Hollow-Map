@@ -29,3 +29,12 @@ visible = false
 [node name="CosmicScene" parent="Area3D/CollisionShape3D" unique_id=424608710 instance=ExtResource("2_lprm5")]
 transform = Transform3D(0.0029197077, 0, 0, 0, 0.0029197077, 0, 0, 0, 0.0029197077, 0, 0, 0)
 visible = false
+
+[node name="GlowLight" type="OmniLight3D" parent="." unique_id=443933543]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0030255914, 0.060161754, -0.010463148)
+light_color = Color(0.57507384, 0.70425177, 1, 1)
+light_energy = 4.029
+light_indirect_energy = 0.0
+light_size = 0.813
+omni_range = 0.7
+omni_attenuation = 0.211

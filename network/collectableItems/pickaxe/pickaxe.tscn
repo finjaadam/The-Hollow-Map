@@ -18,3 +18,19 @@ shape = SubResource("CylinderShape3D_qu5q0")
 
 [node name="Pickaxe" parent="Area3D/CollisionShape3D" unique_id=1786702411 instance=ExtResource("2_wvqik")]
 transform = Transform3D(0.19499995, 0, 0, 0, -8.523718e-09, 0.19499995, 0, -0.19499995, -8.523718e-09, -0.0009004639, 0.00530506, 0.065644376)
+
+[node name="GlowLight" type="OmniLight3D" parent="." unique_id=2008196414]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08163279, 0.029771477, -0.45343345)
+light_color = Color(0.57507384, 0.70425177, 1, 1)
+light_energy = 1.502
+light_indirect_energy = 0.0
+light_size = 0.053
+omni_range = 0.7
+omni_attenuation = 0.211
+
+[node name="GlowLight2" type="OmniLight3D" parent="." unique_id=539813728]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0039328635, 0.007993877, 0.38195333)
+light_color = Color(0.57507384, 0.70425177, 1, 1)
+light_energy = 0.975
+light_indirect_energy = 0.0
+omni_range = 0.8
