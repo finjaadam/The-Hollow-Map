@@ -8,10 +8,11 @@ func _ready() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	# Open rune minigame when 'r' key is pressed
 	if event is InputEventKey and event.pressed:
-		if event.keycode == KEY_R:
-			# Prevent the key from being handled by other nodes
-			get_viewport().set_input_as_handled()
-			_open_rune_minigame()
+		if OS.is_debug_build():
+			if event.keycode == KEY_R:
+				# Prevent the key from being handled by other nodes
+				get_viewport().set_input_as_handled()
+				_open_rune_minigame()
 
 
 func _open_rune_minigame() -> void:
