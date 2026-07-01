@@ -75,7 +75,7 @@ jobs:
           mkdir -v -p build/windows
           EXPORT_DIR="$(readlink -f build)"
           cd $PROJECT_PATH
-          godot --headless --verbose --export-release "Windows Desktop" "$EXPORT_DIR/windows/${EXPORT_NAME}_${VERSION}_windows.exe"
+          godot --headless --verbose --export-release "Windows Desktop" "$EXPORT_DIR/windows/${EXPORT_NAME}.exe"
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
@@ -107,7 +107,7 @@ jobs:
           mkdir -v -p build/linux
           EXPORT_DIR="$(readlink -f build)"
           cd $PROJECT_PATH
-          godot --headless --verbose --export-release "Linux" "$EXPORT_DIR/linux/${EXPORT_NAME}_${VERSION}_linux.x86_64"
+          godot --headless --verbose --export-release "Linux" "$EXPORT_DIR/linux/${EXPORT_NAME}.x86_64"
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
@@ -168,6 +168,14 @@ jobs:
         with:
           name: mac
           path: build/mac
+      - name: Zip Windows Build
+        run: |
+          cd build/windows
+          zip -r "../${EXPORT_NAME}_${VERSION}_windows.zip" .
+      - name: Zip Linux Build
+        run: |
+          cd build/linux
+          zip -r "../${EXPORT_NAME}_${VERSION}_linux.zip" .
       - name: Create Draft Release
         uses: softprops/action-gh-release@v2
         with:
@@ -175,6 +183,6 @@ jobs:
           tag_name: ${{ github.event.inputs.version }}
           name: "${{ env.EXPORT_NAME }} ${{ github.event.inputs.version }}"
           files: |
-            build/windows/${{ env.EXPORT_NAME }}_${{ env.VERSION }}_windows.exe
-            build/linux/${{ env.EXPORT_NAME }}_${{ env.VERSION }}_linux.x86_64
+            build/${{ env.EXPORT_NAME }}_${{ env.VERSION }}_windows.zip
+            build/${{ env.EXPORT_NAME }}_${{ env.VERSION }}_linux.zip
             build/mac/${{ env.EXPORT_NAME }}_${{ env.VERSION }}_macos.zip
