@@ -34,12 +34,13 @@ func print_bus_order() -> void:
 # --- Debug Functions ---
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("debug_players_won"):
-		_debug_players_won()
-	elif event.is_action_pressed("debug_monster_won"):
-		_debug_monster_won()
-	elif event.is_action_pressed("DEBUG_STOP_WIN_CONDITION_CHECK"):
-		GameManager.stop_life_drain()
+	if OS.is_debug_build():
+		if event.is_action_pressed("debug_players_won"):
+			_debug_players_won()
+		elif event.is_action_pressed("debug_monster_won"):
+			_debug_monster_won()
+		elif event.is_action_pressed("DEBUG_STOP_WIN_CONDITION_CHECK"):
+			GameManager.stop_life_drain()
 
 # Debug function to manually trigger players won (P)
 func _debug_players_won() -> void:
