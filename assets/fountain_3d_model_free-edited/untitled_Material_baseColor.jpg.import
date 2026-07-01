@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://deg2ewuxxl5ym"
 path.s3tc="res://.godot/imported/untitled_Material_baseColor.jpg-2de533afc0d4cfbf4d2d4088f10b4c02.s3tc.ctex"
+path.etc2="res://.godot/imported/untitled_Material_baseColor.jpg-2de533afc0d4cfbf4d2d4088f10b4c02.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/fountain_3d_model_free-edited/untitled_Material_baseColor.jpg"
-dest_files=["res://.godot/imported/untitled_Material_baseColor.jpg-2de533afc0d4cfbf4d2d4088f10b4c02.s3tc.ctex"]
+dest_files=["res://.godot/imported/untitled_Material_baseColor.jpg-2de533afc0d4cfbf4d2d4088f10b4c02.s3tc.ctex", "res://.godot/imported/untitled_Material_baseColor.jpg-2de533afc0d4cfbf4d2d4088f10b4c02.etc2.ctex"]
 
 [params]
 

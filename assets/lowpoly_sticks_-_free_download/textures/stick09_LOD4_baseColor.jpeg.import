@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c4e6dvofexely"
 path.s3tc="res://.godot/imported/stick09_LOD4_baseColor.jpeg-c7bc0db0c427fa6fc099a274e5c6f0b8.s3tc.ctex"
+path.etc2="res://.godot/imported/stick09_LOD4_baseColor.jpeg-c7bc0db0c427fa6fc099a274e5c6f0b8.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/lowpoly_sticks_-_free_download/textures/stick09_LOD4_baseColor.jpeg"
-dest_files=["res://.godot/imported/stick09_LOD4_baseColor.jpeg-c7bc0db0c427fa6fc099a274e5c6f0b8.s3tc.ctex"]
+dest_files=["res://.godot/imported/stick09_LOD4_baseColor.jpeg-c7bc0db0c427fa6fc099a274e5c6f0b8.s3tc.ctex", "res://.godot/imported/stick09_LOD4_baseColor.jpeg-c7bc0db0c427fa6fc099a274e5c6f0b8.etc2.ctex"]
 
 [params]
 

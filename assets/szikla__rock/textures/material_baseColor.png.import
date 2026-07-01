@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dnp65cdyabsl"
 path.s3tc="res://.godot/imported/material_baseColor.png-c836f0a16e146c3dd52b99d0db883627.s3tc.ctex"
+path.etc2="res://.godot/imported/material_baseColor.png-c836f0a16e146c3dd52b99d0db883627.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/szikla__rock/textures/material_baseColor.png"
-dest_files=["res://.godot/imported/material_baseColor.png-c836f0a16e146c3dd52b99d0db883627.s3tc.ctex"]
+dest_files=["res://.godot/imported/material_baseColor.png-c836f0a16e146c3dd52b99d0db883627.s3tc.ctex", "res://.godot/imported/material_baseColor.png-c836f0a16e146c3dd52b99d0db883627.etc2.ctex"]
 
 [params]
 

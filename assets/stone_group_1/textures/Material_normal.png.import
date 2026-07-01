@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://doyk563k4bhod"
 path.s3tc="res://.godot/imported/Material_normal.png-34b6f0cb64b0268ad36c24f434a473bc.s3tc.ctex"
+path.etc2="res://.godot/imported/Material_normal.png-34b6f0cb64b0268ad36c24f434a473bc.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/stone_group_1/textures/Material_normal.png"
-dest_files=["res://.godot/imported/Material_normal.png-34b6f0cb64b0268ad36c24f434a473bc.s3tc.ctex"]
+dest_files=["res://.godot/imported/Material_normal.png-34b6f0cb64b0268ad36c24f434a473bc.s3tc.ctex", "res://.godot/imported/Material_normal.png-34b6f0cb64b0268ad36c24f434a473bc.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b36ha02tg3ddv"
 path.s3tc="res://.godot/imported/lambert1_metallicRoughness.png-2c13ede2d28f60964583ba12e6ea38df.s3tc.ctex"
+path.etc2="res://.godot/imported/lambert1_metallicRoughness.png-2c13ede2d28f60964583ba12e6ea38df.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/door/textures/lambert1_metallicRoughness.png"
-dest_files=["res://.godot/imported/lambert1_metallicRoughness.png-2c13ede2d28f60964583ba12e6ea38df.s3tc.ctex"]
+dest_files=["res://.godot/imported/lambert1_metallicRoughness.png-2c13ede2d28f60964583ba12e6ea38df.s3tc.ctex", "res://.godot/imported/lambert1_metallicRoughness.png-2c13ede2d28f60964583ba12e6ea38df.etc2.ctex"]
 
 [params]
 

@@ -295,7 +295,7 @@ func _check_all_ready():
 	if ready_states.is_empty():
 		return
 	var all_ready = ready_states.values().all(func(r): return r == true)
-	if all_ready:
+	if all_ready and (Steam.getNumLobbyMembers(lobby_id) > 1 or OS.is_debug_build()):
 		lobby_is_ready.emit()
 		return
 	lobby_is_not_ready.emit()

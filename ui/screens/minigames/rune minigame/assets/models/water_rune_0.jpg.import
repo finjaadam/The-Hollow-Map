@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dlei4mdvc3m2l"
 path.s3tc="res://.godot/imported/water_rune_0.jpg-476d2246fdefc459fd0ed0a6cf08c504.s3tc.ctex"
+path.etc2="res://.godot/imported/water_rune_0.jpg-476d2246fdefc459fd0ed0a6cf08c504.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://ui/screens/minigames/rune minigame/assets/models/water_rune_0.jpg"
-dest_files=["res://.godot/imported/water_rune_0.jpg-476d2246fdefc459fd0ed0a6cf08c504.s3tc.ctex"]
+dest_files=["res://.godot/imported/water_rune_0.jpg-476d2246fdefc459fd0ed0a6cf08c504.s3tc.ctex", "res://.godot/imported/water_rune_0.jpg-476d2246fdefc459fd0ed0a6cf08c504.etc2.ctex"]
 
 [params]
 

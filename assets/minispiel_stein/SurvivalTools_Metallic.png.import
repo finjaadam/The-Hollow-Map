@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://stjglclx7dks"
 path.s3tc="res://.godot/imported/SurvivalTools_Metallic.png-4d38a2c8d6555ee996e8de9c8c6698d3.s3tc.ctex"
+path.etc2="res://.godot/imported/SurvivalTools_Metallic.png-4d38a2c8d6555ee996e8de9c8c6698d3.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/minispiel_stein/SurvivalTools_Metallic.png"
-dest_files=["res://.godot/imported/SurvivalTools_Metallic.png-4d38a2c8d6555ee996e8de9c8c6698d3.s3tc.ctex"]
+dest_files=["res://.godot/imported/SurvivalTools_Metallic.png-4d38a2c8d6555ee996e8de9c8c6698d3.s3tc.ctex", "res://.godot/imported/SurvivalTools_Metallic.png-4d38a2c8d6555ee996e8de9c8c6698d3.etc2.ctex"]
 
 [params]
 

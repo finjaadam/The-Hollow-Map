@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bpe63eq1t1tpx"
 path.s3tc="res://.godot/imported/lambert3SG_baseColor.jpeg-f7473f27cdd4ad098008b520de76b4ef.s3tc.ctex"
+path.etc2="res://.godot/imported/lambert3SG_baseColor.jpeg-f7473f27cdd4ad098008b520de76b4ef.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/camp_fire/textures/lambert3SG_baseColor.jpeg"
-dest_files=["res://.godot/imported/lambert3SG_baseColor.jpeg-f7473f27cdd4ad098008b520de76b4ef.s3tc.ctex"]
+dest_files=["res://.godot/imported/lambert3SG_baseColor.jpeg-f7473f27cdd4ad098008b520de76b4ef.s3tc.ctex", "res://.godot/imported/lambert3SG_baseColor.jpeg-f7473f27cdd4ad098008b520de76b4ef.etc2.ctex"]
 
 [params]
 

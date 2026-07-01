@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dtqin6rwcajj7"
 path.s3tc="res://.godot/imported/null.00.00_null_2d_view.dds_metallicRoughness.png-a47fd104a0a60705e972a19400a646b2.s3tc.ctex"
+path.etc2="res://.godot/imported/null.00.00_null_2d_view.dds_metallicRoughness.png-a47fd104a0a60705e972a19400a646b2.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/mangrove_mushroom_scene/textures/null.00.00_null_2d_view.dds_metallicRoughness.png"
-dest_files=["res://.godot/imported/null.00.00_null_2d_view.dds_metallicRoughness.png-a47fd104a0a60705e972a19400a646b2.s3tc.ctex"]
+dest_files=["res://.godot/imported/null.00.00_null_2d_view.dds_metallicRoughness.png-a47fd104a0a60705e972a19400a646b2.s3tc.ctex", "res://.godot/imported/null.00.00_null_2d_view.dds_metallicRoughness.png-a47fd104a0a60705e972a19400a646b2.etc2.ctex"]
 
 [params]
 

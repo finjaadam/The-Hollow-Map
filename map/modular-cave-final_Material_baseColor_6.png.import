@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cojomd5eehmob"
 path.s3tc="res://.godot/imported/modular-cave-final_Material_baseColor_6.png-ba57eca01fe2906f225ddf1b43f46017.s3tc.ctex"
+path.etc2="res://.godot/imported/modular-cave-final_Material_baseColor_6.png-ba57eca01fe2906f225ddf1b43f46017.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://map/modular-cave-final_Material_baseColor_6.png"
-dest_files=["res://.godot/imported/modular-cave-final_Material_baseColor_6.png-ba57eca01fe2906f225ddf1b43f46017.s3tc.ctex"]
+dest_files=["res://.godot/imported/modular-cave-final_Material_baseColor_6.png-ba57eca01fe2906f225ddf1b43f46017.s3tc.ctex", "res://.godot/imported/modular-cave-final_Material_baseColor_6.png-ba57eca01fe2906f225ddf1b43f46017.etc2.ctex"]
 
 [params]
 

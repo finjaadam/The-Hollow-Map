@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bc0s4iif5v8bq"
 path.s3tc="res://.godot/imported/lambert1_normal.png-5eba9ac445e68d99b22c8fbd9a42a086.s3tc.ctex"
+path.etc2="res://.godot/imported/lambert1_normal.png-5eba9ac445e68d99b22c8fbd9a42a086.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/aaron_project_-_roots/textures/lambert1_normal.png"
-dest_files=["res://.godot/imported/lambert1_normal.png-5eba9ac445e68d99b22c8fbd9a42a086.s3tc.ctex"]
+dest_files=["res://.godot/imported/lambert1_normal.png-5eba9ac445e68d99b22c8fbd9a42a086.s3tc.ctex", "res://.godot/imported/lambert1_normal.png-5eba9ac445e68d99b22c8fbd9a42a086.etc2.ctex"]
 
 [params]
 

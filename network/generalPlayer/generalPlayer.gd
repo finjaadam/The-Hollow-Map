@@ -117,6 +117,9 @@ func _physics_process(delta):
 	velocity = target_velocity
 	move_and_slide()
 	
+	if position.y < -100:
+		_respawn_in_cave()
+
 	network_position = position
 
 	var is_actually_moving = Vector2(velocity.x, velocity.z).length() > 0.1
@@ -141,6 +144,15 @@ func _unhandled_input(event):
 
 func teleport(position: Vector3):
 	global_position = position
+
+func _respawn_in_cave() -> void:
+	var spawn_points = NetworkManager.spawn_points
+	if spawn_points == null or spawn_points.get_child_count() == 0:
+		return
+	var spawn_point: Node3D = spawn_points.get_children().pick_random()
+	teleport(spawn_point.global_position)
+	velocity = Vector3.ZERO
+	target_velocity = Vector3.ZERO
 
 func change_env(environment: Environment):
 	camera3d.environment = environment

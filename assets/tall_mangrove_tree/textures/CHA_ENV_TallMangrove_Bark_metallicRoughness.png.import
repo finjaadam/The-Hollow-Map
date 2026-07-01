@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://0hctrqf15ty8"
 path.s3tc="res://.godot/imported/CHA_ENV_TallMangrove_Bark_metallicRoughness.png-d3c098b69fc37113434061c993ee4b23.s3tc.ctex"
+path.etc2="res://.godot/imported/CHA_ENV_TallMangrove_Bark_metallicRoughness.png-d3c098b69fc37113434061c993ee4b23.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/tall_mangrove_tree/textures/CHA_ENV_TallMangrove_Bark_metallicRoughness.png"
-dest_files=["res://.godot/imported/CHA_ENV_TallMangrove_Bark_metallicRoughness.png-d3c098b69fc37113434061c993ee4b23.s3tc.ctex"]
+dest_files=["res://.godot/imported/CHA_ENV_TallMangrove_Bark_metallicRoughness.png-d3c098b69fc37113434061c993ee4b23.s3tc.ctex", "res://.godot/imported/CHA_ENV_TallMangrove_Bark_metallicRoughness.png-d3c098b69fc37113434061c993ee4b23.etc2.ctex"]
 
 [params]
 

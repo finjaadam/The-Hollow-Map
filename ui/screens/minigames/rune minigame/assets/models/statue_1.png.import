@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dooq2x6kldc43"
 path.s3tc="res://.godot/imported/statue_1.png-d7cc0404435d91894b3f0ed16bcedb8b.s3tc.ctex"
+path.etc2="res://.godot/imported/statue_1.png-d7cc0404435d91894b3f0ed16bcedb8b.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://ui/screens/minigames/rune minigame/assets/models/statue_1.png"
-dest_files=["res://.godot/imported/statue_1.png-d7cc0404435d91894b3f0ed16bcedb8b.s3tc.ctex"]
+dest_files=["res://.godot/imported/statue_1.png-d7cc0404435d91894b3f0ed16bcedb8b.s3tc.ctex", "res://.godot/imported/statue_1.png-d7cc0404435d91894b3f0ed16bcedb8b.etc2.ctex"]
 
 [params]
 

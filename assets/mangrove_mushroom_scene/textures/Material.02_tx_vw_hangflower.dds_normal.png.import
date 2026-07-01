@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cn8lh7aapx0iw"
 path.s3tc="res://.godot/imported/Material.02_tx_vw_hangflower.dds_normal.png-3000894307bd07dcd0ea10c40eb84e99.s3tc.ctex"
+path.etc2="res://.godot/imported/Material.02_tx_vw_hangflower.dds_normal.png-3000894307bd07dcd0ea10c40eb84e99.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/mangrove_mushroom_scene/textures/Material.02_tx_vw_hangflower.dds_normal.png"
-dest_files=["res://.godot/imported/Material.02_tx_vw_hangflower.dds_normal.png-3000894307bd07dcd0ea10c40eb84e99.s3tc.ctex"]
+dest_files=["res://.godot/imported/Material.02_tx_vw_hangflower.dds_normal.png-3000894307bd07dcd0ea10c40eb84e99.s3tc.ctex", "res://.godot/imported/Material.02_tx_vw_hangflower.dds_normal.png-3000894307bd07dcd0ea10c40eb84e99.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://d1ogengh8rhf4"
 path.s3tc="res://.godot/imported/lambert1_baseColor.png-80a31e499cbef119ddc729dc8864f251.s3tc.ctex"
+path.etc2="res://.godot/imported/lambert1_baseColor.png-80a31e499cbef119ddc729dc8864f251.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/door/textures/lambert1_baseColor.png"
-dest_files=["res://.godot/imported/lambert1_baseColor.png-80a31e499cbef119ddc729dc8864f251.s3tc.ctex"]
+dest_files=["res://.godot/imported/lambert1_baseColor.png-80a31e499cbef119ddc729dc8864f251.s3tc.ctex", "res://.godot/imported/lambert1_baseColor.png-80a31e499cbef119ddc729dc8864f251.etc2.ctex"]
 
 [params]
 

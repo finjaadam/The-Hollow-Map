@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c36w28mnyc8kl"
 path.s3tc="res://.godot/imported/lambert1_metallicRoughness.png-a0812e21fc3ed1fa03b03c48f2f81a08.s3tc.ctex"
+path.etc2="res://.godot/imported/lambert1_metallicRoughness.png-a0812e21fc3ed1fa03b03c48f2f81a08.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/aaron_project_-_roots/textures/lambert1_metallicRoughness.png"
-dest_files=["res://.godot/imported/lambert1_metallicRoughness.png-a0812e21fc3ed1fa03b03c48f2f81a08.s3tc.ctex"]
+dest_files=["res://.godot/imported/lambert1_metallicRoughness.png-a0812e21fc3ed1fa03b03c48f2f81a08.s3tc.ctex", "res://.godot/imported/lambert1_metallicRoughness.png-a0812e21fc3ed1fa03b03c48f2f81a08.etc2.ctex"]
 
 [params]
 
