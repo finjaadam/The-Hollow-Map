@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://mjw2fwywxgim"
 path.s3tc="res://.godot/imported/noname_tx_cr_stiltlouse_01.d_normal.png-453440a46571fd6ba7421776a731ad97.s3tc.ctex"
+path.etc2="res://.godot/imported/noname_tx_cr_stiltlouse_01.d_normal.png-453440a46571fd6ba7421776a731ad97.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/mangrove_mushroom_scene/textures/noname_tx_cr_stiltlouse_01.d_normal.png"
-dest_files=["res://.godot/imported/noname_tx_cr_stiltlouse_01.d_normal.png-453440a46571fd6ba7421776a731ad97.s3tc.ctex"]
+dest_files=["res://.godot/imported/noname_tx_cr_stiltlouse_01.d_normal.png-453440a46571fd6ba7421776a731ad97.s3tc.ctex", "res://.godot/imported/noname_tx_cr_stiltlouse_01.d_normal.png-453440a46571fd6ba7421776a731ad97.etc2.ctex"]
 
 [params]
 

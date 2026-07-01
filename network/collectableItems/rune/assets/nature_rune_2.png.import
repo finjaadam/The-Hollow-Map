@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cpaboftv5l4ch"
 path.s3tc="res://.godot/imported/nature_rune_2.png-d2d954ca2c313cfd81b862adab0a1edc.s3tc.ctex"
+path.etc2="res://.godot/imported/nature_rune_2.png-d2d954ca2c313cfd81b862adab0a1edc.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://network/collectableItems/rune/assets/nature_rune_2.png"
-dest_files=["res://.godot/imported/nature_rune_2.png-d2d954ca2c313cfd81b862adab0a1edc.s3tc.ctex"]
+dest_files=["res://.godot/imported/nature_rune_2.png-d2d954ca2c313cfd81b862adab0a1edc.s3tc.ctex", "res://.godot/imported/nature_rune_2.png-d2d954ca2c313cfd81b862adab0a1edc.etc2.ctex"]
 
 [params]
 

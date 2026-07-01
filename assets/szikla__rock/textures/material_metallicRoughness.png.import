@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dkax1eh4tdvil"
 path.s3tc="res://.godot/imported/material_metallicRoughness.png-3ef421fccead6fd575cc378a0c163229.s3tc.ctex"
+path.etc2="res://.godot/imported/material_metallicRoughness.png-3ef421fccead6fd575cc378a0c163229.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/szikla__rock/textures/material_metallicRoughness.png"
-dest_files=["res://.godot/imported/material_metallicRoughness.png-3ef421fccead6fd575cc378a0c163229.s3tc.ctex"]
+dest_files=["res://.godot/imported/material_metallicRoughness.png-3ef421fccead6fd575cc378a0c163229.s3tc.ctex", "res://.godot/imported/material_metallicRoughness.png-3ef421fccead6fd575cc378a0c163229.etc2.ctex"]
 
 [params]
 

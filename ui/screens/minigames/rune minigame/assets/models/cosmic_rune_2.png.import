@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b0onta3jm5tmc"
 path.s3tc="res://.godot/imported/cosmic_rune_2.png-df74fa99f0fc3db5812130dab04a53e5.s3tc.ctex"
+path.etc2="res://.godot/imported/cosmic_rune_2.png-df74fa99f0fc3db5812130dab04a53e5.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://ui/screens/minigames/rune minigame/assets/models/cosmic_rune_2.png"
-dest_files=["res://.godot/imported/cosmic_rune_2.png-df74fa99f0fc3db5812130dab04a53e5.s3tc.ctex"]
+dest_files=["res://.godot/imported/cosmic_rune_2.png-df74fa99f0fc3db5812130dab04a53e5.s3tc.ctex", "res://.godot/imported/cosmic_rune_2.png-df74fa99f0fc3db5812130dab04a53e5.etc2.ctex"]
 
 [params]
 

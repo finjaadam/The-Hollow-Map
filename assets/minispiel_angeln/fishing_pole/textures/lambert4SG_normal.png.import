@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b0kcnare8qqau"
 path.s3tc="res://.godot/imported/lambert4SG_normal.png-a55737ca3a8868fa7dbebe5130146072.s3tc.ctex"
+path.etc2="res://.godot/imported/lambert4SG_normal.png-a55737ca3a8868fa7dbebe5130146072.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/minispiel_angeln/fishing_pole/textures/lambert4SG_normal.png"
-dest_files=["res://.godot/imported/lambert4SG_normal.png-a55737ca3a8868fa7dbebe5130146072.s3tc.ctex"]
+dest_files=["res://.godot/imported/lambert4SG_normal.png-a55737ca3a8868fa7dbebe5130146072.s3tc.ctex", "res://.godot/imported/lambert4SG_normal.png-a55737ca3a8868fa7dbebe5130146072.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://sntqm5kb6qvk"
 path.s3tc="res://.godot/imported/Material_tx_cupling_0_tx_cupling_00.dds_metallicRoughness.png-a8139e4ce33d1f104f10322e9ebddf2e.s3tc.ctex"
+path.etc2="res://.godot/imported/Material_tx_cupling_0_tx_cupling_00.dds_metallicRoughness.png-a8139e4ce33d1f104f10322e9ebddf2e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/mangrove_mushroom_scene/textures/Material_tx_cupling_0_tx_cupling_00.dds_metallicRoughness.png"
-dest_files=["res://.godot/imported/Material_tx_cupling_0_tx_cupling_00.dds_metallicRoughness.png-a8139e4ce33d1f104f10322e9ebddf2e.s3tc.ctex"]
+dest_files=["res://.godot/imported/Material_tx_cupling_0_tx_cupling_00.dds_metallicRoughness.png-a8139e4ce33d1f104f10322e9ebddf2e.s3tc.ctex", "res://.godot/imported/Material_tx_cupling_0_tx_cupling_00.dds_metallicRoughness.png-a8139e4ce33d1f104f10322e9ebddf2e.etc2.ctex"]
 
 [params]
 

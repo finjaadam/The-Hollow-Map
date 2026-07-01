@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://jxjwagsi5cxe"
 path.s3tc="res://.godot/imported/null.07_images2.dds_baseColor.png-98bde92e6d92415b4c4e614e78aaff20.s3tc.ctex"
+path.etc2="res://.godot/imported/null.07_images2.dds_baseColor.png-98bde92e6d92415b4c4e614e78aaff20.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/mangrove_mushroom_scene/textures/null.07_images2.dds_baseColor.png"
-dest_files=["res://.godot/imported/null.07_images2.dds_baseColor.png-98bde92e6d92415b4c4e614e78aaff20.s3tc.ctex"]
+dest_files=["res://.godot/imported/null.07_images2.dds_baseColor.png-98bde92e6d92415b4c4e614e78aaff20.s3tc.ctex", "res://.godot/imported/null.07_images2.dds_baseColor.png-98bde92e6d92415b4c4e614e78aaff20.etc2.ctex"]
 
 [params]
 

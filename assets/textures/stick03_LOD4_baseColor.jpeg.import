@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bfgu51f5eyfp7"
 path.s3tc="res://.godot/imported/stick03_LOD4_baseColor.jpeg-c13367b992d6f229d1f52a7df4a01526.s3tc.ctex"
+path.etc2="res://.godot/imported/stick03_LOD4_baseColor.jpeg-c13367b992d6f229d1f52a7df4a01526.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/stick03_LOD4_baseColor.jpeg"
-dest_files=["res://.godot/imported/stick03_LOD4_baseColor.jpeg-c13367b992d6f229d1f52a7df4a01526.s3tc.ctex"]
+dest_files=["res://.godot/imported/stick03_LOD4_baseColor.jpeg-c13367b992d6f229d1f52a7df4a01526.s3tc.ctex", "res://.godot/imported/stick03_LOD4_baseColor.jpeg-c13367b992d6f229d1f52a7df4a01526.etc2.ctex"]
 
 [params]
 

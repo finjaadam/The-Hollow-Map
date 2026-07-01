@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://rne52rt4w214"
 path.s3tc="res://.godot/imported/cosmic_rune_0.jpg-06212ba63e94d542ca24fd22be1798ae.s3tc.ctex"
+path.etc2="res://.godot/imported/cosmic_rune_0.jpg-06212ba63e94d542ca24fd22be1798ae.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://network/collectableItems/rune/assets/cosmic_rune_0.jpg"
-dest_files=["res://.godot/imported/cosmic_rune_0.jpg-06212ba63e94d542ca24fd22be1798ae.s3tc.ctex"]
+dest_files=["res://.godot/imported/cosmic_rune_0.jpg-06212ba63e94d542ca24fd22be1798ae.s3tc.ctex", "res://.godot/imported/cosmic_rune_0.jpg-06212ba63e94d542ca24fd22be1798ae.etc2.ctex"]
 
 [params]
 

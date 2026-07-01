@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dq8d0swxsubnm"
 path.s3tc="res://.godot/imported/noname.00_tx_flora_tvlotus.dds_metallicRoughness.png-929341ae98ae49ea7adcc6f4e665c34d.s3tc.ctex"
+path.etc2="res://.godot/imported/noname.00_tx_flora_tvlotus.dds_metallicRoughness.png-929341ae98ae49ea7adcc6f4e665c34d.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/mangrove_mushroom_scene/textures/noname.00_tx_flora_tvlotus.dds_metallicRoughness.png"
-dest_files=["res://.godot/imported/noname.00_tx_flora_tvlotus.dds_metallicRoughness.png-929341ae98ae49ea7adcc6f4e665c34d.s3tc.ctex"]
+dest_files=["res://.godot/imported/noname.00_tx_flora_tvlotus.dds_metallicRoughness.png-929341ae98ae49ea7adcc6f4e665c34d.s3tc.ctex", "res://.godot/imported/noname.00_tx_flora_tvlotus.dds_metallicRoughness.png-929341ae98ae49ea7adcc6f4e665c34d.etc2.ctex"]
 
 [params]
 

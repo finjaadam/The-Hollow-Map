@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://d0qaeiea0mle4"
 path.s3tc="res://.godot/imported/SurvivalTools_Base_Color.png-78e80da6388ba1b3f546acc4d737224f.s3tc.ctex"
+path.etc2="res://.godot/imported/SurvivalTools_Base_Color.png-78e80da6388ba1b3f546acc4d737224f.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/minispiel_stein/SurvivalTools_Base_Color.png"
-dest_files=["res://.godot/imported/SurvivalTools_Base_Color.png-78e80da6388ba1b3f546acc4d737224f.s3tc.ctex"]
+dest_files=["res://.godot/imported/SurvivalTools_Base_Color.png-78e80da6388ba1b3f546acc4d737224f.s3tc.ctex", "res://.godot/imported/SurvivalTools_Base_Color.png-78e80da6388ba1b3f546acc4d737224f.etc2.ctex"]
 
 [params]
 

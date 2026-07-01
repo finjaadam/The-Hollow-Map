@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dpolplxxday4"
 path.s3tc="res://.godot/imported/defaultMat_normal.jpeg-0a5ba4244945c61a0b26038d435bc291.s3tc.ctex"
+path.etc2="res://.godot/imported/defaultMat_normal.jpeg-0a5ba4244945c61a0b26038d435bc291.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/blob_monster/textures/defaultMat_normal.jpeg"
-dest_files=["res://.godot/imported/defaultMat_normal.jpeg-0a5ba4244945c61a0b26038d435bc291.s3tc.ctex"]
+dest_files=["res://.godot/imported/defaultMat_normal.jpeg-0a5ba4244945c61a0b26038d435bc291.s3tc.ctex", "res://.godot/imported/defaultMat_normal.jpeg-0a5ba4244945c61a0b26038d435bc291.etc2.ctex"]
 
 [params]
 

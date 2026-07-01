@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ce7twl5w8gqhi"
 path.s3tc="res://.godot/imported/material_normal.png-8d717286c1de05881058122bc97a00ed.s3tc.ctex"
+path.etc2="res://.godot/imported/material_normal.png-8d717286c1de05881058122bc97a00ed.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/szikla__rock/textures/material_normal.png"
-dest_files=["res://.godot/imported/material_normal.png-8d717286c1de05881058122bc97a00ed.s3tc.ctex"]
+dest_files=["res://.godot/imported/material_normal.png-8d717286c1de05881058122bc97a00ed.s3tc.ctex", "res://.godot/imported/material_normal.png-8d717286c1de05881058122bc97a00ed.etc2.ctex"]
 
 [params]
 
